@@ -13,13 +13,13 @@
  */
 
 return [
-    'listen' => 'http://0.0.0.0:8787',
+    'listen' => get_env('SERVER_LISTEN', 'http://0.0.0.0:8787'),
     'transport' => 'tcp',
     'context' => [],
-    'name' => 'webman',
-    'count' => cpu_count() * 2,
-    'user' => '',
-    'group' => '',
+    'name' => get_env('SERVER_NAME', 'webman'),
+    'count' => get_env('SERVER_COUNT', cpu_count() * 2),
+    'user' => get_env('SERVER_USER', ''),
+    'group' => get_env('SERVER_GROUP', ''),
     'reusePort' => false,
     'event_loop' => '',
     'stop_timeout' => 2,

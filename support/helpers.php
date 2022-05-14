@@ -478,3 +478,14 @@ function cpu_count()
     }
     return $count > 0 ? $count : 4;
 }
+
+/**
+ * 获取 .env 的配置
+ * @param string $key
+ * @param mixed $defaultValue
+ * @return mixed|null
+ */
+function get_env(string $key, $defaultValue = null)
+{
+    return $_ENV[$key] ?? $defaultValue;
+}
