@@ -1,3 +1,7 @@
+# webman-basic
+
+自用，添加常用组件，用于快速开发
+
 # webman
 
 High performance HTTP Service Framework for PHP based on [Workerman](https://github.com/walkor/workerman).
