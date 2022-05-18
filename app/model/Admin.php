@@ -2,7 +2,24 @@
 
 namespace app\model;
 
-class Admin extends AbsModel
+use app\components\BaseModel;
+
+/**
+ * app\model\Admin
+ *
+ * @property int $id
+ * @property string $username
+ * @property string $password
+ * @property string $name
+ * @property int $status 状态
+ * @property \Illuminate\Support\Carbon $created_at 创建时间
+ * @property \Illuminate\Support\Carbon $updated_at 修改时间
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin query()
+ * @mixin \Eloquent
+ */
+class Admin extends BaseModel
 {
     public const SUPER_ADMIN_ID = 1;
 

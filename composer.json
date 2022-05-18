@@ -28,6 +28,7 @@
     "ext-json": "*",
     "illuminate/container": "^8.83",
     "illuminate/database": "^8.83",
+    "kriss/webman-eloquent-ide-helper": "^1.0",
     "monolog/monolog": "^2.0",
     "psr/container": "v1",
     "robmorgan/phinx": "^0.12.10",
@@ -62,5 +63,7 @@
       "support\\Plugin::uninstall"
     ],
     "phinx": "phinx"
+  },
+  "repositories": {
   }
 }

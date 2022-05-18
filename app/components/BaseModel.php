@@ -1,11 +1,11 @@
 <?php
 
-namespace app\model;
+namespace app\components;
 
 use DateTimeInterface;
 use support\Model;
 
-class AbsModel extends Model
+class BaseModel extends Model
 {
     /**
      * @inheritDoc
