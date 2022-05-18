@@ -1,9 +1,8 @@
 <?php
 
-
+use app\components\Component;
 use app\model\Admin;
 use Phinx\Seed\AbstractSeed;
-use support\Security;
 
 class InitAdmin extends AbstractSeed
 {
@@ -25,7 +24,7 @@ class InitAdmin extends AbstractSeed
         $data = [
             'id' => Admin::SUPER_ADMIN_ID,
             'username' => 'admin',
-            'password' => Security::generatePasswordHash(123456),
+            'password' => Component::security()->generatePasswordHash(123456),
             'name' => '超级管理员',
         ];
         $this->table('admin')->insert($data)->save();

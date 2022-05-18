@@ -12,4 +12,15 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-return new Webman\Container;
+//return new Webman\Container;
+
+$container = new Illuminate\Container\Container();
+foreach (app\components\Component::dependence() as $name => $config) {
+    $container->singleton($name, $config['concrete']);
+    $config['alias'] = $config['alias'] ?? [];
+    foreach ((array)$config['alias'] as $alias) {
+        $container->alias($name, $alias);
+    }
+}
+
+return $container;

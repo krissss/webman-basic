@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "045c7dfab440520cfa79799aff335e14",
+    "content-hash": "f78f59ce904184b17b371feb978c65e1",
     "packages": [
         {
             "name": "cakephp/core",
@@ -486,7 +486,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v8.83.12",
+            "version": "v8.83.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",

@@ -2,11 +2,11 @@
 
 namespace app\admin\controller;
 
+use app\components\Component;
 use app\exception\ValidationException;
 use app\model\Admin;
 use Respect\Validation\Validator;
 use support\Request;
-use support\Security;
 
 class Auth
 {
@@ -18,7 +18,7 @@ class Auth
             'password' => Validator::length(0, 32)->setName('密码'),
         ]);
         $admin = Admin::query()->where('username', $data['username'])->first();
-        if (!$admin || !Security::validatePassword($data['password'], $admin->password)) {
+        if (!$admin || !Component::security()->validatePassword($data['password'], $admin->password)) {
             throw new ValidationException('用户名或密码错误');
         }
 

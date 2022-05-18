@@ -1,13 +1,13 @@
 <?php
 
-namespace App\components;
+namespace app\components;
 
-class Security
+use app\components\interfaces\SecurityInterface;
+
+class Security implements SecurityInterface
 {
     /**
-     * 密码hash
-     * @param string $password
-     * @return string
+     * @inheritDoc
      */
     public function generatePasswordHash(string $password): string
     {
@@ -15,12 +15,9 @@ class Security
     }
 
     /**
-     * 验证密码
-     * @param string $password
-     * @param string $passwordHash
-     * @return string
+     * @inheritDoc
      */
-    public function validatePassword(string $password, string $passwordHash): string
+    public function validatePassword(string $password, string $passwordHash): bool
     {
         return $this::generatePasswordHash($password) === $passwordHash;
     }
