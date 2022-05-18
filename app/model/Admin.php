@@ -2,9 +2,7 @@
 
 namespace app\model;
 
-use support\Model;
-
-class Admin extends Model
+class Admin extends AbsModel
 {
     public const SUPER_ADMIN_ID = 1;
 
