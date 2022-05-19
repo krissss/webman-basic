@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d887f613139aa39356cb5ea5136f8877",
+    "content-hash": "ad3994b81dfea583444bcff1cb89ba3f",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -4583,6 +4583,56 @@
                 }
             ],
             "time": "2022-01-02T09:53:40+00:00"
+        },
+        {
+            "name": "tinywan/exception-handler",
+            "version": "v0.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tinywan/webman-exception-handler.git",
+                "reference": "32b2984391a5e5675cbfb35705ff817bab791a5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tinywan/webman-exception-handler/zipball/32b2984391a5e5675cbfb35705ff817bab791a5f",
+                "reference": "32b2984391a5e5675cbfb35705ff817bab791a5f",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.2",
+                "workerman/webman-framework": "^1.2.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "phpstan/phpstan": "^1.4",
+                "tinywan/jwt": "^1.2",
+                "tinywan/storage": "^0.2.2",
+                "tinywan/validate": "^0.0.6",
+                "workerman/webman": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tinywan\\ExceptionHandler\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "webman exception handler plugin",
+            "support": {
+                "issues": "https://github.com/Tinywan/webman-exception-handler/issues",
+                "source": "https://github.com/Tinywan/webman-exception-handler/tree/v0.0.11"
+            },
+            "time": "2022-05-13T14:13:32+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
