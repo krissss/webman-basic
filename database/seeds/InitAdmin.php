@@ -17,7 +17,7 @@ class InitAdmin extends AbstractSeed
     public function run()
     {
         //Admin::destroy(Admin::SUPER_ADMIN_ID);
-        if (Admin::exists(['id' => Admin::SUPER_ADMIN_ID])) {
+        if (Admin::query()->where('id', Admin::SUPER_ADMIN_ID)->exists()) {
             return;
         }
 
