@@ -12,46 +12,58 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+$redis = require __DIR__ . '/redis.php';
+$sessionRedis = $redis['session'];
+
+$sessionType = get_env('SESSION_ADAPTER', 'file');
+$sessionTypeMap = [
+    'file' => Webman\FileSessionHandler::class,
+    'redis' => Webman\RedisSessionHandler::class,
+    'redis_cluster' => Webman\RedisClusterSessionHandler::class,
+];
+
+$sessionPrefix = get_env('SESSION_PREFIX', 'webman_session_');
+
 return [
 
-    'type' => 'file', // or redis or redis_cluster
+    'type' => $sessionType, // file or redis or redis_cluster
 
-    'handler' => Webman\FileSessionHandler::class,
+    'handler' => $sessionTypeMap[$sessionType],
 
     'config' => [
         'file' => [
             'save_path' => runtime_path() . '/sessions',
         ],
         'redis' => [
-            'host' => '127.0.0.1',
-            'port' => 6379,
-            'auth' => '',
+            'host' => $sessionRedis['host'],
+            'port' => $sessionRedis['host'],
+            'auth' => $sessionRedis['password'],
             'timeout' => 2,
-            'database' => '',
-            'prefix' => 'redis_session_',
+            'database' => $sessionRedis['database'],
+            'prefix' => $sessionPrefix,
         ],
         'redis_cluster' => [
             'host' => ['127.0.0.1:7000', '127.0.0.1:7001', '127.0.0.1:7001'],
             'timeout' => 2,
             'auth' => '',
-            'prefix' => 'redis_session_',
+            'prefix' => $sessionPrefix,
         ]
     ],
 
-    'session_name' => 'PHPSID',
+    'session_name' => get_env('SESSION_NAME', 'WB_SID'),
 
-    'lifetime' => 7*24*60*60,
+    'lifetime' => get_env('SESSION_LIFETIME', 7*24*60*60),
 
-    'cookie_lifetime' => 7*24*60*60,
+    'cookie_lifetime' => get_env('SESSION_COOKIE_LIFETIME', 7*24*60*60),
 
     'cookie_path' => '/',
 
     'domain' => '',
-    
+
     'http_only' => true,
 
     'secure' => false,
-    
+
     'same_site' => '',
 
     'gc_probability' => [1, 1000],

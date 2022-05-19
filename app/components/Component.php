@@ -15,7 +15,7 @@ class Component
         return [
             'security' => [
                 'alias' => [SecurityInterface::class],
-                'concrete' => Security::class,
+                'singleton' => Security::class,
             ],
         ];
     }
