@@ -12,7 +12,7 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-use support\Request;
+use support\facade\Request;
 
 return [
     'debug' => !!get_env('APP_DEBUG', true),
