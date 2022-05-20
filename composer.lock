@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0bf56fbf1752050358d43f3bf7e7fbf",
+    "content-hash": "00e3ad3109a87f5da44e1f3dfe1a18e7",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -5395,6 +5395,62 @@
                 "source": "https://github.com/webman-php/redis-queue/tree/v1.1.4"
             },
             "time": "2022-04-24T15:37:41+00:00"
+        },
+        {
+            "name": "workerman/crontab",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/crontab.git",
+                "reference": "2a2b9f8c2dbfa47ad16599a10f584dd09863bebd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/walkor/crontab/zipball/2a2b9f8c2dbfa47ad16599a10f584dd09863bebd",
+                "reference": "2a2b9f8c2dbfa47ad16599a10f584dd09863bebd",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.0",
+                "workerman/workerman": ">=4.0.20"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\Crontab\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "walkor",
+                    "email": "walkor@workerman.net",
+                    "homepage": "http://www.workerman.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A crontab written in PHP based on workerman",
+            "homepage": "http://www.workerman.net",
+            "keywords": [
+                "crontab"
+            ],
+            "support": {
+                "email": "walkor@workerman.net",
+                "forum": "http://wenda.workerman.net/",
+                "issues": "https://github.com/walkor/workerman/issues",
+                "source": "https://github.com/walkor/crontab",
+                "wiki": "http://doc.workerman.net/"
+            },
+            "time": "2022-04-04T08:15:21+00:00"
         },
         {
             "name": "workerman/redis",

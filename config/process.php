@@ -33,5 +33,8 @@ return [
                 'php', 'html', 'htm', 'env'
             ]
         ]
-    ]
+    ],
+    /*'task' => [
+        'handler' => process\Task::class,
+    ],*/
 ];
