@@ -115,7 +115,7 @@ class ErrorHandler extends Handler
     {
         if (config('app.debug')) {
             $this->responseData['error_message'] = $this->exceptionInfo['errorMsg'];
-            $this->responseData['error_trace'] = $e->getTraceAsString();
+            $this->responseData['error_trace'] = explode("\n", $e->getTraceAsString());
         }
     }
 
