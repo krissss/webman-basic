@@ -28,6 +28,7 @@
     "ext-json": "*",
     "illuminate/container": "^8.83",
     "illuminate/database": "^8.83",
+    "illuminate/redis": "^8.83",
     "kriss/webman-eloquent-ide-helper": "^1.0",
     "monolog/monolog": "^2.0",
     "mouyong/validate": "^2.0",
@@ -42,8 +43,7 @@
   },
   "suggest": {
     "ext-event": "For better performance. ",
-    "ext-redis": "For redis use",
-    "illuminate/redis": "For redis use"
+    "ext-redis": "For redis use"
   },
   "config": {
     "sort-packages": true
