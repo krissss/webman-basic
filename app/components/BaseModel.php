@@ -5,7 +5,7 @@ namespace app\components;
 use DateTimeInterface;
 use support\Model;
 
-class BaseModel extends Model
+abstract class BaseModel extends Model
 {
     /**
      * @inheritDoc

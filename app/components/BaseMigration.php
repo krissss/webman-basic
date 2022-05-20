@@ -1,11 +1,11 @@
 <?php
 
-namespace App\components;
+namespace app\components;
 
 use Phinx\Db\Table;
 use Phinx\Migration\AbstractMigration;
 
-class BaseMigration extends AbstractMigration
+abstract class BaseMigration extends AbstractMigration
 {
     /**
      * 添加常用的列

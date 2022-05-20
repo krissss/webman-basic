@@ -12,21 +12,26 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-return [
-    'default' => [
-        'handlers' => [
-            [
-                'class' => Monolog\Handler\RotatingFileHandler::class,
-                'constructor' => [
-                    runtime_path() . '/logs/webman.log',
-                    7, //$maxFiles
-                    Monolog\Logger::DEBUG,
-                ],
-                'formatter' => [
-                    'class' => Monolog\Formatter\LineFormatter::class,
-                    'constructor' => [null, 'Y-m-d H:i:s', true],
-                ],
-            ]
+use app\components\Logger;
+
+return array_merge(
+    [
+        'default' => [
+            'handlers' => [
+                [
+                    'class' => Monolog\Handler\RotatingFileHandler::class,
+                    'constructor' => [
+                        runtime_path() . '/logs/webman.log',
+                        7, //$maxFiles
+                        Monolog\Logger::DEBUG,
+                    ],
+                    'formatter' => [
+                        'class' => Monolog\Formatter\LineFormatter::class,
+                        'constructor' => [null, 'Y-m-d H:i:s', true],
+                    ],
+                ]
+            ],
         ],
     ],
-];
+    Logger::getLogConfig(),
+);
