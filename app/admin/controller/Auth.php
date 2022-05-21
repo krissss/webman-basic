@@ -3,9 +3,9 @@
 namespace app\admin\controller;
 
 use app\components\Component;
+use app\exception\UserSeeException;
 use app\model\Admin;
 use support\Request;
-use Tinywan\ExceptionHandler\Exception\BadRequestHttpException;
 
 class Auth
 {
@@ -20,7 +20,7 @@ class Auth
 
         $admin = Admin::query()->where('username', $data['username'])->first();
         if (!$admin || !Component::security()->validatePassword($data['password'], $admin->password)) {
-            throw new BadRequestHttpException('用户名或密码错误');
+            throw new UserSeeException('用户名或密码错误');
         }
 
         return json_success($admin);

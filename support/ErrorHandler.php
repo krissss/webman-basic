@@ -4,13 +4,10 @@ namespace support;
 
 use Illuminate\Validation\ValidationException;
 use Throwable;
-use Tinywan\ExceptionHandler\Event\DingTalkRobotEvent;
-use Tinywan\ExceptionHandler\Exception\BaseException;
 use Tinywan\ExceptionHandler\Handler;
-use Webman\Http\Request;
 use Webman\Http\Response;
 
-class ErrorHandler extends \support\overwrite\ErrorHandler
+class ErrorHandler extends Handler
 {
     /**
      * @inheritDoc
@@ -27,12 +24,11 @@ class ErrorHandler extends \support\overwrite\ErrorHandler
     }
 
     /**
-     * 构造 Response
-     * @return Response
+     * @inheritDoc
      */
     protected function buildResponse(): Response
     {
-        return  json_error(
+        return json_error(
             $this->exceptionInfo['errorMsg'],
             $this->exceptionInfo['statusCode'],
             $this->responseData,
