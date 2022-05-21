@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "63ddca4750f54aa446c6accf3320bbf0",
+    "content-hash": "18945c5ca7354bf4507f932e88a21719",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -4831,13 +4831,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/translation/zipball/f5c0f6d1f20993b2606f3a5f36b1dc8c1899170b",
                 "reference": "f5c0f6d1f20993b2606f3a5f36b1dc8c1899170b",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
@@ -5754,5 +5748,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

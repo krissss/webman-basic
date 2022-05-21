@@ -5,6 +5,9 @@ use Webman\MiddlewareInterface;
 use Webman\Http\Response;
 use Webman\Http\Request;
 
+/**
+ * 跨域访问
+ */
 class Cors implements MiddlewareInterface
 {
     public function process(Request $request, callable $handler) : Response

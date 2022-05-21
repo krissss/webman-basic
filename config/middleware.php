@@ -14,8 +14,9 @@
 
 return [
     '' => [
-        app\middleware\Cors::class,
+        //app\middleware\Cors::class,
         app\middleware\TrimStings::class,
         //app\middleware\ConvertEmptyStringsToNull::class,
+        app\middleware\Lang::class,
     ],
 ];

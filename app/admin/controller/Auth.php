@@ -20,7 +20,7 @@ class Auth
 
         $admin = Admin::query()->where('username', $data['username'])->first();
         if (!$admin || !Component::security()->validatePassword($data['password'], $admin->password)) {
-            throw new UserSeeException('用户名或密码错误');
+            throw new UserSeeException(trans('auth.user_password_error'));
         }
 
         return json_success($admin);

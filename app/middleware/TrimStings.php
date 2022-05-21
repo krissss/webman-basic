@@ -2,6 +2,9 @@
 
 namespace app\middleware;
 
+/**
+ * 请求参数处理前后空格
+ */
 class TrimStings extends TransformRequest
 {
     /**
