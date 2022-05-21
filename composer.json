@@ -36,7 +36,7 @@
     "psr/container": "v1",
     "robmorgan/phinx": "^0.12.10",
     "symfony/cache": "^5.4",
-    "tinywan/exception-handler": "^0.0.12",
+    "tinywan/exception-handler": "^0.1.0",
     "vlucas/phpdotenv": "^5.4",
     "webman/console": "^1.0",
     "webman/redis-queue": "^1.1",

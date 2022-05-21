@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b361bfaf006dc712d27f577a13d7ac4",
+    "content-hash": "63ddca4750f54aa446c6accf3320bbf0",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -5087,16 +5087,16 @@
         },
         {
             "name": "tinywan/exception-handler",
-            "version": "v0.0.12",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/webman-exception-handler.git",
-                "reference": "a43a1e791ce9e7c4566f61efcb969cb6f3cfbb28"
+                "reference": "f0d6ee6d0039d73cf4ea7395c28263b06ca1275b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-exception-handler/zipball/a43a1e791ce9e7c4566f61efcb969cb6f3cfbb28",
-                "reference": "a43a1e791ce9e7c4566f61efcb969cb6f3cfbb28",
+                "url": "https://api.github.com/repos/Tinywan/webman-exception-handler/zipball/f0d6ee6d0039d73cf4ea7395c28263b06ca1275b",
+                "reference": "f0d6ee6d0039d73cf4ea7395c28263b06ca1275b",
                 "shasum": ""
             },
             "require": {
@@ -5125,9 +5125,9 @@
             "description": "webman exception handler plugin",
             "support": {
                 "issues": "https://github.com/Tinywan/webman-exception-handler/issues",
-                "source": "https://github.com/Tinywan/webman-exception-handler/tree/v0.0.12"
+                "source": "https://github.com/Tinywan/webman-exception-handler/tree/v0.1.0"
             },
-            "time": "2022-05-20T15:27:52+00:00"
+            "time": "2022-05-21T01:27:44+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -5754,5 +5754,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

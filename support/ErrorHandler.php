@@ -15,8 +15,8 @@ class ErrorHandler extends Handler
     protected function solveExtraException(Throwable $e): void
     {
         if ($e instanceof ValidationException) {
-            $this->exceptionInfo['errorMsg'] = $e->validator->errors()->first();
-            $this->exceptionInfo['statusCode'] = 422;
+            $this->errorMessage = $e->validator->errors()->first();
+            $this->statusCode = 422;
             return;
         }
 
@@ -29,8 +29,8 @@ class ErrorHandler extends Handler
     protected function buildResponse(): Response
     {
         return json_error(
-            $this->exceptionInfo['errorMsg'],
-            $this->exceptionInfo['statusCode'],
+            $this->errorMessage,
+            $this->statusCode,
             $this->responseData,
         );
     }
