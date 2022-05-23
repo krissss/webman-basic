@@ -36,6 +36,7 @@
     "psr/container": "v1",
     "robmorgan/phinx": "^0.12.10",
     "symfony/cache": "^5.4",
+    "symfony/lock": "^5.4",
     "symfony/translation": "^5.4",
     "tinywan/exception-handler": "^0.1.0",
     "vlucas/phpdotenv": "^5.4",
