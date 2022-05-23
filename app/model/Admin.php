@@ -3,6 +3,9 @@
 namespace app\model;
 
 use app\components\BaseModel;
+use Kriss\WebmanAuth\Interfaces\IdentityInterface;
+use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
+use Kriss\WebmanAuth\Interfaces\IdentityRepositoryWithTokenInterface;
 
 /**
  * app\model\Admin
@@ -19,7 +22,7 @@ use app\components\BaseModel;
  * @method static \Illuminate\Database\Eloquent\Builder|Admin query()
  * @mixin \Eloquent
  */
-class Admin extends BaseModel
+class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryInterface, IdentityRepositoryWithTokenInterface
 {
     public const SUPER_ADMIN_ID = 1;
 
@@ -44,4 +47,35 @@ class Admin extends BaseModel
      */
     public $timestamps = true;
 
+    /**
+     * @inheritDoc
+     */
+    public function getId(): ?string
+    {
+        return $this->{$this->primaryKey};
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function refreshIdentity()
+    {
+        return $this->refresh();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function findIdentity(string $id): ?IdentityInterface
+    {
+        return static::find($id);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function findIdentityByToken(string $token, string $type = null): ?IdentityInterface
+    {
+        return static::query()->where('username', $token)->first();
+    }
 }

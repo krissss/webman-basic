@@ -20,4 +20,7 @@ return [
         app\components\Logger\Middleware\LogUid::class,
         app\middleware\Lang::class,
     ],
+    'admin' => [
+        app\middleware\AuthenticateAdmin::class,
+    ],
 ];
