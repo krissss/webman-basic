@@ -7,7 +7,7 @@ use Symfony\Component\Lock\LockFactory;
 use Symfony\Component\Lock\LockInterface;
 
 /**
- * @method static LockInterface test($key = null, $ttl = 300, $autoRelease = true)
+ * @internal 使用 support\facade\Locker
  */
 class Locker
 {

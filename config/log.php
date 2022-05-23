@@ -12,7 +12,7 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-use app\components\Logger;
+use support\facade\Logger;
 
 return array_merge(
     [

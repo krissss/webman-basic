@@ -2,9 +2,9 @@
 
 namespace app\bootstrap;
 
-use app\components\Logger;
 use Illuminate\Database\Events\QueryExecuted;
 use support\Db;
+use support\facade\Logger;
 use Webman\Bootstrap;
 
 class EloquentLog implements Bootstrap

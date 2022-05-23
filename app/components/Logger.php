@@ -10,17 +10,13 @@ use support\Log;
 use Yiisoft\Json\Json;
 
 /**
- * @method static void app($msg, string $type = 'info', array $context = [])
- * @method static void sql($msg, string $type = 'info', array $context = [])
+ * @internal 使用 support\facade\Logger
  */
-final class Logger extends BaseEnum
+class Logger extends BaseEnum
 {
-    private const APP = 'app';
-    private const SQL = 'sql';
-
     public static function getLogConfig(): array
     {
-        $channelNames = self::getValues();
+        $channelNames = static::getValues();
 
         $channelConfigs = [];
         $processors = [
@@ -31,7 +27,7 @@ final class Logger extends BaseEnum
         ];
         foreach ($channelNames as $channelName) {
             $channelConfigs[$channelName] = [
-                'handlers' => self::defaultChannelHandlers($channelName),
+                'handlers' => static::defaultChannelHandlers($channelName),
                 'processors' => $processors,
             ];
         }
@@ -39,15 +35,15 @@ final class Logger extends BaseEnum
         return $channelConfigs;
     }
 
-    private static function defaultChannelHandlers($channelName): array
+    protected static function defaultChannelHandlers($channelName): array
     {
         $handlers = [];
         if (config('log-channel.mode.split', true)) {
-            $handlers[] = self::channelRotatingFileHandler($channelName, Logger\Formatter\ChannelFormatter::class);
+            $handlers[] = static::channelRotatingFileHandler($channelName, Logger\Formatter\ChannelFormatter::class);
         }
         if (config('log-channel.mode.mix', false)) {
             if (strpos(config('log-channel.mode.mix_skip', ''), ",{$channelName},") === false) {
-                $handlers[] = self::channelRotatingFileHandler(
+                $handlers[] = static::channelRotatingFileHandler(
                     config('log-channel.mode.mix_name', 'channelMixed'),
                     Logger\Formatter\ChannelMixedFormatter::class
                 );
@@ -56,11 +52,9 @@ final class Logger extends BaseEnum
         return $handlers;
     }
 
-    private static function channelRotatingFileHandler($channelName, string $formatterClass): array
+    protected static function channelRotatingFileHandler($channelName, string $formatterClass): array
     {
-        $levelSpec = [
-            self::SQL => config('log-channel.sql.level', LogLevel::INFO),
-        ];
+        $levelSpec = config('log-channel.level');
         return [
             'class' => RotatingFileHandler::class,
             'constructor' => [
@@ -79,7 +73,7 @@ final class Logger extends BaseEnum
     {
         $level = $arguments[1] ?? 'info';
         $context = $arguments[2] ?? [];
-        Log::channel($name)->log($level, self::formatMessage($arguments[0]), (array)$context);
+        Log::channel($name)->log($level, static::formatMessage($arguments[0]), (array)$context);
     }
 
     private static function formatMessage($message)
