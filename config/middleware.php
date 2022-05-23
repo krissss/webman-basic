@@ -17,6 +17,7 @@ return [
         //app\middleware\Cors::class,
         app\middleware\TrimStings::class,
         //app\middleware\ConvertEmptyStringsToNull::class,
+        app\components\Logger\Middleware\LogUid::class,
         app\middleware\Lang::class,
     ],
 ];

@@ -23,7 +23,7 @@ class Logger extends BaseEnum
             new PsrLogMessageProcessor('Y-m-d H:i:s'),
             new Logger\Processors\WebRouteProcessor(),
             new Logger\Processors\WebUserProcessor(),
-            new UidProcessor(),
+            new Logger\Processors\WebUidProcessor(),
         ];
         foreach ($channelNames as $channelName) {
             $channelConfigs[$channelName] = [
