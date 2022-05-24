@@ -29,6 +29,7 @@
     "illuminate/container": "^8.83",
     "illuminate/database": "^8.83",
     "illuminate/events": "^8.83",
+    "illuminate/pagination": "^8.83",
     "illuminate/redis": "^8.83",
     "kriss/webman-auth": "^1.1",
     "kriss/webman-eloquent-ide-helper": "^1.0",

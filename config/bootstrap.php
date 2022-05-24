@@ -17,4 +17,5 @@ return [
     support\bootstrap\LaravelDb::class,
 
     app\bootstrap\EloquentLog::class,
+    app\bootstrap\Paginator::class,
 ];

@@ -6,7 +6,6 @@ use app\components\BaseModel;
 use app\components\Component;
 use Kriss\WebmanAuth\Interfaces\IdentityInterface;
 use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
-use Kriss\WebmanAuth\Interfaces\IdentityRepositoryWithTokenInterface;
 
 /**
  * app\model\Admin
