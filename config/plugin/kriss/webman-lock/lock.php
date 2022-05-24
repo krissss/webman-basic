@@ -4,7 +4,7 @@ use Symfony\Component\Lock\Store\FlockStore;
 use Symfony\Component\Lock\Store\RedisStore;
 
 return [
-    'storage' => 'redis', // file/redis， file 不支持 ttl
+    'storage' => get_env('LOCK_ADAPTER', 'redis'), // file/redis， file 不支持 ttl
     'storage_configs' => [
         'file' => [
             'class' => FlockStore::class,
