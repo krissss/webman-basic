@@ -14,8 +14,9 @@
 
 use Webman\Route;
 
+Route::group('/admin', function () {
+    Route::post('/auth/login', [\app\admin\controller\AuthController::class, 'login']);
+});
 
-
-
-
-
+// 关闭默认路由
+Route::disableDefaultRoute();
