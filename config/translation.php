@@ -15,11 +15,14 @@
 /**
  * Multilingual configuration
  */
+
+use app\enums\common\LangEnum;
+
 return [
     // Default language
-    'locale' => 'zh_CN',
+    'locale' => LangEnum::ZH_CN,
     // Fallback language
-    'fallback_locale' => ['zh_CN', 'en'],
+    'fallback_locale' => LangEnum::getValues(),
     // Folder where language files are stored
     'path' => base_path() . '/resource/translations',
 ];

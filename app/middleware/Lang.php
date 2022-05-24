@@ -2,6 +2,7 @@
 
 namespace app\middleware;
 
+use app\enums\common\LangEnum;
 use Webman\Http\Request;
 use Webman\Http\Response;
 use Webman\MiddlewareInterface;
@@ -13,9 +14,11 @@ class Lang implements MiddlewareInterface
 {
     public function process(Request $request, callable $handler): Response
     {
-        if ($lang = session('lang')) {
-            locale($lang);
-        } elseif ($lang = $request->header('Accept-Language')) {
+        $lang = session('lang');
+        if (!$lang) {
+            //$lang = $request->header('Accept-Language');
+        }
+        if ($lang && in_array($lang, LangEnum::getValues())) {
             locale($lang);
         }
         /** @var Response $response */
