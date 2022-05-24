@@ -24,7 +24,7 @@ use Kriss\WebmanAuth\Interfaces\IdentityRepositoryWithTokenInterface;
  * @method static \Illuminate\Database\Eloquent\Builder|Admin query()
  * @mixin \Eloquent
  */
-class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryInterface, IdentityRepositoryWithTokenInterface
+class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {
     public const SUPER_ADMIN_ID = 1;
 
@@ -68,15 +68,7 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
     /**
      * @inheritDoc
      */
-    public function findIdentity(string $id): ?IdentityInterface
-    {
-        return static::find($id);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function findIdentityByToken(string $token, string $type = null): ?IdentityInterface
+    public function findIdentity(string $token, string $type = null): ?IdentityInterface
     {
         return static::query()->where('access_token', $token)->first();
     }
