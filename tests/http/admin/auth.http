@@ -3,16 +3,12 @@ Content-Type: application/json
 
 {"username":"admin","password":"123456"}
 
-###
-
-GET {{baseUrl}}/info
-Accept: application/json
-X-Api-Key: {{apiKey}}
+> {% client.global.set("auth_token", response.body.data.access_token); %}
 
 ###
 
 POST {{baseUrl}}/auth/logout
 Content-Type: application/json
-X-Api-Key: {{apiKey}}
+X-Api-Key: {{auth_token}}
 
 ###
