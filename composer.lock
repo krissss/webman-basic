@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8457b0de97b8671192955926fa284be8",
+    "content-hash": "cfb2e73abd1f30a1df0e7181928c8828",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2105,11 +2105,17 @@
         },
         {
             "name": "kriss/webman-auth",
-            "version": "dev-main",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krissss/webman-auth.git",
+                "reference": "1b8bbd51a9a66613b93b3e87fd48097af94d8231"
+            },
             "dist": {
-                "type": "path",
-                "url": "D:/php-projects/webman/plugins/kriss/webman-auth",
-                "reference": "64ac822f5d8118d5412250dbeda246fb20ea5395"
+                "type": "zip",
+                "url": "https://api.github.com/repos/krissss/webman-auth/zipball/1b8bbd51a9a66613b93b3e87fd48097af94d8231",
+                "reference": "1b8bbd51a9a66613b93b3e87fd48097af94d8231",
+                "shasum": ""
             },
             "require": {
                 "php": ">=7.4"
@@ -2123,13 +2129,16 @@
                     "Kriss\\WebmanAuth\\": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "webman auth plugin",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/krissss/webman-auth/issues",
+                "source": "https://github.com/krissss/webman-auth/tree/v1.0.0"
+            },
+            "time": "2022-05-24T05:56:55+00:00"
         },
         {
             "name": "kriss/webman-eloquent-ide-helper",
@@ -5937,9 +5946,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "kriss/webman-auth": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
@@ -5947,5 +5954,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

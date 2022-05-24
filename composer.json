@@ -30,7 +30,7 @@
     "illuminate/database": "^8.83",
     "illuminate/events": "^8.83",
     "illuminate/redis": "^8.83",
-    "kriss/webman-auth": "dev-main",
+    "kriss/webman-auth": "^1.0",
     "kriss/webman-eloquent-ide-helper": "^1.0",
     "monolog/monolog": "^2.0",
     "mouyong/validate": "^2.0",
@@ -79,9 +79,5 @@
     "phinx": "phinx"
   },
   "repositories": {
-    "kriss/webman-auth": {
-      "type": "path",
-      "url": "D:\\php-projects\\webman\\plugins\\kriss\\webman-auth"
-    }
   }
 }

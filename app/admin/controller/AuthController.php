@@ -5,7 +5,7 @@ namespace app\admin\controller;
 use app\components\Component;
 use app\exception\UserSeeException;
 use app\model\Admin;
-use support\facade\Auth as AuthManager;
+use support\facade\Auth;
 use support\Request;
 use support\Response;
 
@@ -25,14 +25,22 @@ class AuthController
             throw new UserSeeException(trans('auth.user_password_error'));
         }
 
-        AuthManager::guard()->login($admin);
+        Auth::guardAdmin()->login($admin);
+        $admin->refreshToken();
 
         return json_success($admin);
     }
 
-    // 登录用户信息
-    public function info()
+    // 退出登录
+    public function logout(): Response
     {
-        return json_success(AuthManager::guard()->getUser());
+        if (Auth::guardAdmin()->isGuest()) {
+            return json_success('guest');
+        }
+
+        Auth::identityAdmin()->refreshToken(null);
+        Auth::guardAdmin()->logout();
+
+        return json_success('logout');
     }
 }

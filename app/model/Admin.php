@@ -3,6 +3,7 @@
 namespace app\model;
 
 use app\components\BaseModel;
+use app\components\Component;
 use Kriss\WebmanAuth\Interfaces\IdentityInterface;
 use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
 use Kriss\WebmanAuth\Interfaces\IdentityRepositoryWithTokenInterface;
@@ -14,6 +15,7 @@ use Kriss\WebmanAuth\Interfaces\IdentityRepositoryWithTokenInterface;
  * @property string $username
  * @property string $password
  * @property string $name
+ * @property string|null $access_token
  * @property int $status 状态
  * @property \Illuminate\Support\Carbon $created_at 创建时间
  * @property \Illuminate\Support\Carbon $updated_at 修改时间
@@ -76,6 +78,19 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
      */
     public function findIdentityByToken(string $token, string $type = null): ?IdentityInterface
     {
-        return static::query()->where('username', $token)->first();
+        return static::query()->where('access_token', $token)->first();
+    }
+
+    /**
+     * 刷新 token
+     * @param false|string|null $token
+     */
+    public function refreshToken($token = false)
+    {
+        if ($token === false) {
+            $token = Component::security()::generateRandomString(32);
+        }
+        $this->access_token = $token;
+        $this->save();
     }
 }

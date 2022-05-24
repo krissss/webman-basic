@@ -1,11 +1,18 @@
 POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
-{"username":"admin2","password":"123456"}
+{"username":"admin","password":"123456"}
 
 ###
 
-GET {{baseUrl}}/auth/info
+GET {{baseUrl}}/info
 Accept: application/json
+X-Api-Key: {{apiKey}}
+
+###
+
+POST {{baseUrl}}/auth/logout
+Content-Type: application/json
+X-Api-Key: {{apiKey}}
 
 ###

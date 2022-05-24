@@ -15,8 +15,14 @@
 use Webman\Route;
 
 Route::group('/admin', function () {
-    Route::post('/auth/login', [\app\admin\controller\AuthController::class, 'login']);
+    Route::post('/auth/login', [app\admin\controller\AuthController::class, 'login']);
 });
+Route::group('/admin', function () {
+    Route::get('/info', [app\admin\controller\InfoController::class, 'index']);
+    Route::post('/auth/logout', [app\admin\controller\AuthController::class, 'logout']);
+})->middleware([
+    app\middleware\AuthenticateAdmin::class,
+]);
 
 // 关闭默认路由
 Route::disableDefaultRoute();

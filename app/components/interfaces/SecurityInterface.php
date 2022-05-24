@@ -18,4 +18,11 @@ interface SecurityInterface
      * @return bool
      */
     public function validatePassword(string $password, string $passwordHash): bool;
+
+    /**
+     * 生成随机字符串
+     * @param int $length
+     * @return string
+     */
+    public static function generateRandomString(int $length = 16): string;
 }

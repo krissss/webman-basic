@@ -21,11 +21,13 @@ final class CreateAdmin extends BaseMigration
         $table = $this->table('admin', ['comment' => '管理员表'])
             ->addColumn('username', 'string', ['limit' => 64])
             ->addColumn('password', 'string', ['limit' => 255])
-            ->addColumn('name', 'string', ['limit' => 255]);
+            ->addColumn('name', 'string', ['limit' => 255])
+            ->addColumn('access_token', 'string', ['limit' => 255, 'null' => true]);
         $this->addCommonColumns($table, [
             'status', 'created_at', 'updated_at',
         ]);
         $table->addIndex(['username'], ['unique' => true]);
+        $table->addIndex(['access_token'], ['unique' => true]);
         $table->create();
     }
 }
