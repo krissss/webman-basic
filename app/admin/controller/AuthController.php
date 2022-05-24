@@ -7,11 +7,12 @@ use app\exception\UserSeeException;
 use app\model\Admin;
 use support\facade\Auth as AuthManager;
 use support\Request;
+use support\Response;
 
-class Auth
+class AuthController
 {
     // 登录
-    public function login(Request $request)
+    public function login(Request $request): Response
     {
         $validator = validator($request->post(), [
             'username' => 'required|string|max:32',
