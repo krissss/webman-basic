@@ -2,6 +2,24 @@
 
 webman 基础模版
 
+支持组件：
+
+- [console](https://www.workerman.net/doc/webman/plugin/console.html)
+- database: [eloquent](https://learnku.com/docs/laravel/8.x/eloquent/9400)
+- [redis](https://www.workerman.net/doc/webman/db/redis.html)
+- cache: 使用 `support\facade\Cache` 类，配置：`config/cache.php`
+- log: 使用 `support\facade\Logger` 类，配置：`config/log.php` 和 `config/log-channel.php`
+- [lock](https://www.workerman.net/plugin/55): 使用 `support\facade\Locker` 类
+- [container](https://learnku.com/docs/laravel/8.x/container/9361): 使用 `support\facade\Container` 类
+- [auth](https://www.workerman.net/plugin/54): 使用 `support\facade\Auth` 类
+- [validate](https://learnku.com/docs/laravel/8.x/validation/9374)
+- [ide-helper](https://www.workerman.net/plugin/51)
+- [db-migration](https://github.com/cakephp/phinx): 详见 `phinx.php`
+- [translation](https://www.workerman.net/doc/webman/components/translation.html)
+- env: 使用 `get_env()` 函数
+- [redis-queue](https://www.workerman.net/doc/webman/queue/redis.html)
+- [crontab](https://www.workerman.net/doc/webman/components/crontab.html)
+
 ## 初始化项目步骤
 
 ```bash

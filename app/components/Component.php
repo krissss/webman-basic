@@ -3,7 +3,7 @@
 namespace app\components;
 
 use app\components\interfaces\SecurityInterface;
-use support\Container;
+use support\facade\Container;
 
 /**
  * @method static SecurityInterface security()
