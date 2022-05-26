@@ -14,6 +14,8 @@
 
 use Webman\Route;
 
+Route::any('/', fn() => 'Hello!');
+
 Route::group('/admin', function () {
     Route::post('/auth/login', [app\admin\controller\AuthController::class, 'login']);
 });
