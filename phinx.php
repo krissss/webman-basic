@@ -9,7 +9,7 @@
  * 回滚迁移：composer phinx rollback
  * 创建seed: composer phinx seed:create MySeed
  * 执行所有seed: composer phinx seed:run
- * 执行个别seed: composer phinx seed:run -s MySeed
+ * 执行个别seed: vendor/bin/phinx seed:run -s MySeed
  */
 
 require_once __DIR__ . '/support/bootstrap.php';
