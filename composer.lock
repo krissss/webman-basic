@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b20bc567646bec4f736facc53ccd58cd",
+    "content-hash": "3a0c03f40f924074e9472a5c442dc2e3",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2190,6 +2190,37 @@
                 "source": "https://github.com/krissss/webman-auth/tree/v1.1.0"
             },
             "time": "2022-05-24T07:21:20+00:00"
+        },
+        {
+            "name": "kriss/webman-docker",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krissss/docker-webman.git",
+                "reference": "38ab7e4d504520b841f73d74ce797bc68a449716"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/krissss/docker-webman/zipball/38ab7e4d504520b841f73d74ce797bc68a449716",
+                "reference": "38ab7e4d504520b841f73d74ce797bc68a449716",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kriss\\WebmanDocker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "docker for webman app",
+            "support": {
+                "issues": "https://github.com/krissss/docker-webman/issues",
+                "source": "https://github.com/krissss/docker-webman/tree/v1.2.0"
+            },
+            "time": "2022-05-26T12:06:33+00:00"
         },
         {
             "name": "kriss/webman-eloquent-ide-helper",
