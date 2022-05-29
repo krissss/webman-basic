@@ -35,6 +35,7 @@
     "kriss/webman-docker": "^1.2",
     "kriss/webman-eloquent-ide-helper": "^1.0",
     "kriss/webman-lock": "^1.0",
+    "kriss/webman-logger": "^1.0",
     "monolog/monolog": "^2.0",
     "mouyong/validate": "^2.0",
     "psr/container": "v1",

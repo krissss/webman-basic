@@ -33,5 +33,5 @@ return array_merge(
             ],
         ],
     ],
-    Logger::getLogConfig(),
+    Logger::getLogChannelConfigs(),
 );
