@@ -25,7 +25,7 @@ class AuthController
             throw new UserSeeException(trans('auth.user_password_error'));
         }
 
-        Auth::guardAdmin()->login($admin);
+        Auth::guard()->login($admin);
         $admin->refreshToken();
 
         return json_success($admin);
@@ -34,12 +34,12 @@ class AuthController
     // 退出登录
     public function logout(): Response
     {
-        if (Auth::guardAdmin()->isGuest()) {
+        if (Auth::guard()->isGuest()) {
             return json_success('guest');
         }
 
         Auth::identityAdmin()->refreshToken(null);
-        Auth::guardAdmin()->logout();
+        Auth::guard()->logout();
 
         return json_success('logout');
     }

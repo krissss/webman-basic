@@ -31,7 +31,7 @@
     "illuminate/events": "^8.83",
     "illuminate/pagination": "^8.83",
     "illuminate/redis": "^8.83",
-    "kriss/webman-auth": "^1.1",
+    "kriss/webman-auth": "^1.3",
     "kriss/webman-docker": "^1.2",
     "kriss/webman-eloquent-ide-helper": "^1.0",
     "kriss/webman-lock": "^1.0",

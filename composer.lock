@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f2b34c3fd8ce22ef3949ffc30b7c4da",
+    "content-hash": "d0873ad0c7b0176cbca791ade65688a3",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2155,16 +2155,16 @@
         },
         {
             "name": "kriss/webman-auth",
-            "version": "v1.1.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-auth.git",
-                "reference": "c550bc98494c41d9c99ea3907fc48faff27324e2"
+                "reference": "ca786fbb788676e764d25ec58eb7f32b54b5a535"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-auth/zipball/c550bc98494c41d9c99ea3907fc48faff27324e2",
-                "reference": "c550bc98494c41d9c99ea3907fc48faff27324e2",
+                "url": "https://api.github.com/repos/krissss/webman-auth/zipball/ca786fbb788676e764d25ec58eb7f32b54b5a535",
+                "reference": "ca786fbb788676e764d25ec58eb7f32b54b5a535",
                 "shasum": ""
             },
             "require": {
@@ -2187,9 +2187,9 @@
             "description": "webman auth plugin",
             "support": {
                 "issues": "https://github.com/krissss/webman-auth/issues",
-                "source": "https://github.com/krissss/webman-auth/tree/v1.1.0"
+                "source": "https://github.com/krissss/webman-auth/tree/v1.3.0"
             },
-            "time": "2022-05-24T07:21:20+00:00"
+            "time": "2022-05-30T13:05:52+00:00"
         },
         {
             "name": "kriss/webman-docker",

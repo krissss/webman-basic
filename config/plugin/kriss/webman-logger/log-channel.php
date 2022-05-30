@@ -6,6 +6,7 @@ use Kriss\WebmanLogger\Processors\RequestRouteProcessor;
 use Kriss\WebmanLogger\Processors\RequestUidProcessor;
 use Kriss\WebmanLogger\Processors\CurrentUserProcessor;
 use Monolog\Processor\PsrLogMessageProcessor;
+use support\facade\Auth;
 
 return [
     // channels
@@ -30,6 +31,9 @@ return [
             new RequestRouteProcessor(),
             new CurrentUserProcessor(function () {
                 // 返回当前用户id
+                if ($guard = Auth::guard()) {
+                    return $guard->getId() ?: 0;
+                }
                 return 0;
             }),
             new RequestUidProcessor(),

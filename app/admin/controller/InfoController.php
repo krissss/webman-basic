@@ -10,6 +10,6 @@ class InfoController
     // 登录用户信息
     public function index(): Response
     {
-        return json_success(Auth::guardAdmin()->getUser());
+        return json_success(Auth::guard()->getUser());
     }
 }
