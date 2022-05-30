@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0873ad0c7b0176cbca791ade65688a3",
+    "content-hash": "ba261b1afb1d1315ea97fe55f34ee8b6",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2304,16 +2304,16 @@
         },
         {
             "name": "kriss/webman-logger",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-logger.git",
-                "reference": "9d55257f454c76e5e9a2b209493561227bd64f9a"
+                "reference": "fdc5ca56d0645c3b1ab56045e64d9d9963571a2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-logger/zipball/9d55257f454c76e5e9a2b209493561227bd64f9a",
-                "reference": "9d55257f454c76e5e9a2b209493561227bd64f9a",
+                "url": "https://api.github.com/repos/krissss/webman-logger/zipball/fdc5ca56d0645c3b1ab56045e64d9d9963571a2b",
+                "reference": "fdc5ca56d0645c3b1ab56045e64d9d9963571a2b",
                 "shasum": ""
             },
             "require": {
@@ -2336,9 +2336,9 @@
             "description": "webman logger plugin",
             "support": {
                 "issues": "https://github.com/krissss/webman-logger/issues",
-                "source": "https://github.com/krissss/webman-logger/tree/v1.0.0"
+                "source": "https://github.com/krissss/webman-logger/tree/v1.1.0"
             },
-            "time": "2022-05-29T14:25:43+00:00"
+            "time": "2022-05-30T13:32:24+00:00"
         },
         {
             "name": "monolog/monolog",

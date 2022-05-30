@@ -44,7 +44,7 @@ return [
         // 按照channel分目录记录
         'split' => [
             'class' => Kriss\WebmanLogger\Mode\SplitMode::class,
-            'enable' => get_env('LOG_CHANNEL_MODE_SPLIT', false),
+            'enable' => get_env('LOG_CHANNEL_MODE_SPLIT', true),
             'except_channels' => explode(',', get_env('CHANNEL_LOG_MODE_SPLIT_EXCEPT', '')),
             'formatter' => [
                 'class' => ChannelFormatter::class,
@@ -54,13 +54,22 @@ return [
         // 将所有channel合并到一起记录
         'mix' => [
             'class' => Kriss\WebmanLogger\Mode\MixMode::class,
-            'enable' => get_env('CHANNEL_LOG_MODE_MIX', true),
+            'enable' => get_env('CHANNEL_LOG_MODE_MIX', false),
             'except_channels' => explode(',', get_env('CHANNEL_LOG_MODE_MIX_EXCEPT', '')),
             'formatter' => [
                 'class' => ChannelMixedFormatter::class,
             ],
             'max_files' => get_env('LOG_CHANNEL_MAX_FILES', 30), // 最大文件数
             'name' => 'channelMixed', // 合并时的日志文件名
+        ],
+        // 控制台输出
+        'stdout' => [
+            'class' => Kriss\WebmanLogger\Mode\StdoutMode::class,
+            'enable' => get_env('CHANNEL_LOG_MODE_STDOUT', false),
+            'except_channels' => explode(',', get_env('CHANNEL_LOG_MODE_STDOUT_EXCEPT', '')),
+            'formatter' => [
+                'class' => ChannelMixedFormatter::class,
+            ],
         ],
     ],
 ];

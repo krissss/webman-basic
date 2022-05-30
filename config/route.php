@@ -18,7 +18,9 @@ Route::any('/', fn() => 'Hello!');
 
 Route::group('/admin', function () {
     Route::post('/auth/login', [app\admin\controller\AuthController::class, 'login']);
-});
+})->middleware([
+    app\middleware\SetAuthGuardAdmin::class,
+]);
 Route::group('/admin', function () {
     Route::get('/info', [app\admin\controller\InfoController::class, 'index']);
     Route::post('/auth/logout', [app\admin\controller\AuthController::class, 'logout']);
