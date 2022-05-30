@@ -11,6 +11,12 @@ use Webman\Http\Response;
 
 class ErrorHandler extends Handler
 {
+    public function __construct($logger, $debug)
+    {
+        $logger = Log::channel('app');
+        parent::__construct($logger, $debug);
+    }
+
     /**
      * @inheritDoc
      */

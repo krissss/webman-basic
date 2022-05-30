@@ -2,9 +2,9 @@
 
 use Kriss\WebmanLogger\Formatter\ChannelFormatter;
 use Kriss\WebmanLogger\Formatter\ChannelMixedFormatter;
+use Kriss\WebmanLogger\Processors\CurrentUserProcessor;
 use Kriss\WebmanLogger\Processors\RequestRouteProcessor;
 use Kriss\WebmanLogger\Processors\RequestUidProcessor;
-use Kriss\WebmanLogger\Processors\CurrentUserProcessor;
 use Monolog\Processor\PsrLogMessageProcessor;
 use support\facade\Auth;
 
@@ -45,7 +45,8 @@ return [
         'split' => [
             'class' => Kriss\WebmanLogger\Mode\SplitMode::class,
             'enable' => get_env('LOG_CHANNEL_MODE_SPLIT', true),
-            'except_channels' => explode(',', get_env('CHANNEL_LOG_MODE_SPLIT_EXCEPT', '')),
+            'except_channels' => [],
+            'only_channels' => [],
             'formatter' => [
                 'class' => ChannelFormatter::class,
             ],
@@ -55,7 +56,8 @@ return [
         'mix' => [
             'class' => Kriss\WebmanLogger\Mode\MixMode::class,
             'enable' => get_env('CHANNEL_LOG_MODE_MIX', false),
-            'except_channels' => explode(',', get_env('CHANNEL_LOG_MODE_MIX_EXCEPT', '')),
+            'except_channels' => [],
+            'only_channels' => [],
             'formatter' => [
                 'class' => ChannelMixedFormatter::class,
             ],
@@ -66,10 +68,25 @@ return [
         'stdout' => [
             'class' => Kriss\WebmanLogger\Mode\StdoutMode::class,
             'enable' => get_env('CHANNEL_LOG_MODE_STDOUT', false),
-            'except_channels' => explode(',', get_env('CHANNEL_LOG_MODE_STDOUT_EXCEPT', '')),
+            'except_channels' => [],
+            'only_channels' => [],
             'formatter' => [
                 'class' => ChannelMixedFormatter::class,
             ],
+        ],
+        // 输出到 redis
+        'redis' => [
+            'class' => Kriss\WebmanLogger\Mode\RedisMode::class,
+            'enable' => get_env('CHANNEL_LOG_MODE_REDIS', false),
+            'except_channels' => [],
+            'only_channels' => [],
+            'formatter' => [
+                'class' => ChannelFormatter::class,
+            ],
+            'redis' => function () {
+                return \support\Redis::connection('default')->client();
+            },
+            'redis_key_prefix' => 'webmanLog:',
         ],
     ],
 ];

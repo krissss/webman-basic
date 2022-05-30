@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba261b1afb1d1315ea97fe55f34ee8b6",
+    "content-hash": "fe34e65a01a67ebbe618a1a1086c4fab",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2304,16 +2304,16 @@
         },
         {
             "name": "kriss/webman-logger",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-logger.git",
-                "reference": "fdc5ca56d0645c3b1ab56045e64d9d9963571a2b"
+                "reference": "3ae71e0b576c3ecc23574c7972cd8732a3af956b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-logger/zipball/fdc5ca56d0645c3b1ab56045e64d9d9963571a2b",
-                "reference": "fdc5ca56d0645c3b1ab56045e64d9d9963571a2b",
+                "url": "https://api.github.com/repos/krissss/webman-logger/zipball/3ae71e0b576c3ecc23574c7972cd8732a3af956b",
+                "reference": "3ae71e0b576c3ecc23574c7972cd8732a3af956b",
                 "shasum": ""
             },
             "require": {
@@ -2336,9 +2336,9 @@
             "description": "webman logger plugin",
             "support": {
                 "issues": "https://github.com/krissss/webman-logger/issues",
-                "source": "https://github.com/krissss/webman-logger/tree/v1.1.0"
+                "source": "https://github.com/krissss/webman-logger/tree/v1.2.0"
             },
-            "time": "2022-05-30T13:32:24+00:00"
+            "time": "2022-05-30T14:13:40+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2352,13 +2352,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Seldaek/monolog/zipball/247918972acd74356b0a91dfaa5adcaec069b6c0",
                 "reference": "247918972acd74356b0a91dfaa5adcaec069b6c0",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "php": ">=7.2",
@@ -3048,13 +3042,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
                 "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
