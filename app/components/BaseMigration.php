@@ -19,6 +19,7 @@ abstract class BaseMigration extends AbstractMigration
             'status' => fn() => $table->addColumn('status', 'integer', ['comment' => '状态', 'default' => 0]),
             'created_at' => fn() => $table->addColumn('created_at', 'timestamp', ['comment' => '创建时间', 'default' => 'CURRENT_TIMESTAMP']),
             'updated_at' => fn() => $table->addColumn('updated_at', 'timestamp', ['comment' => '修改时间', 'default' => 'CURRENT_TIMESTAMP'/*, 'update' => 'CURRENT_TIMESTAMP'*/]),
+            'deleted_at' => fn() => $table->addColumn('deleted_at', 'timestamp', ['comment' => '删除时间', 'null' => true]),
             'created_by' => fn() => $table->addColumn('created_by', 'integer', ['comment' => '创建人', 'default' => 0]),
             'updated_by' => fn() => $table->addColumn('created_by', 'integer', ['comment' => '修改人', 'default' => 0]),
         ];

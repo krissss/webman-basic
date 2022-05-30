@@ -4,6 +4,7 @@ namespace app\model;
 
 use app\components\BaseModel;
 use app\components\Component;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Kriss\WebmanAuth\Interfaces\IdentityInterface;
 use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
 
@@ -11,20 +12,25 @@ use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
  * app\model\Admin
  *
  * @property int $id
- * @property string $username
- * @property string $password
- * @property string $name
- * @property string|null $access_token
+ * @property string $username 用户名
+ * @property string $password 密码
+ * @property string $name 名称
+ * @property string|null $access_token Access Token
  * @property int $status 状态
  * @property \Illuminate\Support\Carbon $created_at 创建时间
  * @property \Illuminate\Support\Carbon $updated_at 修改时间
+ * @property \Illuminate\Support\Carbon|null $deleted_at 删除时间
  * @method static \Illuminate\Database\Eloquent\Builder|Admin newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Admin newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Admin onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Admin query()
- * @mixin \Eloquent
+ * @method static \Illuminate\Database\Query\Builder|Admin withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Admin withoutTrashed()
  */
 class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {
+    use SoftDeletes;
+
     public const SUPER_ADMIN_ID = 1;
 
     /**

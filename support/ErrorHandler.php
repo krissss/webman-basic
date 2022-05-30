@@ -2,6 +2,7 @@
 
 namespace support;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use Kriss\WebmanAuth\Exceptions\UnauthorizedException;
 use Throwable;
@@ -23,6 +24,11 @@ class ErrorHandler extends Handler
         if ($e instanceof UnauthorizedException) {
             $this->errorMessage = $e->getMessage();
             $this->statusCode = $e->getCode();
+            return;
+        }
+        if ($e instanceof ModelNotFoundException) {
+            $this->errorMessage = 'Data Not Found';
+            $this->statusCode = 404;
             return;
         }
 
