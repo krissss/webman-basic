@@ -15,7 +15,7 @@ class EloquentLog implements Bootstrap
     public static function start($worker)
     {
         Db::connection()->listen(function (QueryExecuted $event) {
-            if (!config('log-channel.sql.enable', false)) {
+            if (!config('log-ext.sql.enable', false)) {
                 return;
             }
             $sql = $event->sql;
@@ -29,9 +29,9 @@ class EloquentLog implements Bootstrap
             }
             $sqlTime = $event->time;
             $sqlLevel = 'info';
-            if ($sqlTime >= config('log-channel.sql.warning_time', 1500)) {
+            if ($sqlTime >= config('log-ext.sql.warning_time', 1500)) {
                 $sqlLevel = 'warning';
-            } elseif ($sqlTime >= config('log-channel.sql.error_time', 10000)) {
+            } elseif ($sqlTime >= config('log-ext.sql.error_time', 10000)) {
                 $sqlLevel = 'error';
             }
             Logger::sql('[{time}ms] {sql}', $sqlLevel, [

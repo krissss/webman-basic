@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a0c03f40f924074e9472a5c442dc2e3",
+    "content-hash": "2f2b34c3fd8ce22ef3949ffc30b7c4da",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2301,6 +2301,44 @@
                 "source": "https://github.com/krissss/webman-lock/tree/v1.0.0"
             },
             "time": "2022-05-24T08:38:57+00:00"
+        },
+        {
+            "name": "kriss/webman-logger",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krissss/webman-logger.git",
+                "reference": "9d55257f454c76e5e9a2b209493561227bd64f9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/krissss/webman-logger/zipball/9d55257f454c76e5e9a2b209493561227bd64f9a",
+                "reference": "9d55257f454c76e5e9a2b209493561227bd64f9a",
+                "shasum": ""
+            },
+            "require": {
+                "monolog/monolog": "^2.6",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "workerman/webman-framework": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kriss\\WebmanLogger\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "webman logger plugin",
+            "support": {
+                "issues": "https://github.com/krissss/webman-logger/issues",
+                "source": "https://github.com/krissss/webman-logger/tree/v1.0.0"
+            },
+            "time": "2022-05-29T14:25:43+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6074,5 +6112,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
