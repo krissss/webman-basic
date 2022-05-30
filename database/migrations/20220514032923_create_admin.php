@@ -24,7 +24,7 @@ final class CreateAdmin extends BaseMigration
             ->addColumn('name', 'string', ['comment' => '名称', 'limit' => 255])
             ->addColumn('access_token', 'string', ['comment' => 'Access Token', 'limit' => 255, 'null' => true]);
         $this->addCommonColumns($table, [
-            'status', 'created_at', 'updated_at',
+            'status', 'created_at', 'updated_at', 'deleted_at',
         ]);
         $table->addIndex(['username'], ['unique' => true]);
         $table->addIndex(['access_token'], ['unique' => true]);

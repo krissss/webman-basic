@@ -1,3 +1,4 @@
+### 登录
 POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
@@ -5,8 +6,7 @@ Content-Type: application/json
 
 > {% client.global.set("auth_token", response.body.data.access_token); %}
 
-###
-
+### 退出登录
 POST {{baseUrl}}/auth/logout
 Content-Type: application/json
 X-Api-Key: {{auth_token}}
