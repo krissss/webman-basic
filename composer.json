@@ -55,7 +55,8 @@
   },
   "suggest": {
     "ext-event": "For better performance. ",
-    "ext-redis": "For redis use"
+    "ext-redis": "For redis use",
+    "workbunny/webman-nacos": "For nacos use"
   },
   "config": {
     "sort-packages": true
@@ -81,6 +82,5 @@
     ],
     "phinx": "phinx"
   },
-  "repositories": {
-  }
+  "repositories": {}
 }
