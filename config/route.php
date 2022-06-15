@@ -17,12 +17,8 @@ use Webman\Route;
 
 Route::any('/', fn() => 'Hello!');;
 
-Route::group('/admin/openapi', function () {
-    if (!get_env('OPENAPI_ENABLE', false)) {
-        return;
-    }
-    Route::get('/', [app\admin\controller\OpenApiController::class, 'index']);
-    Route::get('/doc', [app\admin\controller\OpenApiController::class, 'doc']);
+Route::group('/admin', function () {
+    app\admin\controller\OpenApiController::registerRoute();
 });
 Route::group('/admin', function () {
     Route::post('/auth/login', [app\admin\controller\AuthController::class, 'login']);
