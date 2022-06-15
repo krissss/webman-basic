@@ -4,12 +4,22 @@
  */
 require_once __DIR__ . '/vendor/autoload.php';
 
+use Dotenv\Dotenv;
 use process\Monitor;
 use Workerman\Worker;
 use Webman\Config;
 
 ini_set('display_errors', 'on');
 error_reporting(E_ALL);
+
+if (class_exists('Dotenv\Dotenv') && file_exists(base_path() . '/.env')) {
+    //dump('--load-env--');
+    if (method_exists('Dotenv\Dotenv', 'createUnsafeImmutable')) {
+        Dotenv::createUnsafeImmutable(base_path())->load();
+    } else {
+        Dotenv::createMutable(base_path())->load();
+    }
+}
 
 Config::load(config_path(), ['route', 'container']);
 
@@ -24,22 +34,20 @@ foreach (config('process', []) as $process_name => $config) {
     $file_content = <<<EOF
 <?php
 require_once __DIR__ . '/../../vendor/autoload.php';
-
 use Workerman\Worker;
 use Webman\Config;
-
 ini_set('display_errors', 'on');
 error_reporting(E_ALL);
-
 if (is_callable('opcache_reset')) {
     opcache_reset();
 }
-    
+
 Config::load(config_path(), ['route', 'container']);
-
 worker_start('$process_name', config('process')['$process_name']);
+if (DIRECTORY_SEPARATOR != "/") {
+    Worker::\$logFile = config('server')['log_file'] ?? Worker::\$logFile;
+}
 Worker::runAll();
-
 EOF;
 
     $process_file = $runtime_process_path . DIRECTORY_SEPARATOR . "start_$process_name.php";
@@ -53,22 +61,19 @@ foreach (config('plugin', []) as $firm => $projects) {
             $file_content = <<<EOF
 <?php
 require_once __DIR__ . '/../../vendor/autoload.php';
-
 use Workerman\Worker;
 use Webman\Config;
-
 ini_set('display_errors', 'on');
 error_reporting(E_ALL);
-
 if (is_callable('opcache_reset')) {
     opcache_reset();
 }
-
 Config::load(config_path(), ['route', 'container']);
-
 worker_start("plugin.$firm.$name.$process_name", config("plugin.$firm.$name.process")['$process_name']);
+if (DIRECTORY_SEPARATOR != "/") {
+    Worker::\$logFile = config('server')['log_file'] ?? Worker::\$logFile;
+}
 Worker::runAll();
-
 EOF;
             $process_file = $runtime_process_path . DIRECTORY_SEPARATOR . "start_$process_name.php";
             $process_files[] = $process_file;
