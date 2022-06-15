@@ -55,7 +55,7 @@
     "ext-redis": "For redis use",
     "kriss/webman-lock": "For Locker use",
     "webman/redis-queue": "For redis-queue use",
-    "workerman/crontab": "For crontab",
+    "workerman/crontab": "For crontab use",
     "workbunny/webman-nacos": "For nacos use"
   },
   "config": {
