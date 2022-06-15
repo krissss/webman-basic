@@ -3,7 +3,9 @@
 use app\components\Tools;
 
 if (!get_env('NACOS_ENABLE', false)) {
-    return [];
+    return [
+        'enable' => false,
+    ];
 }
 
 $namespaceId = get_env('NACOS_NAMESPACE_ID', '');

@@ -1,10 +1,6 @@
 <?php
 declare(strict_types=1);
 
-if (!get_env('NACOS_ENABLE', false)) {
-    return [];
-}
-
 return [
     // 服务注册
     'instance-registrar' => [

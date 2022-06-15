@@ -1,10 +1,5 @@
 <?php
 
-$enable = get_env('QUEUE_ENABLE', false);
-if (!$enable) {
-    return [];
-}
-
 return [
     'consumer'  => [
         'handler'     => Webman\RedisQueue\Process\Consumer::class,

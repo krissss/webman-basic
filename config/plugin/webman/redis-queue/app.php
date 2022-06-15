@@ -1,4 +1,4 @@
 <?php
 return [
-    'enable' => true,
+    'enable' => get_env('QUEUE_ENABLE', false),
 ];
