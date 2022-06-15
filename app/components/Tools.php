@@ -83,11 +83,11 @@ class Tools
      */
     public static function makeDirectory(string $dir): bool
     {
-        if (file_exists($dir)) {
-            return true;
-        }
         if (!is_dir($dir)) {
             $dir = dirname($dir);
+        }
+        if (file_exists($dir)) {
+            return true;
         }
         return mkdir($dir, 0755, true);
     }
