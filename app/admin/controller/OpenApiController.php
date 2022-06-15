@@ -2,6 +2,8 @@
 
 namespace app\admin\controller;
 
+use app\components\Component;
+use app\components\Tools;
 use OpenApi\Generator;
 use Webman\Http\Response;
 use Webman\Route;
@@ -16,9 +18,10 @@ use Webman\Route;
 class OpenApiController
 {
     /**
-     * 当配置文件不配置时，默认是否启用
+     * 当 env 不配置时，默认是否启用
+     * 为 null 时 debug 模式下启用，否则关闭
      */
-    protected const DEFAULT_ENABLE = false;
+    protected const DEFAULT_ENABLE = null;
     /**
      * 路由名称
      */
@@ -67,16 +70,27 @@ HTML;
 
     public function doc(): Response
     {
-        $openapi = Generator::scan([base_path() . static::SCAN_PATH]);
+        $filepath = runtime_path() . '/openapi/' . static::ROUTE_NAME . '.yaml';
+        Tools::makeDirectory($filepath);
+        $recordKey = [__CLASS__, __FUNCTION__, 'v1'];
+        if (!file_exists($filepath) || !Component::memoryRemember()->get($recordKey)) {
+            echo 123 . PHP_EOL;
+            $openapi = Generator::scan([base_path() . static::SCAN_PATH]);
+            $yaml = $openapi->toYaml();
+            file_put_contents($filepath, $yaml);
+            Component::memoryRemember()->set($recordKey, 1);
+        } else {
+            $yaml = file_get_contents($filepath);
+        }
 
-        return response($openapi->toYaml(), 200, [
+        return response($yaml, 200, [
             'Content-Type' => 'application/x-yaml',
         ]);
     }
 
     public static function registerRoute()
     {
-        if (!get_env('OPENAPI_ENABLE', static::DEFAULT_ENABLE)) {
+        if (!get_env('OPENAPI_ENABLE', static::DEFAULT_ENABLE ?? config('app.debug'))) {
             return;
         }
 

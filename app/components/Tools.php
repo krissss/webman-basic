@@ -62,4 +62,33 @@ class Tools
         }
         return static::$localPort = parse_url(config('server.listen'))['port'];
     }
+
+    /**
+     * 构建缓存键
+     * @param mixed $keys
+     * @return string
+     */
+    public static function buildCacheKey($keys): string
+    {
+        if (is_string($keys) && strlen($keys) <= 32) {
+            return $keys;
+        }
+        return md5(serialize($keys));
+    }
+
+    /**
+     * 递归创建目录
+     * @param string $dir
+     * @return bool
+     */
+    public static function makeDirectory(string $dir): bool
+    {
+        if (file_exists($dir)) {
+            return true;
+        }
+        if (!is_dir($dir)) {
+            $dir = dirname($dir);
+        }
+        return mkdir($dir, 0755, true);
+    }
 }
