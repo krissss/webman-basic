@@ -185,7 +185,7 @@ class AdminController
      *     path="/admin/{id}/recovery",
      *     tags={"admin"},
      *     @OA\Parameter(name="id", in="path", description="id", @OA\Schema(type="integer")),
-     *     @OA\Response(response=200, description="用户明细"),
+     *     @OA\Response(response=200, description="明细"),
      *     security={{"api_key": {}}},
      * )
      */
