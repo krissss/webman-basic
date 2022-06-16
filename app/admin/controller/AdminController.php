@@ -25,13 +25,24 @@ class AdminController
      *     path="/admin",
      *     tags={"admin"},
      *     @OA\Parameter(name="page", in="query", description="页数", @OA\Schema(type="integer")),
+     *     @OA\Parameter(name="page_size", in="query", description="每页数量", @OA\Schema(type="integer")),
+     *     @OA\Parameter(name="username", in="query", description="用户名", @OA\Schema(type="string")),
+     *     @OA\Parameter(name="status", in="query", description="状态", @OA\Schema(type="integer")),
      *     @OA\Response(response=200, description="列表数据"),
      *     security={{"api_key": {}}},
      * )
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        return json_success(Model::paginate());
+        $query = Model::query();
+        if ($username = $request->get('username')) {
+            $query->where('username', $username);
+        }
+        if ($status = $request->get('status')) {
+            $query->where('status', $status);
+        }
+
+        return json_success($query->paginate($request->get('page_size')));
     }
 
     /**
