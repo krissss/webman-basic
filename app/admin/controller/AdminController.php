@@ -35,11 +35,11 @@ class AdminController
     public function index(Request $request): Response
     {
         $query = Model::query();
-        if ($username = $request->get('username')) {
-            $query->where('username', $username);
+        if ($value = $request->get('username')) {
+            $query->where('username', $value);
         }
-        if ($status = $request->get('status')) {
-            $query->where('status', $status);
+        if ($value = $request->get('status')) {
+            $query->where('status', $value);
         }
 
         return json_success($query->paginate($request->get('page_size')));
