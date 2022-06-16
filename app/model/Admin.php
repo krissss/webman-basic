@@ -55,6 +55,15 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
     public $timestamps = true;
 
     /**
+     * @inheritdoc
+     */
+    protected $fillable = [
+        'username',
+        'name',
+        'status',
+    ];
+
+    /**
      * @inheritDoc
      */
     public function getId(): ?string

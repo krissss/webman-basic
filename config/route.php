@@ -28,6 +28,8 @@ Route::group('/admin', function () {
 Route::group('/admin', function () {
     Route::get('/info', [app\admin\controller\InfoController::class, 'index']);
     Route::post('/auth/logout', [app\admin\controller\AuthController::class, 'logout']);
+
+    Route::resource('/admin', app\admin\controller\AdminController::class);
 })->middleware([
     app\middleware\SetAuthGuardAdmin::class,
     app\middleware\AuthenticateAdmin::class,

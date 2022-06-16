@@ -28,18 +28,8 @@ class AuthController
      *             @OA\Schema(
      *                 type="object",
      *                 required={"username", "password"},
-     *                 @OA\Property(
-     *                     property="username",
-     *                     description="用户名",
-     *                     type="string",
-     *                     example="admin",
-     *                 ),
-     *                 @OA\Property(
-     *                     property="password",
-     *                     description="密码",
-     *                     type="string",
-     *                     example="123456",
-     *                 ),
+     *                 @OA\Property(property="username", description="用户名", type="string", example="admin"),
+     *                 @OA\Property(property="password", description="密码", type="string", example="123456"),
      *             )
      *         )
      *     ),
