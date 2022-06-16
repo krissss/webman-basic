@@ -59,6 +59,7 @@ class OpenApiController
             dom_id: '#swagger-ui',
             url: '{$url}',
             filter: '',
+            persistAuthorization: true,
         });
     };
 </script>
