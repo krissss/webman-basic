@@ -74,7 +74,6 @@ HTML;
         Tools::makeDirectory($filepath);
         $recordKey = [__CLASS__, __FUNCTION__, 'v1'];
         if (!file_exists($filepath) || !Component::memoryRemember()->get($recordKey)) {
-            echo 123 . PHP_EOL;
             $openapi = Generator::scan([base_path() . static::SCAN_PATH]);
             $yaml = $openapi->toYaml();
             file_put_contents($filepath, $yaml);
