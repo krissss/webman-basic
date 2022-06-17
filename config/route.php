@@ -15,7 +15,7 @@
 use Webman\Route;
 
 
-Route::any('/', fn() => 'Hello!');;
+Route::any('/', fn() => 'Hello!');
 
 Route::group('/admin', function () {
     app\admin\controller\OpenApiController::registerRoute();

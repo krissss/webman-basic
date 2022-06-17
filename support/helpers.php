@@ -483,10 +483,14 @@ function cpu_count()
  * 获取 .env 的配置
  * @param string $key
  * @param mixed $defaultValue
+ * @param array $whichIsNull
  * @return mixed|null
  */
-function get_env(string $key, $defaultValue = null)
+function get_env(string $key, $defaultValue = null, array $whichIsNull = ['', null, 'null', false])
 {
     $value = getenv($key);
-    return $value !== false ? $value : $defaultValue;
+    if (in_array($value, $whichIsNull, true)) {
+        return $defaultValue;
+    }
+    return $value;
 }
