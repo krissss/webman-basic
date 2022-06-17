@@ -25,8 +25,10 @@ RUN composer install --no-interaction --no-dev --no-autoloader --no-scripts
 
 # 复制项目代码
 COPY . /app
+
 # 配置 env 环境
-RUN php init --env=prod --overwrite=all
+ARG APP_ENV=prod
+RUN php init --env=$APP_ENV --overwrite=all
 
 # 执行 Composer 自动加载和相关脚本
 RUN composer install --no-interaction --no-dev && composer dump-autoload

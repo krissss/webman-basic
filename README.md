@@ -71,5 +71,5 @@ docker-compose up
 ### 构建系统镜像
 
 ```bash
-docker build -t {镜像名}:{tag} .
+docker build -t {镜像名}:{tag} --build-arg APP_ENV=dev .
 ```
