@@ -18,7 +18,6 @@ class Paginator implements Bootstrap
                  */
                 public function toArray()
                 {
-                    dump($this->currentPage());
                     return [
                         'items' => $this->items->toArray(),
                         'total' => $this->total(),

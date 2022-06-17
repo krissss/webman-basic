@@ -13,7 +13,6 @@ ini_set('display_errors', 'on');
 error_reporting(E_ALL);
 
 if (class_exists('Dotenv\Dotenv') && file_exists(base_path() . '/.env')) {
-    //dump('--load-env--');
     if (method_exists('Dotenv\Dotenv', 'createUnsafeImmutable')) {
         Dotenv::createUnsafeImmutable(base_path())->load();
     } else {
