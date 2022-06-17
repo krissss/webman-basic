@@ -23,10 +23,6 @@ class OpenApiController
      */
     protected const DEFAULT_ENABLE = null;
     /**
-     * 路由名称
-     */
-    protected const ROUTE_NAME = 'openapi.doc';
-    /**
      * 扫描的路径，相对根目录
      */
     protected const SCAN_PATH = ['/app/admin'];
@@ -34,7 +30,6 @@ class OpenApiController
     public function index(): Response
     {
         $assetBasePath = 'https://unpkg.com/swagger-ui-dist@4.5.0';
-        $url = route(static::ROUTE_NAME);
 
         $html = <<<HTML
 <!DOCTYPE html>
@@ -57,7 +52,7 @@ class OpenApiController
         window.ui = SwaggerUIBundle({
             // @link https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md
             dom_id: '#swagger-ui',
-            url: '{$url}',
+            url: window.location.pathname + '/doc',
             filter: '',
             persistAuthorization: true,
         });
@@ -71,7 +66,8 @@ HTML;
 
     public function doc(): Response
     {
-        $filepath = runtime_path() . '/openapi/' . static::ROUTE_NAME . '.yaml';
+        $filename = md5(static::class);
+        $filepath = runtime_path() . '/openapi/' . $filename . '.yaml';
         Tools::makeDirectory($filepath);
         $recordKey = [__CLASS__, __FUNCTION__, 'v1'];
         if (!file_exists($filepath) || !Component::memoryRemember()->get($recordKey)) {
@@ -95,6 +91,6 @@ HTML;
         }
 
         Route::get('/openapi', [static::class, 'index']);
-        Route::get('/openapi/doc', [static::class, 'doc'])->name(static::ROUTE_NAME);
+        Route::get('/openapi/doc', [static::class, 'doc']);
     }
 }
