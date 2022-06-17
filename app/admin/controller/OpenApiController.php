@@ -27,9 +27,9 @@ class OpenApiController
      */
     protected const ROUTE_NAME = 'openapi.doc';
     /**
-     * 扫描的路径
+     * 扫描的路径，相对根目录
      */
-    protected const SCAN_PATH = '/app/admin';
+    protected const SCAN_PATH = ['/app/admin'];
 
     public function index(): Response
     {
@@ -75,7 +75,7 @@ HTML;
         Tools::makeDirectory($filepath);
         $recordKey = [__CLASS__, __FUNCTION__, 'v1'];
         if (!file_exists($filepath) || !Component::memoryRemember()->get($recordKey)) {
-            $openapi = Generator::scan([base_path() . static::SCAN_PATH]);
+            $openapi = Generator::scan(array_map(fn($path) => base_path() . $path, static::SCAN_PATH));
             $yaml = $openapi->toYaml();
             file_put_contents($filepath, $yaml);
             Component::memoryRemember()->set($recordKey, 1);
