@@ -8,13 +8,14 @@ if (!get_env('NACOS_ENABLE', false)) {
     ];
 }
 
+$serviceName = get_env('NACOS_SERVICE_NAME', 'webman-service');
 $namespaceId = get_env('NACOS_NAMESPACE_ID', '');
 $groupName = get_env('NACOS_GROUP', 'DEFAULT_GROUP');
 
 $configListeners = collect([
     // 在此处增加配置中心的配置
     // $dateId => $filePath
-    // 'webman-env' => base_path() . '.env',
+    // $serviceName . '.env' => base_path() . '/.env',
 ])->map(
     fn($filepath, $dataId) => [
         $dataId,
@@ -55,7 +56,7 @@ return [
     'instance_registrars' => [
         'main' => [
             /** serviceName */
-            get_env('NACOS_SERVICE_NAME', 'webman-service'),
+            $serviceName,
 
             /** ip */
             get_env('NACOS_SERVICE_IP', Tools::getLocalIp()),
