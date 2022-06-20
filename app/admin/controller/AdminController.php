@@ -3,7 +3,7 @@
 namespace app\admin\controller;
 
 use app\components\Component;
-use App\enums\AdminStatus;
+use app\enums\AdminStatus;
 use app\exception\UserSeeException;
 use app\model\Admin as Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
