@@ -31,7 +31,7 @@ composer install
 # 4. 初始化数据库结构迁移（如果需要）
 composer phinx migrate
 # 5. 初始化数据库初始数据（如果需要）
-composer phinx seed:run
+php webman init-data
 ```
 
 ## 启动服务

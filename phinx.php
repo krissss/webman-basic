@@ -33,5 +33,5 @@ return [
         ],
     ],
     'version_order' => 'creation',
-    'migration_base_class' => \App\components\BaseMigration::class,
+    'migration_base_class' => app\components\BaseMigration::class,
 ];

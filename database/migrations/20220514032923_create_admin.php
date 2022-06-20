@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use App\components\BaseMigration;
+use app\components\BaseMigration;
 
 final class CreateAdmin extends BaseMigration
 {
