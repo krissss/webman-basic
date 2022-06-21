@@ -39,6 +39,7 @@ class InitDataCommand extends Command
             'name' => '超级管理员',
         ]);
         $admin->password = Component::security()->generatePasswordHash(123456);
+        $admin->refreshToken();
         $admin->save();
     }
 }
