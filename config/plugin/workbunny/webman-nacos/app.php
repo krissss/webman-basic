@@ -8,22 +8,52 @@ if (!get_env('NACOS_ENABLE', false)) {
     ];
 }
 
-$serviceName = get_env('NACOS_SERVICE_NAME', 'webman-service');
+$serviceName = get_env('NACOS_SERVICE_NAME', config('app.name'));
 $namespaceId = get_env('NACOS_NAMESPACE_ID', '');
 $groupName = get_env('NACOS_GROUP', 'DEFAULT_GROUP');
 
-$configListeners = collect([
-    // 在此处增加配置中心的配置
-    // $dateId => $filePath
-    // $serviceName . '.env' => base_path() . '/.env',
-])->map(
-    fn($filepath, $dataId) => [
-        $dataId,
-        $groupName,
-        $namespaceId,
-        $filepath,
-    ]
-)->toArray();
+// 配置中心
+$configListeners = [];
+if (get_env('NACOS_ENABLE_CONFIG_CENTER', true)) {
+    $configListeners = collect([
+        // 在此处增加配置中心的配置
+        // $dateId => $filePath
+        // $serviceName . '.env' => base_path() . '/.env',
+    ])->map(
+        fn($filepath, $dataId) => [
+            $dataId,
+            $groupName,
+            $namespaceId,
+            $filepath,
+        ]
+    )->toArray();
+}
+
+// 服务注册
+$instances = [];
+if (get_env('NACOS_ENABLE_SERVICE_REGISTER', true)) {
+    $instancesConfigs = array_unique(array_merge(
+        [$namespaceId],
+        explode(',', get_env('NACOS_SERVICE_EXTRA_NAMESPACES', ''))
+    ));
+    $instances = [];
+    $ip = get_env('NACOS_SERVICE_IP', Tools::getLocalIp());
+    $port = (int)get_env('NACOS_SERVICE_PORT', Tools::getLocalServerPort());
+    foreach ($instancesConfigs as $namespaceId) {
+        $instances[$namespaceId] = [
+            $serviceName,
+            $ip,
+            $port,
+            /** optional @see \Workbunny\WebmanNacos\Provider\InstanceProvider::registerAsync() */
+            [
+                'groupName' => $groupName,
+                'namespaceId' => $namespaceId,
+                'enabled' => null,
+                'ephemeral' => null,
+            ],
+        ];
+    }
+}
 
 return [
     'enable' => true,
@@ -53,25 +83,5 @@ return [
      * @see \Workbunny\WebmanNacos\Process\InstanceRegistrarProcess
      * @desc 这里的实例注册器主要用于静态的已知的实例注册，如果是项目内动态的实例注册，可以结合AOP+注解去实现对某个服务或者某个控制器的注册
      */
-    'instance_registrars' => [
-        'main' => [
-            /** serviceName */
-            $serviceName,
-
-            /** ip */
-            get_env('NACOS_SERVICE_IP', Tools::getLocalIp()),
-
-            /** port */
-            (int)get_env('NACOS_SERVICE_PORT', Tools::getLocalServerPort()),
-
-            /** optional @see \Workbunny\WebmanNacos\Provider\InstanceProvider::registerAsync() */
-            [
-                'groupName' => $groupName,
-                'namespaceId' => $namespaceId,
-                'enabled' => null,
-                'ephemeral' => null,
-            ],
-        ],
-        # 以下可以新增多个数组
-    ]
+    'instance_registrars' => $instances,
 ];
