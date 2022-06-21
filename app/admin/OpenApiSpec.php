@@ -11,13 +11,9 @@ use OpenApi\Annotations as OA;
  * 基础信息
  * @link https://swagger.io/specification/#info-object
  * @OA\OpenApi(
- *     @OA\Info(
- *         version="1.0.0",
- *         title="App openAPI",
- *     ),
- *     @OA\Server(
- *         url="/admin"
- *     ),
+ *     @OA\Info(version="1.0.0", title="App openAPI"),
+ *     @OA\Server(url="/admin", description="local"),
+ *     @OA\Server(url="/{service_name}/admin", description="gateway"),
  * )
  *
  * 授权方式
