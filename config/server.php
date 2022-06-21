@@ -16,7 +16,7 @@ return [
     'listen' => get_env('SERVER_LISTEN', 'http://0.0.0.0:8787'),
     'transport' => 'tcp',
     'context' => [],
-    'name' => get_env('SERVER_NAME', 'webman'),
+    'name' => get_env('SERVER_NAME', config('app.name')),
     'count' => get_env('SERVER_COUNT', cpu_count() * 2),
     'user' => get_env('SERVER_USER', ''),
     'group' => get_env('SERVER_GROUP', ''),

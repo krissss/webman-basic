@@ -13,7 +13,7 @@ class MemoryRemember implements MemoryRememberInterface
      */
     public function set($key, $value): void
     {
-        $this->data[Tools::buildCacheKey($key)] = $value;
+        $this->data[Tools::buildKey($key)] = $value;
     }
 
     /**
@@ -21,6 +21,6 @@ class MemoryRemember implements MemoryRememberInterface
      */
     public function get($key, $default = null)
     {
-        return $this->data[Tools::buildCacheKey($key)] ?? $default;
+        return $this->data[Tools::buildKey($key)] ?? $default;
     }
 }

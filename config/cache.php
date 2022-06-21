@@ -1,7 +1,6 @@
 <?php
 
 $cacheDefaultTTL = get_env('CACHE_DEFAULT_TTL', 3600);
-$cacheNamespace = get_env('CACHE_NAMESPACE', 'webman');
 
 return [
     'default' => get_env('CACHE_ADAPTER', 'file'),
@@ -10,13 +9,13 @@ return [
             'driver' => 'file',
             'save_path' => runtime_path() . '/cache',
             'default_ttl' => $cacheDefaultTTL,
-            'namespace' => $cacheNamespace,
+            'namespace' => 'webman',
         ],
         'redis' => [
             'driver' => 'redis',
             'connection' => 'cache',
             'default_ttl' => $cacheDefaultTTL,
-            'namespace' => $cacheNamespace,
+            'namespace' => '', // 已经通过 redis.config 下的 cache 限定 prefix
         ],
     ],
 ];

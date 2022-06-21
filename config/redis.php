@@ -14,7 +14,7 @@
 
 $redisHost = get_env('REDIS_HOST', '127.0.0.1');
 $redisPassword = get_env('REDIS_PASSWORD');
-$redisPort = get_env('REDIS_PORT', 6379);
+$redisPort = (int)get_env('REDIS_PORT', 6379);
 
 return [
     'default' => [
@@ -22,17 +22,22 @@ return [
         'password' => $redisPassword,
         'port' => $redisPort,
         'database' => get_env('REDIS_DB_DEFAULT', 0),
+        'prefix' => get_env('REDIS_PREFIX_DEFAULT', config('app.name') . ':redis:'),
     ],
+    // used by session.php
     'session' => [
         'host' => $redisHost,
         'password' => $redisPassword,
         'port' => $redisPort,
-        'database' => get_env('REDIS_DB_SESSION', 1),
+        'database' => get_env('REDIS_DB_SESSION', 0),
+        'prefix' => get_env('REDIS_PREFIX_SESSION', config('app.name') . ':session:'),
     ],
+    // used by cache.php
     'cache' => [
         'host' => $redisHost,
         'password' => $redisPassword,
         'port' => $redisPort,
-        'database' => get_env('REDIS_DB_CACHE', 2),
+        'database' => get_env('REDIS_DB_CACHE', 0),
+        'prefix' => get_env('REDIS_PREFIX_DEFAULT', config('app.name') . ':cache:'),
     ],
 ];

@@ -22,8 +22,6 @@ $sessionTypeMap = [
     'redis_cluster' => Webman\RedisClusterSessionHandler::class,
 ];
 
-$sessionPrefix = get_env('SESSION_PREFIX', 'webman_session_');
-
 return [
 
     'type' => $sessionType, // file or redis or redis_cluster
@@ -36,17 +34,17 @@ return [
         ],
         'redis' => [
             'host' => $sessionRedis['host'],
-            'port' => $sessionRedis['host'],
+            'port' => $sessionRedis['port'],
             'auth' => $sessionRedis['password'],
             'timeout' => 2,
             'database' => $sessionRedis['database'],
-            'prefix' => $sessionPrefix,
+            'prefix' => $sessionRedis['prefix'],
         ],
         'redis_cluster' => [
             'host' => ['127.0.0.1:7000', '127.0.0.1:7001', '127.0.0.1:7001'],
             'timeout' => 2,
             'auth' => '',
-            'prefix' => $sessionPrefix,
+            'prefix' => $sessionRedis['prefix'],
         ]
     ],
 

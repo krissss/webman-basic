@@ -21,4 +21,5 @@ return [
     'public_path' => base_path() . DIRECTORY_SEPARATOR . 'public',
     'runtime_path' => base_path(false) . DIRECTORY_SEPARATOR . 'runtime',
     'controller_suffix' => 'Controller',
+    'name' => get_env('APP_NAME', 'webman_basic'),
 ];

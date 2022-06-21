@@ -68,7 +68,7 @@ class Tools
      * @param mixed $keys
      * @return string
      */
-    public static function buildCacheKey($keys): string
+    public static function buildKey($keys): string
     {
         if (is_string($keys) && strlen($keys) <= 32) {
             return $keys;
