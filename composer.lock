@@ -619,16 +619,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.3.6",
+            "version": "3.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "9e7f76dd1cde81c62574fdffa5a9c655c847ad21"
+                "reference": "9f79d4650430b582f4598fe0954ef4d52fbc0a8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/9e7f76dd1cde81c62574fdffa5a9c655c847ad21",
-                "reference": "9e7f76dd1cde81c62574fdffa5a9c655c847ad21",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/9f79d4650430b582f4598fe0954ef4d52fbc0a8a",
+                "reference": "9f79d4650430b582f4598fe0954ef4d52fbc0a8a",
                 "shasum": ""
             },
             "require": {
@@ -643,11 +643,11 @@
             "require-dev": {
                 "doctrine/coding-standard": "9.0.0",
                 "jetbrains/phpstorm-stubs": "2022.1",
-                "phpstan/phpstan": "1.6.3",
+                "phpstan/phpstan": "1.7.13",
                 "phpstan/phpstan-strict-rules": "^1.2",
                 "phpunit/phpunit": "9.5.20",
                 "psalm/plugin-phpunit": "0.16.1",
-                "squizlabs/php_codesniffer": "3.6.2",
+                "squizlabs/php_codesniffer": "3.7.0",
                 "symfony/cache": "^5.2|^6.0",
                 "symfony/console": "^2.7|^3.0|^4.0|^5.0|^6.0",
                 "vimeo/psalm": "4.23.0"
@@ -710,7 +710,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.3.6"
+                "source": "https://github.com/doctrine/dbal/tree/3.3.7"
             },
             "funding": [
                 {
@@ -726,7 +726,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-02T17:21:01+00:00"
+            "time": "2022-06-13T21:43:03+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -1164,7 +1164,7 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -1217,16 +1217,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "fc232e89c0214dba5d2b431220a24b02d480a472"
+                "reference": "71cc806cf214a287dd4a86cac09171a84c3aa573"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/fc232e89c0214dba5d2b431220a24b02d480a472",
-                "reference": "fc232e89c0214dba5d2b431220a24b02d480a472",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/71cc806cf214a287dd4a86cac09171a84c3aa573",
+                "reference": "71cc806cf214a287dd4a86cac09171a84c3aa573",
                 "shasum": ""
             },
             "require": {
@@ -1267,11 +1267,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-03-25T14:53:23+00:00"
+            "time": "2022-06-17T02:35:16+00:00"
         },
         {
             "name": "illuminate/config",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
@@ -1319,7 +1319,7 @@
         },
         {
             "name": "illuminate/console",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
@@ -1379,7 +1379,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -1430,7 +1430,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -1478,16 +1478,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "264976d81a37d06ad64242afa28bc8167cfd1efa"
+                "reference": "4c189947b4f1f34468e1d083d20ace570bc8bbea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/264976d81a37d06ad64242afa28bc8167cfd1efa",
-                "reference": "264976d81a37d06ad64242afa28bc8167cfd1efa",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/4c189947b4f1f34468e1d083d20ace570bc8bbea",
+                "reference": "4c189947b4f1f34468e1d083d20ace570bc8bbea",
                 "shasum": ""
             },
             "require": {
@@ -1542,11 +1542,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-05-11T13:33:08+00:00"
+            "time": "2022-06-13T18:31:18+00:00"
         },
         {
             "name": "illuminate/events",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -1601,7 +1601,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -1663,7 +1663,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -1709,7 +1709,7 @@
         },
         {
             "name": "illuminate/pagination",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pagination.git",
@@ -1759,7 +1759,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -1807,7 +1807,7 @@
         },
         {
             "name": "illuminate/redis",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/redis.git",
@@ -1861,7 +1861,7 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
@@ -1929,7 +1929,7 @@
         },
         {
             "name": "illuminate/translation",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/translation.git",
@@ -1981,7 +1981,7 @@
         },
         {
             "name": "illuminate/validation",
-            "version": "v8.83.16",
+            "version": "v8.83.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/validation.git",
@@ -2079,16 +2079,16 @@
         },
         {
             "name": "kriss/webman-docker",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/docker-webman.git",
-                "reference": "38ab7e4d504520b841f73d74ce797bc68a449716"
+                "reference": "50456b44c19be5e97b14ccf917c96d9bc25e6073"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/docker-webman/zipball/38ab7e4d504520b841f73d74ce797bc68a449716",
-                "reference": "38ab7e4d504520b841f73d74ce797bc68a449716",
+                "url": "https://api.github.com/repos/krissss/docker-webman/zipball/50456b44c19be5e97b14ccf917c96d9bc25e6073",
+                "reference": "50456b44c19be5e97b14ccf917c96d9bc25e6073",
                 "shasum": ""
             },
             "type": "library",
@@ -2104,9 +2104,9 @@
             "description": "docker for webman app",
             "support": {
                 "issues": "https://github.com/krissss/docker-webman/issues",
-                "source": "https://github.com/krissss/docker-webman/tree/v1.2.0"
+                "source": "https://github.com/krissss/docker-webman/tree/v1.2.1"
             },
-            "time": "2022-05-26T12:06:33+00:00"
+            "time": "2022-06-22T02:04:15+00:00"
         },
         {
             "name": "kriss/webman-eloquent-ide-helper",
@@ -5320,16 +5320,16 @@
         },
         {
             "name": "workerman/workerman",
-            "version": "v4.0.38",
+            "version": "v4.0.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/workerman.git",
-                "reference": "bb7079b8e8ceccf3d1c045d084cbfea42e652fd8"
+                "reference": "97ff0d0d3d20ce9abfd0f3c87e5e3481d3bf16d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/workerman/zipball/bb7079b8e8ceccf3d1c045d084cbfea42e652fd8",
-                "reference": "bb7079b8e8ceccf3d1c045d084cbfea42e652fd8",
+                "url": "https://api.github.com/repos/walkor/workerman/zipball/97ff0d0d3d20ce9abfd0f3c87e5e3481d3bf16d9",
+                "reference": "97ff0d0d3d20ce9abfd0f3c87e5e3481d3bf16d9",
                 "shasum": ""
             },
             "require": {
@@ -5379,7 +5379,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-06-11T04:48:37+00:00"
+            "time": "2022-06-16T14:11:47+00:00"
         },
         {
             "name": "yiisoft/json",

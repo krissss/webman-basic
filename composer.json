@@ -83,13 +83,5 @@
     "phinx": "phinx"
   },
   "repositories": {
-    "webman/redis-queue": {
-      "type": "git",
-      "url": "https://github.com/krissss/redis-queue"
-    },
-    "workerman/redis-queue": {
-      "type": "git",
-      "url": "https://github.com/krissss/redis-queue-1"
-    }
   }
 }
