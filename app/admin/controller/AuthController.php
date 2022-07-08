@@ -3,38 +3,21 @@
 namespace app\admin\controller;
 
 use app\components\Component;
-use app\exception\UserSeeException;
+use app\exception\ValidationException;
 use app\model\Admin;
-use OpenApi\Annotations as OA;
 use support\facade\Auth;
 use support\Request;
-use support\Response;
+use Webman\Http\Response;
 
 /**
- * @OA\Tag(name="auth", description="授权登录")
+ * 授权
  */
 class AuthController
 {
     /**
      * 登录
-     *
-     * @OA\Post(
-     *     path="/auth/login",
-     *     tags={"auth"},
-     *     @OA\RequestBody(
-     *         required=true,
-     *         @OA\MediaType(
-     *             mediaType="application/json",
-     *             @OA\Schema(
-     *                 type="object",
-     *                 required={"username", "password"},
-     *                 @OA\Property(property="username", description="用户名", type="string", example="admin"),
-     *                 @OA\Property(property="password", description="密码", type="string", example="123456"),
-     *             )
-     *         )
-     *     ),
-     *     @OA\Response(response="200", description="ok"),
-     * )
+     * @param Request $request
+     * @return Response
      */
     public function login(Request $request): Response
     {
@@ -46,24 +29,21 @@ class AuthController
 
         $admin = Admin::query()->where('username', $data['username'])->first();
         if (!$admin || !Component::security()->validatePassword($data['password'], $admin->password)) {
-            throw new UserSeeException(trans('auth.user_password_error'));
+            throw new ValidationException([
+                'username' => trans('auth.user_password_error'),
+            ]);
         }
 
         Auth::guard()->login($admin);
         $admin->refreshToken();
+        $admin->makeVisible(['access_token']);
 
-        return json_success($admin);
+        return admin_response($admin);
     }
 
     /**
      * 退出登录
-     *
-     * @OA\Post(
-     *     path="/auth/logout",
-     *     tags={"auth"},
-     *     security={{"api_key": {}}},
-     *     @OA\Response(response="200", description="ok"),
-     * )
+     * @return Response
      */
     public function logout(): Response
     {
@@ -74,6 +54,6 @@ class AuthController
         Auth::identityAdmin()->refreshToken(null);
         Auth::guard()->logout();
 
-        return json_success('logout');
+        return admin_response('logout');
     }
 }

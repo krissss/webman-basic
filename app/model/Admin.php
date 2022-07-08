@@ -64,6 +64,14 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
     ];
 
     /**
+     * @inheritdoc
+     */
+    protected $hidden = [
+        'password',
+        'access_token',
+    ];
+
+    /**
      * @inheritDoc
      */
     public function getId(): ?string

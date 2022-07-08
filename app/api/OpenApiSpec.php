@@ -1,6 +1,6 @@
 <?php
 
-namespace app\admin;
+namespace app\api;
 
 use OpenApi\Annotations as OA;
 
@@ -12,8 +12,8 @@ use OpenApi\Annotations as OA;
  * @link https://swagger.io/specification/#info-object
  * @OA\OpenApi(
  *     @OA\Info(version="1.0.0", title="App openAPI"),
- *     @OA\Server(url="/admin", description="local"),
- *     @OA\Server(url="/{service_name}/admin", description="gateway"),
+ *     @OA\Server(url="/api", description="local"),
+ *     @OA\Server(url="/{service_name}/api", description="gateway"),
  * )
  *
  * 授权方式

@@ -3,6 +3,7 @@
  * Here is your custom functions.
  */
 
+use Illuminate\Contracts\Support\Arrayable;
 use support\Response;
 use Yiisoft\Json\Json;
 
@@ -27,4 +28,15 @@ function json_error(string $msg, int $code = 422, $data = null)
         'msg' => $msg,
         'data' => $data,
     ]);
+}
+
+function admin_response($data, string $msg = '', array $extraInfo = [])
+{
+    if ($data instanceof Arrayable) {
+        $data = $data->toArray();
+    }
+    if (is_string($data)) {
+        $data = ['result' => $data];
+    }
+    return amis_response($data, $msg, $extraInfo);
 }

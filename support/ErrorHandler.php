@@ -13,8 +13,8 @@ class ErrorHandler extends Handler
 {
     public function __construct($logger, $debug)
     {
-        $logger = Log::channel('app');
         parent::__construct($logger, $debug);
+        $this->_logger = Log::channel('app');
     }
 
     /**

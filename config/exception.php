@@ -15,4 +15,5 @@
 return [
     //'' => support\exception\Handler::class,
     '' => \support\ErrorHandler::class,
+    'admin' => \support\ErrorHandlerAdmin::class,
 ];

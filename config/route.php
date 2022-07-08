@@ -14,26 +14,14 @@
 
 use Webman\Route;
 
-
 Route::any('/', fn() => 'Hello!');
 
 Route::group('/admin', function () {
-    app\admin\controller\OpenApiController::registerRoute();
+    require __DIR__ . '/../app/admin/route.php';
 });
-Route::group('/admin', function () {
-    Route::post('/auth/login', [app\admin\controller\AuthController::class, 'login']);
-})->middleware([
-    app\middleware\SetAuthGuardAdmin::class,
-]);
-Route::group('/admin', function () {
-    Route::get('/info', [app\admin\controller\InfoController::class, 'index']);
-    Route::post('/auth/logout', [app\admin\controller\AuthController::class, 'logout']);
-
-    Route::resource('/admin', app\admin\controller\AdminController::class);
-})->middleware([
-    app\middleware\SetAuthGuardAdmin::class,
-    app\middleware\AuthenticateAdmin::class,
-]);
+Route::group('/api', function () {
+    require __DIR__ . '/../app/api/route.php';
+});
 
 // 关闭默认路由
 Route::disableDefaultRoute();

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\admin\controller;
+namespace app\api\controller;
 
 use app\components\Component;
 use app\components\Tools;
@@ -10,8 +10,8 @@ use Webman\Route;
 
 /**
  * Openapi 的路由地址
- * 如果要在 api 下建立 openapi 访问，如下操作：
- * 1.在 api/controller 下新建一个 OpenApiController 继承当前类
+ * 如果要在 api2 下建立 openapi 访问，如下操作：
+ * 1.在 api2/controller 下新建一个 OpenApiController 继承当前类
  * 2.修改 const 常量配置
  * 3.在 config/route.php 下相应增加路由注册
  */
@@ -25,7 +25,7 @@ class OpenApiController
     /**
      * 扫描的路径，相对根目录
      */
-    protected const SCAN_PATH = ['/app/admin'];
+    protected const SCAN_PATH = ['/app/api'];
 
     public function index(): Response
     {

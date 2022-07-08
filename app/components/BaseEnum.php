@@ -42,6 +42,21 @@ abstract class BaseEnum
     }
 
     /**
+     * @return array
+     */
+    public static function getLabelValue(): array
+    {
+        $data = [];
+        foreach (static::getViewItems() as $value => $label) {
+            $data[] = [
+                'label' => $label,
+                'value' => $value,
+            ];
+        }
+        return $data;
+    }
+
+    /**
      * 获取全部键
      * @return array
      */
