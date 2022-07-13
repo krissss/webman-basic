@@ -59,14 +59,14 @@ class AdminRepository extends EloquentRepository
     {
         if ($scene === static::SCENE_CREATE) {
             return [
-                'username' => 'required|string|min:5',
+                'username' => 'required|string|min:4',
                 'name' => 'required|string|max:32',
                 'password' => 'required|string|min:6|max:32',
             ];
         }
         if ($scene === static::SCENE_UPDATE) {
             return [
-                'username' => 'string|min:5',
+                'username' => 'string|min:4',
                 'name' => 'string|max:32',
             ];
         }
@@ -108,12 +108,13 @@ class AdminRepository extends EloquentRepository
     /**
      * 重置密码
      * @param array $data
+     * @param $id
      */
-    public function resetPassword(array $data): void
+    public function resetPassword(array $data, $id): void
     {
         $data = $this->validate($data, static::SCENE_RESET_PASSWORD);
         /** @var Admin $model */
-        $model = $this->model();
+        $model = $this->query()->findOrFail($id);
         $model->password = Component::security()->generatePasswordHash($data['new_password']);
         $model->refreshToken();
     }

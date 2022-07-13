@@ -26,7 +26,7 @@ class Security implements SecurityInterface
     /**
      * @inheritDoc
      */
-    public static function generateRandomString(int $length = 16): string
+    public function generateRandomString(int $length = 16): string
     {
         return Str::random($length);
     }

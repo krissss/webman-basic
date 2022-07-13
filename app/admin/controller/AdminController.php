@@ -110,9 +110,8 @@ class AdminController extends AbsSourceController
             $form[] = FormField::make()->name('password')->typeInputPassword()->required($isRequired);
         }
         if ($scene === static::SCENE_UPDATE) {
-            $form[] = FormField::make()->name('status')->typeSelect([
-                'options' => AdminStatus::getLabelValue()
-            ]);
+            $form[] = FormField::make()->name('status')
+                ->typeSelect(['options' => AdminStatus::getLabelValue()]);
         }
         return $form;
     }
@@ -123,6 +122,7 @@ class AdminController extends AbsSourceController
     protected function detail(): array
     {
         return [
+            'id',
             'username',
             'name',
             DetailAttribute::make()->name('status')->typeMapping(['map' => AdminStatus::getViewItems()]),
@@ -135,11 +135,12 @@ class AdminController extends AbsSourceController
     /**
      * 重置密码
      * @param Request $request
+     * @param $id
      * @return Response
      */
-    public function resetPassword(Request $request): Response
+    public function resetPassword(Request $request, $id): Response
     {
-        $this->repository()->resetPassword($request->post());
-        return admin_response(['result' => 'ok']);
+        $this->repository()->resetPassword($request->post(), $id);
+        return admin_response('ok');
     }
 }

@@ -24,5 +24,5 @@ interface SecurityInterface
      * @param int $length
      * @return string
      */
-    public static function generateRandomString(int $length = 16): string;
+    public function generateRandomString(int $length = 16): string;
 }

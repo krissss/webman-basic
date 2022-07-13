@@ -109,7 +109,7 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
     public function refreshToken($token = false)
     {
         if ($token === false) {
-            $token = Component::security()::generateRandomString(32);
+            $token = Component::security()->generateRandomString(32);
         }
         $this->access_token = $token;
         $this->save();
