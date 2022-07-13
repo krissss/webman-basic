@@ -3,9 +3,11 @@
 namespace app\admin\controller\repository;
 
 use app\components\Component;
+use app\enums\AdminStatus;
 use app\model\Admin;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\Rule;
 use Kriss\WebmanAmisAdmin\Repository\EloquentRepository;
 
 class AdminRepository extends EloquentRepository
@@ -68,6 +70,7 @@ class AdminRepository extends EloquentRepository
             return [
                 'username' => 'string|min:4',
                 'name' => 'string|max:32',
+                'status' => Rule::in(AdminStatus::getValues()),
             ];
         }
         if ($scene === static::SCENE_RESET_PASSWORD) {

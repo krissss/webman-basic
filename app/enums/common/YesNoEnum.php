@@ -9,6 +9,9 @@ class YesNoEnum extends BaseEnum
     const YES = 1;
     const NO = 0;
 
+    /**
+     * @inheritdoc
+     */
     public static function getViewItems(): array
     {
         return [

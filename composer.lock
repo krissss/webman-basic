@@ -2041,16 +2041,16 @@
         },
         {
             "name": "kriss/webman-amis-admin",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-amis-admin.git",
-                "reference": "3a26a0dc1b706b8cc5a098f36012d9fa649177bb"
+                "reference": "605af5ffa116aa624622b6a106bff77decc8f529"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/3a26a0dc1b706b8cc5a098f36012d9fa649177bb",
-                "reference": "3a26a0dc1b706b8cc5a098f36012d9fa649177bb",
+                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/605af5ffa116aa624622b6a106bff77decc8f529",
+                "reference": "605af5ffa116aa624622b6a106bff77decc8f529",
                 "shasum": ""
             },
             "require": {
@@ -2079,9 +2079,9 @@
             "description": "Webman plugin kriss/webman-amis-admin",
             "support": {
                 "issues": "https://github.com/krissss/webman-amis-admin/issues",
-                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.0.0"
+                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.0.1"
             },
-            "time": "2022-07-13T07:46:27+00:00"
+            "time": "2022-07-13T09:56:29+00:00"
         },
         {
             "name": "kriss/webman-auth",

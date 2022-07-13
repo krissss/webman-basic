@@ -60,8 +60,8 @@ class AdminController extends AbsSourceController
             GridColumn::make()->name('id')->sortable(),
             GridColumn::make()->name('username')->searchable(),
             GridColumn::make()->name('name')->searchable()->quickEdit(),
-            GridColumn::make()->name('status')->searchable()
-                ->typeMapping(['map' => AdminStatus::getViewItems()]),
+            GridColumn::make()->name('status')->searchable()->quickEdit()
+                ->typeMapping(['map' => AdminStatus::getViewLabeledItems()]),
             GridColumn::make()->name('created_at')->sortable()->searchable([
                 'type' => 'input-datetime-range',
             ]),
@@ -99,7 +99,7 @@ class AdminController extends AbsSourceController
             'id',
             'username',
             'name',
-            DetailAttribute::make()->name('status')->typeMapping(['map' => AdminStatus::getViewItems()]),
+            DetailAttribute::make()->name('status')->typeMapping(['map' => AdminStatus::getViewLabeledItems()]),
             'access_token',
             'created_at',
             'updated_at',
