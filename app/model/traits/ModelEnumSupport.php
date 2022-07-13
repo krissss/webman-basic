@@ -9,7 +9,7 @@ trait ModelEnumSupport
      */
     public static function getViewItems(): array
     {
-        return static::query()->get()->pluck('name', 'id');
+        return static::query()->get()->pluck('name', 'id')->toArray();
     }
 
     /**
