@@ -4,6 +4,7 @@ namespace app\model;
 
 use app\components\BaseModel;
 use app\components\Component;
+use app\model\traits\ModelEnumSupport;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kriss\WebmanAuth\Interfaces\IdentityInterface;
 use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
@@ -30,6 +31,7 @@ use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
 class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {
     use SoftDeletes;
+    use ModelEnumSupport;
 
     public const SUPER_ADMIN_ID = 1;
 
