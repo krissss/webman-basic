@@ -57,15 +57,52 @@ class AdminController extends AbsSourceController
     protected function grid(): array
     {
         return [
-            'id',
+            GridColumn::make()->name('id')->sortable(),
             GridColumn::make()->name('username')->searchable(),
             GridColumn::make()->name('name')->searchable()->quickEdit(),
-            GridColumn::make()->name('status')->sortable()->searchable()
+            GridColumn::make()->name('status')->searchable()
                 ->typeMapping(['map' => AdminStatus::getViewItems()]),
             GridColumn::make()->name('created_at')->sortable()->searchable([
                 'type' => 'input-datetime-range',
             ]),
             GridColumn::make()->name('updated_at')->toggled(false),
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function form(string $scene): array
+    {
+        $isRequired = $scene === static::SCENE_CREATE;
+        $form = [
+            FormField::make()->name('username')->required($isRequired),
+            FormField::make()->name('name')->required($isRequired),
+        ];
+        if ($scene === static::SCENE_CREATE) {
+            $form[] = FormField::make()->name('password')->required($isRequired)
+                ->typeInputPassword();
+        }
+        if ($scene === static::SCENE_UPDATE) {
+            $form[] = FormField::make()->name('status')
+                ->typeSelect(['options' => AdminStatus::getLabelValue()]);
+        }
+        return $form;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function detail(): array
+    {
+        return [
+            'id',
+            'username',
+            'name',
+            DetailAttribute::make()->name('status')->typeMapping(['map' => AdminStatus::getViewItems()]),
+            'access_token',
+            'created_at',
+            'updated_at',
         ];
     }
 
@@ -94,42 +131,6 @@ class AdminController extends AbsSourceController
                     'level' => 'warning',
                 ]
             );
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function form(string $scene): array
-    {
-        $isRequired = $scene === static::SCENE_CREATE;
-        $form = [
-            FormField::make()->name('username')->required($isRequired),
-            FormField::make()->name('name')->required($isRequired),
-        ];
-        if ($scene === static::SCENE_CREATE) {
-            $form[] = FormField::make()->name('password')->typeInputPassword()->required($isRequired);
-        }
-        if ($scene === static::SCENE_UPDATE) {
-            $form[] = FormField::make()->name('status')
-                ->typeSelect(['options' => AdminStatus::getLabelValue()]);
-        }
-        return $form;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function detail(): array
-    {
-        return [
-            'id',
-            'username',
-            'name',
-            DetailAttribute::make()->name('status')->typeMapping(['map' => AdminStatus::getViewItems()]),
-            'access_token',
-            'created_at',
-            'updated_at',
-        ];
     }
 
     /**
