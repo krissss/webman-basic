@@ -60,19 +60,19 @@ class AdminRepository extends EloquentRepository
         if ($scene === static::SCENE_CREATE) {
             return [
                 'username' => 'required|string|min:5',
-                'name' => 'required|string',
-                'password' => 'required|string',
+                'name' => 'required|string|max:32',
+                'password' => 'required|string|min:6|max:32',
             ];
         }
         if ($scene === static::SCENE_UPDATE) {
             return [
                 'username' => 'string|min:5',
-                'name' => 'string',
+                'name' => 'string|max:32',
             ];
         }
         if ($scene === static::SCENE_RESET_PASSWORD) {
             return [
-                'new_password' => 'required|string|confirmed',
+                'new_password' => 'required|string|min:6|max:32|confirmed',
                 'new_password_confirmation' => 'string',
             ];
         }

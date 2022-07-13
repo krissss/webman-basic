@@ -4,6 +4,7 @@
  */
 
 use Illuminate\Contracts\Support\Arrayable;
+use Kriss\WebmanAmisAdmin\Amis\Component as AmisComponent;
 use support\Response;
 use Yiisoft\Json\Json;
 
@@ -33,6 +34,9 @@ function json_error(string $msg, int $code = 422, $data = null)
 function admin_response($data, string $msg = '', array $extraInfo = [])
 {
     if ($data instanceof Arrayable) {
+        $data = $data->toArray();
+    }
+    if ($data instanceof AmisComponent) {
         $data = $data->toArray();
     }
     if (is_string($data)) {

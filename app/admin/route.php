@@ -21,11 +21,14 @@ Route::group('', function () {
 Route::group('', function () {
     Route::get('', [RenderController::class, 'app'])->name('admin.layout');
     Route::get('/pages', [SystemController::class, 'pages'])->name('admin.pages');
+    Route::get('/dashboard', [SystemController::class, 'dashboard'])->name('admin.dashboard.view');
 
-    Route::get('/info', [InfoController::class, 'index']);
+    Route::get('/info-page', [InfoController::class, 'page'])->name('admin.info.view');
+    Route::get('/info', [InfoController::class, 'index'])->name('admin.info');
+    Route::post('/info/update', [InfoController::class, 'update'])->name('admin.info.update');
     Route::post('/auth/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
-    Route::resource('/admin', AdminController::class);
+    Route::resource('admin', AdminController::class);
     Route::post('/admin/reset-password/{id}', [AdminController::class, 'resetPassword'])->name('admin.reset-password');
 })->middleware([
     SetAuthGuardAdmin::class,
