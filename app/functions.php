@@ -40,3 +40,15 @@ function admin_response($data, string $msg = '', array $extraInfo = [])
     }
     return amis_response($data, $msg, $extraInfo);
 }
+
+/**
+ * admin 重定向
+ * @see /public/js/amis-admin.js
+ * @param string $redirectUrl
+ * @param string $msg
+ * @return \Webman\Http\Response
+ */
+function admin_redirect(string $redirectUrl, string $msg = '')
+{
+    return admin_response(['redirect' => $redirectUrl], $msg, ['status' => 301]);
+}

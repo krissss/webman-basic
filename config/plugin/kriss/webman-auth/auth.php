@@ -1,6 +1,8 @@
 <?php
 
 use Kriss\WebmanAuth\Authentication\FailureHandler\RedirectHandler;
+use Kriss\WebmanAuth\Authentication\Method\CompositeMethod;
+use Kriss\WebmanAuth\Authentication\Method\HttpHeaderMethod;
 use Kriss\WebmanAuth\Authentication\Method\SessionMethod;
 use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
 
@@ -12,7 +14,10 @@ return [
                 return new User();
             },
             'authenticationMethod' => function (IdentityRepositoryInterface $identityRepository) {
-                return new SessionMethod($identityRepository);
+                return new CompositeMethod([
+                    new HttpHeaderMethod($identityRepository, ['tokenType' => 'token']),
+                    new SessionMethod($identityRepository, ['tokenType' => 'session']),
+                ]);
             },
             'authenticationFailureHandler' => function () {
                 return new RedirectHandler(route('/auth/login'));
@@ -23,7 +28,10 @@ return [
                 return new app\model\Admin();
             },
             'authenticationMethod' => function (IdentityRepositoryInterface $identityRepository) {
-                return new Kriss\WebmanAuth\Authentication\Method\HttpHeaderMethod($identityRepository);
+                return new CompositeMethod([
+                    new HttpHeaderMethod($identityRepository, ['tokenType' => 'token']),
+                    new SessionMethod($identityRepository, ['tokenType' => 'session']),
+                ]);
             },
             'authenticationFailureHandler' => function () {
                 return new Kriss\WebmanAuth\Authentication\FailureHandler\ThrowExceptionHandler();

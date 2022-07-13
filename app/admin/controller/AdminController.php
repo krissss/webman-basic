@@ -90,7 +90,7 @@ class AdminController extends AbsSourceController
                     ]),
                 ]),
                 [
-                    'api' => route('admin/reset-password', ['id' => '${id}']),
+                    'api' => route('admin.reset-password', ['id' => '${id}']),
                     'level' => 'warning',
                 ]
             );

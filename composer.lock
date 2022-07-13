@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f107314480543894b3b7eee25e1ad727",
+    "content-hash": "c3a2d80851eb44fdc1083f0eb3cc9b11",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2041,17 +2041,11 @@
         },
         {
             "name": "kriss/webman-amis-admin",
-            "version": "v0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/krissss/webman-amis-admin.git",
-                "reference": "a14c817fd6fe2303c2053ae9d0e32650ef1f9f53"
-            },
+            "version": "dev-main",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/a14c817fd6fe2303c2053ae9d0e32650ef1f9f53",
-                "reference": "a14c817fd6fe2303c2053ae9d0e32650ef1f9f53",
-                "shasum": ""
+                "type": "path",
+                "url": "F:/php-projects/webman-plugins/webman-amis-admin",
+                "reference": "a14c817fd6fe2303c2053ae9d0e32650ef1f9f53"
             },
             "require": {
                 "ext-json": "*",
@@ -2065,36 +2059,33 @@
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "src/helper.php"
-                ],
                 "psr-4": {
                     "Kriss\\WebmanAmisAdmin\\": "src"
-                }
+                },
+                "files": [
+                    "src/helper.php"
+                ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Webman plugin kriss/webman-amis-admin",
-            "support": {
-                "issues": "https://github.com/krissss/webman-amis-admin/issues",
-                "source": "https://github.com/krissss/webman-amis-admin/tree/v0.1.0"
-            },
-            "time": "2022-07-07T14:57:48+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "kriss/webman-auth",
-            "version": "v1.3.0",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-auth.git",
-                "reference": "ca786fbb788676e764d25ec58eb7f32b54b5a535"
+                "reference": "dd15b3d09e6a61d67c916935df81a68ba4fcca64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-auth/zipball/ca786fbb788676e764d25ec58eb7f32b54b5a535",
-                "reference": "ca786fbb788676e764d25ec58eb7f32b54b5a535",
+                "url": "https://api.github.com/repos/krissss/webman-auth/zipball/dd15b3d09e6a61d67c916935df81a68ba4fcca64",
+                "reference": "dd15b3d09e6a61d67c916935df81a68ba4fcca64",
                 "shasum": ""
             },
             "require": {
@@ -2117,9 +2108,9 @@
             "description": "webman auth plugin",
             "support": {
                 "issues": "https://github.com/krissss/webman-auth/issues",
-                "source": "https://github.com/krissss/webman-auth/tree/v1.3.0"
+                "source": "https://github.com/krissss/webman-auth/tree/v1.3.2"
             },
-            "time": "2022-05-30T13:05:52+00:00"
+            "time": "2022-07-13T01:21:41+00:00"
         },
         {
             "name": "kriss/webman-docker",
@@ -5657,7 +5648,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kriss/webman-amis-admin": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -92,7 +92,14 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
      */
     public function findIdentity(string $token, string $type = null): ?IdentityInterface
     {
-        return static::query()->where('access_token', $token)->first();
+        $model = null;
+        if ($type === 'session') {
+            $model = static::find($token);
+        } elseif ($type === 'token') {
+            $model = static::query()->where('access_token', $token)->first();
+        }
+        /** @var static|null $model */
+        return $model;
     }
 
     /**

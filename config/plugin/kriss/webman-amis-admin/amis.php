@@ -4,6 +4,7 @@ use Kriss\WebmanAmisAdmin\Amis;
 use Kriss\WebmanAmisAdmin\Amis\Component;
 use Kriss\WebmanAmisAdmin\Controller\RenderController;
 use Kriss\WebmanAmisAdmin\Validator\LaravelValidator;
+use support\facade\Auth;
 
 return [
     /**
@@ -51,11 +52,34 @@ return [
         /**
          * @link https://aisuda.bce.baidu.com/amis/zh-CN/components/app
          */
-        'amisJSON' => [
-            'brandName' => config('app.name', 'App Admin'),
-            'logo' => '/favicon.ico',
-            'api' => '/admin/pages', // 修改成获取菜单的路由
-        ],
+        'amisJSON' => function () {
+            return [
+                'brandName' => config('app.name', 'App Admin'),
+                'logo' => '/favicon.ico',
+                'api' => route('admin.pages'), // 修改成获取菜单的路由
+                'header' => [
+                    'type' => 'flex',
+                    'justify' => 'flex-end',
+                    'style' => [
+                        'width' => '100%',
+                    ],
+                    'items' => [
+                        [
+                            'type' => 'dropdown-button',
+                            'label' => Auth::guard()->isGuest() ? '' : Auth::identityAdmin()->name,
+                            'trigger' => 'hover',
+                            'icon' => 'fa fa-user-circle',
+                            'buttons' => Amis\ActionButtons::make()
+                                ->withButton(1, '修改信息')
+                                ->withButtonAjax(99, '退出登录', route('admin.logout'), [
+                                    'confirmText' => '确定退出登录？'
+                                ])
+                                ->toArray(),
+                        ],
+                    ],
+                ],
+            ];
+        },
         'title' => config('app.name'),
     ],
     /**
@@ -73,8 +97,8 @@ return [
      */
     'page_login' => [
         //'background' => '#eee', // 可以使用图片, 'url(http://xxxx)'
-        'login_api' => '/admin/auth/login',
-        'success_redirect' => '/admin',
+        'login_api' => route('admin.login'),
+        'success_redirect' => route('admin.layout'),
     ],
     /**
      * 用于全局替换组件的默认参数

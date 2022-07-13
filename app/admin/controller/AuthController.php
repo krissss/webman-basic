@@ -47,13 +47,11 @@ class AuthController
      */
     public function logout(): Response
     {
-        if (Auth::guard()->isGuest()) {
-            return json_success('guest');
+        if (!Auth::guard()->isGuest()) {
+            Auth::identityAdmin()->refreshToken(null);
+            Auth::guard()->logout();
         }
 
-        Auth::identityAdmin()->refreshToken(null);
-        Auth::guard()->logout();
-
-        return admin_response('logout');
+        return admin_redirect(route('admin.login.view'), '退出成功');
     }
 }

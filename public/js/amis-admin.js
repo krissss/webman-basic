@@ -1,4 +1,3 @@
-const AK_LOCAL_KEY = 'X-API-KEY';
 const AMIS_CONFIG = {
   akHeader: 'X-Api-Key',
   localKey: 'ADMIN-X-API-KEY',
@@ -17,7 +16,11 @@ window.amisAppEnv = {
       localStorage.setItem(AMIS_CONFIG.localKey, payload.data[AMIS_CONFIG.akResponseKey])
     }
     if (payload.status === 401) {
-      window.location.href = AMIS_CONFIG.loginApi
+      window.location.href = AMIS_CONFIG.loginUrl
+    }
+    if ([301, 302].indexOf(payload.status) !== -1 && payload.data.redirect) {
+      window.location.href = payload.data.redirect
+      payload.status = 0 // 改为正确响应，确保该接口提示的是成功的
     }
     return payload
   },
