@@ -116,6 +116,7 @@ class AdminController extends AbsSourceController
                 Amis\GridColumnActions::INDEX_UPDATE + 1,
                 '重置密码',
                 $this->buildFormFields([
+                    ['type' => 'alert', 'body' => '重置密码后会刷新 Access Token', 'level' => 'info', 'showIcon' => true],
                     FormField::make()->typeInputPassword()->name('new_password')->value(null)->required(),
                     FormField::make()->typeInputPassword()->name('new_password_confirmation')->value(null)->required()->schema([
                         'validations' => [
