@@ -30,7 +30,7 @@ class AuthController
         $admin = Admin::query()->where('username', $data['username'])->first();
         if (!$admin || !Component::security()->validatePassword($data['password'], $admin->password)) {
             throw new ValidationException([
-                'username' => trans('auth.user_password_error'),
+                'username' => trans('用户名或密码错误'),
             ]);
         }
 

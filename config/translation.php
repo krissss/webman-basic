@@ -22,7 +22,7 @@ return [
     // Default language
     'locale' => LangEnum::ZH_CN,
     // Fallback language
-    'fallback_locale' => LangEnum::getValues(),
+    'fallback_locale' => [], // 不提供语言降级，因为需要通过中文来快速翻译
     // Folder where language files are stored
     'path' => base_path() . '/resource/translations',
 ];
