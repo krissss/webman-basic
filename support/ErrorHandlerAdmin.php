@@ -2,6 +2,7 @@
 
 namespace support;
 
+use Illuminate\Validation\ValidationException as LaravelValidationException;
 use Kriss\WebmanAmisAdmin\Exceptions\ValidationException;
 use Throwable;
 use Webman\Http\Response;
@@ -24,6 +25,14 @@ class ErrorHandlerAdmin extends ErrorHandler
                 'errors' => $e->errors,
             ];
             $this->errorMessage = '';
+            return;
+        }
+        if ($e instanceof LaravelValidationException) {
+            $this->extraInfos = [
+                'errors' => array_map(fn($messages) => $messages[0], $e->validator->errors()->toArray())
+            ];
+            $this->errorMessage = '';
+            $this->statusCode = 422;
             return;
         }
 

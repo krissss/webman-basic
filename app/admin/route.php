@@ -26,6 +26,7 @@ Route::group('', function () {
     Route::get('/info-page', [InfoController::class, 'page'])->name('admin.info.view');
     Route::get('/info', [InfoController::class, 'index'])->name('admin.info');
     Route::post('/info/update', [InfoController::class, 'update'])->name('admin.info.update');
+    Route::post('/info/change-password', [InfoController::class, 'changePassword'])->name('admin.info.change-password');
     Route::post('/auth/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
     Route::resource('admin', AdminController::class);

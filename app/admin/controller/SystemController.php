@@ -23,7 +23,7 @@ class SystemController
                     'label' => '菜单',
                     'children' => [
                         ['label' => '首页', 'icon' => 'fa fa-home', 'url' => '/', 'schemaApi' => route('admin.dashboard.view'),],
-                        ['label' => '信息修改', 'url' => '/admin/info', 'schemaApi' => route('admin.info.view'), 'visible' => false],
+                        ['label' => '个人设置', 'url' => '/admin/info', 'schemaApi' => route('admin.info.view'), 'visible' => false],
                         ['label' => '管理员管理', 'icon' => 'fa fa-user', 'url' => '/admin', 'schemaApi' => route('admin.index')],
                     ],
                 ],

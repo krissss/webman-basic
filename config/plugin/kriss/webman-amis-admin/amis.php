@@ -70,7 +70,8 @@ return [
                             'trigger' => 'hover',
                             'icon' => 'fa fa-user-circle',
                             'buttons' => Amis\ActionButtons::make()
-                                ->withButtonLink(1, '修改信息', '/admin/info')
+                                ->withButtonLink(1, '个人设置', '/admin/info')
+                                ->withDivider(80)
                                 ->withButtonAjax(99, '退出登录', route('admin.logout'), [
                                     'confirmText' => '确定退出登录？'
                                 ])
