@@ -14,13 +14,15 @@ use support\facade\Auth;
 use support\Request;
 use Webman\Http\Response;
 
+/**
+ * @method AdminRepository repository()
+ */
 class AdminController extends AbsSourceController
 {
     /**
      * @inheritdoc
-     * @return AdminRepository
      */
-    protected function repository(): RepositoryInterface
+    protected function createRepository(): RepositoryInterface
     {
         return new AdminRepository();
     }

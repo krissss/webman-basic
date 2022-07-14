@@ -2,6 +2,7 @@
 
 namespace app\admin\controller;
 
+use app\admin\controller\repository\AdminRepository;
 use app\components\Component;
 use app\exception\ValidationException;
 use Kriss\WebmanAmisAdmin\Amis\DetailAttribute;
@@ -77,15 +78,7 @@ class InfoController
      */
     public function update(Request $request): Response
     {
-        $validator = validator($request->post(), [
-            'name' => 'required|string|max:32',
-            'password' => 'string|min:6|max:32',
-        ]);
-        $data = $validator->validate();
-
-        $admin = Auth::identityAdmin();
-        $admin->name = $data['name'];
-        $admin->save();
+        $this->repository()->update($request->only(['name']), Auth::guard()->getId());
         return admin_response('ok');
     }
 
@@ -96,10 +89,8 @@ class InfoController
      */
     public function changePassword(Request $request): Response
     {
-        $validator = validator($request->post(), [
+        $validator = validator($request->only(['old_password']), [
             'old_password' => 'required|string',
-            'new_password' => 'required|string|min:6|max:32|confirmed',
-            'new_password_confirmation' => 'required|string',
         ]);
         $data = $validator->validate();
 
@@ -107,8 +98,14 @@ class InfoController
         if (!Component::security()->validatePassword($data['old_password'], $admin->password)) {
             throw new ValidationException(['old_password' => '原密码错误']);
         }
-        $admin->password = Component::security()->generatePasswordHash($data['new_password']);
-        $admin->refreshToken();
-        return admin_response('ok');
+
+        $this->repository()->resetPassword($request->only(['new_password', 'new_password_confirmation']), $admin->id);
+
+        return (new AuthController())->logout();
+    }
+
+    protected function repository(): AdminRepository
+    {
+        return new AdminRepository();
     }
 }

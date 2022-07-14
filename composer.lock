@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03a753564a9dcee30c3bd95b044f175e",
+    "content-hash": "2618fbd582c624868f47ed245fdafd91",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2041,16 +2041,16 @@
         },
         {
             "name": "kriss/webman-amis-admin",
-            "version": "v1.0.2",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-amis-admin.git",
-                "reference": "1979befad35c89533d2e83c2a9020a1e572ad788"
+                "reference": "aa12f9565dac04339e2c465843e57560c5c7b057"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/1979befad35c89533d2e83c2a9020a1e572ad788",
-                "reference": "1979befad35c89533d2e83c2a9020a1e572ad788",
+                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/aa12f9565dac04339e2c465843e57560c5c7b057",
+                "reference": "aa12f9565dac04339e2c465843e57560c5c7b057",
                 "shasum": ""
             },
             "require": {
@@ -2079,9 +2079,9 @@
             "description": "Webman plugin kriss/webman-amis-admin",
             "support": {
                 "issues": "https://github.com/krissss/webman-amis-admin/issues",
-                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.0.2"
+                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.1.0"
             },
-            "time": "2022-07-14T02:12:07+00:00"
+            "time": "2022-07-14T06:37:08+00:00"
         },
         {
             "name": "kriss/webman-auth",

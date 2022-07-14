@@ -16,13 +16,8 @@ class AdminRepository extends EloquentRepository
 
     public function __construct()
     {
-        parent::__construct(new Admin());
+        parent::__construct(Admin::class);
     }
-
-    /*protected function query(): Builder
-    {
-        return Admin::query()->withTrashed();
-    }*/
 
     /**
      * @inheritdoc
@@ -106,7 +101,6 @@ class AdminRepository extends EloquentRepository
         }
         parent::doSave($model);
     }
-
 
     /**
      * 重置密码
