@@ -10,12 +10,13 @@ webman 基础模版
 - cache: 使用 `support\facade\Cache` 类，配置：`config/cache.php`
 - log: 使用 `support\facade\Logger` 类，配置：`config/log.php` 和 `config/log-channel.php`
 - [lock](https://www.workerman.net/plugin/55): 使用 `support\facade\Locker` 类
-- [container](https://learnku.com/docs/laravel/8.x/container/9361): 使用 `support\facade\Container` 类
+- [container](https://laravel.com/docs/8.x/container): 使用 `support\facade\Container` 类
 - [auth](https://www.workerman.net/plugin/54): 使用 `support\facade\Auth` 类
-- [validate](https://learnku.com/docs/laravel/8.x/validation/9374)：使用 `validator()` 函数
+- [validate](https://laravel.com/docs/8.x/validation)：使用 `validator()` 函数或 `support\facade\Validator` 类
 - [ide-helper](https://www.workerman.net/plugin/51)
 - [db-migration](https://github.com/cakephp/phinx): 详见 `phinx.php`
-- [translation](https://www.workerman.net/doc/webman/components/translation.html)：使用 `trans()` 函数
+- [translation-symfony](https://www.workerman.net/doc/webman/components/translation.html)：使用 `trans()` 函数或 `support\facade\Translation` 类
+- [translation-laravel](https://laravel.com/docs/8.x/localization)：使用 `support\facade\TranslationLaravel` 类
 - env: 使用 `get_env()` 函数
 - [redis-queue](https://www.workerman.net/doc/webman/queue/redis.html)：使用 `support\facade\Queue` 类
 - [crontab](https://www.workerman.net/doc/webman/components/crontab.html)

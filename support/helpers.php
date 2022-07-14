@@ -13,6 +13,7 @@
  */
 
 use support\Container;
+use support\facade\Validator;
 use support\Request;
 use support\Response;
 use support\Translation;
@@ -493,4 +494,23 @@ function get_env(string $key, $defaultValue = null, array $whichIsNull = ['', nu
         return $defaultValue;
     }
     return $value;
+}
+
+/**
+ * 验证其
+ * @param array $data
+ * @param array $rules
+ * @param array $messages
+ * @param array $customAttributes
+ * @return \Illuminate\Contracts\Validation\Factory|\Illuminate\Contracts\Validation\Validator
+ */
+function validator(array $data = [], array $rules = [], array $messages = [], array $customAttributes = [])
+{
+    $factory = Validator::instance();
+
+    if (func_num_args() === 0) {
+        return $factory;
+    }
+
+    return $factory->make($data, $rules, $messages, $customAttributes);
 }

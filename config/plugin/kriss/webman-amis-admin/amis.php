@@ -5,6 +5,7 @@ use Kriss\WebmanAmisAdmin\Amis\Component;
 use Kriss\WebmanAmisAdmin\Controller\RenderController;
 use Kriss\WebmanAmisAdmin\Validator\LaravelValidator;
 use support\facade\Auth;
+use support\facade\Validator;
 
 return [
     /**
@@ -117,5 +118,5 @@ return [
      * 默认的验证器
      * 返回一个 \Kriss\WebmanAmisAdmin\Validator\ValidatorInterface
      */
-    'validator' => fn() => new LaravelValidator(validator()->getFactory()),
+    'validator' => fn() => new LaravelValidator(Validator::instance()),
 ];

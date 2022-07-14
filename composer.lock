@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d89c45efa62050253868d650647f62be",
+    "content-hash": "03a753564a9dcee30c3bd95b044f175e",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1379,7 +1379,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v8.83.17",
+            "version": "v8.83.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -1478,16 +1478,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v8.83.17",
+            "version": "v8.83.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "4c189947b4f1f34468e1d083d20ace570bc8bbea"
+                "reference": "c3ac7b0c8935cf224bdf1a1b0ea3f529fcfe2d86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/4c189947b4f1f34468e1d083d20ace570bc8bbea",
-                "reference": "4c189947b4f1f34468e1d083d20ace570bc8bbea",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/c3ac7b0c8935cf224bdf1a1b0ea3f529fcfe2d86",
+                "reference": "c3ac7b0c8935cf224bdf1a1b0ea3f529fcfe2d86",
                 "shasum": ""
             },
             "require": {
@@ -1542,11 +1542,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-06-13T18:31:18+00:00"
+            "time": "2022-07-01T20:43:43+00:00"
         },
         {
             "name": "illuminate/events",
-            "version": "v8.83.17",
+            "version": "v8.83.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -1709,16 +1709,16 @@
         },
         {
             "name": "illuminate/pagination",
-            "version": "v8.83.17",
+            "version": "v8.83.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pagination.git",
-                "reference": "a0a5784a052663fb044baed95f56801b57c2d002"
+                "reference": "16fe8dc35f9d18c58a3471469af656a02e9ab692"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/pagination/zipball/a0a5784a052663fb044baed95f56801b57c2d002",
-                "reference": "a0a5784a052663fb044baed95f56801b57c2d002",
+                "url": "https://api.github.com/repos/illuminate/pagination/zipball/16fe8dc35f9d18c58a3471469af656a02e9ab692",
+                "reference": "16fe8dc35f9d18c58a3471469af656a02e9ab692",
                 "shasum": ""
             },
             "require": {
@@ -1755,7 +1755,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-01-05T15:05:14+00:00"
+            "time": "2022-06-27T13:26:06+00:00"
         },
         {
             "name": "illuminate/pipeline",
@@ -1807,7 +1807,7 @@
         },
         {
             "name": "illuminate/redis",
-            "version": "v8.83.17",
+            "version": "v8.83.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/redis.git",
@@ -1929,7 +1929,7 @@
         },
         {
             "name": "illuminate/translation",
-            "version": "v8.83.17",
+            "version": "v8.83.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/translation.git",
@@ -1981,7 +1981,7 @@
         },
         {
             "name": "illuminate/validation",
-            "version": "v8.83.17",
+            "version": "v8.83.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/validation.git",
@@ -2333,59 +2333,6 @@
                 }
             ],
             "time": "2022-06-09T08:59:12+00:00"
-        },
-        {
-            "name": "mouyong/validate",
-            "version": "v2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mouyong/validate.git",
-                "reference": "47815d1f1cf4791e8587d3660827c9aba9ab4afb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mouyong/validate/zipball/47815d1f1cf4791e8587d3660827c9aba9ab4afb",
-                "reference": "47815d1f1cf4791e8587d3660827c9aba9ab4afb",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/validation": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Mouyong\\Validate\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "mouyong",
-                    "email": "my24251325@gmail.com",
-                    "homepage": "https://github.com/mouyong",
-                    "role": "Creator"
-                }
-            ],
-            "description": "Based on illuminate/validate, validate is used outside the laravel framework",
-            "keywords": [
-                "laravel validate",
-                "mouyong validate",
-                "validate",
-                "validator",
-                "webman",
-                "webman validate"
-            ],
-            "support": {
-                "issues": "https://github.com/mouyong/validate/issues",
-                "source": "https://github.com/mouyong/validate"
-            },
-            "time": "2022-04-30T06:24:37+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -3603,16 +3550,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v5.4.9",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "6b0d0e4aca38d57605dcd11e2416994b38774522"
+                "reference": "e7793b7906f72a8cc51054fbca9dcff7a8af1c1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/6b0d0e4aca38d57605dcd11e2416994b38774522",
-                "reference": "6b0d0e4aca38d57605dcd11e2416994b38774522",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/e7793b7906f72a8cc51054fbca9dcff7a8af1c1e",
+                "reference": "e7793b7906f72a8cc51054fbca9dcff7a8af1c1e",
                 "shasum": ""
             },
             "require": {
@@ -3656,7 +3603,7 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v5.4.9"
+                "source": "https://github.com/symfony/http-foundation/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -3672,20 +3619,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-17T15:07:29+00:00"
+            "time": "2022-06-19T13:13:40+00:00"
         },
         {
             "name": "symfony/mime",
-            "version": "v5.4.9",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "2b3802a24e48d0cfccf885173d2aac91e73df92e"
+                "reference": "02265e1e5111c3cd7480387af25e82378b7ab9cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/2b3802a24e48d0cfccf885173d2aac91e73df92e",
-                "reference": "2b3802a24e48d0cfccf885173d2aac91e73df92e",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/02265e1e5111c3cd7480387af25e82378b7ab9cc",
+                "reference": "02265e1e5111c3cd7480387af25e82378b7ab9cc",
                 "shasum": ""
             },
             "require": {
@@ -3739,7 +3686,7 @@
                 "mime-type"
             ],
             "support": {
-                "source": "https://github.com/symfony/mime/tree/v5.4.9"
+                "source": "https://github.com/symfony/mime/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -3755,7 +3702,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-21T10:24:18+00:00"
+            "time": "2022-06-09T12:22:40+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
