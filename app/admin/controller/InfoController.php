@@ -4,7 +4,6 @@ namespace app\admin\controller;
 
 use app\components\Component;
 use app\exception\ValidationException;
-use app\model\Admin;
 use Kriss\WebmanAmisAdmin\Amis\DetailAttribute;
 use Kriss\WebmanAmisAdmin\Amis\FormField;
 use Kriss\WebmanAmisAdmin\Amis\Page;
@@ -51,9 +50,9 @@ class InfoController
                             'api' => 'post:' . route('admin.info.change-password'),
                             'body' => [
                                 ['type' => 'alert', 'body' => '修改密码后会刷新 Access Token', 'level' => 'info', 'showIcon' => true],
-                                FormField::make()->name('old_password')->label('原密码')->typeInputPassword(),
-                                FormField::make()->name('new_password')->label('新密码')->typeInputPassword(),
-                                FormField::make()->name('new_password_confirmation')->label('新密码确认')->typeInputPassword(),
+                                FormField::make()->name('old_password')->label('原密码')->required()->typeInputPassword(),
+                                FormField::make()->name('new_password')->label('新密码')->required()->typeInputPassword(),
+                                FormField::make()->name('new_password_confirmation')->label('新密码确认')->required()->typeInputPassword(),
                             ],
                         ],
                     ]
