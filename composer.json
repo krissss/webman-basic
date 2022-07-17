@@ -50,6 +50,7 @@
     "zircote/swagger-php": "^4.4"
   },
   "require-dev": {
+    "kriss/webman-debugbar": "^1.0",
     "symfony/var-dumper": "^5.4"
   },
   "suggest": {
