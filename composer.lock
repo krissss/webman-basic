@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e27ec831c6e0d1b5dfc33b78799fb758",
+    "content-hash": "9de551b32f3067157d7cae82075a8547",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2041,6 +2041,49 @@
             "time": "2022-05-30T13:21:10+00:00"
         },
         {
+            "name": "kriss/log-reader",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krissss/php-log-reader.git",
+                "reference": "c4df4a0ee06f8640e38f9011727862665b9b00c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/krissss/php-log-reader/zipball/c4df4a0ee06f8640e38f9011727862665b9b00c0",
+                "reference": "c4df4a0ee06f8640e38f9011727862665b9b00c0",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^1.0|^2.0",
+                "php": ">7.0",
+                "symfony/finder": "^3.0|^4.0|^5.0",
+                "symfony/http-foundation": "^3.0|^4.0|^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kriss\\LogReader\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kriss",
+                    "email": "462679766@qq.com"
+                }
+            ],
+            "description": "Log Reader For PHP",
+            "support": {
+                "issues": "https://github.com/krissss/php-log-reader/issues",
+                "source": "https://github.com/krissss/php-log-reader/tree/v1.2"
+            },
+            "time": "2021-11-03T02:13:19+00:00"
+        },
+        {
             "name": "kriss/webman-amis-admin",
             "version": "v1.1.0",
             "source": {
@@ -2192,6 +2235,44 @@
                 "source": "https://github.com/krissss/webman-eloquent-ide-helper/tree/v1.0.1"
             },
             "time": "2022-05-20T12:37:50+00:00"
+        },
+        {
+            "name": "kriss/webman-log-reader",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krissss/webman-log-reader.git",
+                "reference": "d5b89d68296d1db27b9a0f59c7701f26fdb560bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/krissss/webman-log-reader/zipball/d5b89d68296d1db27b9a0f59c7701f26fdb560bc",
+                "reference": "d5b89d68296d1db27b9a0f59c7701f26fdb560bc",
+                "shasum": ""
+            },
+            "require": {
+                "kriss/log-reader": "^1.2",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "workerman/webman-framework": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kriss\\WebmanLogReader\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman plugin kriss/webman-log-reader",
+            "support": {
+                "issues": "https://github.com/krissss/webman-log-reader/issues",
+                "source": "https://github.com/krissss/webman-log-reader/tree/v1.1.0"
+            },
+            "time": "2022-07-18T07:52:47+00:00"
         },
         {
             "name": "kriss/webman-logger",

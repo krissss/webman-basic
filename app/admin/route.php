@@ -22,6 +22,7 @@ Route::group('', function () {
     Route::get('', [RenderController::class, 'app'])->name('admin.layout');
     Route::get('/pages', [SystemController::class, 'pages'])->name('admin.pages');
     Route::get('/dashboard', [SystemController::class, 'dashboard'])->name('admin.dashboard.view');
+    Route::get('/iframe', [SystemController::class, 'iframe'])->name('admin.iframe.view');
 
     Route::get('/info-page', [InfoController::class, 'page'])->name('admin.info.view');
     Route::get('/info', [InfoController::class, 'index'])->name('admin.info');
