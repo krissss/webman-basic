@@ -21,12 +21,12 @@ return [
          * @link https://aisuda.bce.baidu.com/amis/zh-CN/docs/start/getting-started#sdk
          */
         'css' => [
-            'https://unpkg.com/amis/sdk/sdk.css',
-            'https://unpkg.com/amis/sdk/helper.css',
-            'https://unpkg.com/amis/sdk/iconfont.css',
+            'https://unpkg.com/amis@2.0.2/sdk/sdk.css',
+            'https://unpkg.com/amis@2.0.2/sdk/helper.css',
+            'https://unpkg.com/amis@2.0.2/sdk/iconfont.css',
         ],
         'js' => [
-            'https://unpkg.com/amis/sdk/sdk.js',
+            'https://unpkg.com/amis@2.0.2/sdk/sdk.js',
             'https://unpkg.com/history@4.10.1/umd/history.js', // 使用 app 必须
             '/js/amis-admin.js',
         ],
