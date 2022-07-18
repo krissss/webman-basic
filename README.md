@@ -21,6 +21,8 @@ webman 基础模版
 - [redis-queue](https://www.workerman.net/doc/webman/queue/redis.html)：使用 `support\facade\Queue` 类
 - [crontab](https://www.workerman.net/doc/webman/components/crontab.html)
 - [amis-admin](https://github.com/krissss/webman-amis-admin)
+- [debugbar](https://github.com/krissss/webman-debugbar)
+- [log-reader](https://github.com/krissss/webman-log-reader)
 
 ## 初始化项目步骤
 
