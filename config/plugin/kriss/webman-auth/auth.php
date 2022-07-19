@@ -15,8 +15,8 @@ return [
             },
             'authenticationMethod' => function (IdentityRepositoryInterface $identityRepository) {
                 return new CompositeMethod([
-                    new HttpHeaderMethod($identityRepository, ['tokenType' => 'token']),
                     new SessionMethod($identityRepository, ['tokenType' => 'session']),
+                    new HttpHeaderMethod($identityRepository, ['tokenType' => 'token']),
                 ]);
             },
             'authenticationFailureHandler' => function () {
@@ -29,8 +29,8 @@ return [
             },
             'authenticationMethod' => function (IdentityRepositoryInterface $identityRepository) {
                 return new CompositeMethod([
-                    new HttpHeaderMethod($identityRepository, ['tokenType' => 'token']),
                     new SessionMethod($identityRepository, ['tokenType' => 'session']),
+                    new HttpHeaderMethod($identityRepository, ['tokenType' => 'token']),
                 ]);
             },
             'authenticationFailureHandler' => function () {

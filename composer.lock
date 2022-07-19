@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9de551b32f3067157d7cae82075a8547",
+    "content-hash": "f7a8bb199ea0f35030574889aec99cb6",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2085,16 +2085,16 @@
         },
         {
             "name": "kriss/webman-amis-admin",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-amis-admin.git",
-                "reference": "aa12f9565dac04339e2c465843e57560c5c7b057"
+                "reference": "feddd92176b9a25673cfcf9390343fe1e7656d6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/aa12f9565dac04339e2c465843e57560c5c7b057",
-                "reference": "aa12f9565dac04339e2c465843e57560c5c7b057",
+                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/feddd92176b9a25673cfcf9390343fe1e7656d6b",
+                "reference": "feddd92176b9a25673cfcf9390343fe1e7656d6b",
                 "shasum": ""
             },
             "require": {
@@ -2123,9 +2123,9 @@
             "description": "Webman plugin kriss/webman-amis-admin",
             "support": {
                 "issues": "https://github.com/krissss/webman-amis-admin/issues",
-                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.1.0"
+                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.2.0"
             },
-            "time": "2022-07-14T06:37:08+00:00"
+            "time": "2022-07-18T10:40:03+00:00"
         },
         {
             "name": "kriss/webman-auth",
@@ -5600,16 +5600,16 @@
     "packages-dev": [
         {
             "name": "kriss/webman-debugbar",
-            "version": "v1.1.1",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-debugbar.git",
-                "reference": "22133520f093264538e778b7d57a89214e9dc267"
+                "reference": "081579e38b3e678cf185e9a92d246f18c84758a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-debugbar/zipball/22133520f093264538e778b7d57a89214e9dc267",
-                "reference": "22133520f093264538e778b7d57a89214e9dc267",
+                "url": "https://api.github.com/repos/krissss/webman-debugbar/zipball/081579e38b3e678cf185e9a92d246f18c84758a1",
+                "reference": "081579e38b3e678cf185e9a92d246f18c84758a1",
                 "shasum": ""
             },
             "require": {
@@ -5636,9 +5636,9 @@
             "description": "Webman plugin kriss/webman-debugbar",
             "support": {
                 "issues": "https://github.com/krissss/webman-debugbar/issues",
-                "source": "https://github.com/krissss/webman-debugbar/tree/v1.1.1"
+                "source": "https://github.com/krissss/webman-debugbar/tree/v1.2.1"
             },
-            "time": "2022-07-18T05:51:49+00:00"
+            "time": "2022-07-19T06:18:19+00:00"
         },
         {
             "name": "maximebf/debugbar",

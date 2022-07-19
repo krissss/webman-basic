@@ -97,11 +97,18 @@ return [
      * 登录页面配置
      * @see RenderController::login()
      */
-    'page_login' => [
-        //'background' => '#eee', // 可以使用图片, 'url(http://xxxx)'
-        'login_api' => route('admin.login'),
-        'success_redirect' => route('admin.layout'),
-    ],
+    'page_login' => function() {
+        $debug = config('app.debug');
+        return [
+            //'background' => '#eee', // 可以使用图片, 'url(http://xxxx)'
+            'login_api' => route('admin.login'),
+            'success_redirect' => route('admin.layout'),
+            'form' => [
+                Amis\FormField::make()->name('username')->label('用户名')->required()->value($debug ? 'admin' : ''),
+                Amis\FormField::make()->name('password')->label('密码')->typeInputPassword()->required()->value($debug ? '123456' : ''),
+            ],
+        ];
+    },
     /**
      * 用于全局替换组件的默认参数
      * @see Component::$config
