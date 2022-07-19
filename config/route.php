@@ -18,7 +18,10 @@ Route::any('/', fn() => 'Hello!');
 
 Route::group('/admin', function () {
     require __DIR__ . '/../app/admin/route.php';
-});
+})->middleware([
+    app\middleware\SetAuthGuardAdmin::class,
+    app\middleware\AuthenticateAdmin::class,
+]);
 Route::group('/api', function () {
     require __DIR__ . '/../app/api/route.php';
 });

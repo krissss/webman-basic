@@ -14,6 +14,8 @@ class AuthenticateAdmin extends Authentication
     protected function optionalRoutes(): array
     {
         return [
+            route('admin.login.view'),
+            route('admin.login'),
             route('admin.layout'),
             route('admin.logout'),
         ];
