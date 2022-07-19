@@ -4,7 +4,6 @@ namespace app\model;
 
 use app\components\BaseModel;
 use app\components\Component;
-use app\model\traits\ModelEnumSupport;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kriss\WebmanAuth\Interfaces\IdentityInterface;
 use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
@@ -12,7 +11,7 @@ use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
 /**
  * app\model\Admin
  *
- * @property int $id
+ * @property int $id (主键)
  * @property string $username 用户名
  * @property string $password 密码
  * @property string $name 名称
@@ -21,12 +20,6 @@ use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
  * @property \Illuminate\Support\Carbon $created_at 创建时间
  * @property \Illuminate\Support\Carbon $updated_at 修改时间
  * @property \Illuminate\Support\Carbon|null $deleted_at 删除时间
- * @method static \Illuminate\Database\Eloquent\Builder|Admin newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Admin newQuery()
- * @method static \Illuminate\Database\Query\Builder|Admin onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Admin query()
- * @method static \Illuminate\Database\Query\Builder|Admin withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Admin withoutTrashed()
  */
 class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {
