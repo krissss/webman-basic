@@ -13,7 +13,6 @@ webman 基础模版
 - [container](https://laravel.com/docs/8.x/container): 使用 `support\facade\Container` 类
 - [auth](https://www.workerman.net/plugin/54): 使用 `support\facade\Auth` 类
 - [validate](https://laravel.com/docs/8.x/validation)：使用 `validator()` 函数或 `support\facade\Validator` 类
-- [ide-helper](https://www.workerman.net/plugin/51)
 - [db-migration](https://github.com/cakephp/phinx): 详见 `phinx.php`
 - [translation-symfony](https://www.workerman.net/doc/webman/components/translation.html)：使用 `trans()` 函数或 `support\facade\Translation` 类
 - [translation-laravel](https://laravel.com/docs/8.x/localization)：使用 `support\facade\TranslationLaravel` 类
