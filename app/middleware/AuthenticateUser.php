@@ -14,10 +14,11 @@ class AuthenticateUser extends Authentication
     protected function optionalRoutes(): array
     {
         return [
-            route('user.login.view'),
-            route('user.login'),
-            route('user.layout'),
-            route('user.logout'),
+            'user.login.view',
+            'user.login',
+            'user.layout',
+            'user.logout',
+            'user.login.admin',
         ];
     }
 

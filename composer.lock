@@ -1463,16 +1463,16 @@
         },
         {
             "name": "kriss/webman-auth",
-            "version": "v1.3.2",
+            "version": "v1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-auth.git",
-                "reference": "dd15b3d09e6a61d67c916935df81a68ba4fcca64"
+                "reference": "fed987a826fddcefebff2502dda35e708a83baf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-auth/zipball/dd15b3d09e6a61d67c916935df81a68ba4fcca64",
-                "reference": "dd15b3d09e6a61d67c916935df81a68ba4fcca64",
+                "url": "https://api.github.com/repos/krissss/webman-auth/zipball/fed987a826fddcefebff2502dda35e708a83baf5",
+                "reference": "fed987a826fddcefebff2502dda35e708a83baf5",
                 "shasum": ""
             },
             "require": {
@@ -1495,9 +1495,9 @@
             "description": "webman auth plugin",
             "support": {
                 "issues": "https://github.com/krissss/webman-auth/issues",
-                "source": "https://github.com/krissss/webman-auth/tree/v1.3.2"
+                "source": "https://github.com/krissss/webman-auth/tree/v1.3.3"
             },
-            "time": "2022-07-13T01:21:41+00:00"
+            "time": "2022-07-20T05:22:23+00:00"
         },
         {
             "name": "kriss/webman-docker",
