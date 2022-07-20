@@ -9,4 +9,12 @@ namespace support\facade;
  */
 class Logger extends \Kriss\WebmanLogger\Logger
 {
+    /**
+     * @param string $name
+     * @param mixed $msg
+     */
+    public static function withChannel(string $name, $msg): void
+    {
+        static::{$name}($msg);
+    }
 }

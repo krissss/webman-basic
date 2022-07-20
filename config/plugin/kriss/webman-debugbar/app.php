@@ -10,7 +10,7 @@ return [
     'debugbar' => [
         'enable' => $enable,
         'skip_request_path' => [
-            '/log-reader*'
+            '/admin/log-reader*',
         ]
     ],
 ];

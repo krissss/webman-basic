@@ -15,6 +15,7 @@ return [
         'sql',
         'app',
         'appAdmin',
+        'operateLog',
     ],
     // 记录等级，仅大于设定等级的日志才会真实写入日志文件
     'levels' => [
