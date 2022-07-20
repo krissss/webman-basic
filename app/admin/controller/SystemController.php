@@ -24,7 +24,8 @@ class SystemController
                 'children' => [
                     ['label' => '首页', 'icon' => 'fa fa-home', 'url' => '/', 'schemaApi' => route('admin.dashboard.view'),],
                     ['label' => '个人设置', 'url' => '/admin/info', 'schemaApi' => route('admin.info.view'), 'visible' => false],
-                    ['label' => '管理员管理', 'icon' => 'fa fa-user', 'url' => '/admin', 'schemaApi' => route('admin.index')],
+                    ['label' => '管理员管理', 'icon' => 'fa fa-user', 'url' => '/admin', 'schemaApi' => '/admin/admin'],
+                    ['label' => '用户管理', 'icon' => 'fa fa-user', 'url' => '/user', 'schemaApi' => '/admin/user'],
                 ],
             ],
         ];
@@ -50,7 +51,7 @@ class SystemController
     {
         $page = Page::make()
             ->withBody(1, [
-                'Hello ' . Auth::identityAdmin()->name,
+                'Hello ' . Auth::getName(),
             ]);
         return admin_response($page);
     }

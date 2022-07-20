@@ -1,4 +1,4 @@
-const AMIS_CONFIG = {
+window._ADMIN_AMIS_CONFIG = {
   akHeader: 'X-Api-Key',
   localKey: 'ADMIN-X-API-KEY',
   loginApi: '/admin/auth/login',
@@ -8,18 +8,22 @@ const AMIS_CONFIG = {
 window.amisAppProps = {}
 window.amisAppEnv = {
   requestAdaptor(api) {
-    api.headers[AMIS_CONFIG.akHeader] = localStorage.getItem(AMIS_CONFIG.localKey)
+    api.headers[_ADMIN_AMIS_CONFIG.akHeader] = localStorage.getItem(_ADMIN_AMIS_CONFIG.localKey)
     return api;
   },
   responseAdaptor(api, payload, query, request, response) {
-    if (api.url === AMIS_CONFIG.loginApi && payload.status === 0 && payload.data[AMIS_CONFIG.akResponseKey]) {
-      localStorage.setItem(AMIS_CONFIG.localKey, payload.data[AMIS_CONFIG.akResponseKey])
+    if (api.url === _ADMIN_AMIS_CONFIG.loginApi && payload.status === 0 && payload.data[_ADMIN_AMIS_CONFIG.akResponseKey]) {
+      localStorage.setItem(_ADMIN_AMIS_CONFIG.localKey, payload.data[_ADMIN_AMIS_CONFIG.akResponseKey])
     }
     if (payload.status === 401) {
-      window.location.href = AMIS_CONFIG.loginUrl
+      window.location.href = _ADMIN_AMIS_CONFIG.loginUrl
     }
     if ([301, 302].indexOf(payload.status) !== -1 && payload.data.redirect) {
-      window.location.href = payload.data.redirect
+      if (payload.data.target === '_blank') {
+        window.open(payload.data.redirect)
+      } else {
+        window.location.href = payload.data.redirect
+      }
       payload.status = 0 // 改为正确响应，确保该接口提示的是成功的
     }
     return payload

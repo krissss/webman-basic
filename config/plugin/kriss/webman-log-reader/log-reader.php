@@ -4,7 +4,7 @@ return [
     // route
     'route' => [
         // 路由前缀
-        'group' => get_env('LOG_READER_ROUTE', '/log-reader'),
+        'group' => get_env('LOG_READER_ROUTE', '/admin/log-reader'),
         // 路由中间件，可以用于控制访问权限
         'middleware' => [
             \app\middleware\SetAuthGuardAdmin::class,

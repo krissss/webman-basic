@@ -7,7 +7,7 @@ use Kriss\WebmanAmisAdmin\Exceptions\ValidationException;
 use Throwable;
 use Webman\Http\Response;
 
-class ErrorHandlerAdmin extends ErrorHandler
+class ErrorHandlerAmis extends ErrorHandler
 {
     public function __construct($logger, $debug)
     {

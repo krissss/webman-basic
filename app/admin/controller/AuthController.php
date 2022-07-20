@@ -4,7 +4,7 @@ namespace app\admin\controller;
 
 use app\components\Component;
 use app\exception\ValidationException;
-use app\model\Admin;
+use app\model\Admin as Model;
 use support\facade\Auth;
 use support\Request;
 use Webman\Http\Response;
@@ -14,6 +14,15 @@ use Webman\Http\Response;
  */
 class AuthController
 {
+    /**
+     * @var string|Model
+     */
+    protected string $model = Model::class;
+    /**
+     * @var string
+     */
+    protected string $routeRedirect = '/admin/login';
+
     /**
      * 登录
      * @param Request $request
@@ -27,18 +36,19 @@ class AuthController
         ]);
         $data = $validator->validate();
 
-        $admin = Admin::query()->where('username', $data['username'])->first();
-        if (!$admin || !Component::security()->validatePassword($data['password'], $admin->password)) {
+        /** @var Model $model */
+        $model = $this->model::query()->where('username', $data['username'])->first();
+        if (!$model || !Component::security()->validatePassword($data['password'], $model->password)) {
             throw new ValidationException([
                 'username' => trans('用户名或密码错误'),
             ]);
         }
 
-        Auth::guard()->login($admin);
-        $admin->refreshToken();
-        $admin->makeVisible(['access_token']);
+        Auth::guard()->login($model);
+        $model->refreshToken();
+        $model->makeVisible(['access_token']);
 
-        return admin_response($admin);
+        return admin_response($model);
     }
 
     /**
@@ -48,10 +58,10 @@ class AuthController
     public function logout(): Response
     {
         if (!Auth::guard()->isGuest()) {
-            Auth::identityAdmin()->refreshToken(null);
+            Auth::guard()->getUser()->refreshToken(null);
             Auth::guard()->logout();
         }
 
-        return admin_redirect(route('admin.login.view'), '退出成功');
+        return admin_redirect($this->routeRedirect, '退出成功');
     }
 }

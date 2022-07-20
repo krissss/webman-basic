@@ -6,7 +6,7 @@ use Kriss\WebmanAuth\Middleware\Authentication;
 use Webman\Http\Request;
 use Webman\Http\Response;
 
-class AuthenticateAdmin extends Authentication
+class AuthenticateUser extends Authentication
 {
     /**
      * @inheritDoc
@@ -14,10 +14,10 @@ class AuthenticateAdmin extends Authentication
     protected function optionalRoutes(): array
     {
         return [
-            route('admin.login.view'),
-            route('admin.login'),
-            route('admin.layout'),
-            route('admin.logout'),
+            route('user.login.view'),
+            route('user.login'),
+            route('user.layout'),
+            route('user.logout'),
         ];
     }
 
@@ -26,8 +26,8 @@ class AuthenticateAdmin extends Authentication
      */
     public function process(Request $request, callable $handler): Response
     {
-        // 设定 app 为 admin，否则异常不会传递到 ErrorHandleAmis 处理
-        $request->app = 'admin';
+        // 设定 app 为 user，否则异常不会传递到 ErrorHandleAmis 处理
+        $request->app = 'user';
         return parent::process($request, $handler);
     }
 }

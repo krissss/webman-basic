@@ -3,49 +3,16 @@
 use Kriss\WebmanAmisAdmin\Amis;
 use Kriss\WebmanAmisAdmin\Amis\Component;
 use Kriss\WebmanAmisAdmin\Controller\RenderController;
-use Kriss\WebmanAmisAdmin\Validator\LaravelValidator;
 use support\facade\Auth;
-use support\facade\Validator;
+
+$adminAmis = require __DIR__ . '/amis.php';
+$adminAmis['assets']['js'][] = '/js/amis-admin-user.js';
 
 return [
     /**
      * amis 资源
      */
-    'assets' => [
-        /**
-         * html 上的 lang 属性
-         */
-        'lang' => config('translation.locale', 'zh'),
-        /**
-         * 静态资源，建议下载下来放到 public 目录下然后替换链接
-         * @link https://aisuda.bce.baidu.com/amis/zh-CN/docs/start/getting-started#sdk
-         */
-        'css' => [
-            'https://unpkg.com/amis@2.0.2/sdk/sdk.css',
-            'https://unpkg.com/amis@2.0.2/sdk/helper.css',
-            'https://unpkg.com/amis@2.0.2/sdk/iconfont.css',
-        ],
-        'js' => [
-            'https://unpkg.com/amis@2.0.2/sdk/sdk.js',
-            'https://unpkg.com/history@4.10.1/umd/history.js', // 使用 app 必须
-            '/js/amis-admin.js',
-        ],
-        /**
-         * 切换主题
-         * @link https://aisuda.bce.baidu.com/amis/zh-CN/docs/start/getting-started#%E5%88%87%E6%8D%A2%E4%B8%BB%E9%A2%98
-         */
-        'theme' => '',
-        /**
-         * 语言
-         * @link https://aisuda.bce.baidu.com/amis/zh-CN/docs/extend/i18n
-         */
-        'locale' => str_replace('_', '-', config('translation.locale', 'zh-CN')),
-        /**
-         * debug
-         * @link https://aisuda.bce.baidu.com/amis/zh-CN/docs/extend/debug
-         */
-        'debug' => false,
-    ],
+    'assets' => $adminAmis['assets'],
     /**
      * @see Amis::renderApp()
      */
@@ -55,9 +22,9 @@ return [
          */
         'amisJSON' => function () {
             return [
-                'brandName' => '总管理后台',
+                'brandName' => '管理后台',
                 'logo' => '/favicon.ico',
-                'api' => route('admin.pages'), // 修改成获取菜单的路由
+                'api' => route('user.pages'), // 修改成获取菜单的路由
                 'header' => [
                     'type' => 'flex',
                     'justify' => 'flex-end',
@@ -71,9 +38,9 @@ return [
                             'trigger' => 'hover',
                             'icon' => 'fa fa-user-circle',
                             'buttons' => Amis\ActionButtons::make()
-                                ->withButtonLink(1, '个人设置', '/admin/info')
+                                ->withButtonLink(1, '个人设置', '/user/info')
                                 ->withDivider(80)
-                                ->withButtonAjax(99, '退出登录', route('admin.logout'), [
+                                ->withButtonAjax(99, '退出登录', '/user/auth/logout', [
                                     'confirmText' => '确定退出登录？'
                                 ])
                                 ->toArray(),
@@ -101,10 +68,10 @@ return [
         $debug = config('app.debug');
         return [
             //'background' => '#eee', // 可以使用图片, 'url(http://xxxx)'
-            'login_api' => route('admin.login'),
-            'success_redirect' => route('admin.layout'),
+            'login_api' => route('user.login'),
+            'success_redirect' => route('user.layout'),
             'form' => [
-                Amis\FormField::make()->name('username')->label('用户名')->required()->value($debug ? 'admin' : ''),
+                Amis\FormField::make()->name('username')->label('用户名')->required()->value($debug ? 'test' : ''),
                 Amis\FormField::make()->name('password')->label('密码')->typeInputPassword()->required()->value($debug ? '123456' : ''),
             ],
         ];
@@ -113,17 +80,10 @@ return [
      * 用于全局替换组件的默认参数
      * @see Component::$config
      */
-    'components' => [
-        // 例如: 将列表页的字段默认左显示
-        /*\Kriss\WebmanAmisAdmin\Amis\GridColumn::class => [
-            'schema' => [
-                'align' => 'left',
-            ],
-        ],*/
-    ],
+    'components' => $adminAmis['components'],
     /**
      * 默认的验证器
      * 返回一个 \Kriss\WebmanAmisAdmin\Validator\ValidatorInterface
      */
-    'validator' => fn() => new LaravelValidator(Validator::instance()),
+    'validator' => $adminAmis['validator'],
 ];

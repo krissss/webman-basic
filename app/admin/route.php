@@ -4,6 +4,7 @@ use app\admin\controller\AdminController;
 use app\admin\controller\AuthController;
 use app\admin\controller\InfoController;
 use app\admin\controller\SystemController;
+use app\admin\controller\UserController;
 use Kriss\WebmanAmisAdmin\Controller\RenderController;
 use Webman\Route;
 
@@ -24,4 +25,7 @@ Route::post('/info/change-password', [InfoController::class, 'changePassword'])-
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('admin.logout');
 // crud
 Route::resource('admin', AdminController::class);
-Route::post('/admin/reset-password/{id}', [AdminController::class, 'resetPassword'])->name('admin.reset-password');
+Route::post('/admin/reset-password/{id}', [AdminController::class, 'resetPassword'])->name('admin.admin.reset-password');
+Route::resource('user', UserController::class);
+Route::post('/user/reset-password/{id}', [UserController::class, 'resetPassword'])->name('admin.user.reset-password');
+Route::post('/user/login/{id}', [UserController::class, 'login'])->name('admin.user.login');

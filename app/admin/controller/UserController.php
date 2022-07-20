@@ -2,9 +2,8 @@
 
 namespace app\admin\controller;
 
-use app\admin\controller\repository\AdminRepository;
+use app\admin\controller\repository\UserRepository;
 use app\enums\AdminStatus;
-use app\model\Admin;
 use Kriss\WebmanAmisAdmin\Amis;
 use Kriss\WebmanAmisAdmin\Amis\DetailAttribute;
 use Kriss\WebmanAmisAdmin\Amis\FormField;
@@ -15,42 +14,16 @@ use support\Request;
 use Webman\Http\Response;
 
 /**
- * @method AdminRepository repository()
+ * @method UserRepository repository()
  */
-class AdminController extends AbsSourceController
+class UserController extends AbsSourceController
 {
     /**
      * @inheritdoc
      */
     protected function createRepository(): RepositoryInterface
     {
-        return new AdminRepository();
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function authDestroy($id = null): bool
-    {
-        if ($id == Admin::SUPER_ADMIN_ID) {
-            return false;
-        }
-        if ($id == Auth::guard()->getId()) {
-            return false;
-        }
-        return parent::authDestroy($id);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function authDestroyVisible(): string
-    {
-        return implode(' && ', [
-            parent::authDestroyVisible(),
-            'this.id !=' . Admin::SUPER_ADMIN_ID,
-            'this.id !=' . Auth::guard()->getId(), // 不能删除自己
-        ]);
+        return new UserRepository();
     }
 
     /**
@@ -133,6 +106,14 @@ class AdminController extends AbsSourceController
                     'api' => route('admin.admin.reset-password', ['id' => '${id}']),
                     'level' => 'warning',
                 ]
+            )
+            ->withButtonAjax(
+                Amis\GridColumnActions::INDEX_DETAIL - 1,
+                '登录',
+                route('admin.user.login', ['id' => '${id}']),
+                [
+                    'level' => 'success',
+                ]
             );
     }
 
@@ -146,5 +127,19 @@ class AdminController extends AbsSourceController
     {
         $this->repository()->resetPassword($request->post(), $id);
         return admin_response('ok');
+    }
+
+    /**
+     * 登录
+     * @param Request $request
+     * @param $id
+     * @return Response
+     */
+    public function login(Request $request, $id): Response
+    {
+        return admin_redirect(route('user.login.admin', [
+            'accessToken' => Auth::identityAdmin()->access_token,
+            'id' => $id,
+        ]), '', '_blank');
     }
 }

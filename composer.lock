@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21cf08189ed5704e54a4fc8f21f89c9b",
+    "content-hash": "3957767aa98cbb21b474aa167fd459e9",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1419,16 +1419,16 @@
         },
         {
             "name": "kriss/webman-amis-admin",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-amis-admin.git",
-                "reference": "feddd92176b9a25673cfcf9390343fe1e7656d6b"
+                "reference": "f9f3e49b83b7ca97c16001375ed07b2ea5232042"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/feddd92176b9a25673cfcf9390343fe1e7656d6b",
-                "reference": "feddd92176b9a25673cfcf9390343fe1e7656d6b",
+                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/f9f3e49b83b7ca97c16001375ed07b2ea5232042",
+                "reference": "f9f3e49b83b7ca97c16001375ed07b2ea5232042",
                 "shasum": ""
             },
             "require": {
@@ -1457,9 +1457,9 @@
             "description": "Webman plugin kriss/webman-amis-admin",
             "support": {
                 "issues": "https://github.com/krissss/webman-amis-admin/issues",
-                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.2.0"
+                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.3.0"
             },
-            "time": "2022-07-18T10:40:03+00:00"
+            "time": "2022-07-20T01:17:57+00:00"
         },
         {
             "name": "kriss/webman-auth",
@@ -4396,6 +4396,41 @@
                 "wiki": "http://www.workerman.net/doc/webman"
             },
             "time": "2022-07-01T08:59:02+00:00"
+        },
+        {
+            "name": "webman/multi-session",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-php/multi-session.git",
+                "reference": "d6169debe9fddf6994d2ab6d18273b2459ab1913"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-php/multi-session/zipball/d6169debe9fddf6994d2ab6d18273b2459ab1913",
+                "reference": "d6169debe9fddf6994d2ab6d18273b2459ab1913",
+                "shasum": ""
+            },
+            "require": {
+                "workerman/webman-framework": "^1.3.12",
+                "workerman/workerman": "^4.0.36"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webman\\MultiSession\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Multi session plugin for webman",
+            "support": {
+                "issues": "https://github.com/webman-php/multi-session/issues",
+                "source": "https://github.com/webman-php/multi-session/tree/v1.0.1"
+            },
+            "time": "2022-04-30T14:34:49+00:00"
         },
         {
             "name": "workerman/webman-framework",

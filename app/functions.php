@@ -47,12 +47,16 @@ function admin_response($data, string $msg = '', array $extraInfo = [])
 
 /**
  * admin 重定向
- * @see /public/js/amis-admin.js
  * @param string $redirectUrl
  * @param string $msg
+ * @param string $target _self/_blank
  * @return \Webman\Http\Response
+ * @see /public/js/amis-admin.js
  */
-function admin_redirect(string $redirectUrl, string $msg = '')
+function admin_redirect(string $redirectUrl, string $msg = '', string $target = '_self')
 {
-    return admin_response(['redirect' => $redirectUrl], $msg, ['status' => 301]);
+    return admin_response([
+        'redirect' => $redirectUrl,
+        'target' => $target,
+    ], $msg, ['status' => 301]);
 }

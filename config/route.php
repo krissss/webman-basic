@@ -22,6 +22,12 @@ Route::group('/admin', function () {
     app\middleware\SetAuthGuardAdmin::class,
     app\middleware\AuthenticateAdmin::class,
 ]);
+Route::group('/user', function () {
+    require __DIR__ . '/../app/user/route.php';
+})->middleware([
+    app\middleware\AmisModuleChange2User::class,
+    app\middleware\AuthenticateUser::class,
+]);
 Route::group('/api', function () {
     require __DIR__ . '/../app/api/route.php';
 });

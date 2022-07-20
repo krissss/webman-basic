@@ -1,6 +1,5 @@
 <?php
 
-use Kriss\WebmanAuth\Authentication\FailureHandler\RedirectHandler;
 use Kriss\WebmanAuth\Authentication\Method\CompositeMethod;
 use Kriss\WebmanAuth\Authentication\Method\HttpHeaderMethod;
 use Kriss\WebmanAuth\Authentication\Method\SessionMethod;
@@ -11,7 +10,7 @@ return [
     'guards' => [
         'user' => [
             'identityRepository' => function () {
-                return new User();
+                return new app\model\User();
             },
             'authenticationMethod' => function (IdentityRepositoryInterface $identityRepository) {
                 return new CompositeMethod([
@@ -20,7 +19,7 @@ return [
                 ]);
             },
             'authenticationFailureHandler' => function () {
-                return new RedirectHandler(route('/auth/login'));
+                return new Kriss\WebmanAuth\Authentication\FailureHandler\ThrowExceptionHandler();
             },
         ],
         'admin' => [

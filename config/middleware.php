@@ -14,6 +14,7 @@
 
 return [
     '' => [
+        Webman\MultiSession\Middleware::class,
         //app\middleware\Cors::class,
         app\middleware\TrimStings::class,
         //app\middleware\ConvertEmptyStringsToNull::class,
