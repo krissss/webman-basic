@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90ec4f2ed1fc9cc8e764bde3f0102160",
+    "content-hash": "744b794a4edecd82fc611debc8e402be",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1376,16 +1376,16 @@
         },
         {
             "name": "kriss/log-reader",
-            "version": "v1.2",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/php-log-reader.git",
-                "reference": "c4df4a0ee06f8640e38f9011727862665b9b00c0"
+                "reference": "0cd2ec7dea557da04e6ec01b0ebf8f2d08cd8e4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/php-log-reader/zipball/c4df4a0ee06f8640e38f9011727862665b9b00c0",
-                "reference": "c4df4a0ee06f8640e38f9011727862665b9b00c0",
+                "url": "https://api.github.com/repos/krissss/php-log-reader/zipball/0cd2ec7dea557da04e6ec01b0ebf8f2d08cd8e4c",
+                "reference": "0cd2ec7dea557da04e6ec01b0ebf8f2d08cd8e4c",
                 "shasum": ""
             },
             "require": {
@@ -1413,9 +1413,9 @@
             "description": "Log Reader For PHP",
             "support": {
                 "issues": "https://github.com/krissss/php-log-reader/issues",
-                "source": "https://github.com/krissss/php-log-reader/tree/v1.2"
+                "source": "https://github.com/krissss/php-log-reader/tree/v1.3.1"
             },
-            "time": "2021-11-03T02:13:19+00:00"
+            "time": "2022-07-20T03:39:36+00:00"
         },
         {
             "name": "kriss/webman-amis-admin",
@@ -1532,20 +1532,20 @@
         },
         {
             "name": "kriss/webman-log-reader",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-log-reader.git",
-                "reference": "d5b89d68296d1db27b9a0f59c7701f26fdb560bc"
+                "reference": "a93c7e0d9fcd6eb78e1270fb4ebbab8dbd413889"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-log-reader/zipball/d5b89d68296d1db27b9a0f59c7701f26fdb560bc",
-                "reference": "d5b89d68296d1db27b9a0f59c7701f26fdb560bc",
+                "url": "https://api.github.com/repos/krissss/webman-log-reader/zipball/a93c7e0d9fcd6eb78e1270fb4ebbab8dbd413889",
+                "reference": "a93c7e0d9fcd6eb78e1270fb4ebbab8dbd413889",
                 "shasum": ""
             },
             "require": {
-                "kriss/log-reader": "^1.2",
+                "kriss/log-reader": "^1.3",
                 "php": ">=7.4"
             },
             "require-dev": {
@@ -1564,9 +1564,9 @@
             "description": "Webman plugin kriss/webman-log-reader",
             "support": {
                 "issues": "https://github.com/krissss/webman-log-reader/issues",
-                "source": "https://github.com/krissss/webman-log-reader/tree/v1.1.0"
+                "source": "https://github.com/krissss/webman-log-reader/tree/v1.2.0"
             },
-            "time": "2022-07-18T07:52:47+00:00"
+            "time": "2022-07-20T03:41:21+00:00"
         },
         {
             "name": "kriss/webman-logger",

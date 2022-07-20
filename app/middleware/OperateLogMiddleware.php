@@ -27,7 +27,7 @@ class OperateLogMiddleware implements MiddlewareInterface
 
         $data = [
             'request' => [
-                'host' => $request->host(),
+                //'host' => $request->host(),
                 'method' => $request->method(),
                 'uri' => $request->uri(),
                 'body' => $request->rawBody(),
