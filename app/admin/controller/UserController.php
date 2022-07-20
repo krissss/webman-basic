@@ -3,7 +3,7 @@
 namespace app\admin\controller;
 
 use app\admin\controller\repository\UserRepository;
-use app\enums\AdminStatus;
+use app\enums\UserStatus;
 use Kriss\WebmanAmisAdmin\Amis;
 use Kriss\WebmanAmisAdmin\Amis\DetailAttribute;
 use Kriss\WebmanAmisAdmin\Amis\FormField;
@@ -36,7 +36,7 @@ class UserController extends AbsSourceController
             GridColumn::make()->name('username')->searchable(),
             GridColumn::make()->name('name')->searchable()->quickEdit(),
             GridColumn::make()->name('status')->searchable()->quickEdit()
-                ->typeMapping(['map' => AdminStatus::getViewLabeledItems()]),
+                ->typeMapping(['map' => UserStatus::getViewLabeledItems()]),
             GridColumn::make()->name('created_at')->sortable()->searchable([
                 'type' => 'input-datetime-range',
             ]),
@@ -60,7 +60,7 @@ class UserController extends AbsSourceController
         }
         if ($scene === static::SCENE_UPDATE) {
             $form[] = FormField::make()->name('status')
-                ->typeSelect(['options' => AdminStatus::getLabelValue()]);
+                ->typeSelect(['options' => UserStatus::getLabelValue()]);
         }
         return $form;
     }
@@ -74,7 +74,7 @@ class UserController extends AbsSourceController
             'id',
             'username',
             'name',
-            DetailAttribute::make()->name('status')->typeMapping(['map' => AdminStatus::getViewLabeledItems()]),
+            DetailAttribute::make()->name('status')->typeMapping(['map' => UserStatus::getViewLabeledItems()]),
             'access_token',
             'created_at',
             'updated_at',
@@ -113,6 +113,7 @@ class UserController extends AbsSourceController
                 route('admin.user.login', ['id' => '${id}']),
                 [
                     'level' => 'success',
+                    'visibleOn' => 'this.status==' . UserStatus::ENABLE,
                 ]
             );
     }

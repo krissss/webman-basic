@@ -3,7 +3,7 @@
 namespace app\admin\controller\repository;
 
 use app\components\Component;
-use app\enums\AdminStatus;
+use app\enums\UserStatus;
 use app\model\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -65,7 +65,7 @@ class UserRepository extends EloquentRepository
             return [
                 'username' => 'string|min:4',
                 'name' => 'string|max:32',
-                'status' => Rule::in(AdminStatus::getValues()),
+                'status' => Rule::in(UserStatus::getValues()),
             ];
         }
         if ($scene === static::SCENE_RESET_PASSWORD) {
