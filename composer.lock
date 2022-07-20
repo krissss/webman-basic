@@ -4708,16 +4708,16 @@
     "packages-dev": [
         {
             "name": "kriss/webman-debugbar",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-debugbar.git",
-                "reference": "081579e38b3e678cf185e9a92d246f18c84758a1"
+                "reference": "e2fbfc85299a0d161dffcb1e247bcc5b6cabf632"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-debugbar/zipball/081579e38b3e678cf185e9a92d246f18c84758a1",
-                "reference": "081579e38b3e678cf185e9a92d246f18c84758a1",
+                "url": "https://api.github.com/repos/krissss/webman-debugbar/zipball/e2fbfc85299a0d161dffcb1e247bcc5b6cabf632",
+                "reference": "e2fbfc85299a0d161dffcb1e247bcc5b6cabf632",
                 "shasum": ""
             },
             "require": {
@@ -4744,9 +4744,9 @@
             "description": "Webman plugin kriss/webman-debugbar",
             "support": {
                 "issues": "https://github.com/krissss/webman-debugbar/issues",
-                "source": "https://github.com/krissss/webman-debugbar/tree/v1.2.1"
+                "source": "https://github.com/krissss/webman-debugbar/tree/v1.2.2"
             },
-            "time": "2022-07-19T06:18:19+00:00"
+            "time": "2022-07-20T02:07:01+00:00"
         },
         {
             "name": "maximebf/debugbar",

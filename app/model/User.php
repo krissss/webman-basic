@@ -2,11 +2,11 @@
 
 namespace app\model;
 
+use app\components\BaseModel;
 use app\components\Component;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kriss\WebmanAuth\Interfaces\IdentityInterface;
 use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
-use support\Model;
 
 /**
  * @property integer $id (主键)
@@ -19,7 +19,7 @@ use support\Model;
  * @property mixed $updated_at 修改时间
  * @property mixed $deleted_at 删除时间
  */
-class User extends Model implements IdentityInterface, IdentityRepositoryInterface
+class User extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {
     use SoftDeletes;
 
