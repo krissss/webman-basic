@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71155160d18dd56afe65068f4a00b360",
+    "content-hash": "4e9065573a63ca60c34b9e873ff9dd52",
     "packages": [
         {
             "name": "cakephp/core",
@@ -4146,50 +4146,6 @@
                 }
             ],
             "time": "2022-06-20T11:50:59+00:00"
-        },
-        {
-            "name": "tinywan/exception-handler",
-            "version": "v0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Tinywan/webman-exception-handler.git",
-                "reference": "f0d6ee6d0039d73cf4ea7395c28263b06ca1275b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-exception-handler/zipball/f0d6ee6d0039d73cf4ea7395c28263b06ca1275b",
-                "reference": "f0d6ee6d0039d73cf4ea7395c28263b06ca1275b",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": ">=7.2",
-                "workerman/webman-framework": "^1.2.1"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.6",
-                "phpstan/phpstan": "^1.4",
-                "tinywan/jwt": "^1.2",
-                "tinywan/storage": "^0.2.2",
-                "tinywan/validate": "^0.0.6",
-                "workerman/webman": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tinywan\\ExceptionHandler\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "webman exception handler plugin",
-            "support": {
-                "issues": "https://github.com/Tinywan/webman-exception-handler/issues",
-                "source": "https://github.com/Tinywan/webman-exception-handler/tree/v0.1.0"
-            },
-            "time": "2022-05-21T01:27:44+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

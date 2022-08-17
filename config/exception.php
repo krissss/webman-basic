@@ -14,7 +14,7 @@
 
 return [
     //'' => support\exception\Handler::class,
-    '' => \support\ErrorHandler::class,
-    'admin' => \support\ErrorHandlerAmis::class,
-    'user' => \support\ErrorHandlerAmis::class,
+    '' => app\exception\handlers\ExceptionHandler::class,
+    'admin' => app\exception\handlers\ExceptionHandlerAmis::class,
+    'user' => app\exception\handlers\ExceptionHandlerAmis::class,
 ];
