@@ -68,7 +68,7 @@ class Monitor
      */
     public function checkFilesChange($monitor_dir)
     {
-        static $last_mtime;
+        static $last_mtime, $too_many_files_check;
         if (!$last_mtime) {
             $last_mtime = time();
         }
@@ -80,10 +80,12 @@ class Monitor
             $iterator = [new \SplFileInfo($monitor_dir)];
         } else {
             // recursive traversal directory
-            $dir_iterator = new \RecursiveDirectoryIterator($monitor_dir, \FilesystemIterator::FOLLOW_SYMLINKS);
+            $dir_iterator = new \RecursiveDirectoryIterator($monitor_dir, \FilesystemIterator::SKIP_DOTS | \FilesystemIterator::FOLLOW_SYMLINKS);
             $iterator = new \RecursiveIteratorIterator($dir_iterator);
         }
+        $count = 0;
         foreach ($iterator as $file) {
+            $count ++;
             /** var SplFileInfo $file */
             if (is_dir($file)) {
                 continue;
@@ -91,7 +93,7 @@ class Monitor
             // check mtime
             if ($last_mtime < $file->getMTime() && in_array($file->getExtension(), $this->_extensions, true)) {
                 $var = 0;
-                exec(PHP_BINARY . " -l " . $file, $out, $var);
+                exec('"'.PHP_BINARY . '" -l ' . $file, $out, $var);
                 if ($var) {
                     $last_mtime = $file->getMTime();
                     continue;
@@ -106,6 +108,10 @@ class Monitor
                 }
                 break;
             }
+        }
+        if (!$too_many_files_check && $count > 1000) {
+            echo "Monitor: There are too many files ($count files) in $monitor_dir which makes file monitoring very slow\n";
+            $too_many_files_check = 1;
         }
     }
 

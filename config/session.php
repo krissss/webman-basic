@@ -12,14 +12,18 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+use Webman\Session\FileSessionHandler;
+use Webman\Session\RedisSessionHandler;
+use Webman\Session\RedisClusterSessionHandler;
+
 $redis = require __DIR__ . '/redis.php';
 $sessionRedis = $redis['session'];
 
 $sessionType = get_env('SESSION_ADAPTER', 'file');
 $sessionTypeMap = [
-    'file' => Webman\FileSessionHandler::class,
-    'redis' => Webman\RedisSessionHandler::class,
-    'redis_cluster' => Webman\RedisClusterSessionHandler::class,
+    'file' => FileSessionHandler::class,
+    'redis' => RedisSessionHandler::class,
+    'redis_cluster' => RedisClusterSessionHandler::class,
 ];
 
 return [
@@ -49,6 +53,8 @@ return [
     ],
 
     'session_name' => get_env('SESSION_NAME', 'WB_SID'),
+
+    'auto_update_timestamp' => false,
 
     'lifetime' => get_env('SESSION_LIFETIME', 7*24*60*60),
 

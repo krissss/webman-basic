@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "744b794a4edecd82fc611debc8e402be",
+    "content-hash": "71155160d18dd56afe65068f4a00b360",
     "packages": [
         {
             "name": "cakephp/core",
@@ -4434,16 +4434,16 @@
         },
         {
             "name": "workerman/webman-framework",
-            "version": "v1.3.19",
+            "version": "v1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/webman-framework.git",
-                "reference": "58d342cdde767e79313db45f35a80a13b18f71f6"
+                "reference": "0f4d5b6c58823656bdc9603f762d4be6e41ae380"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/webman-framework/zipball/58d342cdde767e79313db45f35a80a13b18f71f6",
-                "reference": "58d342cdde767e79313db45f35a80a13b18f71f6",
+                "url": "https://api.github.com/repos/walkor/webman-framework/zipball/0f4d5b6c58823656bdc9603f762d4be6e41ae380",
+                "reference": "0f4d5b6c58823656bdc9603f762d4be6e41ae380",
                 "shasum": ""
             },
             "require": {
@@ -4501,7 +4501,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-06-30T15:10:24+00:00"
+            "time": "2022-08-15T12:35:14+00:00"
         },
         {
             "name": "workerman/workerman",

@@ -19,5 +19,7 @@ use support\view\ThinkPHP;
 
 return [
     'handler' => Raw::class,
-    'view_suffix' => 'php',
+    'options' => [
+        'view_suffix' => 'php',
+    ],
 ];
