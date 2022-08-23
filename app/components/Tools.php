@@ -19,7 +19,7 @@ class Tools
         }
 
         $fn = function () {
-            $envIp = get_env('server.local_ip', 'localhost');
+            $envIp = get_env('SERVER_LOCAL_IP', 'localhost');
             if ($envIp && $envIp !== 'localhost') {
                 return $envIp;
             }
@@ -38,7 +38,7 @@ class Tools
                 return $matches[0][0];
             }
             // unix
-            $process = Process:: fromShellCommandline("ip a | grep 'inet' | grep -v inet6 | grep -v 127* | awk '{print $2}'|awk -F '/' '{print $1}'");
+            $process = Process:: fromShellCommandline("ip address show eth0 | head -n4 | grep inet | awk '{print$2}' | awk -F '/' '{print $1}'");
             $process->run();
             if (!$process->isSuccessful()) {
                 throw new \RuntimeException('获取本机IP失败，请手动指定');

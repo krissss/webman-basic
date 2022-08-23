@@ -3,7 +3,7 @@
 namespace app\components\interfaces;
 
 /**
- * 内存记录器，仅将数据保留在内容中，下次启动或重启后会丢失
+ * 内存记录器，仅将数据保留在内存中，下次启动或重启后会丢失
  */
 interface MemoryRememberInterface
 {

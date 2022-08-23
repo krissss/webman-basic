@@ -37,8 +37,8 @@ if (get_env('NACOS_ENABLE_SERVICE_REGISTER', true)) {
         explode(',', get_env('NACOS_SERVICE_EXTRA_NAMESPACES', ''))
     ));
     $instances = [];
-    $ip = get_env('NACOS_SERVICE_IP', Tools::getLocalIp());
-    $port = (int)get_env('NACOS_SERVICE_PORT', Tools::getLocalServerPort());
+    $ip = get_env('NACOS_SERVICE_IP', fn() => Tools::getLocalIp());
+    $port = (int)get_env('NACOS_SERVICE_PORT', fn() => Tools::getLocalServerPort());
     foreach ($instancesConfigs as $namespaceId) {
         $instances[$namespaceId] = [
             $serviceName,

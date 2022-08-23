@@ -40,6 +40,7 @@
     "kriss/webman-logger": "^1.2",
     "robmorgan/phinx": "^0.12.10",
     "symfony/cache": "^5.4",
+    "symfony/process": "^5.4",
     "symfony/translation": "^5.4",
     "vlucas/phpdotenv": "^5.4",
     "webman/console": "^1.0",
