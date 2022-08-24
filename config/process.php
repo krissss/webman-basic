@@ -13,7 +13,7 @@
  */
 
 
-return [
+$processes = [
     // File update detection and automatic reload
     'monitor' => [
         'handler' => process\Monitor::class,
@@ -39,3 +39,9 @@ return [
         'handler' => process\Task::class,
     ],*/
 ];
+
+if (!config('app.debug', false)) {
+    unset($processes['monitor']);
+}
+
+return $processes;

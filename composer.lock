@@ -1501,16 +1501,16 @@
         },
         {
             "name": "kriss/webman-docker",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/docker-webman.git",
-                "reference": "50456b44c19be5e97b14ccf917c96d9bc25e6073"
+                "reference": "fd97ea212dd6330bdd48a5b0d36ebde9940be218"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/docker-webman/zipball/50456b44c19be5e97b14ccf917c96d9bc25e6073",
-                "reference": "50456b44c19be5e97b14ccf917c96d9bc25e6073",
+                "url": "https://api.github.com/repos/krissss/docker-webman/zipball/fd97ea212dd6330bdd48a5b0d36ebde9940be218",
+                "reference": "fd97ea212dd6330bdd48a5b0d36ebde9940be218",
                 "shasum": ""
             },
             "type": "library",
@@ -1526,9 +1526,9 @@
             "description": "docker for webman app",
             "support": {
                 "issues": "https://github.com/krissss/docker-webman/issues",
-                "source": "https://github.com/krissss/docker-webman/tree/v1.2.1"
+                "source": "https://github.com/krissss/docker-webman/tree/v1.2.2"
             },
-            "time": "2022-06-22T02:04:15+00:00"
+            "time": "2022-08-24T14:31:34+00:00"
         },
         {
             "name": "kriss/webman-log-reader",
