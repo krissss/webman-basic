@@ -13,7 +13,7 @@ function get_env(string $key, $defaultValue = null, array $whichIsNull = ['', nu
 {
     $value = getenv($key);
     if (in_array($value, $whichIsNull, true)) {
-        if (is_callable($defaultValue)) {
+        if ($defaultValue instanceof Closure) {
             $defaultValue = call_user_func($defaultValue);
         }
         return $defaultValue;
