@@ -1,5 +1,5 @@
 <?php
 
 return [
-    '用户名或密码错误%name%' => 'Username or Password error',
+    '用户名或密码错误' => 'Username or Password error',
 ];
