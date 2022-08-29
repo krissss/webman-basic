@@ -68,6 +68,7 @@ class ExceptionHandler extends BaseExceptionHandler
             $this->statusCode = $exception->getCode();
             $this->statusMsg = $exception->getMessage();
             $this->responseData = array_merge($this->responseData, $exception->getData());
+            return;
         }
         if ($exception instanceof ValidationException) {
             $this->statusCode = $exception->status;
@@ -100,7 +101,7 @@ class ExceptionHandler extends BaseExceptionHandler
         if ($request->expectsJson()) {
             return json_error($this->statusCode, $this->statusMsg, $this->responseData);
         }
-        $error = $this->_debug ? \nl2br((string)$exception) : 'Server internal error';
-        return new Response(500, [], $error);
+        $error = $this->_debug ? \nl2br((string)$exception) : ($this->statusMsg ?: 'Server internal error');
+        return new Response($this->statusCode, [], $error);
     }
 }
