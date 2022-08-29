@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42d6f531a834693b29c55fb91e1550fe",
+    "content-hash": "538ae1a5ce74fda00f61749819a9aa70",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1419,16 +1419,16 @@
         },
         {
             "name": "kriss/webman-amis-admin",
-            "version": "v1.3.4",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-amis-admin.git",
-                "reference": "b56e2b9c185ac8d103eb9fba1d2b70b6e189f299"
+                "reference": "391cb6594543f5cc559b1a9c0ca39dd397df685c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/b56e2b9c185ac8d103eb9fba1d2b70b6e189f299",
-                "reference": "b56e2b9c185ac8d103eb9fba1d2b70b6e189f299",
+                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/391cb6594543f5cc559b1a9c0ca39dd397df685c",
+                "reference": "391cb6594543f5cc559b1a9c0ca39dd397df685c",
                 "shasum": ""
             },
             "require": {
@@ -1457,9 +1457,9 @@
             "description": "Webman plugin kriss/webman-amis-admin",
             "support": {
                 "issues": "https://github.com/krissss/webman-amis-admin/issues",
-                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.3.4"
+                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.4.0"
             },
-            "time": "2022-08-29T06:18:43+00:00"
+            "time": "2022-08-29T10:00:38+00:00"
         },
         {
             "name": "kriss/webman-auth",

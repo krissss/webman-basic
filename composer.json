@@ -33,7 +33,7 @@
     "illuminate/redis": "^8.83",
     "illuminate/translation": "^8.83",
     "illuminate/validation": "^8.83",
-    "kriss/webman-amis-admin": "^1.3",
+    "kriss/webman-amis-admin": "^1.4",
     "kriss/webman-auth": "^1.3",
     "kriss/webman-docker": "^1.2",
     "kriss/webman-log-reader": "^1.2",
