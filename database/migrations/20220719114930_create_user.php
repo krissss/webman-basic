@@ -20,9 +20,9 @@ final class CreateUser extends BaseMigration
     {
         $table = $this->table('user', ['comment' => '用户表'])
             ->addColumn('username', 'string', ['comment' => '用户名', 'limit' => 64])
-            ->addColumn('password', 'string', ['comment' => '密码', 'limit' => 255])
-            ->addColumn('name', 'string', ['comment' => '名称', 'limit' => 255])
-            ->addColumn('access_token', 'string', ['comment' => 'Access Token', 'limit' => 255, 'null' => true]);
+            ->addColumn('password', 'string', ['comment' => '密码', 'limit' => 100])
+            ->addColumn('name', 'string', ['comment' => '名称', 'limit' => 64])
+            ->addColumn('access_token', 'string', ['comment' => 'Access Token', 'limit' => 100, 'null' => true]);
         $this->addCommonColumns($table, [
             'status', 'created_at', 'updated_at', 'deleted_at',
         ]);
