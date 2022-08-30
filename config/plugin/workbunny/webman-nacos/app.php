@@ -1,6 +1,7 @@
 <?php
 
 use app\components\Tools;
+use support\facade\Logger;
 
 if (!get_env('NACOS_ENABLE', false)) {
     return [
@@ -57,6 +58,9 @@ if (get_env('NACOS_ENABLE_SERVICE_REGISTER', true)) {
 
 return [
     'enable' => true,
+
+    /** 日志 channel，为 null 时使用默认通道 */
+    'log_channel' => Logger::CHANNEL_NACOS, // 'error',
 
     'host' => get_env('NACOS_HOST', '127.0.0.1'),
     'port' => (int)get_env('NACOS_PORT', 8848),

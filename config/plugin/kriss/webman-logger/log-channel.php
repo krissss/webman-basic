@@ -7,29 +7,22 @@ use Kriss\WebmanLogger\Processors\RequestRouteProcessor;
 use Kriss\WebmanLogger\Processors\RequestUidProcessor;
 use Monolog\Processor\PsrLogMessageProcessor;
 use support\facade\Auth;
+use support\facade\Logger;
 
 return [
     // channels
-    'channels' => [
-        //'channelName',
-        'sql',
-        'app',
-        'appAdmin',
-        'operateLog',
-    ],
+    'channels' => Logger::getAllChannels(),
     // 记录等级，仅大于设定等级的日志才会真实写入日志文件
     'levels' => [
         // 默认等级
         'default' => config('app.debug') ? 'debug' : 'info',
         // 特殊的等级
-        'special' => [
-            //'channelName' => 'info',
-        ],
+        'special' => Logger::getSpecialLevel(),
     ],
     // processors
     'processors' => function () {
         return [
-            new PsrLogMessageProcessor('Y-m-d H:i:s'),
+            new PsrLogMessageProcessor('Y-m-d H:i:s', true),
             new RequestRouteProcessor(),
             new CurrentUserProcessor(function () {
                 // 返回当前用户id

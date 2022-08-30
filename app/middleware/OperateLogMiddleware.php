@@ -10,7 +10,7 @@ use Yiisoft\Strings\WildcardPattern;
 
 class OperateLogMiddleware implements MiddlewareInterface
 {
-    protected string $logChannel = 'operateLog';
+    protected string $logChannel = Logger::CHANNEL_OPERATE_LOG;
     protected array $skipRequest = [
         '/_debugbar/*',
         '/admin/log-reader*'
