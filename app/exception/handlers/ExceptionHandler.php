@@ -99,7 +99,7 @@ class ExceptionHandler extends BaseExceptionHandler
     protected function buildResponse(Request $request, Throwable $exception): Response
     {
         if ($request->expectsJson()) {
-            return json_error($this->statusCode, $this->statusMsg, $this->responseData);
+            return json_error($this->statusMsg, $this->statusCode, $this->responseData);
         }
         $error = $this->_debug ? \nl2br((string)$exception) : ($this->statusMsg ?: 'Server internal error');
         return new Response($this->statusCode, [], $error);
