@@ -14,7 +14,7 @@
 
 use Webman\Route;
 
-Route::any('/', fn() => 'Hello!');
+Route::any('/', fn() => 'Hello ' . config('app.name'));
 
 Route::group('/admin', function () {
     require __DIR__ . '/../app/admin/route.php';
