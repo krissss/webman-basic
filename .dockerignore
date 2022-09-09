@@ -4,3 +4,4 @@
 /runtime/**
 !/runtime/.gitignore
 /vendor
+/docs
