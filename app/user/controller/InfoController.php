@@ -16,13 +16,13 @@ class InfoController extends \app\admin\controller\InfoController
     /**
      * @inheritdoc
      */
-    protected string $routeInfo = '/user/info';
+    protected string $routeInfo = 'user.info';
     /**
-     * @inheritdoc
+     * @var string
      */
-    protected string $routeInfoUpdate = '/user/info/update';
+    protected string $routeInfoUpdate = 'user.info.update';
     /**
-     * @inheritdoc
+     * @var string
      */
-    protected string $routeChangePassword = '/user/info/change-password';
+    protected string $routeChangePassword = 'user.info.changePassword';
 }

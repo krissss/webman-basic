@@ -25,15 +25,15 @@ class InfoController
     /**
      * @var string
      */
-    protected string $routeInfo = '/admin/info';
+    protected string $routeInfo = 'admin.info';
     /**
      * @var string
      */
-    protected string $routeInfoUpdate = '/admin/info/update';
+    protected string $routeInfoUpdate = 'admin.info.update';
     /**
      * @var string
      */
-    protected string $routeChangePassword = '/admin/info/change-password';
+    protected string $routeChangePassword = 'admin.info.changePassword';
 
     /**
      * 用户信息页面
@@ -52,8 +52,8 @@ class InfoController
                             'type' => 'form',
                             'title' => '基本信息',
                             'mode' => 'horizontal',
-                            'initApi' => $this->routeInfo,
-                            'api' => 'post:' . $this->routeInfoUpdate,
+                            'initApi' => route($this->routeInfo),
+                            'api' => 'post:' . route($this->routeInfoUpdate),
                             'body' => [
                                 DetailAttribute::make()->name('username')->label('用户名'),
                                 FormField::make()->name('name')->label('名称')->required(),
@@ -66,7 +66,7 @@ class InfoController
                             'type' => 'form',
                             'title' => '修改密码',
                             'mode' => 'horizontal',
-                            'api' => 'post:' . $this->routeChangePassword,
+                            'api' => 'post:' . route($this->routeChangePassword),
                             'body' => [
                                 ['type' => 'alert', 'body' => '修改密码后会刷新 Access Token', 'level' => 'info', 'showIcon' => true],
                                 FormField::make()->name('old_password')->label('原密码')->required()->typeInputPassword(),

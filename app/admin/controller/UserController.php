@@ -103,7 +103,7 @@ class UserController extends AbsSourceController
                     ]),
                 ]),
                 [
-                    'api' => route('admin.admin.reset-password', ['id' => '${id}']),
+                    'api' => route('admin.user.resetPassword', ['id' => '${id}']),
                     'level' => 'warning',
                 ]
             )

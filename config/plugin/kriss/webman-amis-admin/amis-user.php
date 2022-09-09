@@ -40,7 +40,7 @@ return [
                             'buttons' => Amis\ActionButtons::make()
                                 ->withButtonLink(1, '个人设置', '/user/info')
                                 ->withDivider(80)
-                                ->withButtonAjax(99, '退出登录', '/user/auth/logout', [
+                                ->withButtonAjax(99, '退出登录', route('user.logout'), [
                                     'confirmText' => '确定退出登录？'
                                 ])
                                 ->toArray(),
