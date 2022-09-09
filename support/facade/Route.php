@@ -2,8 +2,6 @@
 
 namespace support\facade;
 
-use Illuminate\Support\Str;
-
 class Route extends \Webman\Route
 {
     /**

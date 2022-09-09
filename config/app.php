@@ -22,6 +22,6 @@ return [
     'public_path' => base_path() . DIRECTORY_SEPARATOR . 'public',
     'runtime_path' => base_path(false) . DIRECTORY_SEPARATOR . 'runtime',
     'controller_suffix' => 'Controller',
-    'controller_reuse' => true,
+    'controller_reuse' => false, // 为了避免控制器中的变量缓存问题，一定不启用
     'name' => get_env('APP_NAME', 'webman_basic'),
 ];
