@@ -50,7 +50,7 @@ class Route extends \Webman\Route
             ], $config);
             $config['path'] = strtr($config['path'], [
                 '{_name}' => $name,
-                '{_action}' => Str::kebab($action),
+                '{_action}' => $action,
             ]);
             $config['method'] = strtolower($config['method']);
 
