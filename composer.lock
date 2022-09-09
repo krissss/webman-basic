@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "538ae1a5ce74fda00f61749819a9aa70",
+    "content-hash": "d183f42586a857856722dc7ea66167a2",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1419,16 +1419,16 @@
         },
         {
             "name": "kriss/webman-amis-admin",
-            "version": "v1.4.1",
+            "version": "v1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-amis-admin.git",
-                "reference": "f579f630537384b6b76c02255ee39be2fd56df99"
+                "reference": "225e8dd0606644ebe698e0008564ad79d2d61d08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/f579f630537384b6b76c02255ee39be2fd56df99",
-                "reference": "f579f630537384b6b76c02255ee39be2fd56df99",
+                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/225e8dd0606644ebe698e0008564ad79d2d61d08",
+                "reference": "225e8dd0606644ebe698e0008564ad79d2d61d08",
                 "shasum": ""
             },
             "require": {
@@ -1457,9 +1457,9 @@
             "description": "Webman plugin kriss/webman-amis-admin",
             "support": {
                 "issues": "https://github.com/krissss/webman-amis-admin/issues",
-                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.4.1"
+                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.4.2"
             },
-            "time": "2022-09-07T07:04:14+00:00"
+            "time": "2022-09-09T03:42:29+00:00"
         },
         {
             "name": "kriss/webman-auth",
@@ -4367,16 +4367,16 @@
         },
         {
             "name": "webman/console",
-            "version": "v1.2.9",
+            "version": "v1.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-php/console.git",
-                "reference": "2803d8e254660322ffdf8563b5eba2390b7925b2"
+                "reference": "9d2c0160a803374e1419546efd8425279c20c792"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-php/console/zipball/2803d8e254660322ffdf8563b5eba2390b7925b2",
-                "reference": "2803d8e254660322ffdf8563b5eba2390b7925b2",
+                "url": "https://api.github.com/repos/webman-php/console/zipball/9d2c0160a803374e1419546efd8425279c20c792",
+                "reference": "9d2c0160a803374e1419546efd8425279c20c792",
                 "shasum": ""
             },
             "require": {
@@ -4415,7 +4415,7 @@
                 "source": "https://github.com/webman-php/console",
                 "wiki": "http://www.workerman.net/doc/webman"
             },
-            "time": "2022-08-19T09:21:57+00:00"
+            "time": "2022-09-09T02:15:25+00:00"
         },
         {
             "name": "webman/multi-session",
@@ -4454,16 +4454,16 @@
         },
         {
             "name": "workerman/webman-framework",
-            "version": "v1.4.4",
+            "version": "v1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/webman-framework.git",
-                "reference": "25616d2fbf4a0e7a120c53e4a81cfcadbb5b9e11"
+                "reference": "1860a6a4c670b5ac85a1b44d019466f2ea49742e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/webman-framework/zipball/25616d2fbf4a0e7a120c53e4a81cfcadbb5b9e11",
-                "reference": "25616d2fbf4a0e7a120c53e4a81cfcadbb5b9e11",
+                "url": "https://api.github.com/repos/walkor/webman-framework/zipball/1860a6a4c670b5ac85a1b44d019466f2ea49742e",
+                "reference": "1860a6a4c670b5ac85a1b44d019466f2ea49742e",
                 "shasum": ""
             },
             "require": {
@@ -4494,22 +4494,22 @@
                 {
                     "name": "walkor",
                     "email": "walkor@workerman.net",
-                    "homepage": "http://www.workerman.net",
+                    "homepage": "https://www.workerman.net",
                     "role": "Developer"
                 }
             ],
             "description": "High performance HTTP Service Framework.",
-            "homepage": "http://www.workerman.net",
+            "homepage": "https://www.workerman.net",
             "keywords": [
                 "High Performance",
                 "http service"
             ],
             "support": {
                 "email": "walkor@workerman.net",
-                "forum": "http://wenda.workerman.net/",
+                "forum": "https://wenda.workerman.net/",
                 "issues": "https://github.com/walkor/webman/issues",
                 "source": "https://github.com/walkor/webman-framework",
-                "wiki": "http://doc.workerman.net/"
+                "wiki": "https://doc.workerman.net/"
             },
             "funding": [
                 {
@@ -4521,7 +4521,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-08-18T06:24:33+00:00"
+            "time": "2022-09-02T12:46:49+00:00"
         },
         {
             "name": "workerman/workerman",
@@ -4789,16 +4789,16 @@
     "packages-dev": [
         {
             "name": "kriss/webman-debugbar",
-            "version": "v1.2.2",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/webman-debugbar.git",
-                "reference": "e2fbfc85299a0d161dffcb1e247bcc5b6cabf632"
+                "reference": "147a697bdf8870c9d8bd5883fdfce8f2ad08ff0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-debugbar/zipball/e2fbfc85299a0d161dffcb1e247bcc5b6cabf632",
-                "reference": "e2fbfc85299a0d161dffcb1e247bcc5b6cabf632",
+                "url": "https://api.github.com/repos/krissss/webman-debugbar/zipball/147a697bdf8870c9d8bd5883fdfce8f2ad08ff0a",
+                "reference": "147a697bdf8870c9d8bd5883fdfce8f2ad08ff0a",
                 "shasum": ""
             },
             "require": {
@@ -4825,9 +4825,9 @@
             "description": "Webman plugin kriss/webman-debugbar",
             "support": {
                 "issues": "https://github.com/krissss/webman-debugbar/issues",
-                "source": "https://github.com/krissss/webman-debugbar/tree/v1.2.2"
+                "source": "https://github.com/krissss/webman-debugbar/tree/v1.3.0"
             },
-            "time": "2022-07-20T02:07:01+00:00"
+            "time": "2022-09-07T06:37:18+00:00"
         },
         {
             "name": "maximebf/debugbar",

@@ -23,9 +23,6 @@ $cli->installInternalCommands();
 if (is_dir($command_path = Util::guessPath(app_path(), '/command', true))) {
     $cli->installCommands($command_path);
 }
-if (is_dir($command_path = Util::guessPath(app_path(), '/command/framework', true))) {
-    $cli->installCommands($command_path, 'app\command\framework');
-}
 
 foreach (config('plugin', []) as $firm => $projects) {
     if (isset($projects['app'])) {
