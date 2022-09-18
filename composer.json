@@ -49,6 +49,7 @@
     "webman-tech/polyfill": "^1.0",
     "webman-tech/symfony-lock": "^2.0",
     "webman/console": "^1.2",
+    "webman/event": "^1.0",
     "webman/multi-session": "^1.0",
     "webman/redis-queue": "^1.2",
     "workerman/webman-framework": "^1.4",

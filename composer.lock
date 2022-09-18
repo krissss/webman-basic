@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a054a77572f317b97caf0f207f0e0cd",
+    "content-hash": "8bc313bced6596f9bf3b086c2a007e8f",
     "packages": [
         {
             "name": "cakephp/core",
@@ -5462,6 +5462,37 @@
                 "wiki": "http://www.workerman.net/doc/webman"
             },
             "time": "2022-09-09T02:15:25+00:00"
+        },
+        {
+            "name": "webman/event",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-php/event.git",
+                "reference": "db17d2fd6a5a8799f97f587b17a26b814901e01a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-php/event/zipball/db17d2fd6a5a8799f97f587b17a26b814901e01a",
+                "reference": "db17d2fd6a5a8799f97f587b17a26b814901e01a",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webman\\Event\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman event plugin",
+            "support": {
+                "issues": "https://github.com/webman-php/event/issues",
+                "source": "https://github.com/webman-php/event/tree/v1.0.2"
+            },
+            "time": "2022-06-16T06:25:20+00:00"
         },
         {
             "name": "webman/multi-session",

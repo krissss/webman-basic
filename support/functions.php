@@ -18,3 +18,14 @@ function get_env(string $key, $defaultValue = null, array $whichIsNull = ['', nu
     }
     return $value;
 }
+
+/**
+ * 触发事件
+ * @param string $eventName
+ * @param mixed $data
+ * @return int
+ */
+function event(string $eventName, $data = null): int
+{
+    return \support\facade\Event::emit($eventName, $data);
+}
