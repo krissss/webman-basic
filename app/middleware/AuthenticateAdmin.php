@@ -2,9 +2,9 @@
 
 namespace app\middleware;
 
-use Kriss\WebmanAuth\Middleware\Authentication;
 use Webman\Http\Request;
 use Webman\Http\Response;
+use WebmanTech\Auth\Middleware\Authentication;
 
 class AuthenticateAdmin extends Authentication
 {

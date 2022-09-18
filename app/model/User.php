@@ -5,8 +5,8 @@ namespace app\model;
 use app\components\BaseModel;
 use app\components\Component;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Kriss\WebmanAuth\Interfaces\IdentityInterface;
-use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
+use WebmanTech\Auth\Interfaces\IdentityInterface;
+use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
 
 /**
  * @property integer $id (主键)

@@ -5,12 +5,12 @@ namespace app\exception\handlers;
 use app\exception\UserSeeException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
-use Kriss\WebmanAuth\Exceptions\UnauthorizedException;
 use support\Log;
 use Throwable;
 use Webman\Exception\ExceptionHandler as BaseExceptionHandler;
 use Webman\Http\Request;
 use Webman\Http\Response;
+use WebmanTech\Auth\Exceptions\UnauthorizedException;
 
 class ExceptionHandler extends BaseExceptionHandler
 {

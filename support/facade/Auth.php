@@ -4,9 +4,9 @@ namespace support\facade;
 
 use app\model\Admin;
 use app\model\User;
-use Kriss\WebmanAuth\Interfaces\GuardInterface;
+use WebmanTech\Auth\Interfaces\GuardInterface;
 
-class Auth extends \Kriss\WebmanAuth\Auth
+class Auth extends \WebmanTech\Auth\Auth
 {
     public static function guardUser(): GuardInterface
     {

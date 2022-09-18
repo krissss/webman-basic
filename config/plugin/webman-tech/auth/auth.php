@@ -1,9 +1,9 @@
 <?php
 
-use Kriss\WebmanAuth\Authentication\Method\CompositeMethod;
-use Kriss\WebmanAuth\Authentication\Method\HttpHeaderMethod;
-use Kriss\WebmanAuth\Authentication\Method\SessionMethod;
-use Kriss\WebmanAuth\Interfaces\IdentityRepositoryInterface;
+use WebmanTech\Auth\Authentication\Method\CompositeMethod;
+use WebmanTech\Auth\Authentication\Method\HttpHeaderMethod;
+use WebmanTech\Auth\Authentication\Method\SessionMethod;
+use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
 
 return [
     'default' => 'user',
@@ -19,7 +19,7 @@ return [
                 ]);
             },
             'authenticationFailureHandler' => function () {
-                return new Kriss\WebmanAuth\Authentication\FailureHandler\ThrowExceptionHandler();
+                return new WebmanTech\Auth\Authentication\FailureHandler\ThrowExceptionHandler();
             },
         ],
         'admin' => [
@@ -33,7 +33,7 @@ return [
                 ]);
             },
             'authenticationFailureHandler' => function () {
-                return new Kriss\WebmanAuth\Authentication\FailureHandler\ThrowExceptionHandler();
+                return new WebmanTech\Auth\Authentication\FailureHandler\ThrowExceptionHandler();
             },
         ],
     ],

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0593c6d4d6f57b54bc7aac66356e6dfa",
+    "content-hash": "51ddb99a39dc6823a480e753603ac83d",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1460,44 +1460,6 @@
                 "source": "https://github.com/krissss/webman-amis-admin/tree/v1.4.2"
             },
             "time": "2022-09-09T03:42:29+00:00"
-        },
-        {
-            "name": "kriss/webman-auth",
-            "version": "v1.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/krissss/webman-auth.git",
-                "reference": "e295835e07f21d2c66c07505d793eaab34e4a69b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-auth/zipball/e295835e07f21d2c66c07505d793eaab34e4a69b",
-                "reference": "e295835e07f21d2c66c07505d793eaab34e4a69b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "tinywan/jwt": "^1.2",
-                "workerman/webman-framework": "^1.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Kriss\\WebmanAuth\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "webman auth plugin",
-            "support": {
-                "issues": "https://github.com/krissss/webman-auth/issues",
-                "source": "https://github.com/krissss/webman-auth/tree/v1.3.3"
-            },
-            "time": "2022-07-20T05:28:29+00:00"
         },
         {
             "name": "kriss/webman-docker",
@@ -4291,6 +4253,44 @@
                 }
             ],
             "time": "2022-01-24T18:55:24+00:00"
+        },
+        {
+            "name": "webman-tech/auth",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-tech/auth.git",
+                "reference": "821bfa398f646ede2032fe211a57b5b7ecef974f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-tech/auth/zipball/821bfa398f646ede2032fe211a57b5b7ecef974f",
+                "reference": "821bfa398f646ede2032fe211a57b5b7ecef974f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "tinywan/jwt": "^1.2",
+                "workerman/webman-framework": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebmanTech\\Auth\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "webman auth plugin",
+            "support": {
+                "issues": "https://github.com/webman-tech/auth/issues",
+                "source": "https://github.com/webman-tech/auth/tree/v2.0.0"
+            },
+            "time": "2022-09-18T11:42:27+00:00"
         },
         {
             "name": "webman-tech/laravel-translation",
