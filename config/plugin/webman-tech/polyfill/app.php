@@ -2,7 +2,7 @@
 
 use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
-use support\Container;
+use support\facade\Storage;
 use support\facade\Validator;
 
 return [
@@ -12,7 +12,7 @@ return [
          * 如果用到 Laravel UploadedFile 中的 store 或 storeAs 相关方法，需要提供 filesystemFactory 实现
          */
         'filesystem' => function (): FilesystemFactory {
-            return Container::get(FilesystemFactory::class);
+            return Storage::instance();
         },
         /**
          * 如果用到 Laravel Request 中的 validate，需要提供 validationFactory 实现
