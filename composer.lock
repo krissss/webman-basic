@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d703a253763a1d3b0f3d26f0e8be322",
+    "content-hash": "0593c6d4d6f57b54bc7aac66356e6dfa",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1529,44 +1529,6 @@
                 "source": "https://github.com/krissss/docker-webman/tree/v1.2.2"
             },
             "time": "2022-08-24T14:31:34+00:00"
-        },
-        {
-            "name": "kriss/webman-log-reader",
-            "version": "v1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/krissss/webman-log-reader.git",
-                "reference": "a93c7e0d9fcd6eb78e1270fb4ebbab8dbd413889"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-log-reader/zipball/a93c7e0d9fcd6eb78e1270fb4ebbab8dbd413889",
-                "reference": "a93c7e0d9fcd6eb78e1270fb4ebbab8dbd413889",
-                "shasum": ""
-            },
-            "require": {
-                "kriss/log-reader": "^1.3",
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "workerman/webman-framework": "^1.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Kriss\\WebmanLogReader\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Webman plugin kriss/webman-log-reader",
-            "support": {
-                "issues": "https://github.com/krissss/webman-log-reader/issues",
-                "source": "https://github.com/krissss/webman-log-reader/tree/v1.2.0"
-            },
-            "time": "2022-07-20T03:41:21+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4414,6 +4376,44 @@
                 "source": "https://github.com/webman-tech/laravel-validation/tree/v1.0.2"
             },
             "time": "2022-09-18T03:06:28+00:00"
+        },
+        {
+            "name": "webman-tech/log-reader",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-tech/log-reader.git",
+                "reference": "f802e5fb77fad1eddddb87b946ec3b2fc842bd3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-tech/log-reader/zipball/f802e5fb77fad1eddddb87b946ec3b2fc842bd3f",
+                "reference": "f802e5fb77fad1eddddb87b946ec3b2fc842bd3f",
+                "shasum": ""
+            },
+            "require": {
+                "kriss/log-reader": "^1.3",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "workerman/webman-framework": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebmanTech\\LogReader\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman plugin webman-tech/log-reader",
+            "support": {
+                "issues": "https://github.com/webman-tech/log-reader/issues",
+                "source": "https://github.com/webman-tech/log-reader/tree/v2.0.0"
+            },
+            "time": "2022-09-18T10:58:39+00:00"
         },
         {
             "name": "webman-tech/logger",
