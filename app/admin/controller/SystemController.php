@@ -29,11 +29,11 @@ class SystemController
                 ],
             ],
         ];
-        if (config('plugin.kriss.webman-log-reader.app.enable')) {
+        if (config('plugin.webman-tech.log-reader.app.enable')) {
             $menus[] = [
                 'label' => '系统',
                 'children' => [
-                    ['label' => '日志查看', 'icon' => 'fa fa-file-text-o', 'url' => '/log-reader', 'schemaApi' => route('admin.iframe.view') . '?link=' . urlencode(config('plugin.kriss.webman-log-reader.log-reader.route.group'))],
+                    ['label' => '日志查看', 'icon' => 'fa fa-file-text-o', 'url' => '/log-reader', 'schemaApi' => route('admin.iframe.view') . '?link=' . urlencode(config('plugin.webman-tech.log-reader.log-reader.route.group'))],
                 ],
             ];
         }
