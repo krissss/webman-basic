@@ -50,6 +50,7 @@
     "webman-tech/symfony-lock": "^2.0",
     "webman/console": "^1.2",
     "webman/multi-session": "^1.0",
+    "webman/redis-queue": "^1.2",
     "workerman/webman-framework": "^1.4",
     "yiisoft/json": "^1.0",
     "yiisoft/strings": "^2.0",
@@ -62,7 +63,6 @@
   "suggest": {
     "ext-event": "For better performance",
     "ext-redis": "For redis use",
-    "webman/redis-queue": "For redis-queue use",
     "workerman/crontab": "For crontab use",
     "workbunny/webman-nacos": "For nacos use"
   },
