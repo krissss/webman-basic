@@ -5190,16 +5190,16 @@
         },
         {
             "name": "webman-tech/debugbar",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/debugbar.git",
-                "reference": "cde6c09d08b7b81c1026d5fda87d3cb2bd554bc2"
+                "reference": "378b3121db24b09d17e6fde0eda99d5bc1637b6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/debugbar/zipball/cde6c09d08b7b81c1026d5fda87d3cb2bd554bc2",
-                "reference": "cde6c09d08b7b81c1026d5fda87d3cb2bd554bc2",
+                "url": "https://api.github.com/repos/webman-tech/debugbar/zipball/378b3121db24b09d17e6fde0eda99d5bc1637b6e",
+                "reference": "378b3121db24b09d17e6fde0eda99d5bc1637b6e",
                 "shasum": ""
             },
             "require": {
@@ -5226,9 +5226,9 @@
             "description": "Webman plugin webman-tech/debugbar",
             "support": {
                 "issues": "https://github.com/webman-tech/debugbar/issues",
-                "source": "https://github.com/webman-tech/debugbar/tree/v2.0.1"
+                "source": "https://github.com/webman-tech/debugbar/tree/v2.0.2"
             },
-            "time": "2022-09-18T03:45:41+00:00"
+            "time": "2022-09-18T04:08:08+00:00"
         }
     ],
     "aliases": [],
