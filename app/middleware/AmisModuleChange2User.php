@@ -2,7 +2,7 @@
 
 namespace app\middleware;
 
-use Kriss\WebmanAmisAdmin\Middleware\AmisModuleChangeMiddleware;
+use WebmanTech\AmisAdmin\Middleware\AmisModuleChangeMiddleware;
 
 class AmisModuleChange2User extends AmisModuleChangeMiddleware
 {

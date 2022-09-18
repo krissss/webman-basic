@@ -6,12 +6,12 @@ use app\admin\controller\repository\AdminRepository as Repository;
 use app\components\Component;
 use app\exception\ValidationException;
 use app\model\Admin as Model;
-use Kriss\WebmanAmisAdmin\Amis\DetailAttribute;
-use Kriss\WebmanAmisAdmin\Amis\FormField;
-use Kriss\WebmanAmisAdmin\Amis\Page;
 use support\facade\Auth;
 use support\Request;
 use Webman\Http\Response;
+use WebmanTech\AmisAdmin\Amis\DetailAttribute;
+use WebmanTech\AmisAdmin\Amis\FormField;
+use WebmanTech\AmisAdmin\Amis\Page;
 
 /**
  * 当前登录用户信息

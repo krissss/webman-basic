@@ -2,8 +2,8 @@
 
 namespace app\admin\controller;
 
-use Kriss\WebmanAmisAdmin\Controller\AmisSourceController;
-use Kriss\WebmanAmisAdmin\Repository\EloquentRepository;
+use WebmanTech\AmisAdmin\Controller\AmisSourceController;
+use WebmanTech\AmisAdmin\Repository\EloquentRepository;
 
 /**
  * crud 基础控制器

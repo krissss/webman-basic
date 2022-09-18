@@ -3,11 +3,11 @@
 namespace app\exception\handlers;
 
 use Illuminate\Validation\ValidationException as LaravelValidationException;
-use Kriss\WebmanAmisAdmin\Exceptions\ValidationException;
 use support\Log;
 use Throwable;
 use Webman\Http\Request;
 use Webman\Http\Response;
+use WebmanTech\AmisAdmin\Exceptions\ValidationException;
 
 class ExceptionHandlerAmis extends ExceptionHandler
 {

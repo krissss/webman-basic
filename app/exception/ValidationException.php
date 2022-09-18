@@ -2,6 +2,6 @@
 
 namespace app\exception;
 
-class ValidationException extends \Kriss\WebmanAmisAdmin\Exceptions\ValidationException
+class ValidationException extends \WebmanTech\AmisAdmin\Exceptions\ValidationException
 {
 }

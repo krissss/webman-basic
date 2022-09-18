@@ -5,14 +5,14 @@ namespace app\admin\controller;
 use app\admin\controller\repository\AdminRepository;
 use app\enums\AdminStatus;
 use app\model\Admin;
-use Kriss\WebmanAmisAdmin\Amis;
-use Kriss\WebmanAmisAdmin\Amis\DetailAttribute;
-use Kriss\WebmanAmisAdmin\Amis\FormField;
-use Kriss\WebmanAmisAdmin\Amis\GridColumn;
-use Kriss\WebmanAmisAdmin\Repository\RepositoryInterface;
 use support\facade\Auth;
 use support\Request;
 use Webman\Http\Response;
+use WebmanTech\AmisAdmin\Amis;
+use WebmanTech\AmisAdmin\Amis\DetailAttribute;
+use WebmanTech\AmisAdmin\Amis\FormField;
+use WebmanTech\AmisAdmin\Amis\GridColumn;
+use WebmanTech\AmisAdmin\Repository\RepositoryInterface;
 
 /**
  * @method AdminRepository repository()

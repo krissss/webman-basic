@@ -1,9 +1,9 @@
 <?php
 
-use Kriss\WebmanAmisAdmin\Amis;
-use Kriss\WebmanAmisAdmin\Amis\Component;
-use Kriss\WebmanAmisAdmin\Controller\RenderController;
-use Kriss\WebmanAmisAdmin\Validator\LaravelValidator;
+use WebmanTech\AmisAdmin\Amis;
+use WebmanTech\AmisAdmin\Amis\Component;
+use WebmanTech\AmisAdmin\Controller\RenderController;
+use WebmanTech\AmisAdmin\Validator\LaravelValidator;
 use support\facade\Auth;
 use support\facade\Validator;
 
@@ -122,7 +122,7 @@ return [
      */
     'components' => [
         // 例如: 将列表页的字段默认左显示
-        /*\Kriss\WebmanAmisAdmin\Amis\GridColumn::class => [
+        /*\WebmanTech\AmisAdmin\Amis\GridColumn::class => [
             'schema' => [
                 'align' => 'left',
             ],
@@ -130,7 +130,7 @@ return [
     ],
     /**
      * 默认的验证器
-     * 返回一个 \Kriss\WebmanAmisAdmin\Validator\ValidatorInterface
+     * 返回一个 \WebmanTech\AmisAdmin\Validator\ValidatorInterface
      */
     'validator' => fn() => new LaravelValidator(Validator::instance()),
 ];

@@ -1,8 +1,8 @@
 <?php
 
-use Kriss\WebmanAmisAdmin\Amis;
-use Kriss\WebmanAmisAdmin\Amis\Component;
-use Kriss\WebmanAmisAdmin\Controller\RenderController;
+use WebmanTech\AmisAdmin\Amis;
+use WebmanTech\AmisAdmin\Amis\Component;
+use WebmanTech\AmisAdmin\Controller\RenderController;
 use support\facade\Auth;
 
 $adminAmis = require __DIR__ . '/amis.php';
@@ -83,7 +83,7 @@ return [
     'components' => $adminAmis['components'],
     /**
      * 默认的验证器
-     * 返回一个 \Kriss\WebmanAmisAdmin\Validator\ValidatorInterface
+     * 返回一个 \WebmanTech\AmisAdmin\Validator\ValidatorInterface
      */
     'validator' => $adminAmis['validator'],
 ];

@@ -5,8 +5,8 @@ use app\admin\controller\AuthController;
 use app\admin\controller\InfoController;
 use app\admin\controller\SystemController;
 use app\admin\controller\UserController;
-use Kriss\WebmanAmisAdmin\Controller\RenderController;
 use support\facade\Route;
+use WebmanTech\AmisAdmin\Controller\RenderController;
 
 // 以下路由定义不能使用 group 嵌套，会导致 middleware 丢失: https://github.com/walkor/webman-framework/issues/45
 // 登录

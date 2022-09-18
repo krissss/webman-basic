@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32916418eb9155536c4c68744ef774c7",
+    "content-hash": "e577833044e063f9449722ee26651c71",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1416,50 +1416,6 @@
                 "source": "https://github.com/krissss/php-log-reader/tree/v1.3.1"
             },
             "time": "2022-07-20T03:39:36+00:00"
-        },
-        {
-            "name": "kriss/webman-amis-admin",
-            "version": "v1.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/krissss/webman-amis-admin.git",
-                "reference": "225e8dd0606644ebe698e0008564ad79d2d61d08"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-amis-admin/zipball/225e8dd0606644ebe698e0008564ad79d2d61d08",
-                "reference": "225e8dd0606644ebe698e0008564ad79d2d61d08",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "illuminate/database": "^8.83",
-                "illuminate/pagination": "^8.83",
-                "illuminate/validation": "^8.83",
-                "workerman/webman-framework": "^1.3"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/helper.php"
-                ],
-                "psr-4": {
-                    "Kriss\\WebmanAmisAdmin\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Webman plugin kriss/webman-amis-admin",
-            "support": {
-                "issues": "https://github.com/krissss/webman-amis-admin/issues",
-                "source": "https://github.com/krissss/webman-amis-admin/tree/v1.4.2"
-            },
-            "time": "2022-09-09T03:42:29+00:00"
         },
         {
             "name": "kriss/webman-docker",
@@ -4334,6 +4290,51 @@
             "time": "2022-01-24T18:55:24+00:00"
         },
         {
+            "name": "webman-tech/amis-admin",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-tech/amis-admin.git",
+                "reference": "b543c09ccb01028acf5e889d45137267ef635d60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-tech/amis-admin/zipball/b543c09ccb01028acf5e889d45137267ef635d60",
+                "reference": "b543c09ccb01028acf5e889d45137267ef635d60",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.4",
+                "webman-tech/polyfill": "^1.0"
+            },
+            "require-dev": {
+                "illuminate/database": "^8.83",
+                "illuminate/pagination": "^8.83",
+                "illuminate/validation": "^8.83",
+                "workerman/webman-framework": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helper.php"
+                ],
+                "psr-4": {
+                    "WebmanTech\\AmisAdmin\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman plugin webman-tech/amis-admin",
+            "support": {
+                "issues": "https://github.com/webman-tech/amis-admin/issues",
+                "source": "https://github.com/webman-tech/amis-admin/tree/v2.0.1"
+            },
+            "time": "2022-09-18T14:04:37+00:00"
+        },
+        {
             "name": "webman-tech/auth",
             "version": "v2.0.0",
             "source": {
@@ -4531,6 +4532,46 @@
                 "source": "https://github.com/webman-tech/logger/tree/v2.0.0"
             },
             "time": "2022-09-18T04:13:41+00:00"
+        },
+        {
+            "name": "webman-tech/polyfill",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-tech/polyfill.git",
+                "reference": "fb3bb2d4b8a9d52066f0f3404012d92be14ae152"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-tech/polyfill/zipball/fb3bb2d4b8a9d52066f0f3404012d92be14ae152",
+                "reference": "fb3bb2d4b8a9d52066f0f3404012d92be14ae152",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "illuminate/http": "^8.83",
+                "illuminate/validation": "^8.83",
+                "symfony/http-foundation": "^5.4",
+                "workerman/webman-framework": "^1.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebmanTech\\Polyfill\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman plugin webmantech/polyfill",
+            "support": {
+                "issues": "https://github.com/webman-tech/polyfill/issues",
+                "source": "https://github.com/webman-tech/polyfill/tree/v1.0.0"
+            },
+            "time": "2022-09-17T14:59:09+00:00"
         },
         {
             "name": "webman-tech/symfony-lock",

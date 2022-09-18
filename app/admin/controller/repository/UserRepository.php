@@ -8,7 +8,7 @@ use app\model\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
-use Kriss\WebmanAmisAdmin\Repository\EloquentRepository;
+use WebmanTech\AmisAdmin\Repository\EloquentRepository;
 
 class UserRepository extends EloquentRepository
 {

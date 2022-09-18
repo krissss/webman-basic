@@ -4,7 +4,7 @@
  */
 
 use Illuminate\Contracts\Support\Arrayable;
-use Kriss\WebmanAmisAdmin\Amis\Component as AmisComponent;
+use WebmanTech\AmisAdmin\Amis\Component as AmisComponent;
 use support\Response;
 use Yiisoft\Json\Json;
 

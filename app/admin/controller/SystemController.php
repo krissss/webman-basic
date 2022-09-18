@@ -2,10 +2,10 @@
 
 namespace app\admin\controller;
 
-use Kriss\WebmanAmisAdmin\Amis\Page;
 use support\facade\Auth;
 use Webman\Http\Request;
 use Webman\Http\Response;
+use WebmanTech\AmisAdmin\Amis\Page;
 
 /**
  * 系统信息
