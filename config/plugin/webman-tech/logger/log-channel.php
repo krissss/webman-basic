@@ -1,13 +1,13 @@
 <?php
 
-use Kriss\WebmanLogger\Formatter\ChannelFormatter;
-use Kriss\WebmanLogger\Formatter\ChannelMixedFormatter;
-use Kriss\WebmanLogger\Processors\CurrentUserProcessor;
-use Kriss\WebmanLogger\Processors\RequestRouteProcessor;
-use Kriss\WebmanLogger\Processors\RequestUidProcessor;
-use Monolog\Processor\PsrLogMessageProcessor;
 use support\facade\Auth;
 use support\facade\Logger;
+use WebmanTech\Logger\Formatter\ChannelFormatter;
+use WebmanTech\Logger\Formatter\ChannelMixedFormatter;
+use WebmanTech\Logger\Processors\RequestRouteProcessor;
+use WebmanTech\Logger\Processors\RequestUidProcessor;
+use WebmanTech\Logger\Processors\CurrentUserProcessor;
+use Monolog\Processor\PsrLogMessageProcessor;
 
 return [
     // channels
@@ -38,7 +38,7 @@ return [
     'modes' => [
         // 按照channel分目录记录
         'split' => [
-            'class' => Kriss\WebmanLogger\Mode\SplitMode::class,
+            'class' => WebmanTech\Logger\Mode\SplitMode::class,
             'enable' => get_env('LOG_CHANNEL_MODE_SPLIT', true),
             'except_channels' => [],
             'only_channels' => [],
@@ -49,7 +49,7 @@ return [
         ],
         // 将所有channel合并到一起记录
         'mix' => [
-            'class' => Kriss\WebmanLogger\Mode\MixMode::class,
+            'class' => WebmanTech\Logger\Mode\MixMode::class,
             'enable' => get_env('CHANNEL_LOG_MODE_MIX', false),
             'except_channels' => [],
             'only_channels' => [],
@@ -61,7 +61,7 @@ return [
         ],
         // 控制台输出
         'stdout' => [
-            'class' => Kriss\WebmanLogger\Mode\StdoutMode::class,
+            'class' => WebmanTech\Logger\Mode\StdoutMode::class,
             'enable' => get_env('CHANNEL_LOG_MODE_STDOUT', false),
             'except_channels' => [],
             'only_channels' => [],
@@ -71,7 +71,7 @@ return [
         ],
         // 输出到 redis
         'redis' => [
-            'class' => Kriss\WebmanLogger\Mode\RedisMode::class,
+            'class' => WebmanTech\Logger\Mode\RedisMode::class,
             'enable' => get_env('CHANNEL_LOG_MODE_REDIS', false),
             'except_channels' => [],
             'only_channels' => [],

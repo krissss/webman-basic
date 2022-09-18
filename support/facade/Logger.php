@@ -12,7 +12,7 @@ use Yiisoft\Strings\StringHelper;
  * @method static void nacos($msg, string $type = 'info', array $context = [])
  * @method static void operateLog($msg, string $type = 'info', array $context = [])
  */
-class Logger extends \Kriss\WebmanLogger\Logger
+class Logger extends \WebmanTech\Logger\Logger
 {
     public const CHANNEL_APP = 'app';
     public const CHANNEL_SQL = 'sql';
