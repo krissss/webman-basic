@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e577833044e063f9449722ee26651c71",
+    "content-hash": "bab25fb7c053b2d633bb69e3327d8ea0",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1416,37 +1416,6 @@
                 "source": "https://github.com/krissss/php-log-reader/tree/v1.3.1"
             },
             "time": "2022-07-20T03:39:36+00:00"
-        },
-        {
-            "name": "kriss/webman-docker",
-            "version": "v1.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/krissss/docker-webman.git",
-                "reference": "fd97ea212dd6330bdd48a5b0d36ebde9940be218"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/krissss/docker-webman/zipball/fd97ea212dd6330bdd48a5b0d36ebde9940be218",
-                "reference": "fd97ea212dd6330bdd48a5b0d36ebde9940be218",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Kriss\\WebmanDocker\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "docker for webman app",
-            "support": {
-                "issues": "https://github.com/krissss/docker-webman/issues",
-                "source": "https://github.com/krissss/docker-webman/tree/v1.2.2"
-            },
-            "time": "2022-08-24T14:31:34+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4371,6 +4340,37 @@
                 "source": "https://github.com/webman-tech/auth/tree/v2.0.0"
             },
             "time": "2022-09-18T11:42:27+00:00"
+        },
+        {
+            "name": "webman-tech/docker",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-tech/docker.git",
+                "reference": "701808515519423e334b45896efd9b6104d3d824"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-tech/docker/zipball/701808515519423e334b45896efd9b6104d3d824",
+                "reference": "701808515519423e334b45896efd9b6104d3d824",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kriss\\WebmanDocker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "docker for webman app",
+            "support": {
+                "issues": "https://github.com/webman-tech/docker/issues",
+                "source": "https://github.com/webman-tech/docker/tree/v2.0.0"
+            },
+            "time": "2022-09-18T14:22:31+00:00"
         },
         {
             "name": "webman-tech/laravel-translation",

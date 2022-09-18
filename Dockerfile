@@ -1,3 +1,4 @@
+# 用于将项目构建成镜像
 ARG WEBMAN_DOCKER_VERSION=7.4-cli-alpine
 
 # https://github.com/krissss/docker-webman
