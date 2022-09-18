@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57070cb68aa41591a9ce614afd31b9bb",
+    "content-hash": "2e6e0bfa4168c65049fd00a83ef75aa6",
     "packages": [
         {
             "name": "cakephp/core",
@@ -4876,59 +4876,17 @@
     ],
     "packages-dev": [
         {
-            "name": "kriss/webman-debugbar",
-            "version": "v1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/krissss/webman-debugbar.git",
-                "reference": "147a697bdf8870c9d8bd5883fdfce8f2ad08ff0a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/krissss/webman-debugbar/zipball/147a697bdf8870c9d8bd5883fdfce8f2ad08ff0a",
-                "reference": "147a697bdf8870c9d8bd5883fdfce8f2ad08ff0a",
-                "shasum": ""
-            },
-            "require": {
-                "maximebf/debugbar": "^1.18",
-                "php": ">=7.4",
-                "workerman/webman-framework": "^1.3"
-            },
-            "require-dev": {
-                "illuminate/database": "^8.83",
-                "illuminate/events": "^8.83",
-                "illuminate/redis": "^8.83",
-                "symfony/finder": "^5.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Kriss\\WebmanDebugBar\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Webman plugin kriss/webman-debugbar",
-            "support": {
-                "issues": "https://github.com/krissss/webman-debugbar/issues",
-                "source": "https://github.com/krissss/webman-debugbar/tree/v1.3.0"
-            },
-            "time": "2022-09-07T06:37:18+00:00"
-        },
-        {
             "name": "maximebf/debugbar",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "0d44b75f3b5d6d41ae83b79c7a4bceae7fbc78b6"
+                "reference": "ba0af68dd4316834701ecb30a00ce9604ced3ee9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/0d44b75f3b5d6d41ae83b79c7a4bceae7fbc78b6",
-                "reference": "0d44b75f3b5d6d41ae83b79c7a4bceae7fbc78b6",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/ba0af68dd4316834701ecb30a00ce9604ced3ee9",
+                "reference": "ba0af68dd4316834701ecb30a00ce9604ced3ee9",
                 "shasum": ""
             },
             "require": {
@@ -4948,7 +4906,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17-dev"
+                    "dev-master": "1.18-dev"
                 }
             },
             "autoload": {
@@ -4979,9 +4937,9 @@
             ],
             "support": {
                 "issues": "https://github.com/maximebf/php-debugbar/issues",
-                "source": "https://github.com/maximebf/php-debugbar/tree/v1.18.0"
+                "source": "https://github.com/maximebf/php-debugbar/tree/v1.18.1"
             },
-            "time": "2021-12-27T18:49:48+00:00"
+            "time": "2022-03-31T14:55:54+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -5071,6 +5029,48 @@
                 }
             ],
             "time": "2022-07-20T13:00:38+00:00"
+        },
+        {
+            "name": "webman-tech/debugbar",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-tech/debugbar.git",
+                "reference": "cde6c09d08b7b81c1026d5fda87d3cb2bd554bc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-tech/debugbar/zipball/cde6c09d08b7b81c1026d5fda87d3cb2bd554bc2",
+                "reference": "cde6c09d08b7b81c1026d5fda87d3cb2bd554bc2",
+                "shasum": ""
+            },
+            "require": {
+                "maximebf/debugbar": "^1.18",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "illuminate/database": "^8.83",
+                "illuminate/events": "^8.83",
+                "illuminate/redis": "^8.83",
+                "symfony/finder": "^5.4",
+                "workerman/webman-framework": "^1.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebmanTech\\Debugbar\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman plugin webman-tech/debugbar",
+            "support": {
+                "issues": "https://github.com/webman-tech/debugbar/issues",
+                "source": "https://github.com/webman-tech/debugbar/tree/v2.0.1"
+            },
+            "time": "2022-09-18T03:45:41+00:00"
         }
     ],
     "aliases": [],

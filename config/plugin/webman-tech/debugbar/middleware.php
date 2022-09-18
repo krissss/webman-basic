@@ -1,6 +1,6 @@
 <?php
 
-use Kriss\WebmanDebugBar\Middleware\DebugBarMiddleware;
+use WebmanTech\Debugbar\Middleware\DebugBarMiddleware;
 
 return [
     '' => [

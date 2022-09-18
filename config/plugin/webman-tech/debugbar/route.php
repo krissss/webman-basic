@@ -1,5 +1,5 @@
 <?php
 
-use Kriss\WebmanDebugBar\DebugBar;
+use WebmanTech\Debugbar\DebugBar;
 
 DebugBar::instance()->registerRoute();
