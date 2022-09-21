@@ -12,34 +12,41 @@ use WebmanTech\AmisAdmin\Amis\Page;
  */
 class SystemController
 {
+    private static ?array $menus = null;
+
     /**
      * admin 菜单
      * @return Response
      */
     public function pages(): Response
     {
-        $menus = [
-            [
-                'label' => '菜单',
-                'children' => [
-                    ['label' => '首页', 'icon' => 'fa fa-home', 'url' => '/', 'schemaApi' => route('admin.dashboard.view'),],
-                    ['label' => '个人设置', 'url' => '/admin/info', 'schemaApi' => route('admin.info.view'), 'visible' => false],
-                    ['label' => '管理员管理', 'icon' => 'fa fa-user', 'url' => '/admin', 'schemaApi' => route('admin.admin.index')],
-                    ['label' => '用户管理', 'icon' => 'fa fa-user', 'url' => '/user', 'schemaApi' => route('admin.user.index')],
+        if (static::$menus === null) {
+            static::$menus = [
+                [
+                    'label' => '菜单',
+                    'children' => [
+                        ['label' => '首页', 'icon' => 'fa fa-home', 'url' => '/', 'schemaApi' => route('admin.dashboard.view'),],
+                        ['label' => '个人设置', 'url' => '/admin/info', 'schemaApi' => route('admin.info.view'), 'visible' => false],
+                        ['label' => '管理员管理', 'icon' => 'fa fa-user', 'url' => '/admin', 'schemaApi' => route('admin.admin.index')],
+                        ['label' => '用户管理', 'icon' => 'fa fa-user', 'url' => '/user', 'schemaApi' => route('admin.user.index')],
+                    ],
                 ],
-            ],
-        ];
-        if (config('plugin.webman-tech.log-reader.app.enable')) {
-            $menus[] = [
-                'label' => '系统',
-                'children' => [
-                    ['label' => '日志查看', 'icon' => 'fa fa-file-text-o', 'url' => '/log-reader', 'schemaApi' => route('admin.iframe.view') . '?link=' . urlencode(config('plugin.webman-tech.log-reader.log-reader.route.group'))],
-                ],
+                [
+                    'label' => '系统',
+                    'children' => [
+                        ['label' => '文件管理', 'icon' => 'fa fa-circle-o', 'url' => '/filesystem', 'schemaApi' => route('admin.filesystem.index')],
+                        [
+                            'label' => '日志查看', 'icon' => 'fa fa-file-text-o', 'url' => '/log-reader',
+                            'schemaApi' => route('admin.iframe.view') . '?link=' . urlencode(config('plugin.webman-tech.log-reader.log-reader.route.group')),
+                            'visible' => config('plugin.webman-tech.log-reader.app.enable'),
+                        ],
+                    ],
+                ]
             ];
         }
 
         return admin_response([
-            'pages' => $menus,
+            'pages' => static::$menus,
         ]);
     }
 

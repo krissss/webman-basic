@@ -2,6 +2,7 @@
 
 use app\admin\controller\AdminController;
 use app\admin\controller\AuthController;
+use app\admin\controller\FilesystemController;
 use app\admin\controller\InfoController;
 use app\admin\controller\SystemController;
 use app\admin\controller\UserController;
@@ -26,3 +27,8 @@ Route::post('/auth/logout', [AuthController::class, 'logout'])->name('admin.logo
 // crud
 Route::resource('admin', AdminController::class, ['name_prefix' => 'admin.', 'resetPassword']);
 Route::resource('user', UserController::class, ['name_prefix' => 'admin.', 'resetPassword', 'login']);
+Route::resource('filesystem', FilesystemController::class, [
+    'name_prefix' => 'admin.',
+    'uploadImage' => ['path' => '/{_name}/{_action}/{type}'],
+    'uploadFile' => ['path' => '/{_name}/{_action}/{type}'],
+]);

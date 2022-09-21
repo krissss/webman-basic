@@ -27,5 +27,5 @@ return [
     'status_file' => runtime_path() . '/webman.status',
     'stdout_file' => runtime_path() . '/logs/stdout.log',
     'log_file' => runtime_path() . '/logs/workerman.log',
-    'max_package_size' => 10 * 1024 * 1024
+    'max_package_size' => get_env('SERVER_MAX_PACKAGE_SIZE', 10) * 1024 * 1024, // 决定了上传文件的最大值
 ];

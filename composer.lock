@@ -5010,27 +5010,27 @@
         },
         {
             "name": "webman-tech/amis-admin",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/amis-admin.git",
-                "reference": "b543c09ccb01028acf5e889d45137267ef635d60"
+                "reference": "f18457cd328a4eef81e301c86ed13dfdba2e787e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/amis-admin/zipball/b543c09ccb01028acf5e889d45137267ef635d60",
-                "reference": "b543c09ccb01028acf5e889d45137267ef635d60",
+                "url": "https://api.github.com/repos/webman-tech/amis-admin/zipball/f18457cd328a4eef81e301c86ed13dfdba2e787e",
+                "reference": "f18457cd328a4eef81e301c86ed13dfdba2e787e",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": ">=7.4",
-                "webman-tech/polyfill": "^1.0"
+                "php": ">=7.4"
             },
             "require-dev": {
                 "illuminate/database": "^8.83",
                 "illuminate/pagination": "^8.83",
                 "illuminate/validation": "^8.83",
+                "webman-tech/polyfill": "^1.0",
                 "workerman/webman-framework": "^1.3"
             },
             "type": "library",
@@ -5049,9 +5049,9 @@
             "description": "Webman plugin webman-tech/amis-admin",
             "support": {
                 "issues": "https://github.com/webman-tech/amis-admin/issues",
-                "source": "https://github.com/webman-tech/amis-admin/tree/v2.0.1"
+                "source": "https://github.com/webman-tech/amis-admin/tree/v2.0.2"
             },
-            "time": "2022-09-18T14:04:37+00:00"
+            "time": "2022-09-20T06:09:49+00:00"
         },
         {
             "name": "webman-tech/auth",
@@ -5335,20 +5335,20 @@
         },
         {
             "name": "webman-tech/polyfill",
-            "version": "v1.0.0",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/polyfill.git",
-                "reference": "fb3bb2d4b8a9d52066f0f3404012d92be14ae152"
+                "reference": "b4e6b898a21d9e8a18e04e37c123b69b0f25cba9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/polyfill/zipball/fb3bb2d4b8a9d52066f0f3404012d92be14ae152",
-                "reference": "fb3bb2d4b8a9d52066f0f3404012d92be14ae152",
+                "url": "https://api.github.com/repos/webman-tech/polyfill/zipball/b4e6b898a21d9e8a18e04e37c123b69b0f25cba9",
+                "reference": "b4e6b898a21d9e8a18e04e37c123b69b0f25cba9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2"
+                "php": "^7.2"
             },
             "require-dev": {
                 "illuminate/http": "^8.83",
@@ -5369,9 +5369,9 @@
             "description": "Webman plugin webmantech/polyfill",
             "support": {
                 "issues": "https://github.com/webman-tech/polyfill/issues",
-                "source": "https://github.com/webman-tech/polyfill/tree/v1.0.0"
+                "source": "https://github.com/webman-tech/polyfill/tree/v1.0.3"
             },
-            "time": "2022-09-17T14:59:09+00:00"
+            "time": "2022-09-20T08:51:05+00:00"
         },
         {
             "name": "webman-tech/symfony-lock",

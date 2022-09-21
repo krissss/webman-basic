@@ -2,6 +2,7 @@
 
 namespace app\components;
 
+use Illuminate\Validation\ValidationException;
 use Symfony\Component\Process\Process;
 
 class Tools
@@ -90,5 +91,39 @@ class Tools
             return true;
         }
         return mkdir($dir, 0755, true);
+    }
+
+    /**
+     * 构造并抛出 ValidationException
+     * @param array $errors
+     * @return ValidationException
+     */
+    public static function buildValidationException(array $errors): ValidationException
+    {
+        $validator = validator()->make([], []);
+        foreach ($errors as $key => $value) {
+            $validator->errors()->add($key, $value);
+        }
+        return new ValidationException($validator);
+    }
+
+    /**
+     * 格式化 Bytes
+     * @param string|int|null $size
+     * @param int $precision
+     * @return string
+     */
+    public static function formatBytes($size, int $precision = 2): string
+    {
+        if ($size === 0 || $size === null) {
+            return "0B";
+        }
+
+        $sign = $size < 0 ? '-' : '';
+        $size = abs($size);
+
+        $base = log($size) / log(1024);
+        $suffixes = array('B', 'KB', 'MB', 'GB', 'TB');
+        return $sign . round(pow(1024, $base - floor($base)), $precision) . $suffixes[(int) floor($base)];
     }
 }

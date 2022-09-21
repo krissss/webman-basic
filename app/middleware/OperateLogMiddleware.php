@@ -30,7 +30,7 @@ class OperateLogMiddleware implements MiddlewareInterface
                 //'host' => $request->host(),
                 'method' => $request->method(),
                 'uri' => $request->uri(),
-                'body' => $request->rawBody(),
+                'body' => $request->file() ? '__withFiles__' : $request->rawBody(),
             ],
             'response' => [],
         ];
