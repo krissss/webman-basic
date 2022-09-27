@@ -42,6 +42,7 @@
     "webman-tech/auth": "^2.0",
     "webman-tech/docker": "^2.0",
     "webman-tech/laravel-filesystem": "^2.1",
+    "webman-tech/laravel-http-client": "^1.1",
     "webman-tech/laravel-translation": "^1.0",
     "webman-tech/laravel-validation": "^1.0",
     "webman-tech/log-reader": "^2.0",
