@@ -5988,19 +5988,20 @@
         },
         {
             "name": "webman/console",
-            "version": "v1.2.11",
+            "version": "v1.2.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-php/console.git",
-                "reference": "9d2c0160a803374e1419546efd8425279c20c792"
+                "reference": "71932aa62427fbd95ef06178704576bc3274102d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-php/console/zipball/9d2c0160a803374e1419546efd8425279c20c792",
-                "reference": "9d2c0160a803374e1419546efd8425279c20c792",
+                "url": "https://api.github.com/repos/webman-php/console/zipball/71932aa62427fbd95ef06178704576bc3274102d",
+                "reference": "71932aa62427fbd95ef06178704576bc3274102d",
                 "shasum": ""
             },
             "require": {
+                "doctrine/inflector": "^2.0",
                 "symfony/console": ">=5.0"
             },
             "require-dev": {
@@ -6036,7 +6037,7 @@
                 "source": "https://github.com/webman-php/console",
                 "wiki": "http://www.workerman.net/doc/webman"
             },
-            "time": "2022-09-09T02:15:25+00:00"
+            "time": "2022-09-28T07:16:22+00:00"
         },
         {
             "name": "webman/event",
