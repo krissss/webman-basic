@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbef313621816f3add8877f5310a7fc9",
+    "content-hash": "810d70359607c5c8eb08f73167a2112d",
     "packages": [
         {
             "name": "cakephp/core",
@@ -5791,25 +5791,26 @@
         },
         {
             "name": "webman-tech/laravel-validation",
-            "version": "v1.0.2",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/laravel-validation.git",
-                "reference": "b469c174ba41980b9d744665c20563ac333a9302"
+                "reference": "92307111ac96faaa8b1ec55cf2568d9402a7c4fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/laravel-validation/zipball/b469c174ba41980b9d744665c20563ac333a9302",
-                "reference": "b469c174ba41980b9d744665c20563ac333a9302",
+                "url": "https://api.github.com/repos/webman-tech/laravel-validation/zipball/92307111ac96faaa8b1ec55cf2568d9402a7c4fa",
+                "reference": "92307111ac96faaa8b1ec55cf2568d9402a7c4fa",
                 "shasum": ""
             },
             "require": {
                 "illuminate/validation": ">=8",
-                "php": ">=7.2",
-                "webman-tech/laravel-translation": "^1.0"
+                "php": ">=7.2"
             },
             "require-dev": {
+                "illuminate/database": "^8.83",
                 "symfony/translation": "^5.4",
+                "webman-tech/laravel-translation": "^1.0",
                 "workerman/webman-framework": "^1.4"
             },
             "type": "library",
@@ -5828,9 +5829,9 @@
             "description": "Webman plugin webman-tech/laravel-validation",
             "support": {
                 "issues": "https://github.com/webman-tech/laravel-validation/issues",
-                "source": "https://github.com/webman-tech/laravel-validation/tree/v1.0.2"
+                "source": "https://github.com/webman-tech/laravel-validation/tree/v1.1.0"
             },
-            "time": "2022-09-18T03:06:28+00:00"
+            "time": "2022-10-18T06:30:24+00:00"
         },
         {
             "name": "webman-tech/log-reader",
