@@ -5911,16 +5911,16 @@
         },
         {
             "name": "webman-tech/polyfill",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/polyfill.git",
-                "reference": "b4e6b898a21d9e8a18e04e37c123b69b0f25cba9"
+                "reference": "67f85a37d7dc9576d2e593e445558bb1aa35e2e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/polyfill/zipball/b4e6b898a21d9e8a18e04e37c123b69b0f25cba9",
-                "reference": "b4e6b898a21d9e8a18e04e37c123b69b0f25cba9",
+                "url": "https://api.github.com/repos/webman-tech/polyfill/zipball/67f85a37d7dc9576d2e593e445558bb1aa35e2e9",
+                "reference": "67f85a37d7dc9576d2e593e445558bb1aa35e2e9",
                 "shasum": ""
             },
             "require": {
@@ -5930,6 +5930,8 @@
                 "illuminate/http": "^8.83",
                 "illuminate/validation": "^8.83",
                 "symfony/http-foundation": "^5.4",
+                "webman-tech/laravel-filesystem": "^2.1",
+                "webman-tech/laravel-validation": "^1.1",
                 "workerman/webman-framework": "^1.4"
             },
             "type": "library",
@@ -5945,9 +5947,9 @@
             "description": "Webman plugin webmantech/polyfill",
             "support": {
                 "issues": "https://github.com/webman-tech/polyfill/issues",
-                "source": "https://github.com/webman-tech/polyfill/tree/v1.0.3"
+                "source": "https://github.com/webman-tech/polyfill/tree/v1.0.4"
             },
-            "time": "2022-09-20T08:51:05+00:00"
+            "time": "2022-10-19T09:36:43+00:00"
         },
         {
             "name": "webman-tech/symfony-lock",
