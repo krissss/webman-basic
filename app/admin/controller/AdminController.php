@@ -48,8 +48,8 @@ class AdminController extends AbsSourceController
     {
         return implode(' && ', [
             parent::authDestroyVisible(),
-            'this.id !=' . Admin::SUPER_ADMIN_ID,
-            'this.id !=' . Auth::guard()->getId(), // 不能删除自己
+            'this.id != "' . Admin::SUPER_ADMIN_ID . '"',
+            'this.id != "' . Auth::guard()->getId() . '"', // 不能删除自己
         ]);
     }
 
