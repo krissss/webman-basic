@@ -52,6 +52,7 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
      * @inheritdoc
      */
     protected $fillable = [
+        'id',
         'username',
         'name',
         'status',
