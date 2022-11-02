@@ -17,4 +17,5 @@ return [
     '' => app\exception\handlers\ExceptionHandler::class,
     'admin' => app\exception\handlers\ExceptionHandlerAmis::class,
     'user' => app\exception\handlers\ExceptionHandlerAmis::class,
+    'api' => app\exception\handlers\ExceptionHandlerApi::class,
 ];
