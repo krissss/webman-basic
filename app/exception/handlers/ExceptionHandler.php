@@ -5,6 +5,7 @@ namespace app\exception\handlers;
 use app\exception\UserSeeException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
+use support\facade\Logger;
 use support\Log;
 use Throwable;
 use Webman\Exception\ExceptionHandler as BaseExceptionHandler;
@@ -28,7 +29,7 @@ class ExceptionHandler extends BaseExceptionHandler
     public function __construct($logger, $debug)
     {
         parent::__construct($logger, $debug);
-        $this->_logger = Log::channel('app');
+        $this->_logger = Log::channel(Logger::CHANNEL_APP);
     }
 
     /**

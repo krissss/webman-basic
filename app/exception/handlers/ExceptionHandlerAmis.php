@@ -3,6 +3,7 @@
 namespace app\exception\handlers;
 
 use Illuminate\Validation\ValidationException as LaravelValidationException;
+use support\facade\Logger;
 use support\Log;
 use Throwable;
 use Webman\Http\Request;
@@ -14,7 +15,7 @@ class ExceptionHandlerAmis extends ExceptionHandler
     public function __construct($logger, $debug)
     {
         parent::__construct($logger, $debug);
-        $this->_logger = Log::channel('appAdmin');
+        $this->_logger = Log::channel(Logger::CHANNEL_APP_AMIS);
 
         $this->dontReport = array_merge($this->dontReport, [
             ValidationException::class,
