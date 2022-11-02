@@ -99,6 +99,9 @@ class UserRepository extends EloquentRepository
         if ($model->isDirty('password')) {
             $model->password = Component::security()->generatePasswordHash($model->password);
         }
+        if ($model->status === null) {
+            $model->status = UserStatus::ENABLE;
+        }
         parent::doSave($model);
     }
 
