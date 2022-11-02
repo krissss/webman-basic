@@ -1,5 +1,7 @@
 <?php
 
+use WebmanTech\Auth\Middleware\SetAuthGuard;
+
 return [
     // route
     'route' => [
@@ -7,7 +9,7 @@ return [
         'group' => get_env('LOG_READER_ROUTE', '/admin/log-reader'),
         // 路由中间件，可以用于控制访问权限
         'middleware' => [
-            \app\middleware\SetAuthGuardAdmin::class,
+            fn() => new SetAuthGuard('admin'),
             \app\middleware\AuthenticateAdmin::class,
         ],
     ],

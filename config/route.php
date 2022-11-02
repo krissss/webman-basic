@@ -13,19 +13,21 @@
  */
 
 use Webman\Route;
+use WebmanTech\AmisAdmin\Middleware\AmisModuleChangeMiddleware;
+use WebmanTech\Auth\Middleware\SetAuthGuard;
 
 Route::any('/', fn() => 'Hello ' . config('app.name'));
 
 Route::group('/admin', function () {
     require __DIR__ . '/../app/admin/route.php';
 })->middleware([
-    app\middleware\SetAuthGuardAdmin::class,
+    fn() => new SetAuthGuard('admin'),
     app\middleware\AuthenticateAdmin::class,
 ]);
 Route::group('/user', function () {
     require __DIR__ . '/../app/user/route.php';
 })->middleware([
-    app\middleware\AmisModuleChange2User::class,
+    fn() => new AmisModuleChangeMiddleware('amis-user'),
     app\middleware\AuthenticateUser::class,
 ]);
 Route::group('/api', function () {
