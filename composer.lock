@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "810d70359607c5c8eb08f73167a2112d",
+    "content-hash": "ec18d9aca7bafec966cfbbb2e0497bf8",
     "packages": [
         {
             "name": "cakephp/core",
@@ -5545,16 +5545,16 @@
         },
         {
             "name": "webman-tech/amis-admin",
-            "version": "v2.0.3",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/amis-admin.git",
-                "reference": "7e1209ac772997d44773f9f8bdd779e36d6aa9a7"
+                "reference": "1b368ce827367149f6794b9ba6cc3f74e0f64545"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/amis-admin/zipball/7e1209ac772997d44773f9f8bdd779e36d6aa9a7",
-                "reference": "7e1209ac772997d44773f9f8bdd779e36d6aa9a7",
+                "url": "https://api.github.com/repos/webman-tech/amis-admin/zipball/1b368ce827367149f6794b9ba6cc3f74e0f64545",
+                "reference": "1b368ce827367149f6794b9ba6cc3f74e0f64545",
                 "shasum": ""
             },
             "require": {
@@ -5584,9 +5584,9 @@
             "description": "Webman plugin webman-tech/amis-admin",
             "support": {
                 "issues": "https://github.com/webman-tech/amis-admin/issues",
-                "source": "https://github.com/webman-tech/amis-admin/tree/v2.0.3"
+                "source": "https://github.com/webman-tech/amis-admin/tree/v2.1.0"
             },
-            "time": "2022-11-01T06:40:28+00:00"
+            "time": "2022-11-01T08:14:56+00:00"
         },
         {
             "name": "webman-tech/auth",
@@ -6604,16 +6604,16 @@
         },
         {
             "name": "webman-tech/debugbar",
-            "version": "v2.0.2",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/debugbar.git",
-                "reference": "378b3121db24b09d17e6fde0eda99d5bc1637b6e"
+                "reference": "723baf3aa623dba5ad70205f5afa09615524e7e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/debugbar/zipball/378b3121db24b09d17e6fde0eda99d5bc1637b6e",
-                "reference": "378b3121db24b09d17e6fde0eda99d5bc1637b6e",
+                "url": "https://api.github.com/repos/webman-tech/debugbar/zipball/723baf3aa623dba5ad70205f5afa09615524e7e1",
+                "reference": "723baf3aa623dba5ad70205f5afa09615524e7e1",
                 "shasum": ""
             },
             "require": {
@@ -6640,9 +6640,9 @@
             "description": "Webman plugin webman-tech/debugbar",
             "support": {
                 "issues": "https://github.com/webman-tech/debugbar/issues",
-                "source": "https://github.com/webman-tech/debugbar/tree/v2.0.2"
+                "source": "https://github.com/webman-tech/debugbar/tree/v2.1.0"
             },
-            "time": "2022-09-18T04:08:08+00:00"
+            "time": "2022-11-02T05:31:24+00:00"
         }
     ],
     "aliases": [],

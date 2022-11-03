@@ -38,7 +38,7 @@
     "symfony/process": "^5.4",
     "symfony/translation": "^5.4",
     "vlucas/phpdotenv": "^5.4",
-    "webman-tech/amis-admin": "^2.0",
+    "webman-tech/amis-admin": "^2.1",
     "webman-tech/auth": "^2.0",
     "webman-tech/docker": "^2.0",
     "webman-tech/laravel-filesystem": "^2.1",
@@ -60,7 +60,7 @@
   },
   "require-dev": {
     "symfony/var-dumper": "^5.4",
-    "webman-tech/debugbar": "^2.0"
+    "webman-tech/debugbar": "^2.1"
   },
   "suggest": {
     "ext-event": "For better performance",
