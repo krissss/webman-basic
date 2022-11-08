@@ -11,6 +11,7 @@ use Yiisoft\Strings\StringHelper;
  * @method static void appApi($msg, string $type = 'info', array $context = [])
  * @method static void sql($msg, string $type = 'info', array $context = [])
  * @method static void httpClient($msg, string $type = 'info', array $context = [])
+ * @method static void queueJob($msg, string $type = 'info', array $context = [])
  * @method static void nacos($msg, string $type = 'info', array $context = [])
  * @method static void operateLog($msg, string $type = 'info', array $context = [])
  */
@@ -21,6 +22,7 @@ class Logger extends \WebmanTech\Logger\Logger
     public const CHANNEL_APP_API = 'appApi';
     public const CHANNEL_SQL = 'sql';
     public const CHANNEL_HTTP_CLIENT = 'httpClient';
+    public const CHANNEL_QUEUE_JOB = 'queueJob';
     public const CHANNEL_NACOS = 'nacos';
     public const CHANNEL_OPERATE_LOG = 'operateLog';
 
