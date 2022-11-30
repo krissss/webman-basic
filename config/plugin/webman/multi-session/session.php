@@ -16,9 +16,9 @@ return [
 
     '/admin' => [
 
-        'lifetime' => get_env('SESSION_LIFETIME', 7*24*60*60),
+        'lifetime' => get_env('SESSION_LIFETIME', 3*60*60),
 
-        'cookie_lifetime' => get_env('SESSION_COOKIE_LIFETIME', 7*24*60*60),
+        'cookie_lifetime' => get_env('SESSION_COOKIE_LIFETIME', 24*60*60),
 
         'http_only' => true,
 
@@ -33,9 +33,9 @@ return [
 
     '/user' => [
 
-        'lifetime' => get_env('SESSION_LIFETIME', 7*24*60*60),
+        'lifetime' => get_env('SESSION_LIFETIME', 3*60*60),
 
-        'cookie_lifetime' => get_env('SESSION_COOKIE_LIFETIME', 7*24*60*60),
+        'cookie_lifetime' => get_env('SESSION_COOKIE_LIFETIME', 24*60*60),
 
         'http_only' => true,
 
