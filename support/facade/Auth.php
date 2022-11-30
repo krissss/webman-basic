@@ -32,6 +32,18 @@ class Auth extends \WebmanTech\Auth\Auth
         return $model;
     }
 
+    public static function guardApiUser(): GuardInterface
+    {
+        return self::guard('api_user');
+    }
+
+    public static function identityApiUser(): User
+    {
+        /** @var User $model */
+        $model = self::guardApiUser()->getUser();
+        return $model;
+    }
+
     public static function getId(): string
     {
         return static::guard()->getId();

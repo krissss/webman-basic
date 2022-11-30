@@ -36,5 +36,16 @@ return [
                 return new WebmanTech\Auth\Authentication\FailureHandler\ThrowExceptionHandler();
             },
         ],
+        'api_user' => [
+            'identityRepository' => function () {
+                return new app\model\User();
+            },
+            'authenticationMethod' => function (IdentityRepositoryInterface $identityRepository) {
+                return new HttpHeaderMethod($identityRepository, ['tokenType' => 'api_token']);
+            },
+            'authenticationFailureHandler' => function () {
+                return new WebmanTech\Auth\Authentication\FailureHandler\ThrowExceptionHandler();
+            },
+        ],
     ],
 ];

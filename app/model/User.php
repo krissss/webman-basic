@@ -87,6 +87,8 @@ class User extends BaseModel implements IdentityInterface, IdentityRepositoryInt
             $model = static::find($token);
         } elseif ($type === 'token') {
             $model = static::query()->where('access_token', $token)->first();
+        } elseif ($type === 'api_token') {
+            $model = static::query()->where('access_token', $token)->first();
         }
         /** @var static|null $model */
         return $model;
