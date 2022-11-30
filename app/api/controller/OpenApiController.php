@@ -4,7 +4,9 @@ namespace app\api\controller;
 
 use app\components\Component;
 use app\components\Tools;
+use app\middleware\OuterHostLimit;
 use OpenApi\Generator;
+use Symfony\Component\Finder\Finder;
 use Webman\Http\Response;
 use Webman\Route;
 
@@ -26,6 +28,11 @@ class OpenApiController
      * 扫描的路径，相对根目录
      */
     protected const SCAN_PATH = ['/app/api'];
+    /**
+     * 是否展示 Example 的例子
+     * 为 null 时 debug 模式下启用，否则关闭
+     */
+    protected const ENABLE_EXAMPLE = null;
 
     public function index(): Response
     {
@@ -71,7 +78,7 @@ HTML;
         Tools::makeDirectory($filepath);
         $recordKey = [__CLASS__, __FUNCTION__, 'v1'];
         if (!file_exists($filepath) || !Component::memoryRemember()->get($recordKey)) {
-            $openapi = Generator::scan(array_map(fn($path) => base_path() . $path, static::SCAN_PATH));
+            $openapi = Generator::scan($this->getScanPaths());
             $yaml = $openapi->toYaml();
             file_put_contents($filepath, $yaml);
             Component::memoryRemember()->set($recordKey, 1);
@@ -90,7 +97,19 @@ HTML;
             return;
         }
 
-        Route::get('/openapi', [static::class, 'index']);
-        Route::get('/openapi/doc', [static::class, 'doc']);
+        Route::get('/openapi', [static::class, 'index'])->middleware(OuterHostLimit::class);
+        Route::get('/openapi/doc', [static::class, 'doc'])->middleware(OuterHostLimit::class);
+    }
+
+    protected function getScanPaths(): Finder
+    {
+        $finder = Finder::create()
+            ->files()
+            ->name('*.php')
+            ->in(array_map(fn($path) => base_path() . $path, static::SCAN_PATH));
+        if (!(static::ENABLE_EXAMPLE ?? config('app.debug'))) {
+            $finder->notName('ExampleSourceController.php');
+        }
+        return $finder;
     }
 }
