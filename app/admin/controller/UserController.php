@@ -76,6 +76,7 @@ class UserController extends AbsSourceController
             'name',
             DetailAttribute::make()->name('status')->typeMapping(['map' => UserStatus::getViewLabeledItems()]),
             'access_token',
+            DetailAttribute::make()->name('api_token')->copyable(),
             'created_at',
             'updated_at',
         ];
@@ -115,6 +116,15 @@ class UserController extends AbsSourceController
                     'level' => 'success',
                     'visibleOn' => 'this.status==' . UserStatus::ENABLE,
                 ]
+            )
+            ->withButtonAjax(
+                Amis\GridColumnActions::INDEX_UPDATE + 2,
+                '重置Token',
+                route('admin.user.resetApiToken', ['id' => '${id}']),
+                [
+                    'level' => 'danger',
+                    'confirmText' => "重置 api_token 将导致外部接口无法调用，确认？",
+                ]
             );
     }
 
@@ -127,6 +137,18 @@ class UserController extends AbsSourceController
     public function resetPassword(Request $request, $id): Response
     {
         $this->repository()->resetPassword($request->post(), $id);
+        return admin_response('ok');
+    }
+
+    /**
+     * 重置 ApiToken
+     * @param Request $request
+     * @param $id
+     * @return Response
+     */
+    public function resetApiToken(Request $request, $id): Response
+    {
+        $this->repository()->resetApiToken($id);
         return admin_response('ok');
     }
 

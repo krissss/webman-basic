@@ -26,7 +26,7 @@ Route::post('/info/change-password', [InfoController::class, 'changePassword'])-
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('admin.logout');
 // crud
 Route::resource('admin', AdminController::class, ['name_prefix' => 'admin.', 'resetPassword']);
-Route::resource('user', UserController::class, ['name_prefix' => 'admin.', 'resetPassword', 'login']);
+Route::resource('user', UserController::class, ['name_prefix' => 'admin.', 'resetPassword', 'resetApiToken', 'login']);
 Route::resource('filesystem', FilesystemController::class, [
     'name_prefix' => 'admin.',
     'uploadImage' => ['path' => '/{_name}/{_action}/{type}'],

@@ -14,6 +14,7 @@ use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
  * @property string $password 密码
  * @property string $name 名称
  * @property string $access_token Access Token
+ * @property string $api_token Api Token
  * @property integer $status 状态
  * @property mixed $created_at 创建时间
  * @property mixed $updated_at 修改时间
@@ -59,6 +60,7 @@ class User extends BaseModel implements IdentityInterface, IdentityRepositoryInt
     protected $hidden = [
         'password',
         'access_token',
+        'api_token',
     ];
 
     /**
@@ -88,7 +90,7 @@ class User extends BaseModel implements IdentityInterface, IdentityRepositoryInt
         } elseif ($type === 'token') {
             $model = static::query()->where('access_token', $token)->first();
         } elseif ($type === 'api_token') {
-            $model = static::query()->where('access_token', $token)->first();
+            $model = static::query()->where('api_token', $token)->first();
         }
         /** @var static|null $model */
         return $model;

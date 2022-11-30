@@ -30,6 +30,7 @@ class UserRepository extends EloquentRepository
             'name' => '名称',
             'password' => '密码',
             'access_token' => 'Access Token',
+            'api_token' => 'Api Token',
             'status' => '状态',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
@@ -44,7 +45,7 @@ class UserRepository extends EloquentRepository
     protected function visibleAttributes(string $scene): array
     {
         if ($scene === static::SCENE_DETAIL) {
-            return ['access_token'];
+            return ['access_token', 'api_token'];
         }
         return parent::visibleAttributes($scene);
     }
@@ -99,6 +100,9 @@ class UserRepository extends EloquentRepository
         if ($model->isDirty('password')) {
             $model->password = Component::security()->generatePasswordHash($model->password);
         }
+        if (!$model->api_token) {
+            $model->api_token = Component::security()->generateRandomString(32);
+        }
         if ($model->status === null) {
             $model->status = UserStatus::ENABLE;
         }
@@ -117,5 +121,18 @@ class UserRepository extends EloquentRepository
         $model = $this->query()->findOrFail($id);
         $model->password = Component::security()->generatePasswordHash($data['new_password']);
         $model->refreshToken();
+    }
+
+    /**
+     * 重置 api_token
+     * @param $id
+     * @return void
+     */
+    public function resetApiToken($id): void
+    {
+        /** @var User $model */
+        $model = $this->query()->findOrFail($id);
+        $model->api_token = Component::security()->generateRandomString(32);
+        $model->save();
     }
 }
