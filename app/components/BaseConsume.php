@@ -2,6 +2,7 @@
 
 namespace app\components;
 
+use app\exception\UserSeeException;
 use Psr\Log\LoggerInterface;
 use support\facade\Logger;
 use support\Log;
@@ -37,22 +38,38 @@ abstract class BaseConsume implements Consumer
 
     public function consume($data)
     {
-        $this->logger->info('queue job start: ' . Json::encode($data));
+        $this->log('start: ' . Json::encode($data));
 
         try {
             $this->handle($data);
+        } catch (UserSeeException $e) {
+            $this->log($e->getMessage(), 'warning');
+            return;
         } catch (Throwable $e) {
-            $this->logger->error('queue job exception: ' . $e);
+            $this->log($e, 'error');
             throw $e;
         }
 
-        $this->logger->info('queue job over');
+        $this->log('end');
     }
 
     /**
      * @param $data
-     * @return mixed
+     * @return void
+     * @throws UserSeeException
      */
     abstract protected function handle($data);
+
+    /**
+     * @param string $msg
+     * @param string $type
+     * @return void
+     */
+    protected function log(string $msg, string $type = 'info'): void
+    {
+        $msg = __CLASS__ . ':' . $msg;
+
+        $this->logger->{$type}($msg);
+    }
 }
 
