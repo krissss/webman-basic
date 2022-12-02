@@ -28,6 +28,12 @@ abstract class BaseConsume implements Consumer
      * @var string
      */
     protected string $logChannel = Logger::CHANNEL_QUEUE_JOB;
+    /**
+     * 是否记录 class
+     * 如果 logChannel 是独立的，可以选择关闭
+     * @var bool
+     */
+    protected bool $logClass = true;
 
     protected LoggerInterface $logger;
 
@@ -43,7 +49,7 @@ abstract class BaseConsume implements Consumer
         try {
             $this->handle($data);
         } catch (UserSeeException $e) {
-            $this->log('UserSeeException:' . $e->getMessage(), 'warning');
+            $this->log('UserSeeException:' . $e->getMessage() . ($e->getData() ? Json::encode($e->getData()) : ''), 'warning');
             return;
         } catch (Throwable $e) {
             $this->log($e, 'error');
@@ -67,8 +73,9 @@ abstract class BaseConsume implements Consumer
      */
     protected function log(string $msg, string $type = 'info'): void
     {
-        $msg = static::class . ':' . $msg;
-
+        if ($this->logClass) {
+            $msg = static::class . ':' . $msg;
+        }
         $this->logger->{$type}($msg);
     }
 }
