@@ -15,6 +15,6 @@ class Task
     public function onWorkerStart()
     {
         // 每分钟的第一秒执行
-        new Crontab('1 * * * * *', [Task\Test::class, 'handle']);
+        new Crontab('1 * * * * *', [Task\TestTask::class, 'consume']);
     }
 }

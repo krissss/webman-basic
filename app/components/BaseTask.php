@@ -7,58 +7,51 @@ use Psr\Log\LoggerInterface;
 use support\facade\Logger;
 use support\Log;
 use Throwable;
-use Webman\RedisQueue\Consumer;
-use Yiisoft\Json\Json;
 
-abstract class BaseConsume implements Consumer
+abstract class BaseTask
 {
-    /**
-     * 要消费的队列名
-     * @var string
-     */
-    public $queue = 'default';
-    /**
-     * 连接名
-     * 对应 plugin/webman/redis-queue/redis.php 里的连接
-     * @var string
-     */
-    public $connection = 'default';
     /**
      * 日志 channel
      * @var string
      */
-    protected string $logChannel = Logger::CHANNEL_QUEUE_JOB;
+    protected string $logChannel = Logger::CHANNEL_CRON_TASK;
 
     protected LoggerInterface $logger;
 
-    public function __construct()
+    final public function __construct()
     {
         $this->logger = Log::channel($this->logChannel);
     }
 
-    public function consume($data)
+    /**
+     * 定时任务的入口
+     * @return void
+     * @throws Throwable
+     */
+    public static function consume()
     {
-        $this->log('start: ' . Json::encode($data));
+        $self = new static();
+
+        $self->log('start');
 
         try {
-            $this->handle($data);
+            $self->handle();
         } catch (UserSeeException $e) {
-            $this->log($e->getMessage(), 'warning');
+            $self->log($e->getMessage(), 'warning');
             return;
         } catch (Throwable $e) {
-            $this->log($e, 'error');
+            $self->log($e, 'error');
             throw $e;
         }
 
-        $this->log('end');
+        $self->log('end');
     }
 
     /**
-     * @param $data
-     * @return void
+     * @return void.
      * @throws UserSeeException
      */
-    abstract protected function handle($data);
+    abstract protected function handle();
 
     /**
      * @param string $msg
@@ -72,4 +65,3 @@ abstract class BaseConsume implements Consumer
         $this->logger->{$type}($msg);
     }
 }
-
