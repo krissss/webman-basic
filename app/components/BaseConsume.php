@@ -43,7 +43,7 @@ abstract class BaseConsume implements Consumer
         try {
             $this->handle($data);
         } catch (UserSeeException $e) {
-            $this->log($e->getMessage(), 'warning');
+            $this->log('UserSeeException:' . $e->getMessage(), 'warning');
             return;
         } catch (Throwable $e) {
             $this->log($e, 'error');

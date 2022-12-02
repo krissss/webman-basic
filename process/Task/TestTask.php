@@ -18,7 +18,7 @@ class TestTask extends BaseTask
             throw new UserSeeException('该异常会记录 warning 日志');
         }
         if (random_int(1, 100) > 50) {
-            throw new \Exception('其他异常会记录 error 日志');
+            throw new \Exception('其他异常会记录 error 日志，不会抛出异常到 console');
         }
         $this->log('这个可以记录 info 日志');
         // 正常结束无需返回

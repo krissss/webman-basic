@@ -37,11 +37,11 @@ abstract class BaseTask
         try {
             $self->handle();
         } catch (UserSeeException $e) {
-            $self->log($e->getMessage(), 'warning');
+            $self->log('UserSeeException:' . $e->getMessage(), 'warning');
             return;
         } catch (Throwable $e) {
             $self->log($e, 'error');
-            throw $e;
+            return;
         }
 
         $self->log('end');
