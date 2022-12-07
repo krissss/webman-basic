@@ -17,6 +17,19 @@ class FilesystemController extends AbsSourceController
     protected ?string $diskName = null;
 
     /**
+     * 是否展示上传的例子
+     * 为 null 时 debug 模式下启用，否则关闭
+     */
+    protected ?bool $enableUploadExample = null;
+
+    public function __construct()
+    {
+        if (!is_bool($this->enableUploadExample)) {
+            $this->enableUploadExample = config('app.debug');
+        }
+    }
+
+    /**
      * @inheritDoc
      */
     protected function createRepository(): RepositoryInterface
@@ -49,11 +62,27 @@ class FilesystemController extends AbsSourceController
      */
     protected function amisCrud(Request $request): Amis\Crud
     {
-        return parent::amisCrud($request)
+        $crud = parent::amisCrud($request)
             ->schema([
                 'syncLocation' => true,
             ])
-            ->withHeaderToolbar(Amis\Crud::INDEX_CREATE + 1, Amis\ActionButtons::make()
+            ->withHeaderToolbar(Amis\Crud::INDEX_COLUMNS_TOGGLE + 1, [
+                'type' => 'button',
+                'label' => '返回上级',
+                'align' => 'right',
+                'onClick' => implode('', [
+                    'var href=window.location.href;',
+                    'var m=href.match(/(\?|&)dirname=([^&]*)(&|$)/);',
+                    'if(!m||!m[2]){return;}',
+                    'var dir=m[2].replace(/%2F/,\'/\');',
+                    'var dir=dir.substr(0, dir.lastIndexOf(\'/\'));',
+                    'window.location.href=href.replace(/\?(.*)/,\'?dirname=\'+dir)',
+                ]),
+                'level' => 'success',
+                'visibleOn' => '/(\?|&)dirname=([^&]{1,})(&|$)/.test(window.location.href)'
+            ]);
+        if ($this->enableUploadExample) {
+            $crud->withHeaderToolbar(Amis\Crud::INDEX_CREATE + 1, Amis\ActionButtons::make()
                 ->withButtonDialog(1, '上传图片-立即', $this->buildFormFields([
                     Amis\FormField::make()->name('dir')->value('/images')->disabled(),
                     Amis\FormField::make()->name('file')->typeInputFile(
@@ -90,22 +119,10 @@ class FilesystemController extends AbsSourceController
                 ]), [
                     'level' => 'primary',
                 ])
-            )
-            ->withHeaderToolbar(Amis\Crud::INDEX_COLUMNS_TOGGLE + 1, [
-                'type' => 'button',
-                'label' => '返回上级',
-                'align' => 'right',
-                'onClick' => implode('', [
-                    'var href=window.location.href;',
-                    'var m=href.match(/(\?|&)dirname=([^&]*)(&|$)/);',
-                    'if(!m||!m[2]){return;}',
-                    'var dir=m[2].replace(/%2F/,\'/\');',
-                    'var dir=dir.substr(0, dir.lastIndexOf(\'/\'));',
-                    'window.location.href=href.replace(/\?(.*)/,\'?dirname=\'+dir)',
-                ]),
-                'level' => 'success',
-                'visibleOn' => '/(\?|&)dirname=([^&]{1,})(&|$)/.test(window.location.href)'
-            ]);
+            );
+        }
+
+        return $crud;
     }
 
     /**
@@ -137,6 +154,10 @@ class FilesystemController extends AbsSourceController
      */
     public function uploadImage(Request $request, string $type = null)
     {
+        if (!$this->enableUploadExample) {
+            return amis_response(['forbidden']);
+        }
+
         $fileUpload = new AmisFileUpload($request, $this->disk(), [
             'fileAttribute' => 'file',
             'rules' => 'required|file|image',
@@ -154,6 +175,10 @@ class FilesystemController extends AbsSourceController
      */
     public function uploadFile(Request $request, string $type = null)
     {
+        if (!$this->enableUploadExample) {
+            return amis_response(['forbidden']);
+        }
+
         $fileUpload = new AmisFileUpload($request, $this->disk(), [
             'fileAttribute' => 'file',
             'rules' => 'required|file|mimes:pdf',
