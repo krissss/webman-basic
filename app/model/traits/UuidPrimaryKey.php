@@ -5,6 +5,7 @@ namespace app\model\traits;
 use Ramsey\Uuid\Uuid as Generator;
 
 /**
+ * 使用前安装依赖：composer require ramsey/uuid
  * https://github.com/goldspecdigital/laravel-eloquent-uuid
  */
 trait UuidPrimaryKey
