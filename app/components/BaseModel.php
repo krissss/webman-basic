@@ -2,11 +2,20 @@
 
 namespace app\components;
 
+use app\model\traits\LikeScopedTrait;
 use DateTimeInterface;
+use Illuminate\Database\Eloquent\Builder;
 use support\Model;
 
+/**
+ * @method static Builder|static query()
+ * @method static Builder|static newQuery()
+ * @method static Builder|static newModelQuery()
+ */
 abstract class BaseModel extends Model
 {
+    use LikeScopedTrait;
+
     /**
      * @inheritDoc
      */
