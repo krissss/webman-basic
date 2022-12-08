@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec18d9aca7bafec966cfbbb2e0497bf8",
+    "content-hash": "405a7065392d016abe3af9b49b9847ca",
     "packages": [
         {
             "name": "cakephp/core",
@@ -5545,16 +5545,16 @@
         },
         {
             "name": "webman-tech/amis-admin",
-            "version": "v2.1.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/amis-admin.git",
-                "reference": "1b368ce827367149f6794b9ba6cc3f74e0f64545"
+                "reference": "5a7966e7346ba73e1d087132b521eb2cea47b135"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/amis-admin/zipball/1b368ce827367149f6794b9ba6cc3f74e0f64545",
-                "reference": "1b368ce827367149f6794b9ba6cc3f74e0f64545",
+                "url": "https://api.github.com/repos/webman-tech/amis-admin/zipball/5a7966e7346ba73e1d087132b521eb2cea47b135",
+                "reference": "5a7966e7346ba73e1d087132b521eb2cea47b135",
                 "shasum": ""
             },
             "require": {
@@ -5584,9 +5584,9 @@
             "description": "Webman plugin webman-tech/amis-admin",
             "support": {
                 "issues": "https://github.com/webman-tech/amis-admin/issues",
-                "source": "https://github.com/webman-tech/amis-admin/tree/v2.1.0"
+                "source": "https://github.com/webman-tech/amis-admin/tree/v2.2.0"
             },
-            "time": "2022-11-01T08:14:56+00:00"
+            "time": "2022-12-08T02:21:10+00:00"
         },
         {
             "name": "webman-tech/auth",
@@ -5659,27 +5659,28 @@
         },
         {
             "name": "webman-tech/laravel-filesystem",
-            "version": "v2.1.2",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/laravel-filesystem.git",
-                "reference": "2a0474ee811fe099ae4565d7c3aa55a10c5e8cba"
+                "reference": "f60bfa361a5f8fdb33d19512be9fec6a12e2127b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/laravel-filesystem/zipball/2a0474ee811fe099ae4565d7c3aa55a10c5e8cba",
-                "reference": "2a0474ee811fe099ae4565d7c3aa55a10c5e8cba",
+                "url": "https://api.github.com/repos/webman-tech/laravel-filesystem/zipball/f60bfa361a5f8fdb33d19512be9fec6a12e2127b",
+                "reference": "f60bfa361a5f8fdb33d19512be9fec6a12e2127b",
                 "shasum": ""
             },
             "require": {
-                "illuminate/filesystem": ">=8",
+                "illuminate/filesystem": "^7.0|^8.0|^9.0",
                 "php": ">=7.2"
             },
             "require-dev": {
-                "iidestiny/flysystem-oss": "~2",
-                "league/flysystem": "^1.1",
-                "overtrue/flysystem-cos": "~3",
-                "overtrue/flysystem-qiniu": "~1",
+                "alphasnow/aliyun-oss-laravel": "^3.0|^4.0",
+                "iidestiny/flysystem-oss": "^2.1|^4.0",
+                "league/flysystem": "^1.1|^3.0",
+                "overtrue/flysystem-cos": "^2|^3|^4|^5",
+                "overtrue/flysystem-qiniu": "^1|^3",
                 "webman/console": "^1.2",
                 "workerman/webman-framework": "^1.4"
             },
@@ -5703,9 +5704,9 @@
             "description": "Webman plugin webman-tech/laravel-filesystem",
             "support": {
                 "issues": "https://github.com/webman-tech/laravel-filesystem/issues",
-                "source": "https://github.com/webman-tech/laravel-filesystem/tree/v2.1.2"
+                "source": "https://github.com/webman-tech/laravel-filesystem/tree/v3.0.0"
             },
-            "time": "2022-09-18T14:45:06+00:00"
+            "time": "2022-12-07T09:01:37+00:00"
         },
         {
             "name": "webman-tech/laravel-http-client",
