@@ -6214,16 +6214,16 @@
         },
         {
             "name": "workerman/webman-framework",
-            "version": "v1.4.9",
+            "version": "v1.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/webman-framework.git",
-                "reference": "faf13663be7cad1608217a0ec2e3cb8913f866dc"
+                "reference": "d9d6a5317f1f11486e37bf5613aa0d1601b83edd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/webman-framework/zipball/faf13663be7cad1608217a0ec2e3cb8913f866dc",
-                "reference": "faf13663be7cad1608217a0ec2e3cb8913f866dc",
+                "url": "https://api.github.com/repos/walkor/webman-framework/zipball/d9d6a5317f1f11486e37bf5613aa0d1601b83edd",
+                "reference": "d9d6a5317f1f11486e37bf5613aa0d1601b83edd",
                 "shasum": ""
             },
             "require": {
@@ -6271,7 +6271,7 @@
                 "source": "https://github.com/walkor/webman-framework",
                 "wiki": "https://doc.workerman.net/"
             },
-            "time": "2022-10-20T06:42:33+00:00"
+            "time": "2022-12-12T07:54:21+00:00"
         },
         {
             "name": "workerman/workerman",

@@ -1,5 +1,5 @@
 {
-  "name": "workerman/webman",
+  "name": "kriss/webman-basic",
   "type": "project",
   "keywords": [
     "high performance",
@@ -63,6 +63,7 @@
     "webman-tech/debugbar": "^2.1"
   },
   "suggest": {
+    "walkor/webman": "Basic From Version 1.4.7",
     "ext-event": "For better performance",
     "ext-redis": "For redis use",
     "workerman/crontab": "For crontab use",
