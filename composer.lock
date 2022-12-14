@@ -5439,16 +5439,16 @@
         },
         {
             "name": "webman-tech/laravel-cache",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/laravel-cache.git",
-                "reference": "5f356d142b541fc9b7f47eaeb0ce689cd9adf437"
+                "reference": "db59dc3ba1cc8e1dfca914e8dd5c97dda955c0f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/laravel-cache/zipball/5f356d142b541fc9b7f47eaeb0ce689cd9adf437",
-                "reference": "5f356d142b541fc9b7f47eaeb0ce689cd9adf437",
+                "url": "https://api.github.com/repos/webman-tech/laravel-cache/zipball/db59dc3ba1cc8e1dfca914e8dd5c97dda955c0f4",
+                "reference": "db59dc3ba1cc8e1dfca914e8dd5c97dda955c0f4",
                 "shasum": ""
             },
             "require": {
@@ -5482,9 +5482,9 @@
             "description": "Webman plugin webman-tech/laravel-cache",
             "support": {
                 "issues": "https://github.com/webman-tech/laravel-cache/issues",
-                "source": "https://github.com/webman-tech/laravel-cache/tree/v1.1.0"
+                "source": "https://github.com/webman-tech/laravel-cache/tree/v1.1.1"
             },
-            "time": "2022-12-14T08:30:11+00:00"
+            "time": "2022-12-14T09:55:05+00:00"
         },
         {
             "name": "webman-tech/laravel-filesystem",

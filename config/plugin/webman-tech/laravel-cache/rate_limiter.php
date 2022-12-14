@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Cache\RateLimiting\Limit;
+use support\facade\Auth;
 use Webman\Http\Request;
 use WebmanTech\LaravelCache\Facades\RateLimiter as RateLimiterFacade;
 
@@ -9,13 +10,14 @@ return [
      * RateLimiter 使用的默认驱动
      * 为 null 时同 cache 下的 default
      */
-    'limiter' => 'redis',
+    'limiter' => null,
     /**
      * RateLimiter::for 的快速配置
      */
     'for' => [
         RateLimiterFacade::FOR_REQUEST => function (Request $request) {
-            return Limit::perMinute(1000);
+            return Limit::perMinute(1000)
+                ->by(Auth::getId() ?: $request->getRealIp());
         }
     ],
     /**
