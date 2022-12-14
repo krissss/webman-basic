@@ -2,6 +2,9 @@
 
 namespace support\facade;
 
+/**
+ * @deprecated 使用 Cache
+ */
 class CacheWebman extends \support\Cache
 {
     public static function instance()
