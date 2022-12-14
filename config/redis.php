@@ -40,7 +40,7 @@ return [
         'password' => $redisPassword,
         'port' => $redisPort,
         'database' => get_env('REDIS_DB_CACHE', $redisDefaultDB),
-        'prefix' => get_env('REDIS_PREFIX_DEFAULT', $redisCommonPrefix . ':cache:'),
+        'prefix' => get_env('REDIS_PREFIX_CACHE', $redisCommonPrefix . ':cache:'),
     ],
     // used by config/plugin/webman-tech/laravel-cache/cache.php
     'cache_lock' => [
@@ -48,7 +48,7 @@ return [
         'password' => $redisPassword,
         'port' => $redisPort,
         'database' => get_env('REDIS_DB_CACHE_LOCK', $redisDefaultDB),
-        'prefix' => get_env('REDIS_PREFIX_DEFAULT', $redisCommonPrefix . ':cache_lock:'),
+        'prefix' => get_env('REDIS_PREFIX_CACHE_LOCK', $redisCommonPrefix . ':cache_lock:'),
     ],
     // used by config/plugin/webman-tech/laravel-cache/rate_limiter.php
     'cache_limiter' => [
@@ -56,6 +56,6 @@ return [
         'password' => $redisPassword,
         'port' => $redisPort,
         'database' => get_env('REDIS_DB_CACHE_LIMITER', $redisDefaultDB),
-        'prefix' => get_env('REDIS_PREFIX_DEFAULT', $redisCommonPrefix . ':cache_limiter:'),
+        'prefix' => get_env('REDIS_PREFIX_CACHE_LIMITER', $redisCommonPrefix . ':cache_limiter:'),
     ],
 ];
