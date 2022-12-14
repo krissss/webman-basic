@@ -32,12 +32,28 @@ return [
         'database' => get_env('REDIS_DB_SESSION', 0),
         'prefix' => get_env('REDIS_PREFIX_SESSION', config('app.name') . ':session:'),
     ],
-    // used by cache.php
+    // used by config/plugin/webman-tech/laravel-cache/cache.php
     'cache' => [
         'host' => $redisHost,
         'password' => $redisPassword,
         'port' => $redisPort,
         'database' => get_env('REDIS_DB_CACHE', 0),
         'prefix' => get_env('REDIS_PREFIX_DEFAULT', config('app.name') . ':cache:'),
+    ],
+    // used by config/plugin/webman-tech/laravel-cache/cache.php
+    'cache_lock' => [
+        'host' => $redisHost,
+        'password' => $redisPassword,
+        'port' => $redisPort,
+        'database' => get_env('REDIS_DB_CACHE_LOCK', 0),
+        'prefix' => get_env('REDIS_PREFIX_DEFAULT', config('app.name') . ':cache_lock:'),
+    ],
+    // used by config/plugin/webman-tech/laravel-cache/rate_limiter.php
+    'cache_limiter' => [
+        'host' => $redisHost,
+        'password' => $redisPassword,
+        'port' => $redisPort,
+        'database' => get_env('REDIS_DB_CACHE_LIMITER', 0),
+        'prefix' => get_env('REDIS_PREFIX_DEFAULT', config('app.name') . ':cache_limiter:'),
     ],
 ];

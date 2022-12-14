@@ -10,6 +10,7 @@ use Throwable;
 use Webman\Http\Request;
 use Webman\Http\Response;
 use WebmanTech\AmisAdmin\Exceptions\ValidationException;
+use WebmanTech\LaravelCache\Exceptions\ThrottleRequestsException;
 
 class ExceptionHandlerApi extends ExceptionHandler
 {
@@ -40,6 +41,12 @@ class ExceptionHandlerApi extends ExceptionHandler
             $this->statusMsg = $exception->validator->errors()->first();
             return;
         }
+        if ($exception instanceof ThrottleRequestsException) {
+            $this->statusCode = $exception->getStatusCode();
+            $this->statusMsg = $exception->getMessage();
+            $this->headers = $exception->getHeaders();
+            return;
+        }
 
         parent::solveException($exception);
     }
@@ -49,6 +56,6 @@ class ExceptionHandlerApi extends ExceptionHandler
      */
     protected function buildResponse(Request $request, Throwable $exception): Response
     {
-        return json_error($this->statusMsg, $this->statusCode, $this->responseData);
+        return json_error($this->statusMsg, $this->statusCode, $this->responseData, $this->headers);
     }
 }

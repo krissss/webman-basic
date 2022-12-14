@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "405a7065392d016abe3af9b49b9847ca",
+    "content-hash": "85c1d7e322e46905310b0845ef553caf",
     "packages": [
         {
             "name": "cakephp/core",
@@ -990,6 +990,66 @@
             "time": "2022-03-07T15:02:42+00:00"
         },
         {
+            "name": "illuminate/cache",
+            "version": "v8.83.27",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/cache.git",
+                "reference": "7ae5b3661413dad7264b5c69037190d766bae50f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/cache/zipball/7ae5b3661413dad7264b5c69037190d766bae50f",
+                "reference": "7ae5b3661413dad7264b5c69037190d766bae50f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/collections": "^8.0",
+                "illuminate/contracts": "^8.0",
+                "illuminate/macroable": "^8.0",
+                "illuminate/support": "^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "provide": {
+                "psr/simple-cache-implementation": "1.0"
+            },
+            "suggest": {
+                "ext-memcached": "Required to use the memcache cache driver.",
+                "illuminate/database": "Required to use the database cache driver (^8.0).",
+                "illuminate/filesystem": "Required to use the file cache driver (^8.0).",
+                "illuminate/redis": "Required to use the redis cache driver (^8.0).",
+                "symfony/cache": "Required to PSR-6 cache bridge (^5.4)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Cache\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Cache package.",
+            "homepage": "https://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2022-07-22T14:58:32+00:00"
+        },
+        {
             "name": "illuminate/collections",
             "version": "v8.83.23",
             "source": {
@@ -1042,6 +1102,54 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2022-06-23T15:29:49+00:00"
+        },
+        {
+            "name": "illuminate/config",
+            "version": "v8.83.27",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/config.git",
+                "reference": "feac56ab7a5c70cf2dc60dffe4323eb9851f51a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/config/zipball/feac56ab7a5c70cf2dc60dffe4323eb9851f51a8",
+                "reference": "feac56ab7a5c70cf2dc60dffe4323eb9851f51a8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/collections": "^8.0",
+                "illuminate/contracts": "^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Config\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Config package.",
+            "homepage": "https://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2022-01-31T15:57:46+00:00"
         },
         {
             "name": "illuminate/container",
@@ -5656,6 +5764,55 @@
                 "source": "https://github.com/webman-tech/docker/tree/v2.0.0"
             },
             "time": "2022-09-18T14:22:31+00:00"
+        },
+        {
+            "name": "webman-tech/laravel-cache",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-tech/laravel-cache.git",
+                "reference": "5f356d142b541fc9b7f47eaeb0ce689cd9adf437"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-tech/laravel-cache/zipball/5f356d142b541fc9b7f47eaeb0ce689cd9adf437",
+                "reference": "5f356d142b541fc9b7f47eaeb0ce689cd9adf437",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "^8.0|^9.0",
+                "illuminate/config": "^8.0|^9.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "illuminate/database": "^8.83",
+                "illuminate/events": "^8.83",
+                "illuminate/filesystem": "^8.83",
+                "illuminate/redis": "^8.83",
+                "psr/cache": "^1.0",
+                "psr/simple-cache": "^1.0",
+                "symfony/cache": "^5.4",
+                "workerman/webman-framework": "^1.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helper.php"
+                ],
+                "psr-4": {
+                    "WebmanTech\\LaravelCache\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman plugin webman-tech/laravel-cache",
+            "support": {
+                "issues": "https://github.com/webman-tech/laravel-cache/issues",
+                "source": "https://github.com/webman-tech/laravel-cache/tree/v1.1.0"
+            },
+            "time": "2022-12-14T08:30:11+00:00"
         },
         {
             "name": "webman-tech/laravel-filesystem",
