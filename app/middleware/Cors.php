@@ -1,4 +1,5 @@
 <?php
+
 namespace app\middleware;
 
 use Webman\MiddlewareInterface;
@@ -10,7 +11,7 @@ use Webman\Http\Request;
  */
 class Cors implements MiddlewareInterface
 {
-    public function process(Request $request, callable $handler) : Response
+    public function process(Request $request, callable $handler): Response
     {
         if ($request->method() === 'OPTIONS') {
             return response();

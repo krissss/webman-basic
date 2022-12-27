@@ -6,6 +6,6 @@ use app\components\BaseEnum;
 
 class LangEnum extends BaseEnum
 {
-    const ZH_CN = 'zh_CN';
-    const EN = 'en';
+    public const ZH_CN = 'zh_CN';
+    public const EN = 'en';
 }

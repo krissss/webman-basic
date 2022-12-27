@@ -9,8 +9,8 @@ class AdminStatus extends BaseEnum
 {
     use EnumLabelSupport;
 
-    const ENABLE = 0; // 可用
-    const DISABLED = 10; // 禁用
+    public const ENABLE = 0; // 可用
+    public const DISABLED = 10; // 禁用
 
     /**
      * @inheritdoc

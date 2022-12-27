@@ -26,7 +26,7 @@ class Tools
             }
             // windows
             if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-                $process = Process:: fromShellCommandline('ipconfig | findstr /i "IPv4"');
+                $process = Process::fromShellCommandline('ipconfig | findstr /i "IPv4"');
                 $process->run();
                 if (!$process->isSuccessful()) {
                     throw new \RuntimeException('获取本机IP失败，请手动指定');
@@ -39,7 +39,7 @@ class Tools
                 return $matches[0][0];
             }
             // unix
-            $process = Process:: fromShellCommandline("ip address show eth0 | head -n4 | grep inet | awk '{print$2}' | awk -F '/' '{print $1}'");
+            $process = Process::fromShellCommandline("ip address show eth0 | head -n4 | grep inet | awk '{print$2}' | awk -F '/' '{print $1}'");
             $process->run();
             if (!$process->isSuccessful()) {
                 throw new \RuntimeException('获取本机IP失败，请手动指定');
@@ -124,6 +124,6 @@ class Tools
 
         $base = log($size) / log(1024);
         $suffixes = array('B', 'KB', 'MB', 'GB', 'TB');
-        return $sign . round(pow(1024, $base - floor($base)), $precision) . $suffixes[(int) floor($base)];
+        return $sign . round(pow(1024, $base - floor($base)), $precision) . $suffixes[(int)floor($base)];
     }
 }

@@ -128,6 +128,6 @@ class InfoController
      */
     protected function repository()
     {
-        return new $this->repository;
+        return new $this->repository();
     }
 }

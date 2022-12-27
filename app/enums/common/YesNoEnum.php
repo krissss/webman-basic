@@ -6,8 +6,8 @@ use app\components\BaseEnum;
 
 class YesNoEnum extends BaseEnum
 {
-    const YES = 1;
-    const NO = 0;
+    public const YES = 1;
+    public const NO = 0;
 
     /**
      * @inheritdoc

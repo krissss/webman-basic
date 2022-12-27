@@ -82,43 +82,45 @@ class FilesystemController extends AbsSourceController
                 'visibleOn' => '/(\?|&)dirname=([^&]{1,})(&|$)/.test(window.location.href)'
             ]);
         if ($this->enableUploadExample) {
-            $crud->withHeaderToolbar(Amis\Crud::INDEX_CREATE + 1, Amis\ActionButtons::make()
-                ->withButtonDialog(1, '上传图片-立即', $this->buildFormFields([
-                    Amis\FormField::make()->name('dir')->value('/images')->disabled(),
-                    Amis\FormField::make()->name('file')->typeInputFile(
-                        InputFile::make()
-                            ->withAcceptExtensions('jpg,jpeg,png')
-                            ->withUseChunk(false)
-                            ->withUploadApi('admin.filesystem.uploadImage')
-                            ->toArray()
-                    )
-                ]), [
-                    'level' => 'primary',
-                ])
-                ->withButtonDialog(2, '上传图片-表单', $this->buildFormFields([
-                    Amis\FormField::make()->name('dir')->value('/'),
-                    Amis\FormField::make()->name('file')->typeInputFile(
-                        InputFile::make()
-                            ->withAcceptMimes('image/*')
-                            ->withForm()
-                            ->toArray()
-                    ),
-                ]), [
-                    'level' => 'primary',
-                    'api' => 'post:' . route('admin.filesystem.uploadImage', ['type' => AmisFileUpload::TYPE_SINGLE]),
-                ])
-                ->withButtonDialog(3, '上传文件-自动分块', $this->buildFormFields([
-                    Amis\FormField::make()->name('dir')->value('/files')->disabled(),
-                    Amis\FormField::make()->name('file')->typeInputFile(
-                        InputFile::make()
-                            ->withAcceptExtensions('pdf')
-                            ->withUseChunk(null, 1 * 1024 * 1024)
-                            ->withUploadApi('admin.filesystem.uploadFile')
-                            ->toArray()
-                    ),
-                ]), [
-                    'level' => 'primary',
-                ])
+            $crud->withHeaderToolbar(
+                Amis\Crud::INDEX_CREATE + 1,
+                Amis\ActionButtons::make()
+                    ->withButtonDialog(1, '上传图片-立即', $this->buildFormFields([
+                        Amis\FormField::make()->name('dir')->value('/images')->disabled(),
+                        Amis\FormField::make()->name('file')->typeInputFile(
+                            InputFile::make()
+                                ->withAcceptExtensions('jpg,jpeg,png')
+                                ->withUseChunk(false)
+                                ->withUploadApi('admin.filesystem.uploadImage')
+                                ->toArray()
+                        )
+                    ]), [
+                        'level' => 'primary',
+                    ])
+                    ->withButtonDialog(2, '上传图片-表单', $this->buildFormFields([
+                        Amis\FormField::make()->name('dir')->value('/'),
+                        Amis\FormField::make()->name('file')->typeInputFile(
+                            InputFile::make()
+                                ->withAcceptMimes('image/*')
+                                ->withForm()
+                                ->toArray()
+                        ),
+                    ]), [
+                        'level' => 'primary',
+                        'api' => 'post:' . route('admin.filesystem.uploadImage', ['type' => AmisFileUpload::TYPE_SINGLE]),
+                    ])
+                    ->withButtonDialog(3, '上传文件-自动分块', $this->buildFormFields([
+                        Amis\FormField::make()->name('dir')->value('/files')->disabled(),
+                        Amis\FormField::make()->name('file')->typeInputFile(
+                            InputFile::make()
+                                ->withAcceptExtensions('pdf')
+                                ->withUseChunk(null, 1 * 1024 * 1024)
+                                ->withUploadApi('admin.filesystem.uploadFile')
+                                ->toArray()
+                        ),
+                    ]), [
+                        'level' => 'primary',
+                    ])
             );
         }
 

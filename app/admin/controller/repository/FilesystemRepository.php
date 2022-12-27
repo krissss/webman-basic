@@ -63,12 +63,12 @@ class FilesystemRepository extends AbsRepository
             ->values();
         $items = $all
             ->forPage($page, $perPage)
-            ->map(function(array $item, int $index) {
+            ->map(function (array $item, int $index) {
                 $pathInfo = $item['dir'] ? [
                     'dirname' => $item['path'],
                     'basename' => '',
                     'extension' => '',
-                ] :pathinfo($item['path']);
+                ] : pathinfo($item['path']);
                 return [
                     'id' => $index + 1,
                     'path' => '/' . $item['path'],

@@ -79,4 +79,3 @@ abstract class BaseConsume implements Consumer
         $this->logger->{$type}($msg);
     }
 }
-
