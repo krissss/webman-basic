@@ -42,7 +42,7 @@ class ExceptionHandlerAmis extends ExceptionHandler
             $this->statusCode = 422;
             $this->statusMsg = '';
             $this->extraInfos = [
-                'errors' => array_map(fn($messages) => $messages[0], $exception->validator->errors()->toArray())
+                'errors' => array_map(fn($messages) => $messages[0], $exception->validator->errors()->toArray()),
             ];
             return;
         }

@@ -44,7 +44,7 @@ class FilesystemRepository extends AbsRepository
             'file' => '文件名',
             'ext' => '扩展名',
             'time' => '修改时间',
-            'size' => '大小'
+            'size' => '大小',
         ];
     }
 

@@ -79,7 +79,7 @@ class FilesystemController extends AbsSourceController
                     'window.location.href=href.replace(/\?(.*)/,\'?dirname=\'+dir)',
                 ]),
                 'level' => 'success',
-                'visibleOn' => '/(\?|&)dirname=([^&]{1,})(&|$)/.test(window.location.href)'
+                'visibleOn' => '/(\?|&)dirname=([^&]{1,})(&|$)/.test(window.location.href)',
             ]);
         if ($this->enableUploadExample) {
             $crud->withHeaderToolbar(
@@ -93,7 +93,7 @@ class FilesystemController extends AbsSourceController
                                 ->withUseChunk(false)
                                 ->withUploadApi('admin.filesystem.uploadImage')
                                 ->toArray()
-                        )
+                        ),
                     ]), [
                         'level' => 'primary',
                     ])

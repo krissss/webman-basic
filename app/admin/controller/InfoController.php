@@ -74,8 +74,8 @@ class InfoController
                                 FormField::make()->name('new_password_confirmation')->label('新密码确认')->required()->typeInputPassword(),
                             ],
                         ],
-                    ]
-                ]
+                    ],
+                ],
             ]);
         return admin_response($page);
     }

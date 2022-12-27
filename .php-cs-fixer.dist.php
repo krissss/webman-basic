@@ -10,6 +10,7 @@ return $config
     ->setCacheFile(__DIR__ . '/runtime/.php-cs-fixer.cache')
     ->setRules([
         '@PSR12' => true,
+        '@PHP74Migration' => true,
         'function_declaration' => [
             'closure_fn_spacing' => 'none',
         ],

@@ -13,7 +13,7 @@ class OperateLogMiddleware implements MiddlewareInterface
     protected string $logChannel = Logger::CHANNEL_OPERATE_LOG;
     protected array $skipRequest = [
         '/_debugbar/*',
-        '/admin/log-reader*'
+        '/admin/log-reader*',
     ];
 
     /**
@@ -39,7 +39,7 @@ class OperateLogMiddleware implements MiddlewareInterface
             /** @var Response $response */
             $response = $handler($request);
         } catch (\Throwable $e) {
-            $response = $response ?? new Response(9999);
+            $response ??= new Response(9999);
             $response->exception($e);
         } finally {
             $data['response'] = [

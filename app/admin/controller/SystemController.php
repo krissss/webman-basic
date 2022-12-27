@@ -41,7 +41,7 @@ class SystemController
                             'visible' => config('plugin.webman-tech.log-reader.app.enable'),
                         ],
                     ],
-                ]
+                ],
             ];
         }
 
