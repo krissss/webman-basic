@@ -12,10 +12,10 @@ class Http extends \WebmanTech\LaravelHttpClient\Facades\Http
     public static function getAllMacros(): array
     {
         return [
-            'httpbin' => function() {
+            'httpbin' => function () {
                 return Http::baseUrl('https://httpbin.org')
                     ->asJson();
-            }
+            },
         ];
     }
 }

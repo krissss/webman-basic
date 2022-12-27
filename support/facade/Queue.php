@@ -17,7 +17,7 @@ class Queue
      */
     public static function send(string $queue, array $data = [], int $delay = 0, string $connection = null): bool
     {
-        $connection = $connection ?? 'default';
+        $connection ??= 'default';
         return Redis::connection($connection)->send($queue, $data, $delay);
     }
 
@@ -36,7 +36,7 @@ class Queue
             return;
         }
 
-        $connection = $connection ?? 'default';
+        $connection ??= 'default';
         Client::connection($connection)->send($queue, $data, $delay);
     }
 

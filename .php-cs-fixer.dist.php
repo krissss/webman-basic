@@ -22,9 +22,10 @@ return $config
         'void_return' => false, // 不强制添加 void 返回类型
     ])
     ->setFinder(PhpCsFixer\Finder::create()
-        // ->exclude('folder-to-exclude') // if you want to exclude some folders, you can do it like this!
         ->in([
             __DIR__ . '/app',
+            __DIR__ . '/support/facade',
+            __DIR__ . '/process/Task',
         ])
     )
     ;

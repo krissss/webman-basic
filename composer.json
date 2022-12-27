@@ -94,7 +94,9 @@
     "pre-package-uninstall": [
       "support\\Plugin::uninstall"
     ],
-    "phinx": "phinx"
+    "phinx": "phinx",
+    "fixer": "php-cs-fixer fix",
+    "fixer:risky": "php-cs-fixer fix --allow-risky=yes"
   },
   "repositories": {
   }

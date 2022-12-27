@@ -24,14 +24,30 @@ class Route extends \Webman\Route
         $name = trim($name, '/');
         $namePrefixed = $options['name_prefix'] . $name;
 
-        if (\method_exists($controller, 'index')) static::get("/{$name}", [$controller, 'index'])->name("{$namePrefixed}.index");
-        if (\method_exists($controller, 'create')) static::get("/{$name}/create", [$controller, 'create'])->name("{$namePrefixed}.create");
-        if (\method_exists($controller, 'store')) static::post("/{$name}", [$controller, 'store'])->name("{$namePrefixed}.store");
-        if (\method_exists($controller, 'update')) static::put("/{$name}/{id}", [$controller, 'update'])->name("{$namePrefixed}.update");
-        if (\method_exists($controller, 'show')) static::get("/{$name}/{id}", [$controller, 'show'])->name("{$namePrefixed}.show");
-        if (\method_exists($controller, 'edit')) static::get("/{$name}/{id}/edit", [$controller, 'edit'])->name("{$namePrefixed}.edit");
-        if (\method_exists($controller, 'destroy')) static::delete("/{$name}/{id}", [$controller, 'destroy'])->name("{$namePrefixed}.destroy");
-        if (\method_exists($controller, 'recovery')) static::put("/{$name}/{id}/recovery", [$controller, 'recovery'])->name("{$namePrefixed}.recovery");
+        if (\method_exists($controller, 'index')) {
+            static::get("/{$name}", [$controller, 'index'])->name("{$namePrefixed}.index");
+        }
+        if (\method_exists($controller, 'create')) {
+            static::get("/{$name}/create", [$controller, 'create'])->name("{$namePrefixed}.create");
+        }
+        if (\method_exists($controller, 'store')) {
+            static::post("/{$name}", [$controller, 'store'])->name("{$namePrefixed}.store");
+        }
+        if (\method_exists($controller, 'update')) {
+            static::put("/{$name}/{id}", [$controller, 'update'])->name("{$namePrefixed}.update");
+        }
+        if (\method_exists($controller, 'show')) {
+            static::get("/{$name}/{id}", [$controller, 'show'])->name("{$namePrefixed}.show");
+        }
+        if (\method_exists($controller, 'edit')) {
+            static::get("/{$name}/{id}/edit", [$controller, 'edit'])->name("{$namePrefixed}.edit");
+        }
+        if (\method_exists($controller, 'destroy')) {
+            static::delete("/{$name}/{id}", [$controller, 'destroy'])->name("{$namePrefixed}.destroy");
+        }
+        if (\method_exists($controller, 'recovery')) {
+            static::put("/{$name}/{id}/recovery", [$controller, 'recovery'])->name("{$namePrefixed}.recovery");
+        }
 
         unset($options['name_prefix']);
         foreach ($options as $action => $config) {
