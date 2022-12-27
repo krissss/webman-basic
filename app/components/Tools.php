@@ -124,6 +124,6 @@ class Tools
 
         $base = log($size) / log(1024);
         $suffixes = ['B', 'KB', 'MB', 'GB', 'TB'];
-        return $sign . round(pow(1024, $base - floor($base)), $precision) . $suffixes[(int)floor($base)];
+        return $sign . round(1024**($base - floor($base)), $precision) . $suffixes[(int)floor($base)];
     }
 }

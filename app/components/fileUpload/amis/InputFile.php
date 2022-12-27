@@ -28,9 +28,10 @@ class InputFile extends Component
      */
     public function withAcceptExtensions($extensions): self
     {
-        $this->schema['accept'] = array_map(function (string $ext) {
-            return '.' . ltrim($ext, '.');
-        }, is_string($extensions) ? explode(',', $extensions) : $extensions);
+        $this->schema['accept'] = array_map(
+            fn(string $ext) => '.' . ltrim($ext, '.'),
+            is_string($extensions) ? explode(',', $extensions) : $extensions
+        );
         return $this;
     }
 
