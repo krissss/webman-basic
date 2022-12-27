@@ -12,6 +12,7 @@ use Webman\Http\Response;
 use WebmanTech\AmisAdmin\Amis\DetailAttribute;
 use WebmanTech\AmisAdmin\Amis\FormField;
 use WebmanTech\AmisAdmin\Amis\Page;
+use WebmanTech\AmisAdmin\Repository\AbsRepository;
 
 /**
  * 当前登录用户信息
@@ -19,7 +20,7 @@ use WebmanTech\AmisAdmin\Amis\Page;
 class InfoController
 {
     /**
-     * @var string|Repository
+     * @var string|class-string<AbsRepository>
      */
     protected string $repository = Repository::class;
     /**

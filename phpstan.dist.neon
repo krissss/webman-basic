@@ -1,5 +1,10 @@
 parameters:
-    level: 1
+    level: 2
     tmpDir: runtime/phpstand
     paths:
         - app
+    excludePaths:
+        - app/command/TestCommand.php
+        - app/api/controller/ExampleSourceController.php
+    ignoreErrors:
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder::like\(\)#'

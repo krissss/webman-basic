@@ -15,7 +15,7 @@ use Webman\Http\Response;
 class AuthController
 {
     /**
-     * @var string|Model
+     * @var string|class-string<\Illuminate\Database\Eloquent\Model>
      */
     protected string $model = Model::class;
     /**
@@ -58,7 +58,9 @@ class AuthController
     public function logout(): Response
     {
         if (!Auth::guard()->isGuest()) {
-            Auth::guard()->getUser()->refreshToken(null);
+            /** @var Model $user */
+            $user = Auth::guard()->getUser();
+            $user->refreshToken(null);
             Auth::guard()->logout();
         }
 

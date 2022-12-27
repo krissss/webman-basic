@@ -93,10 +93,10 @@ class UserRepository extends EloquentRepository
 
     /**
      * @inheritdoc
-     * @param Model|User $model
      */
     protected function doSave(Model $model): void
     {
+        /** @var User $model */
         if ($model->isDirty('password')) {
             $model->password = Component::security()->generatePasswordHash($model->password);
         }

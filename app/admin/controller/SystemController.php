@@ -20,8 +20,8 @@ class SystemController
      */
     public function pages(): Response
     {
-        if (static::$menus === null) {
-            static::$menus = [
+        if (self::$menus === null) {
+            self::$menus = [
                 [
                     'label' => '菜单',
                     'children' => [
@@ -46,7 +46,7 @@ class SystemController
         }
 
         return admin_response([
-            'pages' => static::$menus,
+            'pages' => self::$menus,
         ]);
     }
 

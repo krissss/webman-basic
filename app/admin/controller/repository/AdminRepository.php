@@ -92,10 +92,10 @@ class AdminRepository extends EloquentRepository
 
     /**
      * @inheritdoc
-     * @param Model|Admin $model
      */
     protected function doSave(Model $model): void
     {
+        /** @var Admin $model */
         if ($model->isDirty('password')) {
             $model->password = Component::security()->generatePasswordHash($model->password);
         }

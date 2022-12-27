@@ -15,8 +15,8 @@ class Tools
      */
     public static function getLocalIp(): string
     {
-        if (static::$localIp !== null) {
-            return static::$localIp;
+        if (self::$localIp !== null) {
+            return self::$localIp;
         }
 
         $fn = function () {
@@ -47,7 +47,7 @@ class Tools
             return trim($process->getOutput());
         };
 
-        return static::$localIp = $fn();
+        return self::$localIp = $fn();
     }
 
     private static ?int $localPort = null;
@@ -58,10 +58,10 @@ class Tools
      */
     public static function getLocalServerPort(): int
     {
-        if (static::$localPort !== null) {
-            return static::$localPort;
+        if (self::$localPort !== null) {
+            return self::$localPort;
         }
-        return static::$localPort = parse_url(config('server.listen'))['port'];
+        return self::$localPort = parse_url(config('server.listen'))['port'];
     }
 
     /**
