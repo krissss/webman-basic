@@ -83,8 +83,8 @@ class ExceptionHandler extends BaseExceptionHandler
             return;
         }
         if ($exception instanceof ModelNotFoundException) {
-            $this->statusCode = 'Data Not Found';
-            $this->statusMsg = 404;
+            $this->statusCode = 404;
+            $this->statusMsg = 'Data Not Found';
             return;
         }
 

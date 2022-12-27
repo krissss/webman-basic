@@ -1,5 +1,5 @@
 parameters:
-    level: 2
+    level: 5
     tmpDir: runtime/phpstand
     paths:
         - app
@@ -8,3 +8,4 @@ parameters:
         - app/api/controller/ExampleSourceController.php
     ignoreErrors:
         - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder::like\(\)#'
+        - '#Parameter \#1 \$value of method WebmanTech\\AmisAdmin\\Amis\\FormField::value\(\) expects string, null given.#'

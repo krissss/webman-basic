@@ -36,8 +36,10 @@ class AuthController
         ]);
         $data = $validator->validate();
 
-        /** @var Model $model */
-        $model = $this->model::query()->where('username', $data['username'])->first();
+        /** @var Model $modelClass */
+        $modelClass = $this->model;
+        /** @var Model|null $model */
+        $model = $modelClass::query()->where('username', $data['username'])->first();
         if (!$model || !Component::security()->validatePassword($data['password'], $model->password)) {
             throw new ValidationException([
                 'username' => trans('用户名或密码错误'),
