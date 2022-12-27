@@ -39,16 +39,15 @@ class OperateLogMiddleware implements MiddlewareInterface
             /** @var Response $response */
             $response = $handler($request);
         } catch (\Throwable $e) {
-            $response ??= new Response(9999);
+            $response = new Response(9999);
             $response->exception($e);
-        } finally {
-            $data['response'] = [
-                'status' => $response->getStatusCode(),
-                'exception' => $response->exception() ? $response->exception()->getMessage() : null,
-            ];
-
-            Logger::withChannel($this->logChannel, $data);
         }
+        $data['response'] = array_filter([
+            'status' => $response->getStatusCode(),
+            'exception' => $response->exception() ? $response->exception()->getMessage() : null,
+        ]);
+
+        Logger::withChannel($this->logChannel, $data);
 
         if ($response->getStatusCode() === 9999 && $response->exception()) {
             throw $response->exception();
