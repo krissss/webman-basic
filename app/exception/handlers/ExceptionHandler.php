@@ -23,6 +23,7 @@ class ExceptionHandler extends BaseExceptionHandler
     ];
 
     protected int $statusCode = 200;
+    protected array $headers = [];
     protected string $statusMsg = '';
     protected array $responseData = [];
 
@@ -100,9 +101,9 @@ class ExceptionHandler extends BaseExceptionHandler
     protected function buildResponse(Request $request, Throwable $exception): Response
     {
         if ($request->expectsJson()) {
-            return json_error($this->statusMsg, $this->statusCode, $this->responseData);
+            return json_error($this->statusMsg, $this->statusCode, $this->responseData, $this->headers);
         }
         $error = $this->_debug ? \nl2br((string)$exception) : ($this->statusMsg ?: 'Server internal error');
-        return new Response($this->statusCode, [], $error);
+        return new Response($this->statusCode, $this->headers, $error);
     }
 }

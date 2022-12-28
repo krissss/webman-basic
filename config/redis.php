@@ -15,29 +15,47 @@
 $redisHost = get_env('REDIS_HOST', '127.0.0.1');
 $redisPassword = get_env('REDIS_PASSWORD');
 $redisPort = (int)get_env('REDIS_PORT', 6379);
+$redisDefaultDB = (int)get_env('REDIS_DB_DEFAULT', 0);
+$redisCommonPrefix = config('app.name');
 
 return [
     'default' => [
         'host' => $redisHost,
         'password' => $redisPassword,
         'port' => $redisPort,
-        'database' => get_env('REDIS_DB_DEFAULT', 0),
-        'prefix' => get_env('REDIS_PREFIX_DEFAULT', config('app.name') . ':redis:'),
+        'database' => $redisDefaultDB,
+        'prefix' => get_env('REDIS_PREFIX_DEFAULT', $redisCommonPrefix . ':redis:'),
     ],
     // used by session.php
     'session' => [
         'host' => $redisHost,
         'password' => $redisPassword,
         'port' => $redisPort,
-        'database' => get_env('REDIS_DB_SESSION', 0),
-        'prefix' => get_env('REDIS_PREFIX_SESSION', config('app.name') . ':session:'),
+        'database' => get_env('REDIS_DB_SESSION', $redisDefaultDB),
+        'prefix' => get_env('REDIS_PREFIX_SESSION', $redisCommonPrefix. ':session:'),
     ],
-    // used by cache.php
+    // used by config/plugin/webman-tech/laravel-cache/cache.php
     'cache' => [
         'host' => $redisHost,
         'password' => $redisPassword,
         'port' => $redisPort,
-        'database' => get_env('REDIS_DB_CACHE', 0),
-        'prefix' => get_env('REDIS_PREFIX_DEFAULT', config('app.name') . ':cache:'),
+        'database' => get_env('REDIS_DB_CACHE', $redisDefaultDB),
+        'prefix' => get_env('REDIS_PREFIX_CACHE', $redisCommonPrefix . ':cache:'),
+    ],
+    // used by config/plugin/webman-tech/laravel-cache/cache.php
+    'cache_lock' => [
+        'host' => $redisHost,
+        'password' => $redisPassword,
+        'port' => $redisPort,
+        'database' => get_env('REDIS_DB_CACHE_LOCK', $redisDefaultDB),
+        'prefix' => get_env('REDIS_PREFIX_CACHE_LOCK', $redisCommonPrefix . ':cache_lock:'),
+    ],
+    // used by config/plugin/webman-tech/laravel-cache/rate_limiter.php
+    'cache_limiter' => [
+        'host' => $redisHost,
+        'password' => $redisPassword,
+        'port' => $redisPort,
+        'database' => get_env('REDIS_DB_CACHE_LIMITER', $redisDefaultDB),
+        'prefix' => get_env('REDIS_PREFIX_CACHE_LIMITER', $redisCommonPrefix . ':cache_limiter:'),
     ],
 ];

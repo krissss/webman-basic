@@ -8,27 +8,28 @@ use WebmanTech\AmisAdmin\Amis\Component as AmisComponent;
 use support\Response;
 use Yiisoft\Json\Json;
 
-function _json_response($data)
+function _json_response($data, array $headers = [])
 {
-    return new Response(200, ['Content-Type' => 'application/json'], Json::encode($data));
+    return (new Response(200, ['Content-Type' => 'application/json'], Json::encode($data)))
+        ->withHeaders($headers);
 }
 
-function json_success($data, string $msg = 'ok', int $code = 200)
+function json_success($data, string $msg = 'ok', int $code = 200, array $headers = [])
 {
     return _json_response([
         'code' => $code,
         'msg' => $msg,
         'data' => $data,
-    ]);
+    ], $headers);
 }
 
-function json_error(string $msg, int $code = 422, $data = null)
+function json_error(string $msg, int $code = 422, $data = null, array $headers = [])
 {
     return _json_response([
         'code' => $code,
         'msg' => $msg,
         'data' => $data,
-    ]);
+    ], $headers);
 }
 
 function admin_response($data, string $msg = '', array $extraInfo = [])

@@ -4,6 +4,7 @@ use app\api\controller\OpenApiController;
 use support\facade\Route;
 use WebmanTech\Auth\Middleware\Authentication;
 use WebmanTech\Auth\Middleware\SetAuthGuard;
+use WebmanTech\LaravelCache\Middleware\ThrottleRequestsFactory;
 
 OpenApiController::registerRoute();
 
@@ -16,4 +17,5 @@ Route::group('', function () {
 })->middleware([
     fn() => new SetAuthGuard('api_user'),
     Authentication::class,
+    ThrottleRequestsFactory::class,
 ]);
