@@ -88,9 +88,12 @@ class UserRepository extends EloquentRepository
             'name' => fn(Builder $query, $value, $attribute) => $query->where($attribute, 'like', '%' . $value . '%'),
             'status' => fn(Builder $query, $value, $attribute) => $query->where($attribute, $value),
             'created_at' => fn(Builder $query, $value, $attribute) => $query
-                ->whereBetween($attribute, array_map(
-                    fn($timestamp) => date('Y-m-d H:i:s', (int)$timestamp),
-                    explode(',', $value))
+                ->whereBetween(
+                    $attribute,
+                    array_map(
+                        fn($timestamp) => date('Y-m-d H:i:s', (int)$timestamp),
+                        explode(',', $value)
+                    )
                 ),
         ];
     }

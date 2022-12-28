@@ -3,6 +3,8 @@
 /vendor
 *.log
 /.env
+/.php-cs-fixer.php
+/phpstan.neon
 /tests/tmp
 /tests/.phpunit.result.cache
 /build
