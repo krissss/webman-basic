@@ -3,6 +3,8 @@ parameters:
     tmpDir: runtime/phpstand
     paths:
         - app
+        - support/facade
+        - process/Task
     excludePaths:
         - app/command/TestCommand.php
         - app/api/controller/ExampleSourceController.php

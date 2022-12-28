@@ -10,20 +10,17 @@ use Symfony\Component\Cache\Psr16Cache;
 
 class Cache extends \support\Cache
 {
-    public static array $_instances = [];
+    private static array $_instances = [];
 
     public static function instance(): Psr16Cache
     {
-        if (!static::$_instance) {
-            static::$_instance = static::driver(config('cache.default'));
-        }
-        return static::$_instance;
+        return static::driver(config('cache.default'));
     }
 
     public static function driver(string $name): Psr16Cache
     {
-        if (isset(static::$_instances[$name])) {
-            return static::$_instances[$name];
+        if (isset(self::$_instances[$name])) {
+            return self::$_instances[$name];
         }
 
         $config = config('cache.drivers.' . $name, []);
@@ -47,6 +44,6 @@ class Cache extends \support\Cache
             throw new InvalidArgumentException('redis.drivers 不支持: ' . $driver);
         }
 
-        return static::$_instances[$name] = new Psr16Cache($cache);
+        return self::$_instances[$name] = new Psr16Cache($cache);
     }
 }

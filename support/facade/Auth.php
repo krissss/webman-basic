@@ -51,6 +51,6 @@ class Auth extends \WebmanTech\Auth\Auth
 
     public static function getName(): string
     {
-        return static::guard()->getUser()->name;
+        return optional(static::guard()->getUser())->name ?? '';
     }
 }
