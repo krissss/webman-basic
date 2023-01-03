@@ -75,7 +75,7 @@ class FilesystemRepository extends AbsRepository
                     'is_dir' => $item['dir'],
                     'dirname' => '/' . ($pathInfo['dirname'] === '.' ? '' : $pathInfo['dirname']),
                     'file' => $pathInfo['basename'],
-                    'ext' => $pathInfo['extension'],
+                    'ext' => $pathInfo['extension'] ?? '',
                     'time' => $this->disk->lastModified($item['path']),
                     'size' => $item['dir'] ? '' : Tools::formatBytes($this->disk->size($item['path'])),
                 ];

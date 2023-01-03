@@ -85,42 +85,60 @@ class FilesystemController extends AbsSourceController
             $crud->withHeaderToolbar(
                 Amis\Crud::INDEX_CREATE + 1,
                 Amis\ActionButtons::make()
-                    ->withButtonDialog(1, '上传图片-立即', $this->buildFormFields([
-                        Amis\FormField::make()->name('dir')->value('/images')->disabled(),
-                        Amis\FormField::make()->name('file')->typeInputFile(
-                            InputFile::make()
-                                ->withAcceptExtensions('jpg,jpeg,png')
-                                ->withUseChunk(false)
-                                ->withUploadApi('admin.filesystem.uploadImage')
-                                ->toArray()
-                        ),
-                    ]), [
-                        'level' => 'primary',
-                    ])
-                    ->withButtonDialog(2, '上传图片-表单', $this->buildFormFields([
-                        Amis\FormField::make()->name('dir')->value('/'),
-                        Amis\FormField::make()->name('file')->typeInputFile(
-                            InputFile::make()
-                                ->withAcceptMimes('image/*')
-                                ->withForm()
-                                ->toArray()
-                        ),
-                    ]), [
-                        'level' => 'primary',
-                        'api' => 'post:' . route('admin.filesystem.uploadImage', ['type' => AmisFileUpload::TYPE_SINGLE]),
-                    ])
-                    ->withButtonDialog(3, '上传文件-自动分块', $this->buildFormFields([
-                        Amis\FormField::make()->name('dir')->value('/files')->disabled(),
-                        Amis\FormField::make()->name('file')->typeInputFile(
-                            InputFile::make()
-                                ->withAcceptExtensions('pdf')
-                                ->withUseChunk(null, 1 * 1024 * 1024)
-                                ->withUploadApi('admin.filesystem.uploadFile')
-                                ->toArray()
-                        ),
-                    ]), [
-                        'level' => 'primary',
-                    ])
+                    ->withButtonDialog(
+                        1,
+                        '上传图片-立即',
+                        $this->buildFormFields([
+                            Amis\FormField::make()->name('dir')->value('/images')->disabled(),
+                            Amis\FormField::make()->name('file')->typeInputFile(
+                                InputFile::make()
+                                    ->withAcceptExtensions('jpg,jpeg,png')
+                                    ->withUseChunk(false)
+                                    ->withUploadApi('admin.filesystem.uploadImage')
+                                    ->toArray()
+                            )
+                        ]),
+                        [
+                            'level' => 'primary',
+                        ]
+                    )
+                    ->withButtonDialog(
+                        2,
+                        '上传图片-表单',
+                        $this->buildFormFields([
+                            Amis\FormField::make()->name('dir')->value('/'),
+                            Amis\FormField::make()->name('file')->typeInputFile(
+                                InputFile::make()
+                                    ->withAcceptMimes('image/*')
+                                    ->withForm()
+                                    ->toArray()
+                            ),
+                        ]),
+                        [
+                            'level' => 'primary',
+                            'api' => 'post:' . route(
+                                    'admin.filesystem.uploadImage',
+                                    ['type' => AmisFileUpload::TYPE_SINGLE]
+                                ),
+                        ]
+                    )
+                    ->withButtonDialog(
+                        3,
+                        '上传文件-自动分块',
+                        $this->buildFormFields([
+                            Amis\FormField::make()->name('dir')->value('/files')->disabled(),
+                            Amis\FormField::make()->name('file')->typeInputFile(
+                                InputFile::make()
+                                    ->withAcceptExtensions('pdf')
+                                    ->withUseChunk(null, 1 * 1024 * 1024)
+                                    ->withUploadApi('admin.filesystem.uploadFile')
+                                    ->toArray()
+                            ),
+                        ]),
+                        [
+                            'level' => 'primary',
+                        ]
+                    )
             );
         }
 
@@ -144,7 +162,17 @@ class FilesystemController extends AbsSourceController
             ->withButtonLink(Amis\GridColumnActions::INDEX_DETAIL + 1, '进入', '?dirname=${dirname}', [
                 'visibleOn' => '${is_dir}',
                 'level' => 'success',
-            ]);
+            ])
+            ->withButtonAjax(
+                Amis\GridColumnActions::INDEX_DETAIL + 2,
+                '打开',
+                'post:' . route('admin.filesystem.url'),
+                [
+                    'visibleOn' => '${!is_dir}',
+                    'level' => 'info',
+                    'redirect' => '${url|raw}',
+                ]
+            );
     }
 
     /**
@@ -187,5 +215,18 @@ class FilesystemController extends AbsSourceController
             'dir' => $request->post('dir', 'files'),
         ]);
         return amis_response($fileUpload->handle($type));
+    }
+
+    /**
+     * 获取 url
+     * @param Request $request
+     * @return \Webman\Http\Response
+     */
+    public function url(Request $request)
+    {
+        $path = $request->post('path');
+        return amis_response([
+            'url' => $this->disk()->url($path),
+        ]);
     }
 }
