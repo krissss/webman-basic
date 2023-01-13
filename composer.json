@@ -32,6 +32,7 @@
     "illuminate/http": "^8.83",
     "illuminate/pagination": "^8.83",
     "illuminate/redis": "^8.83",
+    "kriss/php-notification": "^1.0",
     "league/flysystem": "~1.1",
     "robmorgan/phinx": "^0.12.10",
     "symfony/process": "^5.4",
