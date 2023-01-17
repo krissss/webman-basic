@@ -44,4 +44,18 @@ return [
          */
         'driver' => null,
     ],
+    /**
+     * 异常相关
+     */
+    'exception' => [
+        /**
+         * 接管异常处理
+         * callable|null
+         */
+        'handler' => null,
+        /**
+         * 当 handler 为 null 时，是否抛出异常
+         */
+        'throw' => config('app.debug', true),
+    ],
 ];
