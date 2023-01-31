@@ -48,6 +48,6 @@ class AlarmTemplate
     protected function formatOriginFileLine(string $filepath, int $line): string
     {
         $filepath = str_replace(dirname(__DIR__, 3) . DIRECTORY_SEPARATOR, '', $filepath);
-        return $filepath . ':' . $line;
+        return str_replace(DIRECTORY_SEPARATOR, '/', $filepath) . ':' . $line;
     }
 }
