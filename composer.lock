@@ -1972,16 +1972,16 @@
         },
         {
             "name": "kriss/php-notification",
-            "version": "v1.2.0",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/php-notification.git",
-                "reference": "5698add6ba7a3408a36a467753058ac2eee26f2f"
+                "reference": "8fea516bae5938bbf01b9400dd519ad7e9c1c74a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/php-notification/zipball/5698add6ba7a3408a36a467753058ac2eee26f2f",
-                "reference": "5698add6ba7a3408a36a467753058ac2eee26f2f",
+                "url": "https://api.github.com/repos/krissss/php-notification/zipball/8fea516bae5938bbf01b9400dd519ad7e9c1c74a",
+                "reference": "8fea516bae5938bbf01b9400dd519ad7e9c1c74a",
                 "shasum": ""
             },
             "require": {
@@ -2034,9 +2034,9 @@
             "description": "PHP Notification",
             "support": {
                 "issues": "https://github.com/krissss/php-notification/issues",
-                "source": "https://github.com/krissss/php-notification/tree/v1.2.0"
+                "source": "https://github.com/krissss/php-notification/tree/v1.2.2"
             },
-            "time": "2023-02-01T03:16:28+00:00"
+            "time": "2023-02-01T05:52:44+00:00"
         },
         {
             "name": "league/flysystem",

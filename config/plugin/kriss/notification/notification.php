@@ -13,7 +13,7 @@ return [
      * class 是渠道的 Channel 类
      * 其他配置见 Channel 类下的 $config 参数
      */
-    'channels' => \support\facade\Notification::channels(),
+    'channels' => fn() => \support\facade\Notification::channels(),
     /**
      * 日志相关
      */
