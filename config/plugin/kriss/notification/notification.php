@@ -1,5 +1,7 @@
 <?php
 
+use WebmanTech\Logger\Middleware\RequestUid;
+
 return [
     /**
      * 默认渠道
@@ -50,12 +52,28 @@ return [
     'exception' => [
         /**
          * 接管异常处理
-         * callable|null
+         * callable|null|className
          */
         'handler' => null,
         /**
          * 当 handler 为 null 时，是否抛出异常
          */
         'throw' => config('app.debug', true),
+    ],
+    /**
+     * 模版相关
+     */
+    'template' => [
+        /**
+         * 统一处理模版的 toString
+         * callable|null|className
+         */
+        'handler' => \Kriss\Notification\Integrations\Webman\TemplateHandler\EnvTemplateHandler::class,
+        /**
+         * 用于 handler 的配置信息
+         */
+        'extra_info' => [
+            'uid' => fn() => request() ? request()->{RequestUid::REQUEST_UID_KEY} : 'console'
+        ],
     ],
 ];

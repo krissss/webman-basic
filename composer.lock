@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8885df546ae9c96244f68f9502ce749",
+    "content-hash": "306b295ee5b15e8e08995e7be22d28ea",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1972,16 +1972,16 @@
         },
         {
             "name": "kriss/php-notification",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/php-notification.git",
-                "reference": "40aec0360cbdb87c93add34cee624b2dc77d7b68"
+                "reference": "5698add6ba7a3408a36a467753058ac2eee26f2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/php-notification/zipball/40aec0360cbdb87c93add34cee624b2dc77d7b68",
-                "reference": "40aec0360cbdb87c93add34cee624b2dc77d7b68",
+                "url": "https://api.github.com/repos/krissss/php-notification/zipball/5698add6ba7a3408a36a467753058ac2eee26f2f",
+                "reference": "5698add6ba7a3408a36a467753058ac2eee26f2f",
                 "shasum": ""
             },
             "require": {
@@ -2034,9 +2034,9 @@
             "description": "PHP Notification",
             "support": {
                 "issues": "https://github.com/krissss/php-notification/issues",
-                "source": "https://github.com/krissss/php-notification/tree/v1.1.0"
+                "source": "https://github.com/krissss/php-notification/tree/v1.2.0"
             },
-            "time": "2023-01-16T10:03:57+00:00"
+            "time": "2023-02-01T03:16:28+00:00"
         },
         {
             "name": "league/flysystem",
