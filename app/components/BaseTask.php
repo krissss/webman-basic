@@ -7,6 +7,7 @@ use Psr\Log\LoggerInterface;
 use support\facade\Logger;
 use support\Log;
 use Throwable;
+use Workerman\Crontab\Crontab;
 use Yiisoft\Json\Json;
 
 abstract class BaseTask
@@ -27,7 +28,17 @@ abstract class BaseTask
 
     final public function __construct()
     {
-        $this->logger = Log::channel($this->logChannel);
+    }
+
+    /**
+     * @link https://www.workerman.net/doc/webman/components/crontab.html#%E8%AF%B4%E6%98%8E
+     * @return string
+     */
+    abstract protected function getCrontabRule(): string;
+
+    public function onWorkerStart()
+    {
+        new Crontab($this->getCrontabRule(), [static::class, 'consume']);
     }
 
     /**
@@ -38,6 +49,7 @@ abstract class BaseTask
     public static function consume()
     {
         $self = new static();
+        $self->logger = Log::channel($self->logChannel);
 
         $self->log('start');
 
