@@ -2,8 +2,6 @@
 
 namespace process;
 
-use Workerman\Crontab\Crontab;
-
 /**
  * 需要安装依赖：composer require workerman/crontab
  * 使用见：
@@ -12,9 +10,15 @@ use Workerman\Crontab\Crontab;
  */
 class Task
 {
-    public function onWorkerStart()
+    /**
+     * webman 的 crontab 会存在阻塞，sql 慢会阻塞后续的进程
+     * @link https://github.com/walkor/crontab/issues/11
+     * 所以将每个定时任务都定义为一个进程，此为定义进程的配置
+     */
+    public static function processes(): array
     {
-        // 每分钟的第一秒执行
-        new Crontab('1 * * * * *', [Task\TestTask::class, 'consume']);
+        return [
+            //'test' => Task\TestTask::class,
+        ];
     }
 }

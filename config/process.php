@@ -40,16 +40,17 @@ $processes = [
             ]
         ]
     ],
-    'task' => [
-        'handler' => process\Task::class,
-    ],
 ];
 
 if (!config('app.debug', false)) {
     unset($processes['monitor']);
 }
-if (!get_env('CRONTAB_ENABLE', false) || !class_exists('Workerman\Crontab\Crontab')) {
-    unset($processes['task']);
+if (get_env('CRONTAB_ENABLE', false) && class_exists('Workerman\Crontab\Crontab')) {
+    foreach (process\Task::processes() as $name => $process) {
+        $processes["cron_task_{$name}"] = [
+            'handler' => $process,
+        ];
+    }
 }
 
 return $processes;

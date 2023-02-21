@@ -10,6 +10,14 @@ class TestTask extends BaseTask
     /**
      * @inheritdoc
      */
+    protected function getCrontabRule(): string
+    {
+        return '1 * * * * *';
+    }
+
+    /**
+     * @inheritdoc
+     */
     protected function handle()
     {
         echo date('Y-m-d H:i:s') . ' Test task' . PHP_EOL;
