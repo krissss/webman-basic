@@ -42,7 +42,7 @@ class InputFile extends Component
      */
     public function withUseChunk(?bool $enable = null, ?int $chunkSize = null): self
     {
-        $this->schema['useChunk'] = $enable === null ? 'auto' : $enable;
+        $this->schema['useChunk'] = $enable ?? 'auto';
         if ($chunkSize) {
             $this->schema['chunkSize'] = $chunkSize;
         }

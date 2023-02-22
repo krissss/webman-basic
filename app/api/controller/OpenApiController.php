@@ -76,7 +76,7 @@ class OpenApiController
         $filename = md5(static::class);
         $filepath = runtime_path() . '/openapi/' . $filename . '.yaml';
         Tools::makeDirectory($filepath);
-        $recordKey = [__CLASS__, __FUNCTION__, 'v1'];
+        $recordKey = [static::class, __FUNCTION__, 'v1'];
         if (!file_exists($filepath) || !Component::memoryRemember()->get($recordKey)) {
             $openapi = Generator::scan($this->getScanPaths());
             $yaml = $openapi->toYaml();
