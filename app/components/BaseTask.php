@@ -36,6 +36,11 @@ abstract class BaseTask
      */
     abstract protected function getCrontabRule(): string;
 
+    public function getCrontab(): string
+    {
+        return $this->getCrontabRule();
+    }
+
     public function onWorkerStart()
     {
         new Crontab($this->getCrontabRule(), [static::class, 'consume']);
