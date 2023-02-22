@@ -2,27 +2,19 @@
   "name": "kriss/webman-basic",
   "type": "project",
   "keywords": [
-    "high performance",
-    "http service"
+    "webman template"
   ],
-  "homepage": "https://www.workerman.net",
+  "homepage": "https://github.com/krissss/webman-basic",
   "license": "MIT",
   "description": "High performance HTTP Service Framework.",
   "authors": [
     {
-      "name": "walkor",
-      "email": "walkor@workerman.net",
-      "homepage": "https://www.workerman.net",
-      "role": "Developer"
+      "name": "kriss",
+      "email": "462679766@qq.com",
+      "homepage": "https://github.com/krissss",
+      "role": "Maintainer"
     }
   ],
-  "support": {
-    "email": "walkor@workerman.net",
-    "issues": "https://github.com/walkor/webman/issues",
-    "forum": "https://wenda.workerman.net/",
-    "wiki": "https://workerman.net/doc/webman",
-    "source": "https://github.com/walkor/webman"
-  },
   "require": {
     "php": ">=7.4",
     "ext-json": "*",
@@ -53,7 +45,7 @@
     "webman/event": "^1.0",
     "webman/multi-session": "^1.0",
     "webman/redis-queue": "^1.2",
-    "workerman/webman-framework": "^1.4",
+    "workerman/webman-framework": "^1.5",
     "yiisoft/json": "^1.0",
     "yiisoft/strings": "^2.0",
     "zircote/swagger-php": "^4.4"
@@ -63,7 +55,7 @@
     "webman-tech/debugbar": "^2.1"
   },
   "suggest": {
-    "walkor/webman": "Basic From Version 1.4.7",
+    "walkor/webman": "Basic From Version 1.5.1",
     "friendsofphp/php-cs-fixer": "`composer global require friendsofphp/php-cs-fixer --dev` For fixer",
     "phpstan/phpstan": "`composer global require phpstan/phpstan --dev` For analyse",
     "ext-event": "For better performance",
