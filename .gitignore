@@ -1,11 +1,15 @@
+# 编辑器配置
 /.idea
 /.vscode
+# 依赖
 /vendor
-*.log
-/.env
-/.php-cs-fixer.php
-/phpstan.neon
+/node_modules
+# 其他
 /tests/tmp
 /tests/.phpunit.result.cache
+/.php-cs-fixer.php
+/phpstan.neon
+/*.log
+/.env
 /build
 /public/storage

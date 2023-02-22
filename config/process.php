@@ -21,7 +21,7 @@ $processes = [
         'reloadable' => false,
         'constructor' => [
             // Monitor these directories
-            'monitor_dir' => array_merge([
+            'monitorDir' => array_merge([
                 app_path(),
                 config_path(),
                 base_path() . '/process',
@@ -31,7 +31,7 @@ $processes = [
                 //base_path() . '/vendor',
             ], glob(base_path() . '/plugin/*/app'), glob(base_path() . '/plugin/*/config'), glob(base_path() . '/plugin/*/api')),
             // Files with these suffixes will be monitored
-            'monitor_extensions' => [
+            'monitorExtensions' => [
                 'php', 'html', 'htm', 'env'
             ],
             'options' => [
