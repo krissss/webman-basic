@@ -9,7 +9,7 @@ use WebmanTech\LaravelCache\Middleware\ThrottleRequestsFactory;
 OpenApiController::registerRoute();
 
 // 请勿将以下注释打开使用，仅做参考使用
-//Route::resource('example', \app\api\controller\ExampleSourceController::class, ['name_prefix' => 'api.']);
+//Route::resource('crud', \app\api\controller\ExampleSourceController::class, ['name_prefix' => 'api.']);
 
 Route::group('', function () {
     // 需要授权的
