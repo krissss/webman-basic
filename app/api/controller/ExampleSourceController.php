@@ -87,12 +87,11 @@ class ExampleSourceController
      */
     public function store(Request $request): Response
     {
-        $validator = validator($request->post(), [
+        $data = validator($request->post(), [
             'username' => 'required|string|max:64',
             'password' => 'required|string|max:64',
             'name' => 'required|string',
-        ]);
-        $data = $validator->validate();
+        ])->validate();
         if (Model::query()->where('username', $data['username'])->exists()) {
             throw new UserSeeException('username 已存在');
         }
@@ -132,13 +131,12 @@ class ExampleSourceController
     public function update(Request $request, int $id): Response
     {
         $model = Model::findOrFail($id);
-        $validator = validator($request->post(), [
+        $data = validator($request->post(), [
             'username' => 'string|max:64',
             'password' => 'string|max:64',
             'name' => 'string',
             'status' => ['integer', Rule::in(AdminStatus::getValues())],
-        ]);
-        $data = $validator->validate();
+        ])->validate();
         $model->fill($data);
 
         if ($model->isDirty('username') && Model::query()->where('username', $data['username'])->whereKeyNot($model->id)->exists()) {
