@@ -66,7 +66,10 @@
     "symfony/cache": "For PSR6 cache use"
   },
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "php-http/discovery": false
+    }
   },
   "autoload": {
     "psr-4": {
