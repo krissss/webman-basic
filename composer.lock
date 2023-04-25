@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2da13c23c930476ee60b565e72d6e84",
+    "content-hash": "12c9f448754e7cd414fa43d1b3df6696",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1151,6 +1151,66 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2022-01-31T15:57:46+00:00"
+        },
+        {
+            "name": "illuminate/console",
+            "version": "v8.83.27",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/console.git",
+                "reference": "4aaa93223eb3bd8119157c95f58c022967826035"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/console/zipball/4aaa93223eb3bd8119157c95f58c022967826035",
+                "reference": "4aaa93223eb3bd8119157c95f58c022967826035",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/collections": "^8.0",
+                "illuminate/contracts": "^8.0",
+                "illuminate/macroable": "^8.0",
+                "illuminate/support": "^8.0",
+                "php": "^7.3|^8.0",
+                "symfony/console": "^5.4",
+                "symfony/process": "^5.4"
+            },
+            "suggest": {
+                "dragonmantank/cron-expression": "Required to use scheduler (^3.0.2).",
+                "guzzlehttp/guzzle": "Required to use the ping methods on schedules (^6.5.5|^7.0.1).",
+                "illuminate/bus": "Required to use the scheduled job dispatcher (^8.0).",
+                "illuminate/container": "Required to use the scheduler (^8.0).",
+                "illuminate/filesystem": "Required to use the generator command (^8.0).",
+                "illuminate/queue": "Required to use closures for scheduled jobs (^8.0)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Console package.",
+            "homepage": "https://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2022-04-21T22:14:18+00:00"
         },
         {
             "name": "illuminate/container",
@@ -5635,6 +5695,47 @@
             "time": "2022-12-14T09:55:05+00:00"
         },
         {
+            "name": "webman-tech/laravel-console",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-tech/laravel-console.git",
+                "reference": "0b301bd57dd6cad55cdf8788836eca77f2a44cc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-tech/laravel-console/zipball/0b301bd57dd6cad55cdf8788836eca77f2a44cc0",
+                "reference": "0b301bd57dd6cad55cdf8788836eca77f2a44cc0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": ">=8",
+                "illuminate/container": ">=8",
+                "illuminate/events": ">=8",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "webman/console": "^1.2",
+                "workerman/webman-framework": "^1.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebmanTech\\LaravelConsole\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman plugin webman-tech/laravel-console",
+            "support": {
+                "issues": "https://github.com/webman-tech/laravel-console/issues",
+                "source": "https://github.com/webman-tech/laravel-console/tree/v1.0.0"
+            },
+            "time": "2023-04-25T02:56:07+00:00"
+        },
+        {
             "name": "webman-tech/laravel-filesystem",
             "version": "v3.0.1",
             "source": {
@@ -5930,16 +6031,16 @@
         },
         {
             "name": "webman/console",
-            "version": "v1.2.23",
+            "version": "v1.2.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-php/console.git",
-                "reference": "ea81ff38158e81199078d45a6febf078e5745e4f"
+                "reference": "081cc2ccb41c48fb6a0e30999e1dd7704efe9e93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-php/console/zipball/ea81ff38158e81199078d45a6febf078e5745e4f",
-                "reference": "ea81ff38158e81199078d45a6febf078e5745e4f",
+                "url": "https://api.github.com/repos/webman-php/console/zipball/081cc2ccb41c48fb6a0e30999e1dd7704efe9e93",
+                "reference": "081cc2ccb41c48fb6a0e30999e1dd7704efe9e93",
                 "shasum": ""
             },
             "require": {
@@ -5979,7 +6080,7 @@
                 "source": "https://github.com/webman-php/console",
                 "wiki": "http://www.workerman.net/doc/webman"
             },
-            "time": "2023-02-18T12:16:24+00:00"
+            "time": "2023-04-07T11:27:07+00:00"
         },
         {
             "name": "webman/event",
