@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2da13c23c930476ee60b565e72d6e84",
+    "content-hash": "699143698d35d96b7bc832210f6807d6",
     "packages": [
         {
             "name": "cakephp/core",
@@ -5555,6 +5555,46 @@
             "time": "2022-09-18T11:42:27+00:00"
         },
         {
+            "name": "webman-tech/crontab-task",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-tech/crontab-task.git",
+                "reference": "709d5f39b5bdee8228ba3e9d5c763806429b79f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-tech/crontab-task/zipball/709d5f39b5bdee8228ba3e9d5c763806429b79f9",
+                "reference": "709d5f39b5bdee8228ba3e9d5c763806429b79f9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4",
+                "psr/log": "^1.1",
+                "workerman/crontab": "^1.0"
+            },
+            "require-dev": {
+                "webman/console": "^1.2",
+                "workerman/webman-framework": "^1.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebmanTech\\CrontabTask\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman plugin webman-tech/crontab-task",
+            "support": {
+                "issues": "https://github.com/webman-tech/crontab-task/issues",
+                "source": "https://github.com/webman-tech/crontab-task/tree/v1.0.1"
+            },
+            "time": "2023-05-07T11:57:35+00:00"
+        },
+        {
             "name": "webman-tech/docker",
             "version": "v2.0.0",
             "source": {
@@ -6077,6 +6117,56 @@
                 "source": "https://github.com/webman-php/redis-queue/tree/v1.2.4"
             },
             "time": "2022-06-27T08:07:13+00:00"
+        },
+        {
+            "name": "workerman/crontab",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/crontab.git",
+                "reference": "b78f1556f2977715b9cb5653129e6d9cf160d966"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/walkor/crontab/zipball/b78f1556f2977715b9cb5653129e6d9cf160d966",
+                "reference": "b78f1556f2977715b9cb5653129e6d9cf160d966",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "workerman/workerman": ">=4.0.20"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\Crontab\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "walkor",
+                    "email": "walkor@workerman.net",
+                    "homepage": "http://www.workerman.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A crontab written in PHP based on workerman",
+            "homepage": "http://www.workerman.net",
+            "keywords": [
+                "crontab"
+            ],
+            "support": {
+                "email": "walkor@workerman.net",
+                "forum": "http://wenda.workerman.net/",
+                "issues": "https://github.com/walkor/workerman/issues",
+                "source": "https://github.com/walkor/crontab",
+                "wiki": "http://doc.workerman.net/"
+            },
+            "time": "2022-10-17T01:59:19+00:00"
         },
         {
             "name": "workerman/redis",
