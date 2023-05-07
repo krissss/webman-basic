@@ -91,6 +91,10 @@
     "pre-package-uninstall": [
       "support\\Plugin::uninstall"
     ],
+    "dev-win": [
+      "Composer\\Config::disableProcessTimeout",
+      "php windows.php"
+    ],
     "fixer": "php-cs-fixer fix",
     "fixer:risky": "php-cs-fixer fix --allow-risky=yes",
     "analyse": "phpstan analyse",
