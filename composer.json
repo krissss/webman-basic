@@ -32,6 +32,7 @@
     "vlucas/phpdotenv": "^5.4",
     "webman-tech/amis-admin": "^2.2",
     "webman-tech/auth": "^2.0",
+    "webman-tech/crontab-task": "^1.0",
     "webman-tech/docker": "^2.0",
     "webman-tech/laravel-cache": "^1.1",
     "webman-tech/laravel-filesystem": "^3.0",
@@ -60,7 +61,6 @@
     "phpstan/phpstan": "`composer global require phpstan/phpstan --dev` For analyse",
     "ext-event": "For better performance",
     "ext-redis": "For redis use",
-    "workerman/crontab": "For crontab use",
     "workbunny/webman-nacos": "For nacos use",
     "ramsey/uuid": "For uuid use",
     "symfony/cache": "For PSR6 cache use"
