@@ -1,12 +1,13 @@
 <?php
 
-use app\api\controller\OpenApiController;
+use app\components\SwaggerRegister;
 use support\facade\Route;
 use WebmanTech\Auth\Middleware\Authentication;
 use WebmanTech\Auth\Middleware\SetAuthGuard;
 use WebmanTech\LaravelCache\Middleware\ThrottleRequestsFactory;
 
-OpenApiController::registerRoute();
+// openapi 路由
+SwaggerRegister::registerRouteApi(__DIR__ . '/controller');
 
 // 请勿将以下注释打开使用，仅做参考使用
 //Route::resource('crud', \app\api\controller\ExampleSourceController::class, ['name_prefix' => 'api.']);

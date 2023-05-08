@@ -43,14 +43,14 @@
     "webman-tech/log-reader": "^2.0",
     "webman-tech/logger": "^2.0",
     "webman-tech/polyfill": "^1.0",
+    "webman-tech/swagger": "^1.0",
     "webman/console": "^1.2",
     "webman/event": "^1.0",
     "webman/multi-session": "^1.0",
     "webman/redis-queue": "^1.2",
     "workerman/webman-framework": "^1.5",
     "yiisoft/json": "^1.0",
-    "yiisoft/strings": "^2.0",
-    "zircote/swagger-php": "^4.4"
+    "yiisoft/strings": "^2.0"
   },
   "require-dev": {
     "symfony/var-dumper": "^5.4",
