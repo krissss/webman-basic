@@ -1990,16 +1990,16 @@
         },
         {
             "name": "kriss/log-reader",
-            "version": "v1.3.2",
+            "version": "v1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/php-log-reader.git",
-                "reference": "700ab6d3c7542d4634ff04e09f84faa5b9db20e2"
+                "reference": "3547b5c49d4f71439405af994d642c4844e0ef50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/php-log-reader/zipball/700ab6d3c7542d4634ff04e09f84faa5b9db20e2",
-                "reference": "700ab6d3c7542d4634ff04e09f84faa5b9db20e2",
+                "url": "https://api.github.com/repos/krissss/php-log-reader/zipball/3547b5c49d4f71439405af994d642c4844e0ef50",
+                "reference": "3547b5c49d4f71439405af994d642c4844e0ef50",
                 "shasum": ""
             },
             "require": {
@@ -2027,9 +2027,9 @@
             "description": "Log Reader For PHP",
             "support": {
                 "issues": "https://github.com/krissss/php-log-reader/issues",
-                "source": "https://github.com/krissss/php-log-reader/tree/v1.3.2"
+                "source": "https://github.com/krissss/php-log-reader/tree/v1.3.5"
             },
-            "time": "2023-01-10T08:41:34+00:00"
+            "time": "2023-05-08T10:49:09+00:00"
         },
         {
             "name": "kriss/php-notification",
@@ -6029,16 +6029,16 @@
         },
         {
             "name": "webman-tech/polyfill",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/polyfill.git",
-                "reference": "67f85a37d7dc9576d2e593e445558bb1aa35e2e9"
+                "reference": "ab26500a37d72d7a830c862a0ecbe9db5da27751"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/polyfill/zipball/67f85a37d7dc9576d2e593e445558bb1aa35e2e9",
-                "reference": "67f85a37d7dc9576d2e593e445558bb1aa35e2e9",
+                "url": "https://api.github.com/repos/webman-tech/polyfill/zipball/ab26500a37d72d7a830c862a0ecbe9db5da27751",
+                "reference": "ab26500a37d72d7a830c862a0ecbe9db5da27751",
                 "shasum": ""
             },
             "require": {
@@ -6065,9 +6065,9 @@
             "description": "Webman plugin webmantech/polyfill",
             "support": {
                 "issues": "https://github.com/webman-tech/polyfill/issues",
-                "source": "https://github.com/webman-tech/polyfill/tree/v1.0.4"
+                "source": "https://github.com/webman-tech/polyfill/tree/v1.0.5"
             },
-            "time": "2022-10-19T09:36:43+00:00"
+            "time": "2023-05-09T01:18:28+00:00"
         },
         {
             "name": "webman-tech/swagger",
