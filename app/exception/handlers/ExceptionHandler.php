@@ -30,7 +30,7 @@ class ExceptionHandler extends BaseExceptionHandler
     public function __construct($logger, $debug)
     {
         parent::__construct($logger, $debug);
-        $this->_logger = Log::channel(Logger::CHANNEL_APP);
+        $this->logger = Log::channel(Logger::CHANNEL_APP);
     }
 
     /**
@@ -50,7 +50,7 @@ class ExceptionHandler extends BaseExceptionHandler
      */
     protected function addDebugInfoToResponseData(Request $request, Throwable $exception)
     {
-        if (!$this->_debug) {
+        if (!$this->debug) {
             return;
         }
         if (!$request->expectsJson()) {
@@ -103,7 +103,7 @@ class ExceptionHandler extends BaseExceptionHandler
         if ($request->expectsJson()) {
             return json_error($this->statusMsg, $this->statusCode, $this->responseData, $this->headers);
         }
-        $error = $this->_debug ? \nl2br((string)$exception) : ($this->statusMsg ?: 'Server internal error');
+        $error = $this->debug ? \nl2br((string)$exception) : ($this->statusMsg ?: 'Server internal error');
         return new Response($this->statusCode, $this->headers, $error);
     }
 }
