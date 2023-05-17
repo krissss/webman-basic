@@ -90,7 +90,7 @@ class ExceptionHandler extends BaseExceptionHandler
         }
 
         $this->statusCode = 500;
-        $this->statusMsg = $this->_debug ? $exception->getMessage() : 'Server internal error';
+        $this->statusMsg = $this->debug ? $exception->getMessage() : 'Server internal error';
     }
 
     /**
