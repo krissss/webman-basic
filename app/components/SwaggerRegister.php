@@ -34,9 +34,9 @@ class SwaggerRegister
                             'type' => 'apiKey',
                             'in' => 'header',
                             'name' => 'X-Api-Key',
-                        ])
+                        ]),
                     ];
-                }
+                },
             ],
         ]);
     }

@@ -101,7 +101,7 @@ class FilesystemController extends AbsSourceController
                                     ->withUseChunk(false)
                                     ->withUploadApi('admin.filesystem.uploadImage')
                                     ->toArray()
-                            )
+                            ),
                         ]),
                         [
                             'level' => 'primary',
@@ -122,9 +122,9 @@ class FilesystemController extends AbsSourceController
                         [
                             'level' => 'primary',
                             'api' => 'post:' . route(
-                                    'admin.filesystem.uploadImage',
-                                    ['type' => AmisFileUpload::TYPE_SINGLE]
-                                ),
+                                'admin.filesystem.uploadImage',
+                                ['type' => AmisFileUpload::TYPE_SINGLE]
+                            ),
                         ]
                     )
                     ->withButtonDialog(
