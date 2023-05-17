@@ -2,7 +2,7 @@
 
 namespace app\components\fileUpload;
 
-use Illuminate\Contracts\Filesystem\FileExistsException;
+use app\exception\FileExistsException;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Validation\ValidationException;
@@ -134,7 +134,7 @@ class FileUpload
     protected function storeFile($file, string $path): void
     {
         if ($this->config['checkExist'] && $this->filesystem->exists($path)) {
-            throw new FileExistsException('File already exist');
+            throw new FileExistsException($path);
         }
         $this->filesystem->put($path, $file instanceof UploadedFile ? fopen($file->getRealPath(), 'r') : $file);
     }

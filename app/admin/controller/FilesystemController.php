@@ -5,7 +5,8 @@ namespace app\admin\controller;
 use app\admin\controller\repository\FilesystemRepository;
 use app\components\fileUpload\amis\AmisFileUpload;
 use app\components\fileUpload\amis\InputFile;
-use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Contracts\Filesystem\Cloud;
+use InvalidArgumentException;
 use support\facade\Storage;
 use Webman\Http\Request;
 use WebmanTech\AmisAdmin\Amis;
@@ -37,9 +38,13 @@ class FilesystemController extends AbsSourceController
         return new FilesystemRepository($this->disk());
     }
 
-    protected function disk(): Filesystem
+    protected function disk(): Cloud
     {
-        return Storage::disk($this->diskName);
+        $disk = Storage::disk($this->diskName);
+        if ($disk instanceof Cloud) {
+            return $disk;
+        }
+        throw new InvalidArgumentException('disk must be instance of Illuminate\Contracts\Filesystem\Cloud');
     }
 
     /**
