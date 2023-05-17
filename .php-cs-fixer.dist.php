@@ -12,7 +12,6 @@ return $config
         ->in([
             __DIR__ . '/app',
             __DIR__ . '/support/facade',
-            __DIR__ . '/process/Task',
         ])
         ->notPath([
             __DIR__ . '/app/command/TestCommand.php',
