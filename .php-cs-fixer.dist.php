@@ -6,9 +6,10 @@
  */
 $config = new PhpCsFixer\Config();
 return $config
-    ->setLineEnding(PHP_EOL)
+    ->setLineEnding("\n")
     ->setCacheFile(__DIR__ . '/runtime/.php-cs-fixer.cache')
-    ->setFinder(PhpCsFixer\Finder::create()
+    ->setFinder(
+        PhpCsFixer\Finder::create()
         ->in([
             __DIR__ . '/app',
             __DIR__ . '/support/facade',
@@ -34,6 +35,5 @@ return $config
         'native_function_casing' => true, // php 函数使用正确的大小写
         'standardize_not_equals' => true, // <> => !=
         'cast_spaces' => ['space' => 'none'], // 强制类型转化无空格
-        'concat_space' => ['spacing'=>'one'], // 连接字符串之间要一个空格
-    ])
-    ;
+        'concat_space' => ['spacing' => 'one'], // 连接字符串之间要一个空格
+    ]);

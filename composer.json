@@ -52,6 +52,7 @@
     "yiisoft/strings": "^2.0"
   },
   "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.14",
     "symfony/var-dumper": "^5.4",
     "webman-tech/debugbar": "^2.1"
   },
