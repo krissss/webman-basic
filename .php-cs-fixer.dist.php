@@ -5,6 +5,7 @@
  * you can change this configuration by importing this file.
  */
 $config = new PhpCsFixer\Config();
+$allowRisky = true;
 
 return $config
     ->setLineEnding("\n")
@@ -21,4 +22,7 @@ return $config
     )
     ->setRules([
         '@Symfony' => true,
-    ]);
+        '@Symfony:risky' => $allowRisky,
+        '@PHP74Migration' => true,
+    ])
+    ->setRiskyAllowed($allowRisky);

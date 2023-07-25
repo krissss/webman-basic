@@ -96,8 +96,7 @@
       "Composer\\Config::disableProcessTimeout",
       "php windows.php"
     ],
-    "fixer": "php-cs-fixer fix",
-    "fixer:risky": "php-cs-fixer fix --allow-risky=yes",
+    "fixer:lint": "php-cs-fixer fix --config .php-cs-fixer.dist.php",
     "analyse": "phpstan analyse",
     "phinx": "phinx"
   },
