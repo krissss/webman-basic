@@ -23,6 +23,6 @@ return $config
     ->setRules([
         '@Symfony' => true,
         '@Symfony:risky' => $allowRisky,
-        '@PHP74Migration' => true,
+        '@PHP82Migration' => true,
     ])
     ->setRiskyAllowed($allowRisky);
