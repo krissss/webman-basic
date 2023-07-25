@@ -38,7 +38,7 @@ class Logger extends \WebmanTech\Logger\Logger
 
         return array_unique(
             array_values(
-                array_filter($obj->getConstants(), fn ($name) => StringHelper::startsWith($name, 'CHANNEL_'), ARRAY_FILTER_USE_KEY)
+                array_filter($obj->getConstants(), fn ($name) => StringHelper::startsWith($name, 'CHANNEL_'), \ARRAY_FILTER_USE_KEY)
             )
         );
     }

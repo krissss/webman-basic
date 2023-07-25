@@ -18,7 +18,7 @@ class Lang implements MiddlewareInterface
         if (!$lang) {
             // $lang = $request->header('Accept-Language');
         }
-        if ($lang && in_array($lang, LangEnum::getValues())) {
+        if ($lang && \in_array($lang, LangEnum::getValues())) {
             locale($lang);
         }
         /** @var Response $response */

@@ -93,7 +93,7 @@ class ExceptionHandler extends BaseExceptionHandler
         if ($request->expectsJson()) {
             return json_error($this->statusMsg, $this->statusCode, $this->responseData, $this->headers);
         }
-        $error = $this->debug ? \nl2br((string) $exception) : ($this->statusMsg ?: 'Server internal error');
+        $error = $this->debug ? nl2br((string) $exception) : ($this->statusMsg ?: 'Server internal error');
 
         return new Response($this->statusCode, $this->headers, $error);
     }

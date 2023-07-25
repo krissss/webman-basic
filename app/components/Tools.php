@@ -24,7 +24,7 @@ class Tools
                 return $envIp;
             }
             // windows
-            if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
+            if ('WIN' === strtoupper(substr(\PHP_OS, 0, 3))) {
                 $process = Process::fromShellCommandline('ipconfig | findstr /i "IPv4"');
                 $process->run();
                 if (!$process->isSuccessful()) {
@@ -72,7 +72,7 @@ class Tools
      */
     public static function buildKey($keys): string
     {
-        if (is_string($keys) && strlen($keys) <= 32) {
+        if (\is_string($keys) && \strlen($keys) <= 32) {
             return $keys;
         }
 
@@ -85,7 +85,7 @@ class Tools
     public static function makeDirectory(string $dir): bool
     {
         if (!is_dir($dir)) {
-            $dir = dirname($dir);
+            $dir = \dirname($dir);
         }
         if (file_exists($dir)) {
             return true;

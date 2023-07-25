@@ -49,7 +49,7 @@ class ChunkFileUpload extends FileUpload
             'filename' => 'required|string',
         ])->validated();
         $filename = Str::random(40);
-        if ($ext = pathinfo($data['filename'], PATHINFO_EXTENSION)) {
+        if ($ext = pathinfo($data['filename'], \PATHINFO_EXTENSION)) {
             $filename .= '.'.$ext;
         }
         $path = $this->buildPath($filename);
@@ -85,7 +85,7 @@ class ChunkFileUpload extends FileUpload
         }
         /** @var LaravelUploadedFile $file */
         $file = $data['file'];
-        if ($file->getSize() !== intval($data['partSize'])) {
+        if ($file->getSize() !== (int) $data['partSize']) {
             throw Tools::buildValidationException(['partSize' => 'partSize error']);
         }
         $path = $this->buildChunkPath($data['uploadId'], $data['partNumber']);

@@ -24,7 +24,7 @@ class FilesystemController extends AbsSourceController
 
     public function __construct()
     {
-        if (!is_bool($this->enableUploadExample)) {
+        if (!\is_bool($this->enableUploadExample)) {
             $this->enableUploadExample = config('app.debug');
         }
     }

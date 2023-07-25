@@ -16,7 +16,7 @@ abstract class BaseEnum
     public static function getConstants()
     {
         $calledClass = static::class;
-        if (!array_key_exists($calledClass, self::$constCacheArray)) {
+        if (!\array_key_exists($calledClass, self::$constCacheArray)) {
             $reflect = new \ReflectionClass($calledClass);
             self::$constCacheArray[$calledClass] = $reflect->getConstants();
         }

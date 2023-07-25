@@ -15,7 +15,7 @@ class CacheLocker
     public static function __callStatic($name, $arguments)
     {
         if (0 === strpos($name, 'restore')) {
-            $name = lcfirst(substr($name, strlen('restore')));
+            $name = lcfirst(substr($name, \strlen('restore')));
             $key = $arguments[0] ?? '';
             $owner = $arguments[1];
 

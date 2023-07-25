@@ -101,7 +101,7 @@ class FileUpload
         if ($this->config['filename'] === static::FILENAME_KEEP) {
             $filename = $file->getClientOriginalName();
         } elseif ($this->config['filename'] instanceof \Closure) {
-            $filename = call_user_func($this->config['filename'], $file);
+            $filename = \call_user_func($this->config['filename'], $file);
         } else {
             $filename = $file->hashName();
         }

@@ -22,7 +22,7 @@ class Queue
      */
     public static function sendAsync(string $queue, array $data = [], int $delay = 0, string $connection = null): void
     {
-        if (!function_exists('pcntl_alarm')) {
+        if (!\function_exists('pcntl_alarm')) {
             // windows 不支持异步分发，自动切换成同步
             static::send($queue, $data, $delay, $connection);
 

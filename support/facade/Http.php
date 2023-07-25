@@ -13,7 +13,7 @@ class Http extends \WebmanTech\LaravelHttpClient\Facades\Http
     {
         return [
             'httpbin' => function () {
-                return Http::baseUrl('https://httpbin.org')
+                return self::baseUrl('https://httpbin.org')
                     ->asJson();
             },
         ];

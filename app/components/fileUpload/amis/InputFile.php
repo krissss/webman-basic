@@ -19,7 +19,7 @@ class InputFile extends Component
      */
     public function withAcceptMimes($mimes): self
     {
-        $this->schema['accept'] = is_array($mimes) ? implode(',', $mimes) : $mimes;
+        $this->schema['accept'] = \is_array($mimes) ? implode(',', $mimes) : $mimes;
 
         return $this;
     }
@@ -33,7 +33,7 @@ class InputFile extends Component
     {
         $this->schema['accept'] = array_map(
             fn (string $ext) => '.'.ltrim($ext, '.'),
-            is_string($extensions) ? explode(',', $extensions) : $extensions
+            \is_string($extensions) ? explode(',', $extensions) : $extensions
         );
 
         return $this;

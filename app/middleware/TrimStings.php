@@ -20,10 +20,10 @@ class TrimStings extends TransformRequest
      */
     protected function transform(string $key, $value)
     {
-        if (in_array($key, $this->except, true)) {
+        if (\in_array($key, $this->except, true)) {
             return $value;
         }
 
-        return is_string($value) ? trim($value) : $value;
+        return \is_string($value) ? trim($value) : $value;
     }
 }

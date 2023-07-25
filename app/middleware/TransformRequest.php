@@ -33,7 +33,7 @@ class TransformRequest implements MiddlewareInterface
      */
     protected function cleanValue(string $key, $value)
     {
-        if (is_array($value)) {
+        if (\is_array($value)) {
             return $this->cleanArray($value, $key.'.');
         }
 

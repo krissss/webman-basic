@@ -22,7 +22,7 @@ abstract class BaseMigration extends AbstractMigration
             'updated_by' => fn () => $table->addColumn('created_by', 'integer', ['comment' => '修改人', 'default' => 0]),
         ];
         foreach ($include as $key) {
-            call_user_func($columns[$key]);
+            \call_user_func($columns[$key]);
         }
     }
 }

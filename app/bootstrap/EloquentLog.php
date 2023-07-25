@@ -24,7 +24,7 @@ class EloquentLog implements Bootstrap
             }
             if ($event->bindings) {
                 foreach ($event->bindings as $v) {
-                    $sql = preg_replace('/\\?/', "'".(is_string($v) ? addslashes($v) : $v)."'", $sql, 1);
+                    $sql = preg_replace('/\\?/', "'".(\is_string($v) ? addslashes($v) : $v)."'", $sql, 1);
                 }
             }
             $sqlTime = $event->time;
