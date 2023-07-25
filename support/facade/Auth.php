@@ -17,6 +17,7 @@ class Auth extends \WebmanTech\Auth\Auth
     {
         /** @var User $model */
         $model = self::guardUser()->getUser();
+
         return $model;
     }
 
@@ -29,6 +30,7 @@ class Auth extends \WebmanTech\Auth\Auth
     {
         /** @var Admin $model */
         $model = self::guardAdmin()->getUser();
+
         return $model;
     }
 
@@ -41,6 +43,7 @@ class Auth extends \WebmanTech\Auth\Auth
     {
         /** @var User $model */
         $model = self::guardApiUser()->getUser();
+
         return $model;
     }
 

@@ -11,11 +11,12 @@ use support\facade\Auth;
 class InfoController
 {
     /**
-     * 当前登录的用户信息
+     * 当前登录的用户信息.
      *
      * @OA\Get(
      *     path="/info/mine",
      *     tags={"info"},
+     *
      *     @OA\Response(response=200, description="当前登录的用户信息"),
      *     security={{"api_key": {}}},
      * )
@@ -23,6 +24,7 @@ class InfoController
     public function mine()
     {
         $user = Auth::identityApiUser();
+
         return json_success($user);
     }
 }

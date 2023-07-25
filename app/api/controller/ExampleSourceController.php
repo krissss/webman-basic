@@ -19,15 +19,17 @@ use support\Response;
 class ExampleSourceController
 {
     /**
-     * 列表
+     * 列表.
      *
      * @OA\Get(
      *     path="/crud",
      *     tags={"crud"},
+     *
      *     @OA\Parameter(name="page", in="query", description="页数", @OA\Schema(type="integer")),
      *     @OA\Parameter(name="page_size", in="query", description="每页数量", @OA\Schema(type="integer")),
      *     @OA\Parameter(name="username", in="query", description="用户名", @OA\Schema(type="string")),
      *     @OA\Parameter(name="status", in="query", description="状态", @OA\Schema(type="integer")),
+     *
      *     @OA\Response(response=200, description="列表数据"),
      *     security={{"api_key": {}}},
      * )
@@ -46,12 +48,14 @@ class ExampleSourceController
     }
 
     /**
-     * 详情
+     * 详情.
      *
      * @OA\Get(
      *     path="/crud/{id}",
      *     tags={"crud"},
+     *
      *     @OA\Parameter(name="id", in="path", description="id", @OA\Schema(type="integer")),
+     *
      *     @OA\Response(response=200, description="明细"),
      *     security={{"api_key": {}}},
      * )
@@ -59,28 +63,34 @@ class ExampleSourceController
     public function show(Request $request, int $id): Response
     {
         $model = Model::findOrFail($id);
+
         return json_success($model);
     }
 
     /**
-     * 新建
+     * 新建.
      *
      * @OA\Post(
      *     path="/crud",
      *     tags={"crud"},
+     *
      *     @OA\RequestBody(
      *         required=true,
+     *
      *         @OA\MediaType(
      *             mediaType="application/json",
+     *
      *             @OA\Schema(
      *                 type="object",
      *                 required={"adminname", "password", "name"},
+     *
      *                 @OA\Property(property="username", description="用户名", type="string", example="admin"),
      *                 @OA\Property(property="password", description="密码", type="string", example="123456"),
      *                 @OA\Property(property="name", description="名称", type="string", example="测试用户"),
      *             )
      *         )
      *     ),
+     *
      *     @OA\Response(response=200, description="新建后的明细"),
      *     security={{"api_key": {}}},
      * )
@@ -105,18 +115,23 @@ class ExampleSourceController
     }
 
     /**
-     * 更新
+     * 更新.
      *
      * @OA\Put(
      *     path="/crud/{id}",
      *     tags={"crud"},
+     *
      *     @OA\Parameter(name="id", in="path", description="id", @OA\Schema(type="integer")),
+     *
      *     @OA\RequestBody(
      *         required=true,
+     *
      *         @OA\MediaType(
      *             mediaType="application/json",
+     *
      *             @OA\Schema(
      *                 type="object",
+     *
      *                 @OA\Property(property="username", description="用户名", type="string", example="admin"),
      *                 @OA\Property(property="password", description="密码", type="string", example="123456"),
      *                 @OA\Property(property="name", description="名称", type="string", example="测试用户"),
@@ -124,6 +139,7 @@ class ExampleSourceController
      *             )
      *         )
      *     ),
+     *
      *     @OA\Response(response=200, description="新建后的明细"),
      *     security={{"api_key": {}}},
      * )
@@ -155,12 +171,14 @@ class ExampleSourceController
     }
 
     /**
-     * 删除
+     * 删除.
      *
      * @OA\Delete(
      *     path="/crud/{id}",
      *     tags={"crud"},
+     *
      *     @OA\Parameter(name="id", in="path", description="id", @OA\Schema(type="integer")),
+     *
      *     @OA\Response(response=200, description="无返回数据"),
      *     security={{"api_key": {}}},
      * )
@@ -173,16 +191,19 @@ class ExampleSourceController
 
         $model = Model::findOrFail($id);
         $model->delete();
+
         return json_success(null);
     }
 
     /**
-     * 恢复
+     * 恢复.
      *
      * @OA\Put(
      *     path="/crud/{id}/recovery",
      *     tags={"crud"},
+     *
      *     @OA\Parameter(name="id", in="path", description="id", @OA\Schema(type="integer")),
+     *
      *     @OA\Response(response=200, description="明细"),
      *     security={{"api_key": {}}},
      * )
@@ -192,6 +213,7 @@ class ExampleSourceController
         if (!Model::whereKey($id)->restore()) {
             throw new ModelNotFoundException();
         }
+
         return json_success(Model::find($id));
     }
 }

@@ -13,7 +13,7 @@ class AdminStatus extends BaseEnum
     public const DISABLED = 10; // 禁用
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getViewItems(): array
     {
@@ -24,7 +24,7 @@ class AdminStatus extends BaseEnum
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getViewLabels(): array
     {

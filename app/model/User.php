@@ -9,16 +9,16 @@ use WebmanTech\Auth\Interfaces\IdentityInterface;
 use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
 
 /**
- * @property integer $id (主键)
- * @property string $username 用户名
- * @property string $password 密码
- * @property string $name 名称
+ * @property int    $id           (主键)
+ * @property string $username     用户名
+ * @property string $password     密码
+ * @property string $name         名称
  * @property string $access_token Access Token
- * @property string $api_token Api Token
- * @property integer $status 状态
- * @property mixed $created_at 创建时间
- * @property mixed $updated_at 修改时间
- * @property mixed $deleted_at 删除时间
+ * @property string $api_token    Api Token
+ * @property int    $status       状态
+ * @property mixed  $created_at   创建时间
+ * @property mixed  $updated_at   修改时间
+ * @property mixed  $deleted_at   删除时间
  */
 class User extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {
@@ -46,7 +46,7 @@ class User extends BaseModel implements IdentityInterface, IdentityRepositoryInt
     public $timestamps = true;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $fillable = [
         'username',
@@ -55,7 +55,7 @@ class User extends BaseModel implements IdentityInterface, IdentityRepositoryInt
     ];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $hidden = [
         'password',
@@ -64,7 +64,7 @@ class User extends BaseModel implements IdentityInterface, IdentityRepositoryInt
     ];
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function getId(): ?string
     {
@@ -72,7 +72,7 @@ class User extends BaseModel implements IdentityInterface, IdentityRepositoryInt
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function refreshIdentity()
     {
@@ -80,29 +80,30 @@ class User extends BaseModel implements IdentityInterface, IdentityRepositoryInt
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function findIdentity(string $token, string $type = null): ?IdentityInterface
     {
         $model = null;
-        if ($type === 'session') {
+        if ('session' === $type) {
             $model = static::find($token);
-        } elseif ($type === 'token') {
+        } elseif ('token' === $type) {
             $model = static::query()->where('access_token', $token)->first();
-        } elseif ($type === 'api_token') {
+        } elseif ('api_token' === $type) {
             $model = static::query()->where('api_token', $token)->first();
         }
-        /** @var static|null $model */
+        /* @var static|null $model */
         return $model;
     }
 
     /**
-     * 刷新 token
+     * 刷新 token.
+     *
      * @param false|string|null $token
      */
     public function refreshToken($token = false)
     {
-        if ($token === false) {
+        if (false === $token) {
             $token = Component::security()->generateRandomString(32);
         }
         $this->access_token = $token;

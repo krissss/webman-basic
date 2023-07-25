@@ -10,7 +10,7 @@ class TestJob extends BaseConsume
     public $queue = 'test';
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function handle($data)
     {

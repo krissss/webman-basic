@@ -20,7 +20,7 @@ use WebmanTech\AmisAdmin\Repository\RepositoryInterface;
 class AdminController extends AbsSourceController
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function createRepository(): RepositoryInterface
     {
@@ -28,33 +28,34 @@ class AdminController extends AbsSourceController
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function authDestroy($id = null): bool
     {
-        if ($id == Admin::SUPER_ADMIN_ID) {
+        if (Admin::SUPER_ADMIN_ID == $id) {
             return false;
         }
         if ($id == Auth::guard()->getId()) {
             return false;
         }
+
         return parent::authDestroy($id);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function authDestroyVisible(): string
     {
         return implode(' && ', [
             parent::authDestroyVisible(),
-            'this.id != "' . Admin::SUPER_ADMIN_ID . '"',
-            'this.id != "' . Auth::guard()->getId() . '"', // 不能删除自己
+            'this.id != "'.Admin::SUPER_ADMIN_ID.'"',
+            'this.id != "'.Auth::guard()->getId().'"', // 不能删除自己
         ]);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function grid(): array
     {
@@ -72,7 +73,7 @@ class AdminController extends AbsSourceController
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function form(string $scene): array
     {
@@ -89,11 +90,12 @@ class AdminController extends AbsSourceController
             $form[] = FormField::make()->name('status')
                 ->typeSelect(['options' => AdminStatus::getLabelValue()]);
         }
+
         return $form;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function detail(): array
     {
@@ -109,7 +111,7 @@ class AdminController extends AbsSourceController
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function gridActions(string $routePrefix): Amis\GridColumnActions
     {
@@ -138,13 +140,11 @@ class AdminController extends AbsSourceController
 
     /**
      * 重置密码
-     * @param Request $request
-     * @param $id
-     * @return Response
      */
     public function resetPassword(Request $request, $id): Response
     {
         $this->repository()->resetPassword($request->post(), $id);
+
         return admin_response('ok');
     }
 }

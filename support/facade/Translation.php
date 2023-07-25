@@ -3,7 +3,7 @@
 namespace support\facade;
 
 /**
- * Symfony translation
+ * Symfony translation.
  */
 class Translation extends \support\Translation
 {

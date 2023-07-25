@@ -7,9 +7,6 @@ use Illuminate\Support\Collection;
 
 trait ModelEnumSupport
 {
-    /**
-     * @return Collection
-     */
     protected static function viewItemsCollection(): Collection
     {
         return static::query()->get();
@@ -17,26 +14,19 @@ trait ModelEnumSupport
 
     /**
      * @param Model $item
-     * @return array
      */
     protected static function viewItemsMapping($item): array
     {
         return [$item['id'] => "{$item['name']}[{$item['id']}]"];
     }
 
-    /**
-     * @return array
-     */
     public static function getViewItems(): array
     {
         return static::viewItemsCollection()
-            ->mapWithKeys(fn($item) => static::viewItemsMapping($item))
+            ->mapWithKeys(fn ($item) => static::viewItemsMapping($item))
             ->toArray();
     }
 
-    /**
-     * @return array
-     */
     public static function getLabelValue(): array
     {
         $data = [];
@@ -46,6 +36,7 @@ trait ModelEnumSupport
                 'value' => $value,
             ];
         }
+
         return $data;
     }
 }

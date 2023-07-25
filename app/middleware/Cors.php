@@ -2,18 +2,18 @@
 
 namespace app\middleware;
 
-use Webman\MiddlewareInterface;
-use Webman\Http\Response;
 use Webman\Http\Request;
+use Webman\Http\Response;
+use Webman\MiddlewareInterface;
 
 /**
- * 跨域访问
+ * 跨域访问.
  */
 class Cors implements MiddlewareInterface
 {
     public function process(Request $request, callable $handler): Response
     {
-        if ($request->method() === 'OPTIONS') {
+        if ('OPTIONS' === $request->method()) {
             return response();
         }
 

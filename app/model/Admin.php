@@ -9,17 +9,17 @@ use WebmanTech\Auth\Interfaces\IdentityInterface;
 use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
 
 /**
- * app\model\Admin
+ * app\model\Admin.
  *
- * @property int $id (主键)
- * @property string $username 用户名
- * @property string $password 密码
- * @property string $name 名称
- * @property string|null $access_token Access Token
- * @property int $status 状态
- * @property \Illuminate\Support\Carbon $created_at 创建时间
- * @property \Illuminate\Support\Carbon $updated_at 修改时间
- * @property \Illuminate\Support\Carbon|null $deleted_at 删除时间
+ * @property int                             $id           (主键)
+ * @property string                          $username     用户名
+ * @property string                          $password     密码
+ * @property string                          $name         名称
+ * @property string|null                     $access_token Access Token
+ * @property int                             $status       状态
+ * @property \Illuminate\Support\Carbon      $created_at   创建时间
+ * @property \Illuminate\Support\Carbon      $updated_at   修改时间
+ * @property \Illuminate\Support\Carbon|null $deleted_at   删除时间
  */
 class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {
@@ -49,7 +49,7 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
     public $timestamps = true;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $fillable = [
         'id',
@@ -59,7 +59,7 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
     ];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $hidden = [
         'password',
@@ -67,7 +67,7 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
     ];
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function getId(): ?string
     {
@@ -75,7 +75,7 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function refreshIdentity()
     {
@@ -83,27 +83,28 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function findIdentity(string $token, string $type = null): ?IdentityInterface
     {
         $model = null;
-        if ($type === 'session') {
+        if ('session' === $type) {
             $model = static::find($token);
-        } elseif ($type === 'token') {
+        } elseif ('token' === $type) {
             $model = static::query()->where('access_token', $token)->first();
         }
-        /** @var static|null $model */
+        /* @var static|null $model */
         return $model;
     }
 
     /**
-     * 刷新 token
+     * 刷新 token.
+     *
      * @param false|string|null $token
      */
     public function refreshToken($token = false)
     {
-        if ($token === false) {
+        if (false === $token) {
             $token = Component::security()->generateRandomString(32);
         }
         $this->access_token = $token;

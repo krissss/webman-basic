@@ -3,8 +3,8 @@
 use app\user\controller\AuthController;
 use app\user\controller\InfoController;
 use app\user\controller\SystemController;
-use WebmanTech\AmisAdmin\Controller\RenderController;
 use support\facade\Route;
+use WebmanTech\AmisAdmin\Controller\RenderController;
 
 // 以下路由定义不能使用 group 嵌套，会导致 middleware 丢失: https://github.com/walkor/webman-framework/issues/45
 // 登录
@@ -23,4 +23,4 @@ Route::post('/info/update', [InfoController::class, 'update'])->name('user.info.
 Route::post('/info/change-password', [InfoController::class, 'changePassword'])->name('user.info.changePassword');
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('user.logout');
 // crud
-//Route::resource('admin', AdminController::class);
+// Route::resource('admin', AdminController::class);

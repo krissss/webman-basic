@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use support\facade\Logger;
 use support\Log;
-use Throwable;
 use Webman\Exception\ExceptionHandler as BaseExceptionHandler;
 use Webman\Http\Request;
 use Webman\Http\Response;
@@ -34,9 +33,9 @@ class ExceptionHandler extends BaseExceptionHandler
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function render(Request $request, Throwable $exception): Response
+    public function render(Request $request, \Throwable $exception): Response
     {
         $this->addDebugInfoToResponseData($request, $exception);
         $this->solveException($exception);
@@ -44,11 +43,7 @@ class ExceptionHandler extends BaseExceptionHandler
         return $this->buildResponse($request, $exception);
     }
 
-    /**
-     * @param Request $request
-     * @param Throwable $exception
-     */
-    protected function addDebugInfoToResponseData(Request $request, Throwable $exception)
+    protected function addDebugInfoToResponseData(Request $request, \Throwable $exception)
     {
         if (!$this->debug) {
             return;
@@ -61,31 +56,31 @@ class ExceptionHandler extends BaseExceptionHandler
         $this->responseData['error_trace'] = explode("\n", $exception->getTraceAsString());
     }
 
-    /**
-     * @param Throwable $exception
-     */
-    protected function solveException(Throwable $exception)
+    protected function solveException(\Throwable $exception)
     {
         if ($exception instanceof UserSeeException) {
             $this->statusCode = $exception->getCode();
             $this->statusMsg = $exception->getMessage();
             $this->responseData = array_merge($this->responseData, $exception->getData());
+
             return;
         }
         if ($exception instanceof ValidationException) {
             $this->statusCode = $exception->status;
             $this->statusMsg = $exception->validator->errors()->first();
-            //$this->responseData['errors'] = $exception->validator->errors()->all();
+            // $this->responseData['errors'] = $exception->validator->errors()->all();
             return;
         }
         if ($exception instanceof UnauthorizedException) {
             $this->statusCode = $exception->getCode();
             $this->statusMsg = $exception->getMessage();
+
             return;
         }
         if ($exception instanceof ModelNotFoundException) {
             $this->statusCode = 404;
             $this->statusMsg = 'Data Not Found';
+
             return;
         }
 
@@ -93,17 +88,13 @@ class ExceptionHandler extends BaseExceptionHandler
         $this->statusMsg = $this->debug ? $exception->getMessage() : 'Server internal error';
     }
 
-    /**
-     * @param Request $request
-     * @param Throwable $exception
-     * @return Response
-     */
-    protected function buildResponse(Request $request, Throwable $exception): Response
+    protected function buildResponse(Request $request, \Throwable $exception): Response
     {
         if ($request->expectsJson()) {
             return json_error($this->statusMsg, $this->statusCode, $this->responseData, $this->headers);
         }
-        $error = $this->debug ? \nl2br((string)$exception) : ($this->statusMsg ?: 'Server internal error');
+        $error = $this->debug ? nl2br((string) $exception) : ($this->statusMsg ?: 'Server internal error');
+
         return new Response($this->statusCode, $this->headers, $error);
     }
 }

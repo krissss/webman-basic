@@ -7,7 +7,7 @@ use app\components\interfaces\SecurityInterface;
 use support\facade\Container;
 
 /**
- * @method static SecurityInterface security()
+ * @method static SecurityInterface       security()
  * @method static MemoryRememberInterface memoryRemember()
  */
 class Component

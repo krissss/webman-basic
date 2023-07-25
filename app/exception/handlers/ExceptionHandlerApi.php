@@ -6,7 +6,6 @@ use app\exception\UserSeeException;
 use Illuminate\Validation\ValidationException as LaravelValidationException;
 use support\facade\Logger;
 use support\Log;
-use Throwable;
 use Webman\Http\Request;
 use Webman\Http\Response;
 use WebmanTech\AmisAdmin\Exceptions\ValidationException;
@@ -27,24 +26,27 @@ class ExceptionHandlerApi extends ExceptionHandler
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    protected function solveException(Throwable $exception): void
+    protected function solveException(\Throwable $exception): void
     {
         if ($exception instanceof ValidationException) {
             $this->statusCode = $exception->getCode();
             $this->statusMsg = $exception->errors[0];
+
             return;
         }
         if ($exception instanceof LaravelValidationException) {
             $this->statusCode = 422;
             $this->statusMsg = $exception->validator->errors()->first();
+
             return;
         }
         if ($exception instanceof ThrottleRequestsException) {
             $this->statusCode = $exception->getStatusCode();
             $this->statusMsg = $exception->getMessage();
             $this->headers = $exception->getHeaders();
+
             return;
         }
 
@@ -52,9 +54,9 @@ class ExceptionHandlerApi extends ExceptionHandler
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
-    protected function buildResponse(Request $request, Throwable $exception): Response
+    protected function buildResponse(Request $request, \Throwable $exception): Response
     {
         return json_error($this->statusMsg, $this->statusCode, $this->responseData, $this->headers);
     }

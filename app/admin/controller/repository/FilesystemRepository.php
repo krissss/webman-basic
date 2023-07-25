@@ -16,7 +16,7 @@ class FilesystemRepository extends AbsRepository
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function doCreate(array $data): void
     {
@@ -24,7 +24,7 @@ class FilesystemRepository extends AbsRepository
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function doUpdate(array $data, $id): void
     {
@@ -32,7 +32,7 @@ class FilesystemRepository extends AbsRepository
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function attributeLabels(): array
     {
@@ -49,17 +49,17 @@ class FilesystemRepository extends AbsRepository
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function pagination(int $page = 1, int $perPage = 20, array $search = [], array $order = []): array
     {
         $path = $search['dirname'] ?? null;
         $dirs = collect($this->disk->directories($path))
-            ->map(fn(string $path) => ['path' => $path, 'dir' => true]);
+            ->map(fn (string $path) => ['path' => $path, 'dir' => true]);
         $files = collect($this->disk->files($path))
-            ->map(fn(string $path) => ['path' => $path, 'dir' => false]);
+            ->map(fn (string $path) => ['path' => $path, 'dir' => false]);
         $all = $dirs->merge($files)
-            ->filter(fn(array $item) => strpos($item['path'], '.') !== 0 && strpos(basename($item['path']), '.') !== 0)
+            ->filter(fn (array $item) => 0 !== strpos($item['path'], '.') && 0 !== strpos(basename($item['path']), '.'))
             ->values();
         $items = $all
             ->forPage($page, $perPage)
@@ -69,11 +69,12 @@ class FilesystemRepository extends AbsRepository
                     'basename' => '',
                     'extension' => '',
                 ] : pathinfo($item['path']);
+
                 return [
                     'id' => $index + 1,
-                    'path' => '/' . $item['path'],
+                    'path' => '/'.$item['path'],
                     'is_dir' => $item['dir'],
-                    'dirname' => '/' . ($pathInfo['dirname'] === '.' ? '' : $pathInfo['dirname']),
+                    'dirname' => '/'.('.' === $pathInfo['dirname'] ? '' : $pathInfo['dirname']),
                     'file' => $pathInfo['basename'],
                     'ext' => $pathInfo['extension'] ?? '',
                     'time' => $this->disk->lastModified($item['path']),
@@ -82,6 +83,7 @@ class FilesystemRepository extends AbsRepository
             })
             ->values()
             ->toArray();
+
         return [
             'items' => $items,
             'total' => $all->count(),
@@ -89,7 +91,7 @@ class FilesystemRepository extends AbsRepository
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function detail($id): array
     {
@@ -97,7 +99,7 @@ class FilesystemRepository extends AbsRepository
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function destroy($id): void
     {
@@ -105,7 +107,7 @@ class FilesystemRepository extends AbsRepository
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function recovery($id): void
     {

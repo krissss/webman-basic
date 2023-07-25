@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Security implements SecurityInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function generatePasswordHash(string $password): string
     {
@@ -16,7 +16,7 @@ class Security implements SecurityInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function validatePassword(string $password, string $passwordHash): bool
     {
@@ -24,7 +24,7 @@ class Security implements SecurityInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function generateRandomString(int $length = 16): string
     {

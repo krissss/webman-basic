@@ -14,8 +14,6 @@ class InitDataCommand extends Command
     protected static $defaultDescription = '初始化数据';
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -28,7 +26,7 @@ class InitDataCommand extends Command
 
     private function initAdmin()
     {
-        //Admin::destroy(Admin::SUPER_ADMIN_ID);
+        // Admin::destroy(Admin::SUPER_ADMIN_ID);
         if (Admin::query()->where('id', Admin::SUPER_ADMIN_ID)->exists()) {
             return;
         }

@@ -4,8 +4,8 @@
  */
 
 use Illuminate\Contracts\Support\Arrayable;
-use WebmanTech\AmisAdmin\Amis\Component as AmisComponent;
 use support\Response;
+use WebmanTech\AmisAdmin\Amis\Component as AmisComponent;
 use Yiisoft\Json\Json;
 
 function _json_response($data, array $headers = [])
@@ -43,15 +43,17 @@ function admin_response($data, string $msg = '', array $extraInfo = [])
     if (is_string($data)) {
         $data = ['result' => $data];
     }
+
     return amis_response($data, $msg, $extraInfo);
 }
 
 /**
- * admin 重定向
- * @param string $redirectUrl
- * @param string $msg
+ * admin 重定向.
+ *
  * @param string $target _self/_blank
+ *
  * @return \Webman\Http\Response
+ *
  * @see /public/js/amis-admin.js
  */
 function admin_redirect(string $redirectUrl, string $msg = '', string $target = '_self')

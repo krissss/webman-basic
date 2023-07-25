@@ -8,31 +8,24 @@ use Webman\RedisQueue\Redis;
 class Queue
 {
     /**
-     * 同步投敌消息
-     * @param string $queue
-     * @param array $data
-     * @param int $delay
-     * @param string|null $connection
-     * @return bool
+     * 同步投敌消息.
      */
     public static function send(string $queue, array $data = [], int $delay = 0, string $connection = null): bool
     {
         $connection ??= 'default';
+
         return Redis::connection($connection)->send($queue, $data, $delay);
     }
 
     /**
-     * 异步投敌消息
-     * @param string $queue
-     * @param array $data
-     * @param int $delay
-     * @param string|null $connection
+     * 异步投敌消息.
      */
     public static function sendAsync(string $queue, array $data = [], int $delay = 0, string $connection = null): void
     {
-        if (!function_exists('pcntl_alarm')) {
+        if (!\function_exists('pcntl_alarm')) {
             // windows 不支持异步分发，自动切换成同步
             static::send($queue, $data, $delay, $connection);
+
             return;
         }
 
@@ -42,22 +35,16 @@ class Queue
 
     /**
      * 同步分发任务
-     * @param string $consumerClass
-     * @param array $data
-     * @param int $delay
-     * @return bool
      */
     public static function dispatch(string $consumerClass, array $data = [], int $delay = 0): bool
     {
         [$connection, $queue] = static::getInfoFromConsumer($consumerClass);
+
         return static::send($queue, $data, $delay, $connection);
     }
 
     /**
      * 异步分发任务
-     * @param string $consumerClass
-     * @param array $data
-     * @param int $delay
      */
     public static function dispatchAsync(string $consumerClass, array $data = [], int $delay = 0): void
     {
@@ -66,15 +53,14 @@ class Queue
     }
 
     /**
-     * 从 consumer 类中获取信息
-     * @param string $consumerClass
-     * @return array
-     * @link \Webman\RedisQueue\Process\Consumer::onWorkerStart
+     * 从 consumer 类中获取信息.
+     *
+     * @see \Webman\RedisQueue\Process\Consumer::onWorkerStart
      */
     protected static function getInfoFromConsumer(string $consumerClass): array
     {
         if (!is_a($consumerClass, 'Webman\RedisQueue\Consumer', true)) {
-            throw new \InvalidArgumentException($consumerClass . ' 必须是 Webman\RedisQueue\Consumer');
+            throw new \InvalidArgumentException($consumerClass.' 必须是 Webman\RedisQueue\Consumer');
         }
 
         $consumer = Container::get($consumerClass);

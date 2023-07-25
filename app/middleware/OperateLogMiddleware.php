@@ -17,7 +17,7 @@ class OperateLogMiddleware implements MiddlewareInterface
     ];
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function process(Request $request, callable $handler): Response
     {
@@ -27,7 +27,7 @@ class OperateLogMiddleware implements MiddlewareInterface
 
         $data = [
             'request' => [
-                //'host' => $request->host(),
+                // 'host' => $request->host(),
                 'method' => $request->method(),
                 'uri' => $request->uri(),
                 'body' => $request->file() ? '__withFiles__' : $request->rawBody(),
@@ -51,7 +51,7 @@ class OperateLogMiddleware implements MiddlewareInterface
 
         Logger::withChannel($this->logChannel, $data);
 
-        if ($response->getStatusCode() === 9999 && $exception) {
+        if (9999 === $response->getStatusCode() && $exception) {
             throw $exception;
         }
 
@@ -66,6 +66,7 @@ class OperateLogMiddleware implements MiddlewareInterface
                 return true;
             }
         }
+
         return false;
     }
 }

@@ -8,7 +8,7 @@ use Webman\Http\Response;
 use Webman\MiddlewareInterface;
 
 /**
- * 语言设置
+ * 语言设置.
  */
 class Lang implements MiddlewareInterface
 {
@@ -16,9 +16,9 @@ class Lang implements MiddlewareInterface
     {
         $lang = session('lang');
         if (!$lang) {
-            //$lang = $request->header('Accept-Language');
+            // $lang = $request->header('Accept-Language');
         }
-        if ($lang && in_array($lang, LangEnum::getValues())) {
+        if ($lang && \in_array($lang, LangEnum::getValues())) {
             locale($lang);
         }
         /** @var Response $response */

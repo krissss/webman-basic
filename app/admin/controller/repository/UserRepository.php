@@ -20,7 +20,7 @@ class UserRepository extends EloquentRepository
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function attributeLabels(): array
     {
@@ -40,18 +40,19 @@ class UserRepository extends EloquentRepository
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function visibleAttributes(string $scene): array
     {
         if ($scene === static::SCENE_DETAIL) {
             return ['access_token', 'api_token'];
         }
+
         return parent::visibleAttributes($scene);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function rules(string $scene): array
     {
@@ -75,23 +76,24 @@ class UserRepository extends EloquentRepository
                 'new_password_confirmation' => 'string',
             ];
         }
+
         return [];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function searchableAttributes(): array
     {
         return [
-            'username' => fn(Builder $query, $value, $attribute) => $query->where($attribute, $value),
-            'name' => fn(Builder $query, $value, $attribute) => $query->where($attribute, 'like', '%' . $value . '%'),
-            'status' => fn(Builder $query, $value, $attribute) => $query->where($attribute, $value),
-            'created_at' => fn(Builder $query, $value, $attribute) => $query
+            'username' => fn (Builder $query, $value, $attribute) => $query->where($attribute, $value),
+            'name' => fn (Builder $query, $value, $attribute) => $query->where($attribute, 'like', '%'.$value.'%'),
+            'status' => fn (Builder $query, $value, $attribute) => $query->where($attribute, $value),
+            'created_at' => fn (Builder $query, $value, $attribute) => $query
                 ->whereBetween(
                     $attribute,
                     array_map(
-                        fn($timestamp) => date('Y-m-d H:i:s', (int)$timestamp),
+                        fn ($timestamp) => date('Y-m-d H:i:s', (int) $timestamp),
                         explode(',', $value)
                     )
                 ),
@@ -99,7 +101,7 @@ class UserRepository extends EloquentRepository
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function doSave(Model $model): void
     {
@@ -110,7 +112,7 @@ class UserRepository extends EloquentRepository
         if (!$model->api_token) {
             $model->api_token = Component::security()->generateRandomString(32);
         }
-        if ($model->status === null) {
+        if (null === $model->status) {
             $model->status = UserStatus::ENABLE;
         }
         parent::doSave($model);
@@ -118,8 +120,6 @@ class UserRepository extends EloquentRepository
 
     /**
      * 重置密码
-     * @param array $data
-     * @param $id
      */
     public function resetPassword(array $data, $id): void
     {
@@ -131,9 +131,7 @@ class UserRepository extends EloquentRepository
     }
 
     /**
-     * 重置 api_token
-     * @param $id
-     * @return void
+     * 重置 api_token.
      */
     public function resetApiToken($id): void
     {
