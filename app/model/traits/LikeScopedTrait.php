@@ -5,7 +5,8 @@ namespace app\model\traits;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * @link https://learnku.com/laravel/t/16945
+ * @see https://learnku.com/laravel/t/16945
+ *
  * @method static Builder|static like(string $column, string $value, string $side = 'both', bool $isNotLike = false, bool $isAnd = true)
  * @method static Builder|static orLike(string $column, string $value, string $side = 'both', bool $isNotLike = false)
  * @method static Builder|static notLike(string $column, string $value, string $side = 'both', bool $isAnd = true)
@@ -15,20 +16,10 @@ trait LikeScopedTrait
 {
     /**
      * 是否转译 like 的查询值
-     * 在 mysql 下需要转译
-     * @var bool
+     * 在 mysql 下需要转译.
      */
     protected bool $escapeLike = true;
 
-    /**
-     * @param Builder $query
-     * @param string $column
-     * @param string $value
-     * @param string $side
-     * @param bool $isNotLike
-     * @param bool $isAnd
-     * @return Builder
-     */
     public function scopeLike(Builder $query, string $column, string $value, string $side = 'both', bool $isNotLike = false, bool $isAnd = true): Builder
     {
         $operator = $isNotLike ? 'not like' : 'like';
@@ -40,9 +31,9 @@ trait LikeScopedTrait
             $like_escape_char = '\\';
 
             return str_replace([$like_escape_char, '%', '_'], [
-                $like_escape_char . $like_escape_char,
-                $like_escape_char . '%',
-                $like_escape_char . '_',
+                $like_escape_char.$like_escape_char,
+                $like_escape_char.'%',
+                $like_escape_char.'_',
             ], $str);
         };
 

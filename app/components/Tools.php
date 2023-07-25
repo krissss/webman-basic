@@ -10,22 +10,21 @@ class Tools
     private static ?string $localIp = null;
 
     /**
-     * 获取本机ip
-     * @return string
+     * 获取本机ip.
      */
     public static function getLocalIp(): string
     {
-        if (self::$localIp !== null) {
+        if (null !== self::$localIp) {
             return self::$localIp;
         }
 
         $fn = function () {
             $envIp = get_env('SERVER_LOCAL_IP', 'localhost');
-            if ($envIp && $envIp !== 'localhost') {
+            if ($envIp && 'localhost' !== $envIp) {
                 return $envIp;
             }
             // windows
-            if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
                 $process = Process::fromShellCommandline('ipconfig | findstr /i "IPv4"');
                 $process->run();
                 if (!$process->isSuccessful()) {
@@ -36,6 +35,7 @@ class Tools
                 if (!isset($matches[0][0])) {
                     throw new \RuntimeException('获取本机IP失败，请手动指定');
                 }
+
                 return $matches[0][0];
             }
             // unix
@@ -44,6 +44,7 @@ class Tools
             if (!$process->isSuccessful()) {
                 throw new \RuntimeException('获取本机IP失败，请手动指定');
             }
+
             return trim($process->getOutput());
         };
 
@@ -53,34 +54,33 @@ class Tools
     private static ?int $localPort = null;
 
     /**
-     * 获取本服务端口
-     * @return int
+     * 获取本服务端口.
      */
     public static function getLocalServerPort(): int
     {
-        if (self::$localPort !== null) {
+        if (null !== self::$localPort) {
             return self::$localPort;
         }
+
         return self::$localPort = parse_url(config('server.listen'))['port'];
     }
 
     /**
-     * 构建缓存键
+     * 构建缓存键.
+     *
      * @param mixed $keys
-     * @return string
      */
     public static function buildKey($keys): string
     {
         if (is_string($keys) && strlen($keys) <= 32) {
             return $keys;
         }
+
         return md5(serialize($keys));
     }
 
     /**
-     * 递归创建目录
-     * @param string $dir
-     * @return bool
+     * 递归创建目录.
      */
     public static function makeDirectory(string $dir): bool
     {
@@ -90,13 +90,12 @@ class Tools
         if (file_exists($dir)) {
             return true;
         }
+
         return mkdir($dir, 0755, true);
     }
 
     /**
-     * 构造并抛出 ValidationException
-     * @param array $errors
-     * @return ValidationException
+     * 构造并抛出 ValidationException.
      */
     public static function buildValidationException(array $errors): ValidationException
     {
@@ -104,19 +103,19 @@ class Tools
         foreach ($errors as $key => $value) {
             $validator->errors()->add($key, $value);
         }
+
         return new ValidationException($validator);
     }
 
     /**
-     * 格式化 Bytes
+     * 格式化 Bytes.
+     *
      * @param string|int|null $size
-     * @param int $precision
-     * @return string
      */
     public static function formatBytes($size, int $precision = 2): string
     {
-        if ($size === 0 || $size === null) {
-            return "0B";
+        if (0 === $size || null === $size) {
+            return '0B';
         }
 
         $sign = $size < 0 ? '-' : '';
@@ -124,6 +123,7 @@ class Tools
 
         $base = log($size) / log(1024);
         $suffixes = ['B', 'KB', 'MB', 'GB', 'TB'];
-        return $sign . round(1024**($base - floor($base)), $precision) . $suffixes[(int)floor($base)];
+
+        return $sign.round(1024 ** ($base - floor($base)), $precision).$suffixes[(int) floor($base)];
     }
 }

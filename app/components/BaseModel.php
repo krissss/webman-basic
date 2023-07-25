@@ -3,7 +3,6 @@
 namespace app\components;
 
 use app\model\traits\LikeScopedTrait;
-use DateTimeInterface;
 use Illuminate\Database\Eloquent\Builder;
 use support\Model;
 
@@ -17,9 +16,9 @@ abstract class BaseModel extends Model
     use LikeScopedTrait;
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(\DateTimeInterface $date)
     {
         return $date->format($this->dateFormat ?: 'Y-m-d H:i:s');
     }

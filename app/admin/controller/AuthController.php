@@ -10,7 +10,7 @@ use support\Request;
 use Webman\Http\Response;
 
 /**
- * 授权
+ * 授权.
  */
 class AuthController
 {
@@ -18,15 +18,11 @@ class AuthController
      * @var string|class-string<\Illuminate\Database\Eloquent\Model>
      */
     protected string $model = Model::class;
-    /**
-     * @var string
-     */
+
     protected string $routeRedirect = '/admin/login';
 
     /**
-     * 登录
-     * @param Request $request
-     * @return Response
+     * 登录.
      */
     public function login(Request $request): Response
     {
@@ -41,9 +37,7 @@ class AuthController
         /** @var Model|null $model */
         $model = $modelClass::query()->where('username', $data['username'])->first();
         if (!$model || !Component::security()->validatePassword($data['password'], $model->password)) {
-            throw new ValidationException([
-                'username' => trans('用户名或密码错误'),
-            ]);
+            throw new ValidationException(['username' => trans('用户名或密码错误')]);
         }
 
         Auth::guard()->login($model);
@@ -54,8 +48,7 @@ class AuthController
     }
 
     /**
-     * 退出登录
-     * @return Response
+     * 退出登录.
      */
     public function logout(): Response
     {

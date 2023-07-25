@@ -15,7 +15,7 @@ use WebmanTech\AmisAdmin\Amis\Page;
 use WebmanTech\AmisAdmin\Repository\AbsRepository;
 
 /**
- * 当前登录用户信息
+ * 当前登录用户信息.
  */
 class InfoController
 {
@@ -23,22 +23,15 @@ class InfoController
      * @var string|class-string<AbsRepository>
      */
     protected string $repository = Repository::class;
-    /**
-     * @var string
-     */
+
     protected string $routeInfo = 'admin.info';
-    /**
-     * @var string
-     */
+
     protected string $routeInfoUpdate = 'admin.info.update';
-    /**
-     * @var string
-     */
+
     protected string $routeChangePassword = 'admin.info.changePassword';
 
     /**
-     * 用户信息页面
-     * @return Response
+     * 用户信息页面.
      */
     public function page(): Response
     {
@@ -54,7 +47,7 @@ class InfoController
                             'title' => '基本信息',
                             'mode' => 'horizontal',
                             'initApi' => route($this->routeInfo),
-                            'api' => 'post:' . route($this->routeInfoUpdate),
+                            'api' => 'post:'.route($this->routeInfoUpdate),
                             'body' => [
                                 DetailAttribute::make()->name('username')->label('用户名'),
                                 FormField::make()->name('name')->label('名称')->required(),
@@ -67,7 +60,7 @@ class InfoController
                             'type' => 'form',
                             'title' => '修改密码',
                             'mode' => 'horizontal',
-                            'api' => 'post:' . route($this->routeChangePassword),
+                            'api' => 'post:'.route($this->routeChangePassword),
                             'body' => [
                                 ['type' => 'alert', 'body' => '修改密码后会刷新 Access Token', 'level' => 'info', 'showIcon' => true],
                                 FormField::make()->name('old_password')->label('原密码')->required()->typeInputPassword(),
@@ -78,12 +71,12 @@ class InfoController
                     ],
                 ],
             ]);
+
         return admin_response($page);
     }
 
     /**
-     * 登录用户信息
-     * @return Response
+     * 登录用户信息.
      */
     public function index(): Response
     {
@@ -91,20 +84,17 @@ class InfoController
     }
 
     /**
-     * 更新用户信息
-     * @param Request $request
-     * @return Response
+     * 更新用户信息.
      */
     public function update(Request $request): Response
     {
         $this->repository()->update($request->only(['name']), Auth::guard()->getId());
+
         return admin_response('ok');
     }
 
     /**
-     * 修改面目
-     * @param Request $request
-     * @return Response
+     * 修改面目.
      */
     public function changePassword(Request $request): Response
     {

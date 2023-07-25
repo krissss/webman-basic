@@ -9,7 +9,7 @@ class MemoryRemember implements MemoryRememberInterface
     protected array $data = [];
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function set($key, $value): void
     {
@@ -17,7 +17,7 @@ class MemoryRemember implements MemoryRememberInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function get($key, $default = null)
     {

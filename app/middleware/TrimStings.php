@@ -16,7 +16,7 @@ class TrimStings extends TransformRequest
     ];
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function transform(string $key, $value)
     {

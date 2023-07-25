@@ -19,7 +19,7 @@ use WebmanTech\AmisAdmin\Repository\RepositoryInterface;
 class UserController extends AbsSourceController
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function createRepository(): RepositoryInterface
     {
@@ -27,7 +27,7 @@ class UserController extends AbsSourceController
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function grid(): array
     {
@@ -45,7 +45,7 @@ class UserController extends AbsSourceController
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function form(string $scene): array
     {
@@ -62,11 +62,12 @@ class UserController extends AbsSourceController
             $form[] = FormField::make()->name('status')
                 ->typeSelect(['options' => UserStatus::getLabelValue()]);
         }
+
         return $form;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function detail(): array
     {
@@ -83,7 +84,7 @@ class UserController extends AbsSourceController
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function gridActions(string $routePrefix): Amis\GridColumnActions
     {
@@ -114,7 +115,7 @@ class UserController extends AbsSourceController
                 route('admin.user.login', ['id' => '${id}']),
                 [
                     'level' => 'success',
-                    'visibleOn' => 'this.status==' . UserStatus::ENABLE,
+                    'visibleOn' => 'this.status=='.UserStatus::ENABLE,
                 ]
             )
             ->withButtonAjax(
@@ -123,40 +124,33 @@ class UserController extends AbsSourceController
                 route('admin.user.resetApiToken', ['id' => '${id}']),
                 [
                     'level' => 'danger',
-                    'confirmText' => "重置 api_token 将导致外部接口无法调用，确认？",
+                    'confirmText' => '重置 api_token 将导致外部接口无法调用，确认？',
                 ]
             );
     }
 
     /**
      * 重置密码
-     * @param Request $request
-     * @param $id
-     * @return Response
      */
     public function resetPassword(Request $request, $id): Response
     {
         $this->repository()->resetPassword($request->post(), $id);
+
         return admin_response('ok');
     }
 
     /**
-     * 重置 ApiToken
-     * @param Request $request
-     * @param $id
-     * @return Response
+     * 重置 ApiToken.
      */
     public function resetApiToken(Request $request, $id): Response
     {
         $this->repository()->resetApiToken($id);
+
         return admin_response('ok');
     }
 
     /**
-     * 登录
-     * @param Request $request
-     * @param $id
-     * @return Response
+     * 登录.
      */
     public function login(Request $request, $id): Response
     {

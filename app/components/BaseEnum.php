@@ -2,34 +2,30 @@
 
 namespace app\components;
 
-use ReflectionClass;
-use ReflectionException;
-
 abstract class BaseEnum
 {
-    /**
-     * @var array
-     */
     private static array $constCacheArray = [];
 
     /**
-     * 获取全部的 const
+     * 获取全部的 const.
+     *
      * @return mixed
-     * @throws ReflectionException
+     *
+     * @throws \ReflectionException
      */
     public static function getConstants()
     {
         $calledClass = static::class;
         if (!array_key_exists($calledClass, self::$constCacheArray)) {
-            $reflect = new ReflectionClass($calledClass);
+            $reflect = new \ReflectionClass($calledClass);
             self::$constCacheArray[$calledClass] = $reflect->getConstants();
         }
+
         return self::$constCacheArray[$calledClass];
     }
 
     /**
-     * 获取选择的数组
-     * @return array
+     * 获取选择的数组.
      */
     public static function getViewItems(): array
     {
@@ -38,12 +34,10 @@ abstract class BaseEnum
         foreach ($array as $key => $value) {
             $selectArray[$value] = static::getDefaultDescription($key);
         }
+
         return $selectArray;
     }
 
-    /**
-     * @return array
-     */
     public static function getLabelValue(): array
     {
         $data = [];
@@ -53,12 +47,12 @@ abstract class BaseEnum
                 'value' => $value,
             ];
         }
+
         return $data;
     }
 
     /**
-     * 获取全部键
-     * @return array
+     * 获取全部键.
      */
     public static function getKeys(): array
     {
@@ -67,7 +61,6 @@ abstract class BaseEnum
 
     /**
      * 获取全部值
-     * @return array
      */
     public static function getValues(): array
     {
@@ -75,27 +68,26 @@ abstract class BaseEnum
     }
 
     /**
-     * 获取某个值的描述
-     * @param $value
-     * @param string $unKnown
+     * 获取某个值的描述.
+     *
      * @return mixed|string
      */
     public static function getDescription($value, string $unKnown = 'Unknown')
     {
         $array = static::getViewItems();
+
         return $array[$value] ?? $unKnown;
     }
 
     /**
-     * 获取默认的描述
-     * @param string $key
-     * @return string
+     * 获取默认的描述.
      */
     protected static function getDefaultDescription(string $key): string
     {
         if (ctype_upper($key)) {
             $key = strtolower($key);
         }
+
         return ucwords(str_replace('_', ' ', $key));
     }
 }

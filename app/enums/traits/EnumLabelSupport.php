@@ -5,8 +5,7 @@ namespace app\enums\traits;
 trait EnumLabelSupport
 {
     /**
-     * 获取带 label 形式的 items
-     * @return array
+     * 获取带 label 形式的 items.
      */
     public static function getViewLabeledItems(): array
     {
@@ -16,13 +15,12 @@ trait EnumLabelSupport
             $description = $label ? "<span class='label label-{$label}'>{$description}</span>" : $description;
             $data[$value] = $description;
         }
+
         return $data;
     }
 
     /**
-     * 获取 label
-     * @param $value
-     * @return string|null
+     * 获取 label.
      */
     public static function getLabel($value): ?string
     {
@@ -32,8 +30,7 @@ trait EnumLabelSupport
     /**
      * 配置 label
      * $value => 'info'
-     * 支持：info/success/danger/warning/default
-     * @return array
+     * 支持：info/success/danger/warning/default.
      */
     public static function getViewLabels(): array
     {

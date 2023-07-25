@@ -2,14 +2,11 @@
 
 namespace app\exception;
 
-use Exception;
-use Throwable;
-
-class UserSeeException extends Exception
+class UserSeeException extends \Exception
 {
     protected array $data = [];
 
-    public function __construct($message = "Unprocessable Entity", $code = 422, Throwable $previous = null)
+    public function __construct($message = 'Unprocessable Entity', $code = 422, \Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
@@ -17,6 +14,7 @@ class UserSeeException extends Exception
     public function withData(array $data): self
     {
         $this->data = array_merge($this->data, $data);
+
         return $this;
     }
 

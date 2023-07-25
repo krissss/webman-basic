@@ -3,15 +3,15 @@
 namespace app\middleware;
 
 /**
- * 请求参数空字符转 null
+ * 请求参数空字符转 null.
  */
 class ConvertEmptyStringsToNull extends TransformRequest
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function transform(string $key, $value)
     {
-        return $value === '' ? null : $value;
+        return '' === $value ? null : $value;
     }
 }

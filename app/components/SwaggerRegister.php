@@ -17,7 +17,7 @@ class SwaggerRegister
                     'ExampleSourceController.php',
                 ],
                 'modify' => function (OA\OpenApi $openapi) {
-                    $openapi->info->title = config('app.name') . ' API';
+                    $openapi->info->title = config('app.name').' API';
                     $openapi->info->version = '1.0.0';
                     $openapi->servers = [
                         new OA\Server([

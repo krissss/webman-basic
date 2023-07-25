@@ -8,24 +8,22 @@ use support\facade\Auth;
 use Webman\Http\Request;
 
 /**
- * 授权，此处同 admin 的形式，可以按需修改掉
+ * 授权，此处同 admin 的形式，可以按需修改掉.
  */
 class AuthController extends \app\admin\controller\AuthController
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected string $model = User::class;
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected string $routeRedirect = '/user/login';
 
     /**
-     * 从 admin 登录
-     * @param Request $request
-     * @param string $accessToken
-     * @param string $id
+     * 从 admin 登录.
+     *
      * @return \Webman\Http\Response
      */
     public function loginByAdmin(Request $request, string $accessToken, string $id)

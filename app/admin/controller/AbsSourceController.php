@@ -6,12 +6,12 @@ use WebmanTech\AmisAdmin\Controller\AmisSourceController;
 use WebmanTech\AmisAdmin\Repository\EloquentRepository;
 
 /**
- * crud 基础控制器
+ * crud 基础控制器.
  */
 abstract class AbsSourceController extends AmisSourceController
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function authRecovery($id = null): bool
     {

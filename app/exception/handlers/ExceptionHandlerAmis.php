@@ -5,7 +5,6 @@ namespace app\exception\handlers;
 use Illuminate\Validation\ValidationException as LaravelValidationException;
 use support\facade\Logger;
 use support\Log;
-use Throwable;
 use Webman\Http\Request;
 use Webman\Http\Response;
 use WebmanTech\AmisAdmin\Exceptions\ValidationException;
@@ -26,9 +25,9 @@ class ExceptionHandlerAmis extends ExceptionHandler
     protected array $extraInfos = [];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    protected function solveException(Throwable $exception): void
+    protected function solveException(\Throwable $exception): void
     {
         if ($exception instanceof ValidationException) {
             $this->statusCode = $exception->getCode();
@@ -36,14 +35,16 @@ class ExceptionHandlerAmis extends ExceptionHandler
             $this->extraInfos = [
                 'errors' => $exception->errors,
             ];
+
             return;
         }
         if ($exception instanceof LaravelValidationException) {
             $this->statusCode = 422;
             $this->statusMsg = '';
             $this->extraInfos = [
-                'errors' => array_map(fn($messages) => $messages[0], $exception->validator->errors()->toArray()),
+                'errors' => array_map(fn ($messages) => $messages[0], $exception->validator->errors()->toArray()),
             ];
+
             return;
         }
 
@@ -51,9 +52,9 @@ class ExceptionHandlerAmis extends ExceptionHandler
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
-    protected function buildResponse(Request $request, Throwable $exception): Response
+    protected function buildResponse(Request $request, \Throwable $exception): Response
     {
         $extra = array_merge([
             'status' => $this->statusCode,

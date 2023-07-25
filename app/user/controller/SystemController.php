@@ -5,13 +5,12 @@ namespace app\user\controller;
 use Webman\Http\Response;
 
 /**
- * 系统信息
+ * 系统信息.
  */
 class SystemController extends \app\admin\controller\SystemController
 {
     /**
-     * admin 菜单
-     * @return Response
+     * admin 菜单.
      */
     public function pages(): Response
     {
@@ -19,7 +18,7 @@ class SystemController extends \app\admin\controller\SystemController
             [
                 'label' => '菜单',
                 'children' => [
-                    ['label' => '首页', 'icon' => 'fa fa-home', 'url' => '/', 'schemaApi' => route('user.dashboard.view'),],
+                    ['label' => '首页', 'icon' => 'fa fa-home', 'url' => '/', 'schemaApi' => route('user.dashboard.view')],
                     ['label' => '个人设置', 'url' => '/user/info', 'schemaApi' => route('user.info.view'), 'visible' => false],
                 ],
             ],

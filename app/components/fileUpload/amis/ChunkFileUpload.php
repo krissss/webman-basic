@@ -13,8 +13,9 @@ use WebmanTech\Polyfill\LaravelRequest;
 use WebmanTech\Polyfill\LaravelUploadedFile;
 
 /**
- * 分块上传
- * @link https://aisuda.bce.baidu.com/amis/zh-CN/components/form/input-file#%E5%88%86%E5%9D%97%E4%B8%8A%E4%BC%A0
+ * 分块上传.
+ *
+ * @see https://aisuda.bce.baidu.com/amis/zh-CN/components/form/input-file#%E5%88%86%E5%9D%97%E4%B8%8A%E4%BC%A0
  */
 class ChunkFileUpload extends FileUpload
 {
@@ -23,8 +24,6 @@ class ChunkFileUpload extends FileUpload
     public const TYPE_FINISH = 'finish';
 
     /**
-     * @param string $type
-     * @return array
      * @throws ValidationException|AmisValidationException
      */
     public function handle(string $type): array
@@ -42,7 +41,6 @@ class ChunkFileUpload extends FileUpload
     }
 
     /**
-     * @return array
      * @throws ValidationException
      */
     protected function handleStart(): array
@@ -52,9 +50,10 @@ class ChunkFileUpload extends FileUpload
         ])->validated();
         $filename = Str::random(40);
         if ($ext = pathinfo($data['filename'], PATHINFO_EXTENSION)) {
-            $filename .= '.' . $ext;
+            $filename .= '.'.$ext;
         }
         $path = $this->buildPath($filename);
+
         return [
             'uploadId' => $this->buildUploadId($path),
             'key' => $path,
@@ -62,7 +61,6 @@ class ChunkFileUpload extends FileUpload
     }
 
     /**
-     * @return array
      * @throws ValidationException
      */
     protected function handleUpload(): array
@@ -76,7 +74,7 @@ class ChunkFileUpload extends FileUpload
             'file' => 'required|file',
         ])->validated();
         $this->checkUploadId($data['key'], $data['uploadId']);
-        if ($data['partNumber'] == 1) {
+        if (1 == $data['partNumber']) {
             // 第一个分块校验文件类型
             try {
                 $this->validateFile($laravelRequest);
@@ -92,13 +90,13 @@ class ChunkFileUpload extends FileUpload
         }
         $path = $this->buildChunkPath($data['uploadId'], $data['partNumber']);
         $this->storeFile($file, $path);
+
         return [
             'eTag' => md5_file($file->getRealPath()),
         ];
     }
 
     /**
-     * @return array
      * @throws ValidationException
      */
     protected function handleFinish(): array
@@ -118,8 +116,9 @@ class ChunkFileUpload extends FileUpload
             throw $e;
         }
         /**
-         * 合并分块
-         * @link https://github.com/thephpleague/flysystem/issues/1288
+         * 合并分块.
+         *
+         * @see https://github.com/thephpleague/flysystem/issues/1288
          */
         $combinedFile = tmpfile();
         foreach ($data['partList'] as $part) {
@@ -144,38 +143,26 @@ class ChunkFileUpload extends FileUpload
                 Log::warning($e);
             }
         }
+
         return [
             'value' => $path,
         ];
     }
 
-    /**
-     * @param string $uploadId
-     * @param string|null $partNumber
-     * @return string
-     */
     protected function buildChunkPath(string $uploadId, string $partNumber = null): string
     {
         if ($partNumber) {
             $partNumber .= '.chunk';
         }
+
         return rtrim(".chunk/{$uploadId}/{$partNumber}", '/');
     }
 
-    /**
-     * @param string $key
-     * @return string
-     */
     protected function buildUploadId(string $key): string
     {
-        return md5(($this->config['uploadIdSalt'] ?? '') . $key);
+        return md5(($this->config['uploadIdSalt'] ?? '').$key);
     }
 
-    /**
-     * @param string $key
-     * @param string $uploadId
-     * @return void
-     */
     protected function checkUploadId(string $key, string $uploadId): void
     {
         if ($this->shouldStopUpload($uploadId)) {
@@ -187,37 +174,23 @@ class ChunkFileUpload extends FileUpload
         }
     }
 
-    /**
-     * @param string $uploadId
-     */
     protected function stopNextUpload(string $uploadId)
     {
         Cache::set($this->buildStopNextKey($uploadId), 1, 300);
     }
 
-    /**
-     * @param string $uploadId
-     * @return bool
-     */
     protected function shouldStopUpload(string $uploadId): bool
     {
-        return (bool)Cache::get($this->buildStopNextKey($uploadId));
+        return (bool) Cache::get($this->buildStopNextKey($uploadId));
     }
 
-    /**
-     * @param string $uploadId
-     */
     protected function cleanStopKey(string $uploadId): void
     {
         Cache::delete($this->buildStopNextKey($uploadId));
     }
 
-    /**
-     * @param string $uploadId
-     * @return string
-     */
     protected function buildStopNextKey(string $uploadId): string
     {
-        return 'stop_chunkUpload_' . $uploadId;
+        return 'stop_chunkUpload_'.$uploadId;
     }
 }

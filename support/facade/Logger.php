@@ -2,7 +2,6 @@
 
 namespace support\facade;
 
-use ReflectionClass;
 use Yiisoft\Strings\StringHelper;
 
 /**
@@ -31,32 +30,30 @@ class Logger extends \WebmanTech\Logger\Logger
     public const CHANNEL_NOTIFICATION = 'notification';
 
     /**
-     * 所有日志通道
-     * @return array
+     * 所有日志通道.
      */
     public static function getAllChannels(): array
     {
-        $obj = new ReflectionClass(self::class);
+        $obj = new \ReflectionClass(self::class);
+
         return array_unique(
             array_values(
-                array_filter($obj->getConstants(), fn($name) => StringHelper::startsWith($name, 'CHANNEL_'), ARRAY_FILTER_USE_KEY)
+                array_filter($obj->getConstants(), fn ($name) => StringHelper::startsWith($name, 'CHANNEL_'), ARRAY_FILTER_USE_KEY)
             )
         );
     }
 
     /**
-     * 特殊日志通道的等级，大于该等级的日志才记录
-     * @return array
+     * 特殊日志通道的等级，大于该等级的日志才记录.
      */
     public static function getSpecialLevel(): array
     {
         return [
-            //'channelName' => 'info',
+            // 'channelName' => 'info',
         ];
     }
 
     /**
-     * @param string $name
      * @param mixed $msg
      */
     public static function withChannel(string $name, $msg): void

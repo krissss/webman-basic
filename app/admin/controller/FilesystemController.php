@@ -6,7 +6,6 @@ use app\admin\controller\repository\FilesystemRepository;
 use app\components\fileUpload\amis\AmisFileUpload;
 use app\components\fileUpload\amis\InputFile;
 use Illuminate\Contracts\Filesystem\Cloud;
-use InvalidArgumentException;
 use support\facade\Storage;
 use Webman\Http\Request;
 use WebmanTech\AmisAdmin\Amis;
@@ -19,7 +18,7 @@ class FilesystemController extends AbsSourceController
 
     /**
      * 是否展示上传的例子
-     * 为 null 时 debug 模式下启用，否则关闭
+     * 为 null 时 debug 模式下启用，否则关闭.
      */
     protected ?bool $enableUploadExample = null;
 
@@ -31,7 +30,7 @@ class FilesystemController extends AbsSourceController
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function createRepository(): RepositoryInterface
     {
@@ -44,11 +43,11 @@ class FilesystemController extends AbsSourceController
         if ($disk instanceof Cloud) {
             return $disk;
         }
-        throw new InvalidArgumentException('disk must be instance of Illuminate\Contracts\Filesystem\Cloud');
+        throw new \InvalidArgumentException('disk must be instance of Illuminate\Contracts\Filesystem\Cloud');
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function grid(): array
     {
@@ -63,7 +62,7 @@ class FilesystemController extends AbsSourceController
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function amisCrud(Request $request): Amis\Crud
     {
@@ -121,7 +120,7 @@ class FilesystemController extends AbsSourceController
                         ]),
                         [
                             'level' => 'primary',
-                            'api' => 'post:' . route(
+                            'api' => 'post:'.route(
                                 'admin.filesystem.uploadImage',
                                 ['type' => AmisFileUpload::TYPE_SINGLE]
                             ),
@@ -151,7 +150,7 @@ class FilesystemController extends AbsSourceController
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function authDetail($id = null): bool
     {
@@ -159,7 +158,7 @@ class FilesystemController extends AbsSourceController
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function gridActions(string $routePrefix): Amis\GridColumnActions
     {
@@ -171,7 +170,7 @@ class FilesystemController extends AbsSourceController
             ->withButtonAjax(
                 Amis\GridColumnActions::INDEX_DETAIL + 2,
                 '打开',
-                'post:' . route('admin.filesystem.url'),
+                'post:'.route('admin.filesystem.url'),
                 [
                     'visibleOn' => '${!is_dir}',
                     'level' => 'info',
@@ -181,10 +180,10 @@ class FilesystemController extends AbsSourceController
     }
 
     /**
-     * 上传图片
-     * @param Request $request
-     * @param string|null $type
+     * 上传图片.
+     *
      * @return \Webman\Http\Response
+     *
      * @throws \Illuminate\Validation\ValidationException
      */
     public function uploadImage(Request $request, string $type = null)
@@ -198,14 +197,15 @@ class FilesystemController extends AbsSourceController
             'rules' => 'required|file|image',
             'dir' => $request->post('dir', 'images'),
         ]);
+
         return amis_response($fileUpload->handle($type));
     }
 
     /**
-     * 上传文件
-     * @param Request $request
-     * @param string|null $type
+     * 上传文件.
+     *
      * @return \Webman\Http\Response
+     *
      * @throws \Illuminate\Validation\ValidationException
      */
     public function uploadFile(Request $request, string $type = null)
@@ -219,17 +219,19 @@ class FilesystemController extends AbsSourceController
             'rules' => 'required|file|mimes:pdf',
             'dir' => $request->post('dir', 'files'),
         ]);
+
         return amis_response($fileUpload->handle($type));
     }
 
     /**
-     * 获取 url
-     * @param Request $request
+     * 获取 url.
+     *
      * @return \Webman\Http\Response
      */
     public function url(Request $request)
     {
         $path = $request->post('path');
+
         return amis_response([
             'url' => $this->disk()->url($path),
         ]);

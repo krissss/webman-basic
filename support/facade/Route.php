@@ -5,7 +5,7 @@ namespace support\facade;
 class Route extends \Webman\Route
 {
     /**
-     * 扩展原资源性路由，解决部分需求问题
+     * 扩展原资源性路由，解决部分需求问题.
      *
      * name 问题 @see https://github.com/walkor/webman-framework/issues/46
      * 扩展自定义额外的 action（保留原来的 options 扩展）
@@ -13,7 +13,7 @@ class Route extends \Webman\Route
      * 使用方式
      * Route::resource('admin', AdminController::class, ['name_prefix' => 'admin.', 'resetPassword']);
      *
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public static function resource(string $name, string $controller, array $options = [])
     {
@@ -22,7 +22,7 @@ class Route extends \Webman\Route
         ], $options);
 
         $name = trim($name, '/');
-        $namePrefixed = $options['name_prefix'] . $name;
+        $namePrefixed = $options['name_prefix'].$name;
 
         if (\method_exists($controller, 'index')) {
             static::get("/{$name}", [$controller, 'index'])->name("{$namePrefixed}.index");

@@ -5,9 +5,8 @@ namespace support\facade;
 class Request extends \support\Request
 {
     /**
-     * 替换数据
-     * @param string $type
-     * @param array $values
+     * 替换数据.
+     *
      * @return void
      */
     public function replace(string $type, array $values = [])
@@ -16,8 +15,8 @@ class Request extends \support\Request
     }
 
     /**
-     * 替换 get 数据
-     * @param array $values
+     * 替换 get 数据.
+     *
      * @return void
      */
     public function replaceGet(array $values = [])
@@ -26,8 +25,8 @@ class Request extends \support\Request
     }
 
     /**
-     * 替换 post 数据
-     * @param array $values
+     * 替换 post 数据.
+     *
      * @return void
      */
     public function replacePost(array $values = [])

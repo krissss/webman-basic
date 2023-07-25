@@ -10,7 +10,7 @@ use Webman\Bootstrap;
 class EloquentLog implements Bootstrap
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public static function start($worker)
     {
@@ -19,12 +19,12 @@ class EloquentLog implements Bootstrap
                 return;
             }
             $sql = $event->sql;
-            if ($sql === 'select 1') {
+            if ('select 1' === $sql) {
                 return;
             }
             if ($event->bindings) {
                 foreach ($event->bindings as $v) {
-                    $sql = preg_replace('/\\?/', "'" . (is_string($v) ? addslashes($v) : $v) . "'", $sql, 1);
+                    $sql = preg_replace('/\\?/', "'".(is_string($v) ? addslashes($v) : $v)."'", $sql, 1);
                 }
             }
             $sqlTime = $event->time;

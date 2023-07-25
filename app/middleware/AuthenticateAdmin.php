@@ -9,7 +9,7 @@ use WebmanTech\Auth\Middleware\Authentication;
 class AuthenticateAdmin extends Authentication
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function optionalRoutes(): array
     {
@@ -22,12 +22,13 @@ class AuthenticateAdmin extends Authentication
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function process(Request $request, callable $handler): Response
     {
         // 设定 app 为 admin，否则异常不会传递到 ErrorHandleAmis 处理
         $request->app = 'admin';
+
         return parent::process($request, $handler);
     }
 }
