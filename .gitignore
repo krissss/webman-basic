@@ -13,3 +13,4 @@
 /.env
 /build
 /public/storage
+/public/assets

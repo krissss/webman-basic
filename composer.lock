@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed73b85858cd164c7abdeefc46d5db65",
+    "content-hash": "26ae74ae484cd90ac60daa2ebba7d9bf",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1987,6 +1987,54 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2022-05-30T13:21:10+00:00"
+        },
+        {
+            "name": "kriss/composer-assets-plugin",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krissss/composer-assets-plugin.git",
+                "reference": "8a1d5ac159f4aadfb3bad5bc8ee0625f5c9b285d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/krissss/composer-assets-plugin/zipball/8a1d5ac159f4aadfb3bad5bc8ee0625f5c9b285d",
+                "reference": "8a1d5ac159f4aadfb3bad5bc8ee0625f5c9b285d",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^2.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "composer/composer": "^2.6"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Kriss\\ComposerAssetsPlugin\\Plugin",
+                "plugin-optional": true
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kriss\\ComposerAssetsPlugin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kriss",
+                    "email": "462679766@qq.com"
+                }
+            ],
+            "description": "Download assets(js/css/npm/github...) to project path",
+            "support": {
+                "issues": "https://github.com/krissss/composer-assets-plugin/issues",
+                "source": "https://github.com/krissss/composer-assets-plugin/tree/v1.0.0"
+            },
+            "time": "2023-11-01T10:05:20+00:00"
         },
         {
             "name": "kriss/log-reader",

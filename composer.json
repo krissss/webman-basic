@@ -24,6 +24,7 @@
     "illuminate/http": "^8.83",
     "illuminate/pagination": "^8.83",
     "illuminate/redis": "^8.83",
+    "kriss/composer-assets-plugin": "^1.0",
     "kriss/php-notification": "^1.2",
     "robmorgan/phinx": "^0.12.10",
     "symfony/process": "^5.4",
@@ -66,10 +67,44 @@
     "ramsey/uuid": "For uuid use",
     "symfony/cache": "For PSR6 cache use"
   },
+  "extra": {
+    "assets-dir": "public/assets",
+    "assets-pkgs": [
+      {
+        "type": "npm",
+        "name": "amis",
+        "version": "2.2.0",
+        "only_files": [
+          "sdk/thirds",
+          "sdk/sdk.css",
+          "sdk/helper.css",
+          "sdk/iconfont.css",
+          "sdk/sdk.js"
+        ]
+      },
+      {
+        "type": "npm",
+        "name": "history",
+        "version": "4.10.1",
+        "only_files": [
+          "umd/history.min.js"
+        ]
+      },
+      {
+        "type": "npm",
+        "name": "bootstrap",
+        "version": "3.4.1",
+        "only_files": [
+          "dist/css/bootstrap.min.css"
+        ]
+      }
+    ]
+  },
   "config": {
     "sort-packages": true,
     "allow-plugins": {
-      "php-http/discovery": false
+      "php-http/discovery": false,
+      "kriss/composer-assets-plugin": true
     }
   },
   "autoload": {
