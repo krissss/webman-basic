@@ -36,7 +36,7 @@ return [
         'js' => [
             $amisAssetBaseUrl.'sdk.js',
             // 'https://unpkg.com/history@4.10.1/umd/history.js', // 使用 app 必须
-            '/assets/history@4.10.1/umd/history.js', // 使用 app 必须
+            '/assets/history@4.10.1/umd/history.min.js', // 使用 app 必须
             '/js/amis-admin.js',
         ],
         /*
