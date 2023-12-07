@@ -49,6 +49,7 @@ if (get_env('NACOS_ENABLE_SERVICE_REGISTER', true)) {
             [
                 'groupName' => $groupName,
                 'namespaceId' => $namespaceId,
+                'weight' => 1, // 权重，必须设置，实例掉线后如果心跳还在，会导致权重变为 0
                 'enabled' => null,
                 'ephemeral' => null,
             ],
