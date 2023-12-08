@@ -9,7 +9,9 @@
  *
  * @author    walkor<walkor@workerman.net>
  * @copyright walkor<walkor@workerman.net>
- * @link      http://www.workerman.net/
+ *
+ * @see      http://www.workerman.net/
+ *
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
@@ -27,15 +29,14 @@ use Twig\Error\SyntaxError;
 use Webman\App;
 use Webman\Config;
 use Webman\Route;
+use Workerman\Protocols\Http\Session;
 use Workerman\Worker;
 
 // Project base path
 define('BASE_PATH', dirname(__DIR__));
 
 /**
- * return the program execute directory
- * @param string $path
- * @return string
+ * return the program execute directory.
  */
 function run_path(string $path = ''): string
 {
@@ -43,87 +44,76 @@ function run_path(string $path = ''): string
     if (!$runPath) {
         $runPath = is_phar() ? dirname(Phar::running(false)) : BASE_PATH;
     }
+
     return path_combine($runPath, $path);
 }
 
 /**
- * if the param $path equal false,will return this program current execute directory
+ * if the param $path equal false,will return this program current execute directory.
+ *
  * @param string|false $path
- * @return string
  */
 function base_path($path = ''): string
 {
     if (false === $path) {
         return run_path();
     }
+
     return path_combine(BASE_PATH, $path);
 }
 
 /**
- * App path
- * @param string $path
- * @return string
+ * App path.
  */
 function app_path(string $path = ''): string
 {
-    return path_combine(BASE_PATH . DIRECTORY_SEPARATOR . 'app', $path);
+    return path_combine(BASE_PATH.\DIRECTORY_SEPARATOR.'app', $path);
 }
 
 /**
- * Public path
- * @param string $path
- * @return string
+ * Public path.
  */
 function public_path(string $path = ''): string
 {
     static $publicPath = '';
     if (!$publicPath) {
-        $publicPath = \config('app.public_path') ?: run_path('public');
+        $publicPath = config('app.public_path') ?: run_path('public');
     }
+
     return path_combine($publicPath, $path);
 }
 
 /**
- * Config path
- * @param string $path
- * @return string
+ * Config path.
  */
 function config_path(string $path = ''): string
 {
-    return path_combine(BASE_PATH . DIRECTORY_SEPARATOR . 'config', $path);
+    return path_combine(BASE_PATH.\DIRECTORY_SEPARATOR.'config', $path);
 }
 
 /**
- * Runtime path
- * @param string $path
- * @return string
+ * Runtime path.
  */
 function runtime_path(string $path = ''): string
 {
     static $runtimePath = '';
     if (!$runtimePath) {
-        $runtimePath = \config('app.runtime_path') ?: run_path('runtime');
+        $runtimePath = config('app.runtime_path') ?: run_path('runtime');
     }
+
     return path_combine($runtimePath, $path);
 }
 
 /**
- * Generate paths based on given information
- * @param string $front
- * @param string $back
- * @return string
+ * Generate paths based on given information.
  */
 function path_combine(string $front, string $back): string
 {
-    return $front . ($back ? (DIRECTORY_SEPARATOR . ltrim($back, DIRECTORY_SEPARATOR)) : $back);
+    return $front.($back ? (\DIRECTORY_SEPARATOR.ltrim($back, \DIRECTORY_SEPARATOR)) : $back);
 }
 
 /**
- * Response
- * @param int $status
- * @param array $headers
- * @param string $body
- * @return Response
+ * Response.
  */
 function response(string $body = '', int $status = 200, array $headers = []): Response
 {
@@ -131,49 +121,39 @@ function response(string $body = '', int $status = 200, array $headers = []): Re
 }
 
 /**
- * Json response
- * @param $data
- * @param int $options
- * @return Response
+ * Json response.
  */
-function json($data, int $options = JSON_UNESCAPED_UNICODE): Response
+function json($data, int $options = \JSON_UNESCAPED_UNICODE): Response
 {
     return new Response(200, ['Content-Type' => 'application/json'], json_encode($data, $options));
 }
 
 /**
- * Xml response
- * @param $xml
- * @return Response
+ * Xml response.
  */
 function xml($xml): Response
 {
     if ($xml instanceof SimpleXMLElement) {
         $xml = $xml->asXML();
     }
+
     return new Response(200, ['Content-Type' => 'text/xml'], $xml);
 }
 
 /**
- * Jsonp response
- * @param $data
- * @param string $callbackName
- * @return Response
+ * Jsonp response.
  */
 function jsonp($data, string $callbackName = 'callback'): Response
 {
     if (!is_scalar($data) && null !== $data) {
         $data = json_encode($data);
     }
+
     return new Response(200, [], "$callbackName($data)");
 }
 
 /**
- * Redirect response
- * @param string $location
- * @param int $status
- * @param array $headers
- * @return Response
+ * Redirect response.
  */
 function redirect(string $location, int $status = 302, array $headers = []): Response
 {
@@ -181,31 +161,25 @@ function redirect(string $location, int $status = 302, array $headers = []): Res
     if (!empty($headers)) {
         $response->withHeaders($headers);
     }
+
     return $response;
 }
 
 /**
- * View response
- * @param string $template
- * @param array $vars
- * @param string|null $app
- * @param string|null $plugin
- * @return Response
+ * View response.
  */
 function view(string $template, array $vars = [], string $app = null, string $plugin = null): Response
 {
-    $request = \request();
-    $plugin = $plugin === null ? ($request->plugin ?? '') : $plugin;
-    $handler = \config($plugin ? "plugin.$plugin.view.handler" : 'view.handler');
+    $request = request();
+    $plugin = null === $plugin ? ($request->plugin ?? '') : $plugin;
+    $handler = config($plugin ? "plugin.$plugin.view.handler" : 'view.handler');
+
     return new Response(200, [], $handler::render($template, $vars, $app, $plugin));
 }
 
 /**
- * Raw view response
- * @param string $template
- * @param array $vars
- * @param string|null $app
- * @return Response
+ * Raw view response.
+ *
  * @throws Throwable
  */
 function raw_view(string $template, array $vars = [], string $app = null): Response
@@ -214,11 +188,7 @@ function raw_view(string $template, array $vars = [], string $app = null): Respo
 }
 
 /**
- * Blade view response
- * @param string $template
- * @param array $vars
- * @param string|null $app
- * @return Response
+ * Blade view response.
  */
 function blade_view(string $template, array $vars = [], string $app = null): Response
 {
@@ -226,11 +196,7 @@ function blade_view(string $template, array $vars = [], string $app = null): Res
 }
 
 /**
- * Think view response
- * @param string $template
- * @param array $vars
- * @param string|null $app
- * @return Response
+ * Think view response.
  */
 function think_view(string $template, array $vars = [], string $app = null): Response
 {
@@ -238,11 +204,8 @@ function think_view(string $template, array $vars = [], string $app = null): Res
 }
 
 /**
- * Twig view response
- * @param string $template
- * @param array $vars
- * @param string|null $app
- * @return Response
+ * Twig view response.
+ *
  * @throws LoaderError
  * @throws RuntimeError
  * @throws SyntaxError
@@ -253,7 +216,8 @@ function twig_view(string $template, array $vars = [], string $app = null): Resp
 }
 
 /**
- * Get request
+ * Get request.
+ *
  * @return \Webman\Http\Request|Request|null
  */
 function request()
@@ -262,9 +226,8 @@ function request()
 }
 
 /**
- * Get config
- * @param string|null $key
- * @param $default
+ * Get config.
+ *
  * @return array|mixed|null
  */
 function config(string $key = null, $default = null)
@@ -273,10 +236,7 @@ function config(string $key = null, $default = null)
 }
 
 /**
- * Create url
- * @param string $name
- * @param ...$parameters
- * @return string
+ * Create url.
  */
 function route(string $name, ...$parameters): string
 {
@@ -297,19 +257,19 @@ function route(string $name, ...$parameters): string
 }
 
 /**
- * Session
- * @param mixed $key
- * @param mixed $default
- * @return mixed
+ * Session.
+ *
+ * @return mixed|bool|Session
  */
 function session($key = null, $default = null)
 {
-    $session = \request()->session();
+    $session = request()->session();
     if (null === $key) {
         return $session;
     }
     if (is_array($key)) {
         $session->put($key);
+
         return null;
     }
     if (strpos($key, '.')) {
@@ -321,29 +281,25 @@ function session($key = null, $default = null)
             }
             $value = $value[$index];
         }
+
         return $value;
     }
+
     return $session->get($key, $default);
 }
 
 /**
- * Translation
- * @param string $id
- * @param array $parameters
- * @param string|null $domain
- * @param string|null $locale
- * @return string
+ * Translation.
  */
 function trans(string $id, array $parameters = [], string $domain = null, string $locale = null): string
 {
     $res = Translation::trans($id, $parameters, $domain, $locale);
-    return $res === '' ? $id : $res;
+
+    return '' === $res ? $id : $res;
 }
 
 /**
- * Locale
- * @param string|null $locale
- * @return string
+ * Locale.
  */
 function locale(string $locale = null): string
 {
@@ -351,23 +307,21 @@ function locale(string $locale = null): string
         return Translation::getLocale();
     }
     Translation::setLocale($locale);
+
     return $locale;
 }
 
 /**
- * 404 not found
- * @return Response
+ * 404 not found.
  */
 function not_found(): Response
 {
-    return new Response(404, [], file_get_contents(public_path() . '/404.html'));
+    return new Response(404, [], file_get_contents(public_path().'/404.html'));
 }
 
 /**
- * Copy dir
- * @param string $source
- * @param string $dest
- * @param bool $overwrite
+ * Copy dir.
+ *
  * @return void
  */
 function copy_dir(string $source, string $dest, bool $overwrite = false)
@@ -378,36 +332,33 @@ function copy_dir(string $source, string $dest, bool $overwrite = false)
         }
         $files = scandir($source);
         foreach ($files as $file) {
-            if ($file !== "." && $file !== "..") {
+            if ('.' !== $file && '..' !== $file) {
                 copy_dir("$source/$file", "$dest/$file");
             }
         }
-    } else if (file_exists($source) && ($overwrite || !file_exists($dest))) {
+    } elseif (file_exists($source) && ($overwrite || !file_exists($dest))) {
         copy($source, $dest);
     }
 }
 
 /**
- * Remove dir
- * @param string $dir
- * @return bool
+ * Remove dir.
  */
 function remove_dir(string $dir): bool
 {
     if (is_link($dir) || is_file($dir)) {
         return unlink($dir);
     }
-    $files = array_diff(scandir($dir), array('.', '..'));
+    $files = array_diff(scandir($dir), ['.', '..']);
     foreach ($files as $file) {
         (is_dir("$dir/$file") && !is_link($dir)) ? remove_dir("$dir/$file") : unlink("$dir/$file");
     }
+
     return rmdir($dir);
 }
 
 /**
- * Bind worker
- * @param $worker
- * @param $class
+ * Bind worker.
  */
 function worker_bind($worker, $class)
 {
@@ -420,7 +371,7 @@ function worker_bind($worker, $class)
         'onBufferDrain',
         'onWorkerStop',
         'onWebSocketConnect',
-        'onWorkerReload'
+        'onWorkerReload',
     ];
     foreach ($callbackMap as $name) {
         if (method_exists($class, $name)) {
@@ -433,9 +384,8 @@ function worker_bind($worker, $class)
 }
 
 /**
- * Start worker
- * @param $processName
- * @param $config
+ * Start worker.
+ *
  * @return void
  */
 function worker_start($processName, $config)
@@ -462,6 +412,7 @@ function worker_start($processName, $config)
         if (isset($config['handler'])) {
             if (!class_exists($config['handler'])) {
                 echo "process error: class {$config['handler']} not exists\r\n";
+
                 return;
             }
 
@@ -472,13 +423,11 @@ function worker_start($processName, $config)
 }
 
 /**
- * Get realpath
- * @param string $filePath
- * @return string
+ * Get realpath.
  */
 function get_realpath(string $filePath): string
 {
-    if (strpos($filePath, 'phar://') === 0) {
+    if (str_starts_with($filePath, 'phar://')) {
         return $filePath;
     } else {
         return realpath($filePath);
@@ -486,8 +435,7 @@ function get_realpath(string $filePath): string
 }
 
 /**
- * Is phar
- * @return bool
+ * Is phar.
  */
 function is_phar(): bool
 {
@@ -495,22 +443,22 @@ function is_phar(): bool
 }
 
 /**
- * Get cpu count
- * @return int
+ * Get cpu count.
  */
 function cpu_count(): int
 {
     // Windows does not support the number of processes setting.
-    if (DIRECTORY_SEPARATOR === '\\') {
+    if (\DIRECTORY_SEPARATOR === '\\') {
         return 1;
     }
     $count = 4;
     if (is_callable('shell_exec')) {
-        if (strtolower(PHP_OS) === 'darwin') {
-            $count = (int)shell_exec('sysctl -n machdep.cpu.core_count');
+        if ('darwin' === strtolower(\PHP_OS)) {
+            $count = (int) shell_exec('sysctl -n machdep.cpu.core_count');
         } else {
-            $count = (int)shell_exec('nproc');
+            $count = (int) shell_exec('nproc');
         }
     }
+
     return $count > 0 ? $count : 4;
 }
