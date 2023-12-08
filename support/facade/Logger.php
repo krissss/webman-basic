@@ -5,6 +5,7 @@ namespace support\facade;
 use Yiisoft\Strings\StringHelper;
 
 /**
+ * @method static void default($msg, string $type = 'info', array $context = [])
  * @method static void app($msg, string $type = 'info', array $context = [])
  * @method static void appAmis($msg, string $type = 'info', array $context = [])
  * @method static void appApi($msg, string $type = 'info', array $context = [])
@@ -18,6 +19,7 @@ use Yiisoft\Strings\StringHelper;
  */
 class Logger extends \WebmanTech\Logger\Logger
 {
+    public const CHANNEL_DEFAULT = 'default';
     public const CHANNEL_APP = 'app';
     public const CHANNEL_APP_AMIS = 'appAmis';
     public const CHANNEL_APP_API = 'appApi';

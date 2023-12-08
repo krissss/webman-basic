@@ -13,4 +13,5 @@
 /.env
 /build
 /public/storage
+/public/assets
 /supervisord.pid
