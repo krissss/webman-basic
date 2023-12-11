@@ -12,24 +12,23 @@
  * 执行个别seed: vendor/bin/phinx seed:run -s MySeed
  */
 
+use support\Db;
+
 require_once __DIR__ . '/support/bootstrap.php';
+
+$connectionName = config('database.default');
 
 return [
     'paths' => [
-        'migrations' => '%%PHINX_CONFIG_DIR%%/database/migrations',
-        'seeds' => '%%PHINX_CONFIG_DIR%%/database/seeds'
+        'migrations' => base_path('resource/database/migrations'),
+        'seeds' => base_path('resource/database/seeds'),
     ],
     'environments' => [
         'default_migration_table' => 'phinxlog',
         'default_environment' => 'development',
         'development' => [
-            'adapter' => 'mysql',
-            'host' => get_env('DB_MYSQL_HOST'),
-            'name' => get_env('DB_MYSQL_DATABASE'),
-            'user' => get_env('DB_MYSQL_USERNAME'),
-            'pass' => get_env('DB_MYSQL_PASSWORD'),
-            'port' => get_env('DB_MYSQL_PORT'),
-            'charset' => 'utf8mb4',
+            'name' => config("database.connections.{$connectionName}.database"),
+            'connection' => Db::connection($connectionName)->getPdo(),
         ],
     ],
     'version_order' => 'creation',

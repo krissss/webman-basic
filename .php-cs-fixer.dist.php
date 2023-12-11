@@ -15,8 +15,6 @@ return $config
             ->in([
                 __DIR__ . '/app',
                 __DIR__ . '/config',
-                __DIR__ . '/database',
-                __DIR__ . '/process',
                 __DIR__ . '/resource',
                 __DIR__ . '/support/facade',
             ])

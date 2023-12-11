@@ -12,7 +12,7 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-namespace process;
+namespace app\process;
 
 use FilesystemIterator;
 use RecursiveDirectoryIterator;
@@ -127,7 +127,7 @@ class Monitor
         }
         $count = 0;
         foreach ($iterator as $file) {
-            $count ++;
+            $count++;
             /** var SplFileInfo $file */
             if (is_dir($file->getRealPath())) {
                 continue;
@@ -135,7 +135,7 @@ class Monitor
             // check mtime
             if ($lastMtime < $file->getMTime() && in_array($file->getExtension(), $this->extensions, true)) {
                 $var = 0;
-                exec('"'.PHP_BINARY . '" -l ' . $file, $out, $var);
+                exec('"' . PHP_BINARY . '" -l ' . $file, $out, $var);
                 if ($var) {
                     $lastMtime = $file->getMTime();
                     continue;

@@ -4,10 +4,9 @@
  */
 require_once __DIR__ . '/vendor/autoload.php';
 
+use app\process\Monitor;
 use Dotenv\Dotenv;
-use process\Monitor;
 use support\App;
-use Workerman\Worker;
 
 ini_set('display_errors', 'on');
 error_reporting(E_ALL);
