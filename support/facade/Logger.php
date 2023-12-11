@@ -52,6 +52,7 @@ class Logger extends \WebmanTech\Logger\Logger
     {
         return [
             // 'channelName' => 'info',
+            //self::CHANNEL_SQL => 'warning',
         ];
     }
 
