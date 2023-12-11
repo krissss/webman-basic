@@ -112,7 +112,7 @@ class UserRepository extends EloquentRepository
         if (!$model->api_token) {
             $model->api_token = Component::security()->generateRandomString(32);
         }
-        if (null === $model->status) {
+        if ($model->status === null) {
             $model->status = UserStatus::ENABLE;
         }
         parent::doSave($model);

@@ -14,17 +14,17 @@ class Tools
      */
     public static function getLocalIp(): string
     {
-        if (null !== self::$localIp) {
+        if (self::$localIp !== null) {
             return self::$localIp;
         }
 
         $fn = function () {
             $envIp = get_env('SERVER_LOCAL_IP', 'localhost');
-            if ($envIp && 'localhost' !== $envIp) {
+            if ($envIp && $envIp !== 'localhost') {
                 return $envIp;
             }
             // windows
-            if ('WIN' === strtoupper(substr(\PHP_OS, 0, 3))) {
+            if (strtoupper(substr(\PHP_OS, 0, 3)) === 'WIN') {
                 $process = Process::fromShellCommandline('ipconfig | findstr /i "IPv4"');
                 $process->run();
                 if (!$process->isSuccessful()) {
@@ -58,7 +58,7 @@ class Tools
      */
     public static function getLocalServerPort(): int
     {
-        if (null !== self::$localPort) {
+        if (self::$localPort !== null) {
             return self::$localPort;
         }
 
@@ -114,7 +114,7 @@ class Tools
      */
     public static function formatBytes($size, int $precision = 2): string
     {
-        if (0 === $size || null === $size) {
+        if ($size === 0 || $size === null) {
             return '0B';
         }
 

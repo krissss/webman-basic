@@ -13,7 +13,7 @@ return [
      * class 是渠道的 Channel 类
      * 其他配置见 Channel 类下的 $config 参数
      */
-    'channels' => fn() => \support\facade\Notification::channels(),
+    'channels' => fn () => \support\facade\Notification::channels(),
     /**
      * 日志相关
      */
@@ -40,7 +40,7 @@ return [
          * PSR16 CacheInterface 的实现
          * callable|null
          */
-        'instance' => fn() => \support\facade\Cache::psr16(),
+        'instance' => fn () => \support\facade\Cache::psr16(),
         /**
          * 驱动，当 instance 为 null 时，不同框架下可以用于切换驱动
          */
@@ -73,7 +73,7 @@ return [
          * 用于 handler 的配置信息
          */
         'extra_info' => [
-            'uid' => fn() => request() ? request()->{RequestUid::REQUEST_UID_KEY} : 'console'
+            'uid' => fn () => request() ? request()->{RequestUid::REQUEST_UID_KEY} : 'console',
         ],
     ],
 ];

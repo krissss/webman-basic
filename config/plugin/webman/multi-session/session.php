@@ -46,5 +46,5 @@ return [
         'gc_probability' => [1, 1000],
 
         'same_site' => '',
-    ]
+    ],
 ];

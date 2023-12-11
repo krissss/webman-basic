@@ -13,7 +13,7 @@ class Cors implements MiddlewareInterface
 {
     public function process(Request $request, callable $handler): Response
     {
-        if ('OPTIONS' === $request->method()) {
+        if ($request->method() === 'OPTIONS') {
             return response();
         }
 

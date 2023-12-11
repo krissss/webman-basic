@@ -111,7 +111,7 @@ class FileUpload
 
     protected function buildPath(string $filename): string
     {
-        $dir = '.' === $this->config['dir'] ? '' : $this->config['dir'];
+        $dir = $this->config['dir'] === '.' ? '' : $this->config['dir'];
 
         return ltrim($dir.'/', '/').$filename;
     }

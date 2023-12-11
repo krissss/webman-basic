@@ -2,6 +2,6 @@
 
 return [
     'test' => [
-        [\app\event\Test::class, 'test']
-    ]
+        [\app\event\Test::class, 'test'],
+    ],
 ];

@@ -59,7 +59,7 @@ class FilesystemRepository extends AbsRepository
         $files = collect($this->disk->files($path))
             ->map(fn (string $path) => ['path' => $path, 'dir' => false]);
         $all = $dirs->merge($files)
-            ->filter(fn (array $item) => 0 !== strpos($item['path'], '.') && 0 !== strpos(basename($item['path']), '.'))
+            ->filter(fn (array $item) => strpos($item['path'], '.') !== 0 && strpos(basename($item['path']), '.') !== 0)
             ->values();
         $items = $all
             ->forPage($page, $perPage)
@@ -74,7 +74,7 @@ class FilesystemRepository extends AbsRepository
                     'id' => $index + 1,
                     'path' => '/'.$item['path'],
                     'is_dir' => $item['dir'],
-                    'dirname' => '/'.('.' === $pathInfo['dirname'] ? '' : $pathInfo['dirname']),
+                    'dirname' => '/'.($pathInfo['dirname'] === '.' ? '' : $pathInfo['dirname']),
                     'file' => $pathInfo['basename'],
                     'ext' => $pathInfo['extension'] ?? '',
                     'time' => $this->disk->lastModified($item['path']),

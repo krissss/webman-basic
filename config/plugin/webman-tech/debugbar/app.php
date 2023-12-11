@@ -11,6 +11,6 @@ return [
         'enable' => $enable,
         'skip_request_path' => [
             '/admin/log-reader*',
-        ]
+        ],
     ],
 ];

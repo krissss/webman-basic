@@ -49,7 +49,7 @@ return [
             'timeout' => 2,
             'auth' => '',
             'prefix' => $sessionRedis['prefix'],
-        ]
+        ],
     ],
 
     'session_name' => get_env('SESSION_NAME', 'WB_SID'),

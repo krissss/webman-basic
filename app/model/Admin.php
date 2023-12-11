@@ -11,15 +11,15 @@ use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
 /**
  * app\model\Admin.
  *
- * @property int                             $id           (主键)
- * @property string                          $username     用户名
- * @property string                          $password     密码
- * @property string                          $name         名称
- * @property string|null                     $access_token Access Token
- * @property int                             $status       状态
- * @property \Illuminate\Support\Carbon      $created_at   创建时间
- * @property \Illuminate\Support\Carbon      $updated_at   修改时间
- * @property \Illuminate\Support\Carbon|null $deleted_at   删除时间
+ * @property int $id (主键)
+ * @property string $username 用户名
+ * @property string $password 密码
+ * @property string $name 名称
+ * @property string|null $access_token Access Token
+ * @property int $status 状态
+ * @property \Illuminate\Support\Carbon $created_at 创建时间
+ * @property \Illuminate\Support\Carbon $updated_at 修改时间
+ * @property \Illuminate\Support\Carbon|null $deleted_at 删除时间
  */
 class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {
@@ -88,9 +88,9 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
     public function findIdentity(string $token, string $type = null): ?IdentityInterface
     {
         $model = null;
-        if ('session' === $type) {
+        if ($type === 'session') {
             $model = static::find($token);
-        } elseif ('token' === $type) {
+        } elseif ($type === 'token') {
             $model = static::query()->where('access_token', $token)->first();
         }
         /* @var static|null $model */
@@ -104,7 +104,7 @@ class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryIn
      */
     public function refreshToken($token = false)
     {
-        if (false === $token) {
+        if ($token === false) {
             $token = Component::security()->generateRandomString(32);
         }
         $this->access_token = $token;

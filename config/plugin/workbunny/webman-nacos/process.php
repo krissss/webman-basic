@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 $processes = [];
@@ -12,7 +13,7 @@ if (get_env('NACOS_ENABLE_CONFIG_CENTER', true)) {
 }
 if (get_env('NACOS_ENABLE_SERVICE_REGISTER', true)) {
     $processes['instance-registrar'] = [
-        'handler' => \Workbunny\WebmanNacos\Process\InstanceRegistrarProcess::class
+        'handler' => \Workbunny\WebmanNacos\Process\InstanceRegistrarProcess::class,
     ];
 }
 

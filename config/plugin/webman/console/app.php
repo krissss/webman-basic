@@ -1,4 +1,5 @@
 <?php
+
 return [
     'enable' => true,
 
@@ -15,6 +16,6 @@ return [
     'exclude_pattern'   => '#^(?!.*(composer.json|/.github/|/.idea/|/.git/|/.setting/|/runtime/|/vendor-bin/|/build/|/vendor/webman/admin/))(.*)$#',
 
     'exclude_files'     => [
-        '.env', 'LICENSE', 'composer.json', 'composer.lock', 'start.php', 'webman.phar', 'webman.bin'
-    ]
+        '.env', 'LICENSE', 'composer.json', 'composer.lock', 'start.php', 'webman.phar', 'webman.bin',
+    ],
 ];

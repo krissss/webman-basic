@@ -19,7 +19,7 @@ class SystemController
      */
     public function pages(): Response
     {
-        if (null === self::$menus) {
+        if (self::$menus === null) {
             self::$menus = [
                 [
                     'label' => '菜单',

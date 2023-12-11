@@ -1,9 +1,9 @@
 <?php
 
+use support\facade\Auth;
 use WebmanTech\AmisAdmin\Amis;
 use WebmanTech\AmisAdmin\Amis\Component;
 use WebmanTech\AmisAdmin\Controller\RenderController;
-use support\facade\Auth;
 
 $adminAmis = require __DIR__ . '/amis.php';
 $adminAmis['assets']['js'][] = '/js/amis-admin-user.js';
@@ -41,7 +41,7 @@ return [
                                 ->withButtonLink(1, '个人设置', '/user/info')
                                 ->withDivider(80)
                                 ->withButtonAjax(99, '退出登录', route('user.logout'), [
-                                    'confirmText' => '确定退出登录？'
+                                    'confirmText' => '确定退出登录？',
                                 ])
                                 ->toArray(),
                         ],
@@ -64,7 +64,7 @@ return [
      * 登录页面配置
      * @see RenderController::login()
      */
-    'page_login' => function() {
+    'page_login' => function () {
         $debug = config('app.debug');
         return [
             //'background' => '#eee', // 可以使用图片, 'url(http://xxxx)'

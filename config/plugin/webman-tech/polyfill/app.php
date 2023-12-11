@@ -36,6 +36,6 @@ return [
                 throw new InvalidArgumentException('请先配置 ValidationFactory 实现');
             }
             return Container::get(ValidationFactory::class);
-        }
+        },
     ],
 ];

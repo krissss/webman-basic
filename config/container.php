@@ -19,7 +19,7 @@ foreach (app\components\Component::dependence() as $name => $config) {
     if ($config['singleton']) {
         $container->singleton($name, $config['singleton']);
     }
-    $config['alias'] = $config['alias'] ?? [];
+    $config['alias'] ??= [];
     foreach ((array)$config['alias'] as $alias) {
         $container->alias($name, $alias);
     }

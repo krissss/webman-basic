@@ -47,7 +47,7 @@ return [
                 'log_channel' => $config['channel'],
             ];
             return new \WebmanTech\LaravelHttpClient\Guzzle\Log\CustomLog($config);
-        }
+        },
     ],
     /**
      * guzzle 全局的 options

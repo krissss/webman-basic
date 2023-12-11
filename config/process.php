@@ -32,13 +32,13 @@ $processes = [
             ], glob(base_path() . '/plugin/*/app'), glob(base_path() . '/plugin/*/config'), glob(base_path() . '/plugin/*/api')),
             // Files with these suffixes will be monitored
             'monitorExtensions' => [
-                'php', 'html', 'htm', 'env'
+                'php', 'html', 'htm', 'env',
             ],
             'options' => [
                 'enable_file_monitor' => !Worker::$daemonize && DIRECTORY_SEPARATOR === '/',
                 'enable_memory_monitor' => DIRECTORY_SEPARATOR === '/',
-            ]
-        ]
+            ],
+        ],
     ],
 ];
 

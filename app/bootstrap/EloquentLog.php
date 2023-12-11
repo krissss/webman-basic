@@ -19,7 +19,7 @@ class EloquentLog implements Bootstrap
                 return;
             }
             $sql = $event->sql;
-            if ('select 1' === $sql) {
+            if ($sql === 'select 1') {
                 return;
             }
             if ($event->bindings) {

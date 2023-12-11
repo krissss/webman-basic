@@ -16,5 +16,5 @@ return [
      */
     'extends' => function (ValidationFactory $validator): void {
         //$validator->extend();
-    }
+    },
 ];

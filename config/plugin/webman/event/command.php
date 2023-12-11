@@ -3,5 +3,5 @@
 use Webman\Event\EventListCommand;
 
 return [
-    EventListCommand::class
+    EventListCommand::class,
 ];

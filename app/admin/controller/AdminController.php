@@ -32,7 +32,7 @@ class AdminController extends AbsSourceController
      */
     protected function authDestroy($id = null): bool
     {
-        if (Admin::SUPER_ADMIN_ID == $id) {
+        if ($id == Admin::SUPER_ADMIN_ID) {
             return false;
         }
         if ($id == Auth::guard()->getId()) {

@@ -17,7 +17,7 @@ return [
     'transport' => 'tcp',
     'context' => [],
     'name' => get_env('SERVER_NAME', config('app.name')),
-    'count' => get_env('SERVER_COUNT', fn() => cpu_count() * 4),
+    'count' => get_env('SERVER_COUNT', fn () => cpu_count() * 4),
     'user' => get_env('SERVER_USER', ''),
     'group' => get_env('SERVER_GROUP', ''),
     'reusePort' => false,

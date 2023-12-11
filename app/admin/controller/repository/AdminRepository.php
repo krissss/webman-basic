@@ -105,7 +105,7 @@ class AdminRepository extends EloquentRepository
         if ($model->isDirty('password')) {
             $model->password = Component::security()->generatePasswordHash($model->password);
         }
-        if (null === $model->status) {
+        if ($model->status === null) {
             $model->status = AdminStatus::ENABLE;
         }
         parent::doSave($model);

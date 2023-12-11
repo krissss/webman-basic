@@ -74,7 +74,7 @@ class ChunkFileUpload extends FileUpload
             'file' => 'required|file',
         ])->validated();
         $this->checkUploadId($data['key'], $data['uploadId']);
-        if (1 == $data['partNumber']) {
+        if ($data['partNumber'] == 1) {
             // 第一个分块校验文件类型
             try {
                 $this->validateFile($laravelRequest);

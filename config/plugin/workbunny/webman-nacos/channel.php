@@ -1,4 +1,5 @@
 <?php
+
 return [
     'default' => [
         'host' => get_env('NACOS_HOST', '127.0.0.1'),

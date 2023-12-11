@@ -11,7 +11,7 @@ interface MemoryRememberInterface
      * 记录.
      *
      * @param string|array $key
-     * @param mixed        $value
+     * @param mixed $value
      */
     public function set($key, $value): void;
 
@@ -19,7 +19,7 @@ interface MemoryRememberInterface
      * 根据 key 获取值
      *
      * @param string|array $key
-     * @param null         $default
+     * @param null $default
      *
      * @return mixed
      */

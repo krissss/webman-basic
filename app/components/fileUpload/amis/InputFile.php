@@ -81,7 +81,7 @@ class InputFile extends Component
 
     public function toArray(): array
     {
-        if ('auto' === $this->schema['maxSize']) {
+        if ($this->schema['maxSize'] === 'auto') {
             $this->schema['maxSize'] = LaravelUploadedFile::getMaxFilesize();
         }
 

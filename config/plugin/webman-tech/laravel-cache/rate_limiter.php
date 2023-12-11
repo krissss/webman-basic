@@ -18,7 +18,7 @@ return [
         RateLimiterFacade::FOR_REQUEST => function (Request $request) {
             return Limit::perMinute(1000)
                 ->by(Auth::getId() ?: $request->getRealIp());
-        }
+        },
     ],
     /**
      * ThrottleRequestsFactory 的配置
@@ -28,5 +28,5 @@ return [
         'redis_connection_name' => 'cache_limiter', // redis 模式下使用的 redis connection Name
         'limiter_for' => null, // 默认 RateLimiter 的 for 的 name
         'with_headers' => true, // 返回时是否携带 header 信息
-    ]
+    ],
 ];
