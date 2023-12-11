@@ -20,7 +20,7 @@ use Webman\Middleware;
 use Webman\Route;
 use Webman\Util;
 
-$worker = $worker ?? null;
+$worker ??= null;
 
 set_error_handler(function ($level, $message, $file = '', $line = 0) {
     if (error_reporting() & $level) {
@@ -130,4 +130,3 @@ foreach (Util::scanDir($directory) as $path) {
     }
 }
 Route::load($paths);
-

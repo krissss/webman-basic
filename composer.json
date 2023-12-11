@@ -58,7 +58,7 @@
     "webman-tech/debugbar": "^2.2"
   },
   "suggest": {
-    "walkor/webman": "Basic From Version 1.5.1",
+    "walkor/webman": "Basic From Version 1.5.5",
     "friendsofphp/php-cs-fixer": "`composer global require friendsofphp/php-cs-fixer --dev` For fixer",
     "phpstan/phpstan": "`composer global require phpstan/phpstan --dev` For analyse",
     "ext-event": "For better performance",

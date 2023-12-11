@@ -16,7 +16,7 @@ return $config
                 __DIR__ . '/app',
                 __DIR__ . '/config',
                 __DIR__ . '/resource',
-                __DIR__ . '/support/facade',
+                __DIR__ . '/support',
             ])
             ->notPath([
                 __DIR__ . '/app/command/TestCommand.php',
