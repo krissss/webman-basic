@@ -4,7 +4,6 @@ namespace app\components;
 
 use app\components\interfaces\MemoryRememberInterface;
 use app\components\interfaces\SecurityInterface;
-use support\facade\Container;
 
 /**
  * @method static SecurityInterface security()
@@ -28,6 +27,6 @@ class Component
 
     public static function __callStatic($name, $arguments)
     {
-        return Container::get($name);
+        return container_get($name);
     }
 }
