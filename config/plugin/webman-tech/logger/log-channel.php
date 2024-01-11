@@ -39,30 +39,30 @@ return [
         // 按照channel分目录记录
         'split' => [
             'class' => WebmanTech\Logger\Mode\SplitMode::class,
-            'enable' => get_env('LOG_CHANNEL_MODE_SPLIT', true),
+            'enable' => get_env('LOG_MODE_SPLIT', true),
             'except_channels' => [],
             'only_channels' => [],
             'formatter' => [
                 'class' => ChannelFormatter::class,
             ],
-            'max_files' => get_env('LOG_CHANNEL_MAX_FILES', 30), // 最大文件数
+            'max_files' => get_env('LOG_MAX_FILES', 30), // 最大文件数
         ],
         // 将所有channel合并到一起记录
         'mix' => [
             'class' => WebmanTech\Logger\Mode\MixMode::class,
-            'enable' => get_env('CHANNEL_LOG_MODE_MIX', false),
+            'enable' => get_env('LOG_MODE_MIX', false),
             'except_channels' => [],
             'only_channels' => [],
             'formatter' => [
                 'class' => ChannelMixedFormatter::class,
             ],
-            'max_files' => get_env('LOG_CHANNEL_MAX_FILES', 30), // 最大文件数
+            'max_files' => get_env('LOG_MAX_FILES', 30), // 最大文件数
             'name' => 'channelMixed', // 合并时的日志文件名
         ],
         // 控制台输出
         'stdout' => [
             'class' => WebmanTech\Logger\Mode\StdoutMode::class,
-            'enable' => get_env('CHANNEL_LOG_MODE_STDOUT', false),
+            'enable' => get_env('LOG_MODE_STDOUT', false),
             'except_channels' => [],
             'only_channels' => [],
             'formatter' => [
@@ -72,16 +72,16 @@ return [
         // 输出到 redis
         'redis' => [
             'class' => WebmanTech\Logger\Mode\RedisMode::class,
-            'enable' => get_env('CHANNEL_LOG_MODE_REDIS', false),
+            'enable' => get_env('LOG_MODE_REDIS', false),
             'except_channels' => [],
             'only_channels' => [],
             'formatter' => [
-                'class' => ChannelFormatter::class,
+                'class' => ChannelMixedFormatter::class,
             ],
             'redis' => function () {
-                return \support\Redis::connection('default')->client();
+                return \support\Redis::connection(get_env('LOG_MODE_REDIS_CONNECTION', 'default'))->client();
             },
-            'redis_key_prefix' => 'webmanLog:',
+            'redis_key_prefix' => get_env('LOG_MODE_REDIS_KEY_PREFIX', 'webmanLog:'),
         ],
     ],
 ];
