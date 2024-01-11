@@ -1,10 +1,10 @@
-window._ADMIN_AMIS_CONFIG = {
+window._ADMIN_AMIS_CONFIG = Object.assign({}, {
   akHeader: 'X-Api-Key',
   localKey: 'ADMIN-X-API-KEY',
   loginApi: '/admin/auth/login',
   loginUrl: '/admin/login',
   akResponseKey: 'access_token',
-}
+}, window._ADMIN_AMIS_CONFIG || {})
 window.amisAppProps = {}
 window.amisAppEnv = {
   requestAdaptor(api) {

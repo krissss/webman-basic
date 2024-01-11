@@ -12,15 +12,16 @@ use WebmanTech\AmisAdmin\Amis\Page;
  */
 class SystemController
 {
-    private static ?array $menus = null;
+    private static array $menus = [];
 
     /**
      * admin 菜单.
      */
     public function pages(): Response
     {
-        if (self::$menus === null) {
-            self::$menus = [
+        $routePrefix = request()->pathPrefix() ?: 'default';
+        if (!isset(static::$menus[$routePrefix])) {
+            static::$menus[$routePrefix] = [
                 [
                     'label' => '菜单',
                     'children' => [
@@ -36,7 +37,7 @@ class SystemController
                         ['label' => '文件管理', 'icon' => 'fa fa-circle-o', 'url' => '/filesystem', 'schemaApi' => route('admin.filesystem.index')],
                         [
                             'label' => '日志查看', 'icon' => 'fa fa-file-text-o', 'url' => '/log-reader',
-                            'schemaApi' => route('admin.iframe.view').'?link='.urlencode(config('plugin.webman-tech.log-reader.log-reader.route.group')),
+                            'schemaApi' => route('admin.iframe.view') . '?link=' . urlencode(route_url(config('plugin.webman-tech.log-reader.log-reader.route.group'))),
                             'visible' => config('plugin.webman-tech.log-reader.app.enable'),
                         ],
                     ],
@@ -45,7 +46,7 @@ class SystemController
         }
 
         return admin_response([
-            'pages' => self::$menus,
+            'pages' => static::$menus[$routePrefix],
         ]);
     }
 

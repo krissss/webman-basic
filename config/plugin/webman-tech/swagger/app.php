@@ -15,9 +15,6 @@ return [
          * @see \WebmanTech\Swagger\Middleware\HostForbiddenMiddleware::$config
          */
         'enable' => get_env('OPENAPI_HOST_FORBIDDEN', true),
-        'host_white_list' => [
-            'gateway',
-        ],
     ],
     'swagger_ui' => [
         /*
@@ -30,5 +27,6 @@ return [
          * 全局的 openapi doc 配置
          * @see \WebmanTech\Swagger\Controller\OpenapiController::openapiDoc()
          */
+        'cache_key' => fn () => route_url(''),
     ],
 ];

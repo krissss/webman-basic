@@ -21,8 +21,8 @@ class SwaggerRegister
                     $openapi->info->version = '1.0.0';
                     $openapi->servers = [
                         new OA\Server([
-                            'url' => '/api',
-                            'description' => 'localhost',
+                            'url' => route_url('/api'),
+                            'description' => request()->host(),
                         ]),
                     ];
                     if (!$openapi->components instanceof OA\Components) {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07eb9b057b6eb3f5a50c1d723e7d497e",
+    "content-hash": "5639e85ed626b10cb1d1b551b48abcdc",
     "packages": [
         {
             "name": "cakephp/core",
@@ -5585,16 +5585,16 @@
         },
         {
             "name": "webman-tech/amis-admin",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/amis-admin.git",
-                "reference": "5a7966e7346ba73e1d087132b521eb2cea47b135"
+                "reference": "cf5713be5edb8a538b55e762f1341a35d31084f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/amis-admin/zipball/5a7966e7346ba73e1d087132b521eb2cea47b135",
-                "reference": "5a7966e7346ba73e1d087132b521eb2cea47b135",
+                "url": "https://api.github.com/repos/webman-tech/amis-admin/zipball/cf5713be5edb8a538b55e762f1341a35d31084f9",
+                "reference": "cf5713be5edb8a538b55e762f1341a35d31084f9",
                 "shasum": ""
             },
             "require": {
@@ -5624,9 +5624,9 @@
             "description": "Webman plugin webman-tech/amis-admin",
             "support": {
                 "issues": "https://github.com/webman-tech/amis-admin/issues",
-                "source": "https://github.com/webman-tech/amis-admin/tree/v2.2.0"
+                "source": "https://github.com/webman-tech/amis-admin/tree/v2.2.1"
             },
-            "time": "2022-12-08T02:21:10+00:00"
+            "time": "2024-01-10T10:19:01+00:00"
         },
         {
             "name": "webman-tech/auth",
@@ -6011,16 +6011,16 @@
         },
         {
             "name": "webman-tech/log-reader",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/log-reader.git",
-                "reference": "f802e5fb77fad1eddddb87b946ec3b2fc842bd3f"
+                "reference": "5aca98261b20ecf166863665efe7d4dc619c1265"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/log-reader/zipball/f802e5fb77fad1eddddb87b946ec3b2fc842bd3f",
-                "reference": "f802e5fb77fad1eddddb87b946ec3b2fc842bd3f",
+                "url": "https://api.github.com/repos/webman-tech/log-reader/zipball/5aca98261b20ecf166863665efe7d4dc619c1265",
+                "reference": "5aca98261b20ecf166863665efe7d4dc619c1265",
                 "shasum": ""
             },
             "require": {
@@ -6043,9 +6043,9 @@
             "description": "Webman plugin webman-tech/log-reader",
             "support": {
                 "issues": "https://github.com/webman-tech/log-reader/issues",
-                "source": "https://github.com/webman-tech/log-reader/tree/v2.0.0"
+                "source": "https://github.com/webman-tech/log-reader/tree/v2.0.1"
             },
-            "time": "2022-09-18T10:58:39+00:00"
+            "time": "2024-01-10T09:28:36+00:00"
         },
         {
             "name": "webman-tech/logger",
@@ -6129,16 +6129,16 @@
         },
         {
             "name": "webman-tech/swagger",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/swagger.git",
-                "reference": "e8ce0b78eafbcc5880daed423b515c393d8bd9e4"
+                "reference": "172fd3329682fe0684b4e9077547581a33089bd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/swagger/zipball/e8ce0b78eafbcc5880daed423b515c393d8bd9e4",
-                "reference": "e8ce0b78eafbcc5880daed423b515c393d8bd9e4",
+                "url": "https://api.github.com/repos/webman-tech/swagger/zipball/172fd3329682fe0684b4e9077547581a33089bd4",
+                "reference": "172fd3329682fe0684b4e9077547581a33089bd4",
                 "shasum": ""
             },
             "require": {
@@ -6162,9 +6162,9 @@
             "description": "Webman plugin webman-tech/swagger",
             "support": {
                 "issues": "https://github.com/webman-tech/swagger/issues",
-                "source": "https://github.com/webman-tech/swagger/tree/v1.0.0"
+                "source": "https://github.com/webman-tech/swagger/tree/v1.1.0"
             },
-            "time": "2023-05-08T10:01:19+00:00"
+            "time": "2024-01-10T10:01:49+00:00"
         },
         {
             "name": "webman/console",
@@ -7338,16 +7338,16 @@
         },
         {
             "name": "webman-tech/debugbar",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/debugbar.git",
-                "reference": "71729909236fb8bc980a7d92394360aaff7729a7"
+                "reference": "f448183bb2a2fe3dce8c4de59f5668611e4e2e8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/debugbar/zipball/71729909236fb8bc980a7d92394360aaff7729a7",
-                "reference": "71729909236fb8bc980a7d92394360aaff7729a7",
+                "url": "https://api.github.com/repos/webman-tech/debugbar/zipball/f448183bb2a2fe3dce8c4de59f5668611e4e2e8b",
+                "reference": "f448183bb2a2fe3dce8c4de59f5668611e4e2e8b",
                 "shasum": ""
             },
             "require": {
@@ -7375,9 +7375,9 @@
             "description": "Webman plugin webman-tech/debugbar",
             "support": {
                 "issues": "https://github.com/webman-tech/debugbar/issues",
-                "source": "https://github.com/webman-tech/debugbar/tree/v2.2.0"
+                "source": "https://github.com/webman-tech/debugbar/tree/v2.2.1"
             },
-            "time": "2023-11-09T03:13:02+00:00"
+            "time": "2024-01-10T09:23:31+00:00"
         }
     ],
     "aliases": [],

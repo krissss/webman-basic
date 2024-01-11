@@ -12,6 +12,8 @@ return [
             fn () => new SetAuthGuard('admin'),
             \app\middleware\AuthenticateAdmin::class,
         ],
+        // 路由创建，fn(string $url) => string，用于二级目录访问场景
+        'url_maker' => fn (string $url) => route_url($url),
     ],
     /*
      * 以下参数为 LogReader 的属性参数

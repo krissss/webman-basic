@@ -33,4 +33,59 @@ class Request extends \support\Request
     {
         $this->replace('post', $values);
     }
+
+    /**
+     * host 支持 x-forwarded
+     * @inheritDoc
+     */
+    public function host($without_port = false): string
+    {
+        if ($host = $this->header('x-forwarded-host')) {
+            if ($without_port) {
+                return $host;
+            }
+            if ($port = $this->header('x-forwarded-port')) {
+                if (in_array($port, ['80', '443'])) {
+                    return $host;
+                }
+                return $host . ':' . $port;
+            }
+            return $host;
+        }
+        return parent::host($without_port);
+    }
+
+    /**
+     * path 前缀
+     * @return string
+     */
+    public function pathPrefix(): string
+    {
+        return $this->header('x-forwarded-prefix', '');
+    }
+
+    /**
+     * 获取传输协议
+     * @return string http/https
+     */
+    public function getProto(): string
+    {
+        return $this->header('x-forwarded-proto', 'http');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function url(): string
+    {
+        return $this->getProto() . '://' . $this->host() . $this->pathPrefix() . $this->path();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function fullUrl(): string
+    {
+        return $this->getProto() . '://' . $this->host() . $this->pathPrefix() . $this->uri();
+    }
 }

@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 use support\Container;
-use support\Request;
+use support\facade\Request;
 use support\Response;
 use support\Translation;
 use support\view\Blade;
@@ -25,7 +25,6 @@ use support\view\ThinkPHP;
 use support\view\Twig;
 use Webman\App;
 use Webman\Config;
-use Webman\Route;
 use Workerman\Protocols\Http\Session;
 use Workerman\Worker;
 
@@ -279,20 +278,10 @@ function config(string $key = null, $default = null)
  */
 function route(string $name, ...$parameters): string
 {
-    $route = Route::getByName($name);
-    if (!$route) {
-        return '';
-    }
-
-    if (!$parameters) {
-        return $route->url();
-    }
-
-    if (\is_array(\current($parameters))) {
+    if ($parameters && \is_array(\current($parameters))) {
         $parameters = \current($parameters);
     }
-
-    return $route->url($parameters);
+    return route_url($name, $parameters);
 }
 
 /**

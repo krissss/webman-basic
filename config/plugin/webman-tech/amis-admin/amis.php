@@ -33,12 +33,25 @@ return [
             $amisAssetBaseUrl.'helper.css',
             $amisAssetBaseUrl.'iconfont.css',
         ],
-        'js' => [
-            $amisAssetBaseUrl.'sdk.js',
-            // 'https://unpkg.com/history@4.10.1/umd/history.js', // 使用 app 必须
-            '/assets/history@4.10.1/umd/history.min.js', // 使用 app 必须
-            '/js/amis-admin.js',
-        ],
+        'js' => function () use ($amisAssetBaseUrl) {
+            $loginApi = route('admin.login');
+            $loginUrl = route('admin.login.view');
+            return [
+                $amisAssetBaseUrl . 'sdk.js',
+                //'https://unpkg.com/history@4.10.1/umd/history.js', // 使用 app 必须
+                '/assets/history@4.10.1/umd/history.min.js', // 使用 app 必须
+                [
+                    'type' => 'script',
+                    'content' => <<<JS
+                        window._ADMIN_AMIS_CONFIG = {
+                          loginApi: '{$loginApi}',
+                          loginUrl: '{$loginUrl}',
+                        }
+                        JS,
+                ],
+                '/js/amis-admin.js',
+            ];
+        },
         /*
          * 切换主题
          * @link https://aisuda.bce.baidu.com/amis/zh-CN/docs/start/getting-started#%E5%88%87%E6%8D%A2%E4%B8%BB%E9%A2%98
@@ -65,7 +78,7 @@ return [
         'amisJSON' => function () {
             return [
                 'brandName' => '总管理后台',
-                'logo' => '/favicon.ico',
+                'logo' => public_url('/favicon.ico'),
                 'api' => route('admin.pages'), // 修改成获取菜单的路由
                 'header' => [
                     'type' => 'flex',
@@ -136,4 +149,8 @@ return [
      * 返回一个 \WebmanTech\AmisAdmin\Validator\ValidatorInterface
      */
     'validator' => fn () => new LaravelValidator(Validator::instance()),
+    /**
+     * 用于获取当前请求的路径，当部署到二级目录时有用
+     */
+    'request_path_getter' => fn () => request()->pathPrefix() . request()->path(),
 ];

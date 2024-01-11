@@ -59,6 +59,6 @@ class AuthController
             Auth::guard()->logout();
         }
 
-        return admin_redirect($this->routeRedirect, '退出成功');
+        return admin_redirect(route_url($this->routeRedirect), '退出成功');
     }
 }

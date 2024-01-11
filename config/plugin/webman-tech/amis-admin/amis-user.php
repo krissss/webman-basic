@@ -6,7 +6,21 @@ use WebmanTech\AmisAdmin\Amis\Component;
 use WebmanTech\AmisAdmin\Controller\RenderController;
 
 $adminAmis = require __DIR__ . '/amis.php';
-$adminAmis['assets']['js'][] = '/js/amis-admin-user.js';
+$adminAmis['assets']['js'] = function () use ($adminAmis) {
+    $js = $adminAmis['assets']['js']();
+    $loginApi = route('user.login');
+    $loginUrl = route('user.login.view');
+    $js[] = [
+        'type' => 'script',
+        'content' => <<<JS
+            window._ADMIN_AMIS_CONFIG = Object.assign(window._ADMIN_AMIS_CONFIG, {
+              loginApi: '{$loginApi}',
+              loginUrl: '{$loginUrl}',
+            });
+            JS,
+    ];
+    return $js;
+};
 
 return [
     /**
