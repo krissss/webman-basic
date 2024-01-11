@@ -2,15 +2,19 @@
 
 set -o errexit
 
-# 迁移数据库
-echo "DB migration"
+#echo "---- init nacos config"
+#php webman init-nacos-config
+
+echo "---- DB migration"
 ./vendor/bin/phinx migrate
-# 初始化数据
-echo "DB init"
+
+echo "---- init data"
 php webman init-data
-# storage:link
-echo "storage:link"
+
+echo "---- storage:link"
 php webman storage:link
+
+echo "---- INIT OVER"
 
 # Execute CMD
 exec "$@"
