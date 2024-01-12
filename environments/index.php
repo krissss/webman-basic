@@ -7,9 +7,11 @@ $writablePath = [
 
 $setExecutablePath = [
     'webman',
+    'artisan',
 ];
 
 $envArr = [
+    'dev.local' => 'dev.local',
     'dev' => 'dev',
     'prod' => 'prod',
 ];

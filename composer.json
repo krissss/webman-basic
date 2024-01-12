@@ -29,7 +29,6 @@
     "robmorgan/phinx": "^0.12.10",
     "symfony/process": "^5.4",
     "symfony/translation": "^5.4",
-    "vlucas/phpdotenv": "^5.4",
     "webman-tech/amis-admin": "^2.2",
     "webman-tech/auth": "^2.0",
     "webman-tech/crontab-task": "^1.0",

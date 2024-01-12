@@ -10,7 +10,8 @@
 /.php-cs-fixer.php
 /phpstan.neon
 /*.log
-/.env
 /build
 /public/storage
 /public/assets
+/env.php
+/env.local.php

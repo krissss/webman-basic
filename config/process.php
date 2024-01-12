@@ -24,10 +24,10 @@ $processes = [
             'monitorDir' => array_merge([
                 app_path(),
                 config_path(),
-                base_path() . '/process',
                 base_path() . '/support',
                 base_path() . '/resource',
-                base_path() . '/.env',
+                base_path() . '/env.php',
+                base_path() . '/env.local.php',
                 //base_path() . '/vendor',
             ], glob(base_path() . '/plugin/*/app'), glob(base_path() . '/plugin/*/config'), glob(base_path() . '/plugin/*/api')),
             // Files with these suffixes will be monitored

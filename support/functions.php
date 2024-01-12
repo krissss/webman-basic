@@ -1,26 +1,28 @@
 <?php
 
 use Illuminate\Contracts\Container\Container as LaravelContainer;
-
 use Webman\Route;
 
 /**
- * 获取 .env 的配置
+ * 设置 env
  * @param string $key
- * @param mixed $defaultValue
- * @param array $whichIsNull
- * @return mixed|null
+ * @param mixed $value
+ * @return void
  */
-function get_env(string $key, $defaultValue = null, array $whichIsNull = ['', null, 'null', false])
+function put_env(string $key, $value)
 {
-    $value = getenv($key);
-    if (in_array($value, $whichIsNull, true)) {
-        if ($defaultValue instanceof Closure) {
-            $defaultValue = call_user_func($defaultValue);
-        }
-        return $defaultValue;
-    }
-    return $value;
+    \app\components\EnvRepository::set($key, $value);
+}
+
+/**
+ * 获取 env
+ * @param string $key
+ * @param mixed $default
+ * @return mixed
+ */
+function get_env(string $key, $default = null)
+{
+    return \app\components\EnvRepository::get($key, $default);
 }
 
 /**

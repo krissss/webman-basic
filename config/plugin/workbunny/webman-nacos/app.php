@@ -19,7 +19,7 @@ if (get_env('NACOS_ENABLE_CONFIG_CENTER', true)) {
     $configListeners = collect([
         // 在此处增加配置中心的配置
         // $dateId => $filePath
-        // $serviceName . '.env' => base_path() . '/.env',
+        $serviceName . '.env.php' => base_path('env.php'),
     ])->map(
         fn ($filepath, $dataId) => [
             $dataId,
