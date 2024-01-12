@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c54cd0edb40ee622041bfc05567875f",
+    "content-hash": "7228bf5bb5b4d33e67ec717a50ca389b",
     "packages": [
         {
             "name": "cakephp/core",
@@ -2018,6 +2018,62 @@
             "time": "2023-05-08T10:49:09+00:00"
         },
         {
+            "name": "kriss/multi-process",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krissss/php-multi-process.git",
+                "reference": "01a529fd2d1e3acef75921f14639a2fee58b7220"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/krissss/php-multi-process/zipball/01a529fd2d1e3acef75921f14639a2fee58b7220",
+                "reference": "01a529fd2d1e3acef75921f14639a2fee58b7220",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/serializable-closure": "^1.0",
+                "php": ">=7.4",
+                "symfony/console": "^5|^6",
+                "symfony/process": "^5|^6"
+            },
+            "require-dev": {
+                "illuminate/support": "^8.83",
+                "phpunit/phpunit": "^9.6",
+                "psr/log": "^1.1",
+                "workerman/webman-framework": "^1.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kriss\\MultiProcess\\Integrations\\Laravel\\MultiProcessServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kriss\\MultiProcess\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kriss",
+                    "email": "462679766@qq.com"
+                }
+            ],
+            "description": "Multi Async Process Manager based on symfony/process",
+            "support": {
+                "issues": "https://github.com/krissss/php-multi-process/issues",
+                "source": "https://github.com/krissss/php-multi-process/tree/v1.1.1"
+            },
+            "time": "2023-03-09T14:37:21+00:00"
+        },
+        {
             "name": "kriss/php-notification",
             "version": "v1.2.3",
             "source": {
@@ -2084,6 +2140,66 @@
                 "source": "https://github.com/krissss/php-notification/tree/v1.2.3"
             },
             "time": "2023-03-30T09:21:04+00:00"
+        },
+        {
+            "name": "laravel/serializable-closure",
+            "version": "v1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/serializable-closure.git",
+                "reference": "3dbf8a8e914634c48d389c1234552666b3d43754"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/3dbf8a8e914634c48d389c1234552666b3d43754",
+                "reference": "3dbf8a8e914634c48d389c1234552666b3d43754",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "nesbot/carbon": "^2.61",
+                "pestphp/pest": "^1.21.3",
+                "phpstan/phpstan": "^1.8.2",
+                "symfony/var-dumper": "^5.4.11"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\SerializableClosure\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Nuno Maduro",
+                    "email": "nuno@laravel.com"
+                }
+            ],
+            "description": "Laravel Serializable Closure provides an easy and secure way to serialize closures in PHP.",
+            "keywords": [
+                "closure",
+                "laravel",
+                "serializable"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/serializable-closure/issues",
+                "source": "https://github.com/laravel/serializable-closure"
+            },
+            "time": "2023-11-08T14:08:06+00:00"
         },
         {
             "name": "league/flysystem",

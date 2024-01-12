@@ -1,10 +1,10 @@
 #!/usr/bin/env php
 <?php
 /**
- * 选择环境：php init.php
- * 直接设置环境：php init.php --env=dev
- * 直接设置环境并覆盖：php init.php --env=dev --overwrite=all
- * 直接设置环境并跳过：php init.php --env=dev --overwrite=skip
+ * 选择环境：php init
+ * 直接设置环境：php init --env=dev
+ * 直接设置环境并覆盖：php init --env=dev --overwrite=all
+ * 直接设置环境并跳过：php init --env=dev --overwrite=skip
  */
 
 $params = getParams();

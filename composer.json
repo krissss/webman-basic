@@ -25,6 +25,7 @@
     "illuminate/pagination": "^8.83",
     "illuminate/redis": "^8.83",
     "kriss/composer-assets-plugin": "^1.0",
+    "kriss/multi-process": "^1.1",
     "kriss/php-notification": "^1.2",
     "robmorgan/phinx": "^0.12.10",
     "symfony/process": "^5.4",
@@ -125,6 +126,10 @@
     ],
     "pre-package-uninstall": [
       "support\\Plugin::uninstall"
+    ],
+    "post-install-cmd": [
+      "Composer\\Config::disableProcessTimeout",
+      "php artisan environment:ci"
     ],
     "dev-win": [
       "Composer\\Config::disableProcessTimeout",

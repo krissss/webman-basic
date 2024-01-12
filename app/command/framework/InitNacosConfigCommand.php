@@ -53,6 +53,7 @@ class InitNacosConfigCommand extends Command
     {
         global $argv;
 
-        return in_array(self::$defaultName, $argv);
+        return in_array(self::$defaultName, $argv)
+            || in_array(EnvironmentCiCommand::COMMAND_NAME, $argv);
     }
 }
