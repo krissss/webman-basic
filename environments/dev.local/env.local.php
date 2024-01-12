@@ -32,5 +32,7 @@ put_env('QUEUE_ENABLE', false);
 put_env('CRONTAB_ENABLE', false);
 
 // nacos
-put_env('NACOS_ENABLE', false);
-put_env('NACOS_ENABLE_CONFIG_CENTER', false);
+if (!\app\command\framework\InitNacosConfigCommand::isInCommand()) {
+    put_env('NACOS_ENABLE', false);
+    put_env('NACOS_ENABLE_CONFIG_CENTER', false);
+}

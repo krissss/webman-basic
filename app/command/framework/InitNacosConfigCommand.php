@@ -2,6 +2,7 @@
 
 namespace app\command\framework;
 
+use RuntimeException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -38,5 +39,20 @@ class InitNacosConfigCommand extends Command
         }
 
         return self::SUCCESS;
+    }
+
+    public static function checkMustInit()
+    {
+        if (!self::isInCommand()) {
+            $commandName = self::$defaultName;
+            throw new RuntimeException("请先执行命令 php webman {$commandName} 拉取最新的配置");
+        }
+    }
+
+    public static function isInCommand(): bool
+    {
+        global $argv;
+
+        return in_array(self::$defaultName, $argv);
     }
 }
