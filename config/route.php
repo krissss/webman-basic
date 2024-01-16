@@ -16,7 +16,7 @@ use Webman\Route;
 use WebmanTech\AmisAdmin\Middleware\AmisModuleChangeMiddleware;
 use WebmanTech\Auth\Middleware\SetAuthGuard;
 
-Route::any('/', fn () => 'Hello ' . config('app.name'));
+Route::any('/', fn () => get_env('ROUTE_INDEX_MSG', 'Hello ' . config('app.name')));
 
 Route::group('/admin', function () {
     require __DIR__ . '/../app/admin/route.php';

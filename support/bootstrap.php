@@ -36,6 +36,8 @@ if ($worker) {
     }, time());
 }
 
+app\components\EnvRepository::reset();
+
 if (class_exists('Dotenv\Dotenv') && file_exists(base_path() . '/.env')) {
     if (method_exists('Dotenv\Dotenv', 'createUnsafeMutable')) {
         Dotenv::createUnsafeMutable(base_path())->load();

@@ -13,6 +13,18 @@ final class EnvRepository
     private static bool $supportSysEnv = true; // 是否要支持获取系统环境上的 env，为 true 时系统环境值优先
 
     /**
+     * 重置
+     * @return void
+     */
+    public static function reset()
+    {
+        self::$envs = [];
+        self::$readOnly = false;
+        self::$defaultEnvLoaded = false;
+        self::$supportSysEnv = true;
+    }
+
+    /**
      * 设置 env
      * @param string $key
      * @param mixed $value
@@ -68,7 +80,7 @@ final class EnvRepository
             if (!file_exists($phpFile)) {
                 continue;
             }
-            require_once $phpFile;
+            require $phpFile;
         }
     }
 
