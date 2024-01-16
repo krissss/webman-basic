@@ -79,7 +79,8 @@
           "sdk/sdk.css",
           "sdk/helper.css",
           "sdk/iconfont.css",
-          "sdk/sdk.js"
+          "sdk/sdk.js",
+          "sdk/charts.js"
         ]
       },
       {
