@@ -70,21 +70,6 @@ final class EnvRepository
     }
 
     /**
-     * 将某些文件加载到 env，文件中使用 put_env 写入环境变量
-     * @param array $phpFiles
-     * @return void
-     */
-    public static function load(array $phpFiles): void
-    {
-        foreach ($phpFiles as $phpFile) {
-            if (!file_exists($phpFile)) {
-                continue;
-            }
-            require $phpFile;
-        }
-    }
-
-    /**
      * 修改是否只读，只读下不允许再修改 env
      * @param bool $is
      * @return void
@@ -111,10 +96,16 @@ final class EnvRepository
     public static function loadDefaultEnvs(): void
     {
         $phpFiles = [
-            base_path('/env.php'),
             base_path('/env.local.php'),
+            base_path('/env.php'),
         ];
-        self::load($phpFiles);
+        foreach ($phpFiles as $phpFile) {
+            if (file_exists($phpFile)) {
+                require $phpFile;
+                // 仅加载一个，env.local.php 中可以主动去 require env.php
+                break;
+            }
+        }
 
         self::$defaultEnvLoaded = true;
         self::changeReadOnly(true);
