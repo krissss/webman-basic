@@ -18,8 +18,8 @@ class EnvironmentCiCommand extends Command
         $commandArtisan = 'php artisan ';
         $commandComposer = 'composer ';
 
-        if (!file_exists(base_path('env.php'))) {
-            $this->runParallelCommands('php init --env=dev --overwrite=skip');
+        if (!file_exists(base_path('env.php')) && !file_exists(base_path('env.local.php'))) {
+            $this->runParallelCommands('php init --env=dev.local --overwrite=skip');
         }
         $this->runParallelCommands($commandArtisan . 'init-nacos-config');
         if (file_exists(base_path('phinx.php'))) {
