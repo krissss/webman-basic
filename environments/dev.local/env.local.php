@@ -1,11 +1,16 @@
 <?php
 
-// 动态切换 environments 下的环境，不需要每次都初始化 根目录下的 env.php，适用于 environments 下的 env.php 有全量配置的情况
-$env = 'dev';
-require_once base_path("environments/{$env}/env.php");
-
-// 直接覆盖根目录下的 env.php，可以每次 init 来初始化 根目录下的 env.php，适用于使用 nacos 等配置注册中心的情况
-//require_once __DIR__ . '/env.php';
+$__env = 'dev'; // environments 下的目录名
+$__envFiles = [
+    __DIR__ . '/env.php',
+    base_path("environments/{$__env}/env.php"),
+];
+foreach ($__envFiles as $envFile) {
+    if (file_exists($envFile)) {
+        require $envFile;
+        break;
+    }
+}
 
 // 修改覆盖部分配置
 
