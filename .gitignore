@@ -13,5 +13,7 @@
 /build
 /public/storage
 /public/assets
+/.env
 /env.php
 /env.local.php
+/docker-compose.yaml
