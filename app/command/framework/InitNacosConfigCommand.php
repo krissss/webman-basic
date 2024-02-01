@@ -45,7 +45,7 @@ class InitNacosConfigCommand extends Command
     {
         if (!self::isInCommand()) {
             $commandName = self::$defaultName;
-            throw new RuntimeException("请先执行命令 php webman {$commandName} 拉取最新的配置");
+            throw new RuntimeException("请先执行命令 php artisan {$commandName} 拉取最新的配置");
         }
     }
 

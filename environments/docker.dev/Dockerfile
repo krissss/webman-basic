@@ -10,5 +10,6 @@ RUN chmod 755 /sbin/entrypoint.sh
 
 # dev 环境移除 build 的操作
 
-ENTRYPOINT ["/sbin/entrypoint.sh"]
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# 不自动启动，手动进入内部执行 php start.php start 启动服务
+#ENTRYPOINT ["/sbin/entrypoint.sh"]
+#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

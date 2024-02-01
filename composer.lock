@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7228bf5bb5b4d33e67ec717a50ca389b",
+    "content-hash": "16be03354c99aff5426b6712cf31a48f",
     "packages": [
         {
             "name": "cakephp/core",
@@ -6063,16 +6063,16 @@
         },
         {
             "name": "webman/console",
-            "version": "v1.2.35",
+            "version": "v1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-php/console.git",
-                "reference": "19e3f3de09f00adca4cb9c212a2be2ae47c71f00"
+                "reference": "ee50a1eca292eea5bf70661aa2ef722e1294814c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-php/console/zipball/19e3f3de09f00adca4cb9c212a2be2ae47c71f00",
-                "reference": "19e3f3de09f00adca4cb9c212a2be2ae47c71f00",
+                "url": "https://api.github.com/repos/webman-php/console/zipball/ee50a1eca292eea5bf70661aa2ef722e1294814c",
+                "reference": "ee50a1eca292eea5bf70661aa2ef722e1294814c",
                 "shasum": ""
             },
             "require": {
@@ -6112,7 +6112,7 @@
                 "source": "https://github.com/webman-php/console",
                 "wiki": "http://www.workerman.net/doc/webman"
             },
-            "time": "2023-05-15T06:19:43+00:00"
+            "time": "2024-01-23T03:25:23+00:00"
         },
         {
             "name": "webman/event",
