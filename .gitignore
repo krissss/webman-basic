@@ -7,7 +7,6 @@
 # 其他
 /tests/tmp
 /tests/.phpunit.result.cache
-/.php-cs-fixer.php
 /phpstan.neon
 /*.log
 /build
