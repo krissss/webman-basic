@@ -15,4 +15,4 @@
 /.env
 /env.php
 /env.local.php
-/docker-compose.yaml
+/docker-compose.yml
