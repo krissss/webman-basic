@@ -1,0 +1,8 @@
+# @see https://phpstan.org/config-reference#multiple-files
+includes:
+	- phpstan.dist.neon
+parameters:
+    level: 6
+    tmpDir: ../../runtime/phpstan-local
+    parallel:
+        #maximumNumberOfProcesses: 1

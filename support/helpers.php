@@ -254,7 +254,7 @@ function twig_view(string $template, array $vars = [], string $app = null): Resp
  * Get request
  * @return \Webman\Http\Request|Request|null
  */
-function request()
+function request(): ?Request
 {
     return App::request();
 }

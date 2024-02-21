@@ -10,9 +10,10 @@ class TransformRequest implements MiddlewareInterface
 {
     public function process(Request $request, callable $handler): Response
     {
-        /* @var \support\facade\Request $request */
-        $request->replaceGet($this->cleanArray($request->get()));
-        $request->replacePost($this->cleanArray($request->post()));
+        if ($request instanceof \support\facade\Request) {
+            $request->replaceGet($this->cleanArray($request->get()));
+            $request->replacePost($this->cleanArray($request->post()));
+        }
 
         return $handler($request);
     }

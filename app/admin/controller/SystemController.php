@@ -20,8 +20,8 @@ class SystemController
     public function pages(): Response
     {
         $routePrefix = request()->pathPrefix() ?: 'default';
-        if (!isset(static::$menus[$routePrefix])) {
-            static::$menus[$routePrefix] = [
+        if (!isset(self::$menus[$routePrefix])) {
+            self::$menus[$routePrefix] = [
                 [
                     'label' => '菜单',
                     'children' => [
@@ -46,7 +46,7 @@ class SystemController
         }
 
         return admin_response([
-            'pages' => static::$menus[$routePrefix],
+            'pages' => self::$menus[$routePrefix],
         ]);
     }
 
