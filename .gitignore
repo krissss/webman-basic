@@ -7,7 +7,6 @@
 # 其他
 /tests/tmp
 /tests/.phpunit.result.cache
-/phpstan.neon
 /*.log
 /build
 /public/storage
