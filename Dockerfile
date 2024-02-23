@@ -27,7 +27,7 @@ RUN chmod 755 /sbin/entrypoint.sh
 # 预先加载 Composer 包依赖，优化 Docker 构建镜像的速度
 COPY ./composer.json /app/
 COPY ./composer.lock /app/
-RUN composer install --no-interaction --no-dev --no-autoloader --no-scripts
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-interaction --no-dev --no-autoloader --no-scripts
 
 # 复制项目代码
 COPY . /app
@@ -37,7 +37,7 @@ ARG APP_ENV=dev
 RUN php init --env=$APP_ENV --overwrite=all
 
 # 执行 Composer 自动加载和相关脚本
-RUN composer install --no-interaction --no-dev && composer dump-autoload
+RUN COMPOSER_ALLOW_SUPERUSER=1 SKIP_ENV_CI=1 composer install --no-interaction --no-dev && composer dump-autoload
 
 ENTRYPOINT ["/sbin/entrypoint.sh"]
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

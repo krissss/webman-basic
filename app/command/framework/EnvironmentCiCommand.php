@@ -15,6 +15,11 @@ class EnvironmentCiCommand extends Command
 
     public function handle()
     {
+        if (get_env('SKIP_ENV_CI')) {
+            echo 'skip by SKIP_ENV_CI' . PHP_EOL;
+            return;
+        }
+
         $commandArtisan = 'php artisan ';
         $commandComposer = 'composer ';
 
@@ -42,6 +47,9 @@ class EnvironmentCiCommand extends Command
             ->mapWithKeys(fn ($command, $name) => [is_numeric($name) ? $command : $name => $command])
             ->each(fn ($command, $name) => $mp->add(
                 PendingProcess::createFromCommand($command)
+                    ->setEnv([
+                        'COMPOSER_ALLOW_SUPERUSER' => 1,
+                    ])
                     ->setStartCallback(fn ($type, $buffer) => $this->log($name, $buffer, $type)),
                 $name
             ));
