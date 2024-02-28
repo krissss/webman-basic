@@ -41,10 +41,16 @@ class Request extends \support\Request
     public function host($without_port = false): string
     {
         if ($host = $this->header('x-forwarded-host')) {
+            if (strpos($host, ',') !== false) {
+                $host = explode(',', $host)[0];
+            }
             if ($without_port) {
                 return $host;
             }
             if ($port = $this->header('x-forwarded-port')) {
+                if (strpos($port, ',') !== false) {
+                    $port = explode(',', $port)[0];
+                }
                 if (in_array($port, ['80', '443'])) {
                     return $host;
                 }
@@ -70,7 +76,11 @@ class Request extends \support\Request
      */
     public function getProto(): string
     {
-        return $this->header('x-forwarded-proto', 'http');
+        $proto = $this->header('x-forwarded-proto', 'http');
+        if (strpos($proto, ',') !== false) {
+            $proto = explode(',', $proto)[0];
+        }
+        return $proto;
     }
 
     /**
