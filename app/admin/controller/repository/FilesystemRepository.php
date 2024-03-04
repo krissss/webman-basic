@@ -77,7 +77,7 @@ class FilesystemRepository extends AbsRepository
                     'dirname' => '/'.($pathInfo['dirname'] === '.' ? '' : $pathInfo['dirname']),
                     'file' => $pathInfo['basename'],
                     'ext' => $pathInfo['extension'] ?? '',
-                    'time' => $this->disk->lastModified($item['path']),
+                    'time' => $item['dir'] ? '' : $this->disk->lastModified($item['path']), // 部分系统（比如oss）无法获取到文件夹的 meta 信息，所以不获取
                     'size' => $item['dir'] ? '' : Tools::formatBytes($this->disk->size($item['path'])),
                 ];
             })
