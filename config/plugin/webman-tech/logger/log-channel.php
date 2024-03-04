@@ -15,7 +15,7 @@ return [
     // 记录等级，仅大于设定等级的日志才会真实写入日志文件
     'levels' => [
         // 默认等级
-        'default' => config('app.debug') ? 'debug' : 'info',
+        'default' => get_env('LOG_LEVEL_DEFAULT', fn() => config('app.debug') ? 'debug' : 'info'),
         // 特殊的等级
         'special' => Logger::getSpecialLevel(),
     ],

@@ -52,7 +52,7 @@ class Logger extends \WebmanTech\Logger\Logger
     {
         return [
             // 'channelName' => 'info',
-            self::CHANNEL_SQL => 'warning', // sql 仅记录 warning 级别以上的
+            self::CHANNEL_SQL => get_env('LOG_LEVEL_CHANNEL_SQL', 'warning'), // sql 仅记录 warning 级别以上的
         ];
     }
 
