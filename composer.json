@@ -25,7 +25,7 @@
     "illuminate/pagination": "^8.83",
     "illuminate/redis": "^8.83",
     "kriss/composer-assets-plugin": "^1.0",
-    "kriss/multi-process": "^1.1",
+    "kriss/multi-process": "^1.2",
     "kriss/php-notification": "^1.2",
     "robmorgan/phinx": "^0.12.10",
     "symfony/process": "^5.4",

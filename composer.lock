@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6aeb646471111bc6655d04f31f8cfd8b",
+    "content-hash": "d10cffbbc828df7f40210ab0b44ab0d1",
     "packages": [
         {
             "name": "cakephp/core",
@@ -2019,23 +2019,23 @@
         },
         {
             "name": "kriss/multi-process",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krissss/php-multi-process.git",
-                "reference": "01a529fd2d1e3acef75921f14639a2fee58b7220"
+                "reference": "a992681b1d5f6e1d80caf6530906445833474295"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krissss/php-multi-process/zipball/01a529fd2d1e3acef75921f14639a2fee58b7220",
-                "reference": "01a529fd2d1e3acef75921f14639a2fee58b7220",
+                "url": "https://api.github.com/repos/krissss/php-multi-process/zipball/a992681b1d5f6e1d80caf6530906445833474295",
+                "reference": "a992681b1d5f6e1d80caf6530906445833474295",
                 "shasum": ""
             },
             "require": {
                 "laravel/serializable-closure": "^1.0",
                 "php": ">=7.4",
-                "symfony/console": "^5|^6",
-                "symfony/process": "^5|^6"
+                "symfony/console": ">=5",
+                "symfony/process": ">=5"
             },
             "require-dev": {
                 "illuminate/support": "^8.83",
@@ -2069,9 +2069,9 @@
             "description": "Multi Async Process Manager based on symfony/process",
             "support": {
                 "issues": "https://github.com/krissss/php-multi-process/issues",
-                "source": "https://github.com/krissss/php-multi-process/tree/v1.1.1"
+                "source": "https://github.com/krissss/php-multi-process/tree/v1.2.0"
             },
-            "time": "2023-03-09T14:37:21+00:00"
+            "time": "2024-02-04T06:24:55+00:00"
         },
         {
             "name": "kriss/php-notification",
