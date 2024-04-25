@@ -1,5 +1,5 @@
 # 用于将项目构建成镜像
-ARG WEBMAN_DOCKER_VERSION=7.4-cli-alpine
+ARG WEBMAN_DOCKER_VERSION=8.2-cli-alpine
 
 # https://github.com/krissss/docker-webman
 FROM krisss/docker-webman:$WEBMAN_DOCKER_VERSION
