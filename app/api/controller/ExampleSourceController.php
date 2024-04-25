@@ -8,32 +8,33 @@ use app\exception\UserSeeException;
 use app\model\Admin as Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\Rule;
-use OpenApi\Annotations as OA;
+use OpenApi\Attributes as OA;
 use support\facade\Auth;
 use support\Request;
 use support\Response;
 
-/**
- * @OA\Tag(name="crud", description="crud 例子")
- */
+#[OA\Tag(name: 'crud', description: 'crud 例子')]
 class ExampleSourceController
 {
-    /**
-     * 列表.
-     *
-     * @OA\Get(
-     *     path="/crud",
-     *     tags={"crud"},
-     *
-     *     @OA\Parameter(name="page", in="query", description="页数", @OA\Schema(type="integer")),
-     *     @OA\Parameter(name="page_size", in="query", description="每页数量", @OA\Schema(type="integer")),
-     *     @OA\Parameter(name="username", in="query", description="用户名", @OA\Schema(type="string")),
-     *     @OA\Parameter(name="status", in="query", description="状态", @OA\Schema(type="integer")),
-     *
-     *     @OA\Response(response=200, description="列表数据"),
-     *     security={{"api_key": {}}},
-     * )
-     */
+    #[OA\Get(
+        path: '/crud',
+        summary: '列表',
+        security: [
+            ['api_key' => []]
+        ],
+        tags: ['crud'],
+        parameters: [
+            ...[
+                new OA\Parameter(name: 'page', description: '页数', in: 'query', schema: new OA\Schema(type: 'integer')),
+                new OA\Parameter(name: 'page_size', description: '每页数量', in: 'query', schema: new OA\Schema(type: 'integer')),
+            ],
+            new OA\Parameter(name: 'username', description: '用户名', in: 'query', schema: new OA\Schema(type: 'string')),
+            new OA\Parameter(name: 'status', description: '状态', in: 'query', schema: new OA\Schema(type: 'integer')),
+        ],
+        responses: [
+            new OA\Response(response: 200, description: '列表数据'),
+        ],
+    )]
     public function index(Request $request): Response
     {
         $query = Model::query();
@@ -47,54 +48,52 @@ class ExampleSourceController
         return json_success($query->paginate($request->get('page_size')));
     }
 
-    /**
-     * 详情.
-     *
-     * @OA\Get(
-     *     path="/crud/{id}",
-     *     tags={"crud"},
-     *
-     *     @OA\Parameter(name="id", in="path", description="id", @OA\Schema(type="integer")),
-     *
-     *     @OA\Response(response=200, description="明细"),
-     *     security={{"api_key": {}}},
-     * )
-     */
-    public function show(Request $request, int $id): Response
+    #[OA\Get(
+        path: '/crud/{id}',
+        summary: '详情',
+        security: [
+            ['api_key' => []]
+        ],
+        tags: ['crud'],
+        responses: [
+            new OA\Response(response: 200, description: '明细'),
+        ],
+    )]
+    public function show(Request $request, #[OA\PathParameter] int $id): Response
     {
         $model = Model::findOrFail($id);
 
         return json_success($model);
     }
 
-    /**
-     * 新建.
-     *
-     * @OA\Post(
-     *     path="/crud",
-     *     tags={"crud"},
-     *
-     *     @OA\RequestBody(
-     *         required=true,
-     *
-     *         @OA\MediaType(
-     *             mediaType="application/json",
-     *
-     *             @OA\Schema(
-     *                 type="object",
-     *                 required={"adminname", "password", "name"},
-     *
-     *                 @OA\Property(property="username", description="用户名", type="string", example="admin"),
-     *                 @OA\Property(property="password", description="密码", type="string", example="123456"),
-     *                 @OA\Property(property="name", description="名称", type="string", example="测试用户"),
-     *             )
-     *         )
-     *     ),
-     *
-     *     @OA\Response(response=200, description="新建后的明细"),
-     *     security={{"api_key": {}}},
-     * )
-     */
+    #[OA\Post(
+        path: '/crud',
+        summary: '新建',
+        security: [
+            ['api_key' => []]
+        ],
+        requestBody: new OA\RequestBody(
+            required: true,
+            content: [
+                new OA\MediaType(
+                    mediaType: 'application/json',
+                    schema: new OA\Schema(
+                        required: ['username', 'password', 'name'],
+                        properties: [
+                            new OA\Property(property: 'username', description: '用户名', type: 'string', maxLength: 64, example: 'admin'),
+                            new OA\Property(property: 'password', description: '密码', type: 'string', maxLength: 64, example: '123456'),
+                            new OA\Property(property: 'name', description: '名称', type: 'string', example: '测试用户'),
+                        ],
+                        type: 'object'
+                    ),
+                )
+            ]
+        ),
+        tags: ['crud'],
+        responses: [
+            new OA\Response(response: 200, description: '新建后的明细'),
+        ],
+    )]
     public function store(Request $request): Response
     {
         $data = validator($request->post(), [
@@ -114,37 +113,35 @@ class ExampleSourceController
         return json_success($model);
     }
 
-    /**
-     * 更新.
-     *
-     * @OA\Put(
-     *     path="/crud/{id}",
-     *     tags={"crud"},
-     *
-     *     @OA\Parameter(name="id", in="path", description="id", @OA\Schema(type="integer")),
-     *
-     *     @OA\RequestBody(
-     *         required=true,
-     *
-     *         @OA\MediaType(
-     *             mediaType="application/json",
-     *
-     *             @OA\Schema(
-     *                 type="object",
-     *
-     *                 @OA\Property(property="username", description="用户名", type="string", example="admin"),
-     *                 @OA\Property(property="password", description="密码", type="string", example="123456"),
-     *                 @OA\Property(property="name", description="名称", type="string", example="测试用户"),
-     *                 @OA\Property(property="status", description="状态", type="integer", example="0"),
-     *             )
-     *         )
-     *     ),
-     *
-     *     @OA\Response(response=200, description="新建后的明细"),
-     *     security={{"api_key": {}}},
-     * )
-     */
-    public function update(Request $request, int $id): Response
+    #[OA\Put(
+        path: '/crud/{id}',
+        summary: '更新',
+        security: [
+            ['api_key' => []]
+        ],
+        requestBody: new OA\RequestBody(
+            required: true,
+            content: [
+                new OA\MediaType(
+                    mediaType: 'application/json',
+                    schema: new OA\Schema(
+                        properties: [
+                            new OA\Property(property: 'username', description: '用户名', type: 'string', maxLength: 64, example: 'admin'),
+                            new OA\Property(property: 'password', description: '密码', type: 'string', maxLength: 64, example: '123456'),
+                            new OA\Property(property: 'name', description: '名称', type: 'string', example: '测试用户'),
+                            new OA\Property(property: 'status', description: '状态', type: 'integer', example: 0),
+                        ],
+                        type: 'object'
+                    ),
+                )
+            ]
+        ),
+        tags: ['crud'],
+        responses: [
+            new OA\Response(response: 200, description: '更新后的明细'),
+        ],
+    )]
+    public function update(Request $request, #[OA\PathParameter] int $id): Response
     {
         $model = Model::findOrFail($id);
         $data = validator($request->post(), [
@@ -170,20 +167,18 @@ class ExampleSourceController
         return json_success($model);
     }
 
-    /**
-     * 删除.
-     *
-     * @OA\Delete(
-     *     path="/crud/{id}",
-     *     tags={"crud"},
-     *
-     *     @OA\Parameter(name="id", in="path", description="id", @OA\Schema(type="integer")),
-     *
-     *     @OA\Response(response=200, description="无返回数据"),
-     *     security={{"api_key": {}}},
-     * )
-     */
-    public function destroy(Request $request, int $id): Response
+    #[OA\Delete(
+        path: '/crud/{id}',
+        summary: '删除',
+        security: [
+            ['api_key' => []]
+        ],
+        tags: ['crud'],
+        responses: [
+            new OA\Response(response: 200, description: '无返回数据'),
+        ],
+    )]
+    public function destroy(Request $request, #[OA\PathParameter] int $id): Response
     {
         if ($id == Auth::guard()->getId()) {
             throw new UserSeeException('不能删除自己');
@@ -195,20 +190,18 @@ class ExampleSourceController
         return json_success(null);
     }
 
-    /**
-     * 恢复.
-     *
-     * @OA\Put(
-     *     path="/crud/{id}/recovery",
-     *     tags={"crud"},
-     *
-     *     @OA\Parameter(name="id", in="path", description="id", @OA\Schema(type="integer")),
-     *
-     *     @OA\Response(response=200, description="明细"),
-     *     security={{"api_key": {}}},
-     * )
-     */
-    public function recovery(Request $request, int $id): Response
+    #[OA\Put(
+        path: '/crud/{id}/recovery',
+        summary: '恢复',
+        security: [
+            ['api_key' => []]
+        ],
+        tags: ['crud'],
+        responses: [
+            new OA\Response(response: 200, description: '明细'),
+        ]
+    )]
+    public function recovery(Request $request, #[OA\PathParameter] int $id): Response
     {
         if (!Model::whereKey($id)->restore()) {
             throw new ModelNotFoundException();

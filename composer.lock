@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a54e224265599b2f2a22d8ac9e978856",
+    "content-hash": "dd2bb7955775afcd8a3ccb4d5cee0a6a",
     "packages": [
         {
             "name": "brick/math",
@@ -6444,16 +6444,16 @@
         },
         {
             "name": "webman-tech/swagger",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/swagger.git",
-                "reference": "172fd3329682fe0684b4e9077547581a33089bd4"
+                "reference": "2b670a58386e303d60c675c75965410563e1c88b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/swagger/zipball/172fd3329682fe0684b4e9077547581a33089bd4",
-                "reference": "172fd3329682fe0684b4e9077547581a33089bd4",
+                "url": "https://api.github.com/repos/webman-tech/swagger/zipball/2b670a58386e303d60c675c75965410563e1c88b",
+                "reference": "2b670a58386e303d60c675c75965410563e1c88b",
                 "shasum": ""
             },
             "require": {
@@ -6477,9 +6477,9 @@
             "description": "Webman plugin webman-tech/swagger",
             "support": {
                 "issues": "https://github.com/webman-tech/swagger/issues",
-                "source": "https://github.com/webman-tech/swagger/tree/v1.1.0"
+                "source": "https://github.com/webman-tech/swagger/tree/v1.2.0"
             },
-            "time": "2024-01-10T10:01:49+00:00"
+            "time": "2024-04-25T13:25:28+00:00"
         },
         {
             "name": "webman/console",
