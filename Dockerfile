@@ -20,24 +20,21 @@ FROM krisss/docker-webman:$WEBMAN_DOCKER_VERSION
 # 扩展额外的
 #COPY environments/docker/my_supervisord.conf /etc/supervisor/conf.d/my_supervisord.conf
 
-# 修改 Entrypont
-COPY environments/docker/entrypoint.sh /sbin/entrypoint.sh
-RUN chmod 755 /sbin/entrypoint.sh
-
 # 预先加载 Composer 包依赖，优化 Docker 构建镜像的速度
-COPY ./composer.json /app/
-COPY ./composer.lock /app/
-RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-interaction --no-dev --no-autoloader --no-scripts
+ENV COMPOSER_ALLOW_SUPERUSER=1
+COPY composer.json composer.lock ./
+RUN composer install --no-interaction --no-dev --no-autoloader --no-scripts
 
 # 复制项目代码
-COPY . /app
+COPY . .
 
 # 配置 env 环境
 ARG APP_ENV=dev
 RUN php init --env=$APP_ENV --overwrite=all
 
 # 执行 Composer 自动加载和相关脚本
-RUN COMPOSER_ALLOW_SUPERUSER=1 SKIP_ENV_CI=1 composer install --no-interaction --no-dev && composer dump-autoload
+RUN SKIP_ENV_CI=1 composer install --no-interaction --no-dev && composer dump-autoload
 
-ENTRYPOINT ["/sbin/entrypoint.sh"]
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+COPY environments/docker/start.sh /start.sh
+RUN chmod +x /start.sh
+CMD ["/start.sh"]
