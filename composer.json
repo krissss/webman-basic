@@ -27,7 +27,7 @@
     "kriss/composer-assets-plugin": "^1.0",
     "kriss/multi-process": "^1.2",
     "kriss/php-notification": "^1.2",
-    "robmorgan/phinx": "^0.12.10",
+    "robmorgan/phinx": "^0.16.2",
     "symfony/process": "^6.0",
     "symfony/translation": "^6.0",
     "webman-tech/amis-admin": "^2.2",
