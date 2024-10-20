@@ -58,4 +58,12 @@ return [
         'database' => get_env('REDIS_DB_CACHE_LIMITER', $redisDefaultDB),
         'prefix' => get_env('REDIS_PREFIX_CACHE_LIMITER', $redisCommonPrefix . ':cache_limiter:'),
     ],
+    // used by config/plugin/webman/redis-queue/redis.php
+    'queue' => [
+        'host' => $redisHost,
+        'password' => $redisPassword,
+        'port' => $redisPort,
+        'database' => get_env('REDIS_DB_QUEUE', $redisDefaultDB),
+        'prefix' => get_env('REDIS_PREFIX_QUEUE', $redisCommonPrefix . ':queue:'),
+    ],
 ];
