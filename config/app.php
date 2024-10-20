@@ -14,9 +14,11 @@
 
 use support\facade\Request;
 
+$appDebug = !!get_env('APP_DEBUG', false);
+
 return [
-    'debug' => !!get_env('APP_DEBUG', false),
-    'error_reporting' => E_ALL,
+    'debug' => $appDebug,
+    'error_reporting' => get_env('APP_ERROR_REPORTING', $appDebug ? E_ALL : E_ERROR | E_PARSE),
     'default_timezone' => get_env('APP_TIME_ZONE', 'Asia/Shanghai'),
     'request_class' => Request::class,
     'public_path' => base_path() . DIRECTORY_SEPARATOR . 'public',
