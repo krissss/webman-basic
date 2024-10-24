@@ -20,10 +20,10 @@ final class CreateAdmin extends BaseMigration
     public function change(): void
     {
         $table = $this->table('admin', ['comment' => '管理员表'])
-            ->addColumn('username', 'string', ['comment' => '用户名', 'limit' => 64])
-            ->addColumn('password', 'string', ['comment' => '密码', 'limit' => 100])
-            ->addColumn('name', 'string', ['comment' => '名称', 'limit' => 64])
-            ->addColumn('access_token', 'string', ['comment' => 'Access Token', 'limit' => 100, 'null' => true]);
+            ->addColumn('username', 'string', ['comment' => '用户名', 'null' => false, 'limit' => 64])
+            ->addColumn('password', 'string', ['comment' => '密码', 'null' => false, 'limit' => 100])
+            ->addColumn('name', 'string', ['comment' => '名称', 'null' => false, 'limit' => 64])
+            ->addColumn('access_token', 'string', ['comment' => 'Access Token', 'null' => true, 'limit' => 100]);
         $this->addCommonColumns($table, [
             'status', 'created_at', 'updated_at', 'deleted_at',
         ]);
