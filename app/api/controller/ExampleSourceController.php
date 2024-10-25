@@ -2,6 +2,7 @@
 
 namespace app\api\controller;
 
+use app\api\controller\schema\traits\PaginationTrait;
 use app\components\Component;
 use app\enums\AdminStatus;
 use app\exception\UserSeeException;
@@ -12,6 +13,8 @@ use OpenApi\Attributes as OA;
 use support\facade\Auth;
 use support\Request;
 use support\Response;
+use WebmanTech\Swagger\DTO\SchemaConstants;
+use WebmanTech\Swagger\SchemaAnnotation\BaseSchema;
 
 #[OA\Tag(name: 'crud', description: 'crud 例子')]
 class ExampleSourceController
@@ -23,29 +26,26 @@ class ExampleSourceController
             ['api_key' => []]
         ],
         tags: ['crud'],
-        parameters: [
-            ...[
-                new OA\Parameter(name: 'page', description: '页数', in: 'query', schema: new OA\Schema(type: 'integer')),
-                new OA\Parameter(name: 'page_size', description: '每页数量', in: 'query', schema: new OA\Schema(type: 'integer')),
-            ],
-            new OA\Parameter(name: 'username', description: '用户名', in: 'query', schema: new OA\Schema(type: 'string')),
-            new OA\Parameter(name: 'status', description: '状态', in: 'query', schema: new OA\Schema(type: 'integer')),
-        ],
         responses: [
             new OA\Response(response: 200, description: '列表数据'),
         ],
+        x: [
+            SchemaConstants::X_SCHEMA_TO_PARAMETERS => ExampleListSearchSchema::class,
+        ]
     )]
     public function index(Request $request): Response
     {
+        $schema = ExampleListSearchSchema::create($request->get(), validator());
+
         $query = Model::query();
-        if ($value = $request->get('username')) {
+        if ($value = $schema->username) {
             $query->where('username', $value);
         }
-        if ($value = $request->get('status')) {
+        if ($value = $schema->status) {
             $query->where('status', $value);
         }
 
-        return json_success($query->paginate($request->get('page_size')));
+        return json_success($query->paginate($schema->limit));
     }
 
     #[OA\Get(
@@ -75,18 +75,7 @@ class ExampleSourceController
         requestBody: new OA\RequestBody(
             required: true,
             content: [
-                new OA\MediaType(
-                    mediaType: 'application/json',
-                    schema: new OA\Schema(
-                        required: ['username', 'password', 'name'],
-                        properties: [
-                            new OA\Property(property: 'username', description: '用户名', type: 'string', maxLength: 64, example: 'admin'),
-                            new OA\Property(property: 'password', description: '密码', type: 'string', maxLength: 64, example: '123456'),
-                            new OA\Property(property: 'name', description: '名称', type: 'string', example: '测试用户'),
-                        ],
-                        type: 'object'
-                    ),
-                )
+                new OA\JsonContent(ref: ExampleCreateSchema::class)
             ]
         ),
         tags: ['crud'],
@@ -96,17 +85,13 @@ class ExampleSourceController
     )]
     public function store(Request $request): Response
     {
-        $data = validator($request->post(), [
-            'username' => 'required|string|max:64',
-            'password' => 'required|string|max:64',
-            'name' => 'required|string',
-        ])->validate();
-        if (Model::query()->where('username', $data['username'])->exists()) {
+        $schema = ExampleCreateSchema::create($request->post(), validator());
+        if (Model::query()->where('username', $schema->username)->exists()) {
             throw new UserSeeException('username 已存在');
         }
 
-        $model = new Model($data);
-        $model->password = Component::security()->generatePasswordHash($data['password']);
+        $model = new Model($schema->toArray());
+        $model->password = Component::security()->generatePasswordHash($schema->password);
         $model->refreshToken();
         $model->refresh();
 
@@ -122,18 +107,7 @@ class ExampleSourceController
         requestBody: new OA\RequestBody(
             required: true,
             content: [
-                new OA\MediaType(
-                    mediaType: 'application/json',
-                    schema: new OA\Schema(
-                        properties: [
-                            new OA\Property(property: 'username', description: '用户名', type: 'string', maxLength: 64, example: 'admin'),
-                            new OA\Property(property: 'password', description: '密码', type: 'string', maxLength: 64, example: '123456'),
-                            new OA\Property(property: 'name', description: '名称', type: 'string', example: '测试用户'),
-                            new OA\Property(property: 'status', description: '状态', type: 'integer', example: 0),
-                        ],
-                        type: 'object'
-                    ),
-                )
+                new OA\JsonContent(ref: ExampleUpdateSchema::class)
             ]
         ),
         tags: ['crud'],
@@ -143,22 +117,17 @@ class ExampleSourceController
     )]
     public function update(Request $request, #[OA\PathParameter] int $id): Response
     {
+        $schema = ExampleCreateSchema::create($request->post(), validator());
         $model = Model::findOrFail($id);
-        $data = validator($request->post(), [
-            'username' => 'string|max:64',
-            'password' => 'string|max:64',
-            'name' => 'string',
-            'status' => ['integer', Rule::in(AdminStatus::getValues())],
-        ])->validate();
-        $model->fill($data);
+        $model->fill($schema->toArray());
 
-        if ($model->isDirty('username') && Model::query()->where('username', $data['username'])->whereKeyNot($model->id)->exists()) {
+        if ($model->isDirty('username') && Model::query()->where('username', $model->username)->whereKeyNot($model->id)->exists()) {
             throw new UserSeeException('username 已存在');
         }
 
-        if (isset($data['password']) && $data['password']) {
+        if ($schema->password) {
             // 修改密码才刷新 token
-            $model->password = Component::security()->generatePasswordHash($data['password']);
+            $model->password = Component::security()->generatePasswordHash($schema->password);
             $model->refreshToken();
         } else {
             $model->save();
@@ -208,5 +177,63 @@ class ExampleSourceController
         }
 
         return json_success(Model::find($id));
+    }
+}
+
+#[OA\Schema]
+class ExampleListSearchSchema extends BaseSchema
+{
+    use PaginationTrait;
+
+    #[OA\Property(description: '用户名', example: 'admin')]
+    public ?string $username = null;
+
+    #[OA\Property(description: '状态', example: 0)]
+    public ?int $status = null;
+}
+
+#[OA\Schema(required: ['username', 'password', 'name'])]
+class ExampleCreateSchema extends BaseSchema
+{
+    #[OA\Property(description: '用户名', maxLength: 64, example: 'admin')]
+    public string $username;
+
+    #[OA\Property(description: '密码', maxLength: 64, example: '123456')]
+    public string $password;
+
+    #[OA\Property(description: '名称', example: '测试用户')]
+    public string $name;
+
+    protected function validationExtraRules(): array
+    {
+        return [
+            'username' => 'max:64',
+            'password' => 'max:64',
+        ];
+    }
+}
+
+#[OA\Schema(required: [])]
+class ExampleUpdateSchema extends BaseSchema
+{
+    #[OA\Property(description: '用户名', maxLength: 64, example: 'admin')]
+    public ?string $username = null;
+
+    #[OA\Property(description: '密码', maxLength: 64, example: '123456')]
+    public ?string $password = null;
+
+    #[OA\Property(description: '名称', example: '测试用户')]
+    public ?string $name = null;
+
+    #[OA\Property(description: '状态', example: 0)]
+    public ?int $status = null;
+
+    protected function validationExtraRules(): array
+    {
+        return [
+            'username' => 'max:64',
+            'password' => 'max:64',
+            'status' => [Rule::in(AdminStatus::getValues())],
+        ];
     }
 }
