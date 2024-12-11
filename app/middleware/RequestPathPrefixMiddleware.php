@@ -16,7 +16,7 @@ class RequestPathPrefixMiddleware implements MiddlewareInterface
     public function process(Request $request, callable $handler): Response
     {
         $pathPrefix = '';
-        if ($request instanceof \support\facade\Request) {
+        if ($request instanceof \support\Request) {
             $pathPrefix = $request->pathPrefix();
         }
         if ($pathPrefix) {
@@ -30,7 +30,7 @@ class RequestPathPrefixMiddleware implements MiddlewareInterface
         if ($pathPrefix) {
             // 处理 html 上的静态资源的绝对路劲（添加 pathPrefix）
             $content = $response->rawBody();
-            if (strpos($content, '<html') !== false && strpos($content, '<head') !== false && strpos($content, '<body')!== false) {
+            if (str_contains($content, '<html') && str_contains($content, '<head') && str_contains($content, '<body')) {
                 $pathPrefix = ltrim($pathPrefix, '/');
                 $pattern = '/(href|src)="\/(.*?)\.(css|js|jpg|png|gif|svg|ico)"/';
                 $replacement = '$1="/'.$pathPrefix.'/$2.$3"';

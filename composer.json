@@ -57,20 +57,21 @@
     "webman-tech/debugbar": "^2.2"
   },
   "suggest": {
-    "walkor/webman": "Basic From Version 1.5.5",
     "ext-event": "For better performance",
     "ext-redis": "For redis use",
-    "workbunny/webman-nacos": "For nacos use",
     "ramsey/uuid": "For uuid use",
     "symfony/cache": "For PSR6 cache use"
   },
+  "_comment": [
+    "basic From walkor/webman Version 1.6.8"
+  ],
   "extra": {
     "assets-dir": "public/assets",
     "assets-pkgs": [
       {
         "type": "npm",
         "name": "amis",
-        "version": "2.2.0",
+        "version": "6.7.0",
         "only_files": [
           "sdk/thirds",
           "sdk/sdk.css",
@@ -108,12 +109,8 @@
   "autoload": {
     "psr-4": {
       "app\\": "./app",
-      "support\\facade\\": "./support/facade"
-    },
-    "files": [
-      "./support/helpers.php",
-      "./support/functions.php"
-    ]
+      "support\\": "./support"
+    }
   },
   "scripts": {
     "post-package-install": [
@@ -128,6 +125,9 @@
     "post-install-cmd": [
       "Composer\\Config::disableProcessTimeout",
       "php artisan environment:ci"
+    ],
+    "post-autoload-dump": [
+      "support\\facade\\Composer::postAutoloadDump"
     ],
     "dev-win": [
       "Composer\\Config::disableProcessTimeout",

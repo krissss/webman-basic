@@ -13,11 +13,18 @@
  */
 
 return [
-    'event_loop' => '',
-    'stop_timeout' => 2,
-    'pid_file' => runtime_path() . '/webman.pid',
-    'status_file' => runtime_path() . '/webman.status',
-    'stdout_file' => runtime_path() . '/logs/stdout.log',
-    'log_file' => runtime_path() . '/logs/workerman.log',
-    'max_package_size' => get_env('SERVER_MAX_PACKAGE_SIZE', 10) * 1024 * 1024, // 决定了上传文件的最大值
+    'default' => 'file',
+    'stores' => [
+        'file' => [
+            'driver' => 'file',
+            'path' => runtime_path('cache')
+        ],
+        'redis' => [
+            'driver' => 'redis',
+            'connection' => 'default'
+        ],
+        'array' => [
+            'driver' => 'array'
+        ]
+    ]
 ];

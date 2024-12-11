@@ -1,4 +1,8 @@
 <?php
+/**
+ * 该文件会在 composer autoload 之前载入，可以用于覆盖一些 composer 依赖中通过 files 加载的函数
+ * @see \support\facade\Composer::postAutoloadDump()
+ */
 
 use Illuminate\Contracts\Container\Container as LaravelContainer;
 use Webman\Route;
@@ -92,4 +96,19 @@ function route_url(string $nameOrPath, array $params = []): string
     }
 
     return \request()->pathPrefix() . $route->url($params);
+}
+
+/**
+ * Create url
+ * 覆盖 webman 自带的，支持 pathPrefix
+ * @param string $name
+ * @param ...$parameters
+ * @return string
+ */
+function route(string $name, ...$parameters): string
+{
+    if ($parameters && \is_array(\current($parameters))) {
+        $parameters = \current($parameters);
+    }
+    return route_url($name, $parameters);
 }

@@ -38,9 +38,9 @@ class Monitor
     protected $extensions = [];
 
     /**
-     * @var string
+     * @var array
      */
-    public static $lockFile = __DIR__ . '/../runtime/monitor.lock';
+    protected $loadedFiles = [];
 
     /**
      * Pause monitor
@@ -48,7 +48,7 @@ class Monitor
      */
     public static function pause()
     {
-        file_put_contents(static::$lockFile, time());
+        file_put_contents(static::lockFile(), time());
     }
 
     /**
@@ -58,8 +58,8 @@ class Monitor
     public static function resume(): void
     {
         clearstatcache();
-        if (is_file(static::$lockFile)) {
-            unlink(static::$lockFile);
+        if (is_file(static::lockFile())) {
+            unlink(static::lockFile());
         }
     }
 
@@ -70,7 +70,16 @@ class Monitor
     public static function isPaused(): bool
     {
         clearstatcache();
-        return file_exists(static::$lockFile);
+        return file_exists(static::lockFile());
+    }
+
+    /**
+     * Lock file
+     * @return string
+     */
+    protected static function lockFile(): string
+    {
+        return runtime_path('monitor.lock');
     }
 
     /**
@@ -84,6 +93,12 @@ class Monitor
         static::resume();
         $this->paths = (array)$monitorDir;
         $this->extensions = $monitorExtensions;
+        foreach (get_included_files() as $index => $file) {
+            $this->loadedFiles[$file] = $index;
+            if (strpos($file, 'webman-framework/src/support/App.php')) {
+                break;
+            }
+        }
         if (!Worker::getAllWorkers()) {
             return;
         }
@@ -127,20 +142,24 @@ class Monitor
         }
         $count = 0;
         foreach ($iterator as $file) {
-            $count++;
+            $count ++;
             /** var SplFileInfo $file */
             if (is_dir($file->getRealPath())) {
                 continue;
             }
             // check mtime
             if (in_array($file->getExtension(), $this->extensions, true) && $lastMtime < $file->getMTime()) {
-                $var = 0;
-                exec('"' . PHP_BINARY . '" -l ' . $file, $out, $var);
                 $lastMtime = $file->getMTime();
+                if (DIRECTORY_SEPARATOR === '/' && isset($this->loadedFiles[$file->getRealPath()])) {
+                    echo "$file updated but cannot be reloaded because only auto-loaded files support reload.\n";
+                    continue;
+                }
+                $var = 0;
+                exec('"'.PHP_BINARY . '" -l ' . $file, $out, $var);
                 if ($var) {
                     continue;
                 }
-                echo $file . " update and reload\n";
+                echo $file . " updated and reload\n";
                 // send SIGUSR1 signal to master process for reload
                 if (DIRECTORY_SEPARATOR === '/') {
                     posix_kill(posix_getppid(), SIGUSR1);
@@ -225,9 +244,9 @@ class Monitor
         $unit = strtolower($memoryLimit[strlen($memoryLimit) - 1]);
         if ($unit === 'g') {
             $memoryLimit = 1024 * (int)$memoryLimit;
-        } elseif ($unit === 'm') {
+        } else if ($unit === 'm') {
             $memoryLimit = (int)$memoryLimit;
-        } elseif ($unit === 'k') {
+        } else if ($unit === 'k') {
             $memoryLimit = ((int)$memoryLimit / 1024);
         } else {
             $memoryLimit = ((int)$memoryLimit / (1024 * 1024));
