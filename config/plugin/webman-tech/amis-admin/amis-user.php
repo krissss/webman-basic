@@ -14,6 +14,7 @@ $adminAmis['assets']['js'] = function () use ($adminAmis) {
         'type' => 'script',
         'content' => <<<JS
             window._ADMIN_AMIS_CONFIG = Object.assign(window._ADMIN_AMIS_CONFIG, {
+              localKey: 'USER-X-API-KEY',
               loginApi: '{$loginApi}',
               loginUrl: '{$loginUrl}',
             });

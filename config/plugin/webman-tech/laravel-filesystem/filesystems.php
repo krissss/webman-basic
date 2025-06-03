@@ -1,17 +1,25 @@
 <?php
 
+if (!function_exists('get_env')) {
+    function get_env(string $key, $default = null)
+    {
+        return getenv($key) ?? $default;
+    }
+}
+
 return [
     'default' => 'local',
+    'cloud' => 's3',
     'disks' => [
         'local' => [
             'driver' => 'local',
-            'root' => storage_path() . '/app',
+            'root' => storage_path('app'),
             'throw' => false,
         ],
         'public' => [
             'driver' => 'local',
-            'root' => storage_path() . '/app/public',
-            'url' => get_env('APP_URL') . '/storage',
+            'root' => storage_path('app/public'),
+            'url' => get_env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -28,6 +36,6 @@ return [
         ],
     ],
     'links' => [
-        public_path() . '/storage' => storage_path() . '/app/public',
+        public_path('storage') => storage_path('app/public'),
     ],
 ];

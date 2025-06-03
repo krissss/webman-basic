@@ -7,7 +7,7 @@ use Illuminate\Http\Client\PendingRequest;
 /**
  * @method static PendingRequest httpbin()
  */
-class Http extends \WebmanTech\LaravelHttpClient\Facades\Http
+class Http extends \WebmanTech\LaravelHttp\Facades\Http
 {
     public static function getAllMacros(): array
     {

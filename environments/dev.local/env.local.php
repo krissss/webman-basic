@@ -19,6 +19,7 @@ put_env('APP_DEBUG', true);
 
 // server
 put_env('SERVER_LISTEN', 'http://0.0.0.0:8787');
+put_env('SERVER_COUNT', 2);
 
 // redis
 put_env('REDIS_HOST', '127.0.0.1');

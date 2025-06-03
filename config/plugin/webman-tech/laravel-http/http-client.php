@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'enable' => true,
     /**
      * 日志相关
      */
@@ -27,7 +26,7 @@ return [
         /**
          * 自定义日志
          *
-         * 返回 WebmanTech\LaravelHttpClient\Guzzle\Log\CustomLogInterface 时使用 @see WebmanTech\LaravelHttpClient\Guzzle\Log\Middleware::__invoke()
+         * 返回 WebmanTech\LaravelHttp\Guzzle\Log\CustomLogInterface 时使用 @see WebmanTech\LaravelHttp\Guzzle\Log\Middleware::__invoke()
          * 返回 null 时使用 guzzle 的 @see GuzzleHttp\Middleware::log()
          * 返回 callable 时使用自定义 middleware @link https://docs.guzzlephp.org/en/stable/handlers-and-middleware.html#middleware
          *
@@ -35,23 +34,17 @@ return [
          */
         'custom' => function (array $config) {
             /**
-             * @see \WebmanTech\LaravelHttpClient\Guzzle\Log\CustomLog::$config
+             * @see \WebmanTech\LaravelHttp\Guzzle\Log\CustomLog::$config
              */
             $config = [
-                'filter_all' => get_env('HTTP_CLIENT_LOG_FILTER_ALL', false),
-                'filter_2xx' => get_env('HTTP_CLIENT_LOG_FILTER_2XX', true),
-                'filter_3xx' => get_env('HTTP_CLIENT_LOG_FILTER_3XX', true),
-                'filter_4xx' => get_env('HTTP_CLIENT_LOG_FILTER_4XX', true),
-                'filter_5xx' => get_env('HTTP_CLIENT_LOG_FILTER_5XX', true),
-                'filter_slow' => get_env('HTTP_CLIENT_LOG_FILTER_SLOW', 1.0),
                 'log_channel' => $config['channel'],
             ];
-            return new \WebmanTech\LaravelHttpClient\Guzzle\Log\CustomLog($config);
-        },
+            return new \WebmanTech\LaravelHttp\Guzzle\Log\CustomLog($config);
+        }
     ],
     /**
      * guzzle 全局的 options
-     * @link https://laravel.com/docs/8.x/http-client#guzzle-options
+     * @link https://laravel.com/docs/http-client#guzzle-options
      */
     'guzzle' => [
         'debug' => false,
@@ -59,7 +52,7 @@ return [
     ],
     /**
      * 扩展 Http 功能，一般可用于快速定义 api 信息
-     * @link https://laravel.com/docs/8.x/http-client#macros
+     * @link https://laravel.com/docs/http-client#macros
      */
     'macros' => \support\facade\Http::getAllMacros(),
 ];

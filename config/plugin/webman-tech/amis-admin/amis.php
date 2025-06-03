@@ -12,8 +12,8 @@ use WebmanTech\AmisAdmin\Validator\LaravelValidator;
  * 建议生产环境使用指定的版本，否则会存在因版本变更引起的问题
  * 更加建议使用公司自己的 cdn，或者将静态资源下载后放到本地，提交速度.
  */
-// $amisAssetBaseUrl = 'https://unpkg.com/amis@2.2.0/sdk/';
-$amisAssetBaseUrl = '/assets/amis@2.2.0/sdk/';
+// $amisAssetBaseUrl = 'https://unpkg.com/amis@6.7.0/sdk/';
+$amisAssetBaseUrl = '/assets/amis@6.7.0/sdk/';
 
 return [
     /*

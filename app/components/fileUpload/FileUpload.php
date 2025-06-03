@@ -7,7 +7,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Validation\ValidationException;
 use Webman\Http\Request;
-use WebmanTech\Polyfill\LaravelRequest;
+use WebmanTech\LaravelHttp\Facades\LaravelRequest;
 
 /**
  * 文件上传.
@@ -63,7 +63,7 @@ class FileUpload
     public function upload(): string
     {
         // 验证
-        $laravelRequest = LaravelRequest::wrapper($this->request);
+        $laravelRequest = LaravelRequest::createFromWebman($this->request);
         $this->validateFile($laravelRequest);
         // 构造 path
         $this->uploadedFile = $file = $laravelRequest->file($this->config['fileAttribute']);
@@ -87,7 +87,7 @@ class FileUpload
     /**
      * @throws ValidationException
      */
-    protected function validateFile(LaravelRequest $request): void
+    protected function validateFile(\Illuminate\Http\Request $request): void
     {
         if ($this->config['rules']) {
             validator($request->all(), [

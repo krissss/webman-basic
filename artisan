@@ -9,7 +9,9 @@ require __DIR__.'/vendor/autoload.php';
 
 // same as webman/console
 if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', 'connections'])) {
-    require_once __DIR__ . '/support/bootstrap.php';
+    if (file_exists(__DIR__ . '/support/bootstrap.php')) {
+        require_once __DIR__ . '/support/bootstrap.php';
+    }
 } else {
     if (class_exists('Support\App')) {
         Support\App::loadAllConfig(['route']);

@@ -9,8 +9,8 @@ use Illuminate\Validation\ValidationException;
 use support\Cache;
 use support\Log;
 use WebmanTech\AmisAdmin\Exceptions\ValidationException as AmisValidationException;
-use WebmanTech\Polyfill\LaravelRequest;
-use WebmanTech\Polyfill\LaravelUploadedFile;
+use WebmanTech\LaravelHttp\Facades\LaravelRequest;
+use WebmanTech\LaravelHttp\Facades\LaravelUploadedFile;
 
 /**
  * 分块上传.
@@ -65,7 +65,7 @@ class ChunkFileUpload extends FileUpload
      */
     protected function handleUpload(): array
     {
-        $laravelRequest = LaravelRequest::wrapper($this->request);
+        $laravelRequest = LaravelRequest::createFromWebman($this->request);
         $data = validator($laravelRequest->all(), [
             'uploadId' => 'required|string',
             'key' => 'required|string',

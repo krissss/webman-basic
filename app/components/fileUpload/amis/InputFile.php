@@ -3,7 +3,7 @@
 namespace app\components\fileUpload\amis;
 
 use WebmanTech\AmisAdmin\Amis\Component;
-use WebmanTech\Polyfill\LaravelUploadedFile;
+use WebmanTech\LaravelHttp\Facades\LaravelUploadedFile;
 
 class InputFile extends Component
 {

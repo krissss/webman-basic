@@ -16,7 +16,7 @@ class InitDataCommand extends Command
     /**
      * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         // 此处增加的逻辑需要保证可以重复执行而不出错
         $this->initAdmin();

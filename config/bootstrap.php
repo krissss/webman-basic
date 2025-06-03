@@ -14,7 +14,6 @@
 
 return [
     support\bootstrap\Session::class,
-    support\bootstrap\LaravelDb::class,
 
     app\bootstrap\EloquentLog::class,
     app\bootstrap\Paginator::class,

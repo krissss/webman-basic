@@ -24,13 +24,13 @@ class Request extends \Webman\Http\Request
      * host 支持 x-forwarded
      * @inheritDoc
      */
-    public function host($without_port = false): string
+    public function host(bool $withoutPort = false): string
     {
         if ($host = $this->header('x-forwarded-host')) {
             if (str_contains($host, ',')) {
                 $host = explode(',', $host)[0];
             }
-            if ($without_port) {
+            if ($withoutPort) {
                 return $host;
             }
             if ($port = $this->header('x-forwarded-port')) {
@@ -44,7 +44,7 @@ class Request extends \Webman\Http\Request
             }
             return $host;
         }
-        return parent::host($without_port);
+        return parent::host($withoutPort);
     }
 
     /**

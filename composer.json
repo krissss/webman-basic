@@ -18,42 +18,29 @@
   "require": {
     "php": ">=8.2",
     "ext-json": "*",
-    "illuminate/container": "^10.0",
-    "illuminate/database": "^10.0",
-    "illuminate/events": "^10.0",
-    "illuminate/http": "^10.0",
-    "illuminate/pagination": "^10.0",
-    "illuminate/redis": "^10.0",
     "kriss/composer-assets-plugin": "^1.0",
     "kriss/multi-process": "^1.2",
     "kriss/php-notification": "^1.2",
     "robmorgan/phinx": "^0.16.2",
-    "symfony/process": "^6.0",
-    "symfony/translation": "^6.0",
+    "symfony/translation": "^7.0",
     "webman-tech/amis-admin": "^2.2",
     "webman-tech/auth": "^2.0",
     "webman-tech/crontab-task": "^1.0",
     "webman-tech/docker": "^2.3",
-    "webman-tech/laravel-cache": "^1.2",
-    "webman-tech/laravel-console": "^1.0",
-    "webman-tech/laravel-filesystem": "^3.1",
-    "webman-tech/laravel-http-client": "^1.1",
-    "webman-tech/laravel-translation": "^1.1",
-    "webman-tech/laravel-validation": "^1.2",
+    "webman-tech/laravel-monorepo": "11.x-dev",
     "webman-tech/log-reader": "^2.0",
     "webman-tech/logger": "^2.0",
-    "webman-tech/polyfill": "^2.0",
     "webman-tech/swagger": "^1.5",
-    "webman/console": "^1.3",
+    "webman/console": "^2.1",
     "webman/event": "^1.0",
-    "webman/multi-session": "^1.0",
-    "webman/redis-queue": "^1.2",
-    "workerman/webman-framework": "^1.5",
+    "webman/multi-session": "^2.1",
+    "webman/redis-queue": "^2.1",
+    "workerman/webman-framework": "^2.1",
     "yiisoft/json": "^1.0",
     "yiisoft/strings": "^2.0"
   },
   "require-dev": {
-    "symfony/var-dumper": "^6.0",
+    "symfony/var-dumper": "^7.0",
     "webman-tech/debugbar": "^2.2"
   },
   "suggest": {
@@ -63,7 +50,7 @@
     "symfony/cache": "For PSR6 cache use"
   },
   "_comment": [
-    "basic From walkor/webman Version 1.6.8"
+    "basic From walkor/webman Version 2.1.0"
   ],
   "extra": {
     "assets-dir": "public/assets",
@@ -136,5 +123,9 @@
     "phinx": "phinx"
   },
   "repositories": {
+    "webman-tech/laravel-monorepo": {
+      "type": "path",
+      "url": "~/projects/github.com/webman-tech/laravel-monorepo"
+    }
   }
 }

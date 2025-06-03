@@ -1,7 +1,16 @@
 <?php
 
+use Illuminate\Support\Str;
+
+if (!function_exists('get_env')) {
+    function get_env(string $key, $default = null)
+    {
+        return $_ENV[$key] ?? $default;
+    }
+}
+
 /**
- * @link https://github.com/laravel/laravel/blob/8.x/config/cache.php
+ * @link https://github.com/laravel/laravel/blob/11.x/config/cache.php
  */
 return [
     'default' => get_env('CACHE_ADAPTER', 'file'),
@@ -45,7 +54,6 @@ return [
             'driver' => 'redis',
             'connection' => 'cache',
             'lock_connection' => 'cache_lock',
-            'limiter_connection' => 'cache_limiter',
         ],
         'dynamodb' => [
             'driver' => 'dynamodb',
@@ -59,7 +67,8 @@ return [
             'driver' => 'octane',
         ],
     ],
+    // 一般不需要配置 prefix，比如 redis 下，实际已经在 redis 下配置过了
+    'prefix' => '',
     //'prefix' => get_env('CACHE_PREFIX', Str::slug(config('app.name', 'webman'), '_').'_cache'),
-    'prefix' => '', // 已经通过 redis.config 下的 cache 限定 prefix
     'extend' => null,
 ];
