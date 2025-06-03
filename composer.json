@@ -50,7 +50,7 @@
     "symfony/cache": "For PSR6 cache use"
   },
   "_comment": [
-    "basic From walkor/webman Version 2.1.0"
+    "basic From walkor/webman Version 2.1.6"
   ],
   "extra": {
     "assets-dir": "public/assets",
