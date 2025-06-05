@@ -15,6 +15,8 @@
       "role": "Maintainer"
     }
   ],
+  "repositories": {
+  },
   "require": {
     "php": ">=8.2",
     "ext-json": "*",
@@ -27,7 +29,7 @@
     "webman-tech/auth": "^2.0",
     "webman-tech/crontab-task": "^1.0",
     "webman-tech/docker": "^2.3",
-    "webman-tech/laravel-monorepo": "11.x-dev",
+    "webman-tech/laravel-monorepo": "^12.0",
     "webman-tech/log-reader": "^2.0",
     "webman-tech/logger": "^2.0",
     "webman-tech/swagger": "^1.5",
@@ -121,11 +123,5 @@
       "php windows.php"
     ],
     "phinx": "phinx"
-  },
-  "repositories": {
-    "webman-tech/laravel-monorepo": {
-      "type": "path",
-      "url": "~/projects/github.com/webman-tech/laravel-monorepo"
-    }
   }
 }
