@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e8d94d0c30ead957ece203e231b3dd8",
+    "content-hash": "a1db84f7372bfd6910c5d7575b8651d4",
     "packages": [
         {
             "name": "brick/math",
@@ -2967,42 +2967,43 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.10.0",
+            "version": "3.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "5cf826f2991858b54d5c3809bee745560a1042a7"
+                "reference": "10d85740180ecba7896c87e06a166e0c95a0e3b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5cf826f2991858b54d5c3809bee745560a1042a7",
-                "reference": "5cf826f2991858b54d5c3809bee745560a1042a7",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/10d85740180ecba7896c87e06a166e0c95a0e3b6",
+                "reference": "10d85740180ecba7896c87e06a166e0c95a0e3b6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2",
-                "psr/log": "^1.0.1 || ^2.0 || ^3.0"
+                "php": ">=8.1",
+                "psr/log": "^2.0 || ^3.0"
             },
             "provide": {
-                "psr/log-implementation": "1.0.0 || 2.0.0 || 3.0.0"
+                "psr/log-implementation": "3.0.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
+                "aws/aws-sdk-php": "^3.0",
                 "doctrine/couchdb": "~1.0@dev",
                 "elasticsearch/elasticsearch": "^7 || ^8",
                 "ext-json": "*",
-                "graylog2/gelf-php": "^1.4.2 || ^2@dev",
-                "guzzlehttp/guzzle": "^7.4",
+                "graylog2/gelf-php": "^1.4.2 || ^2.0",
+                "guzzlehttp/guzzle": "^7.4.5",
                 "guzzlehttp/psr7": "^2.2",
                 "mongodb/mongodb": "^1.8",
                 "php-amqplib/php-amqplib": "~2.4 || ^3",
-                "phpspec/prophecy": "^1.15",
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^8.5.38 || ^9.6.19",
-                "predis/predis": "^1.1 || ^2.0",
-                "rollbar/rollbar": "^1.3 || ^2 || ^3",
-                "ruflin/elastica": "^7",
-                "swiftmailer/swiftmailer": "^5.3|^6.0",
+                "php-console/php-console": "^3.1.8",
+                "phpstan/phpstan": "^2",
+                "phpstan/phpstan-deprecation-rules": "^2",
+                "phpstan/phpstan-strict-rules": "^2",
+                "phpunit/phpunit": "^10.5.17 || ^11.0.7",
+                "predis/predis": "^1.1 || ^2",
+                "rollbar/rollbar": "^4.0",
+                "ruflin/elastica": "^7 || ^8",
                 "symfony/mailer": "^5.4 || ^6",
                 "symfony/mime": "^5.4 || ^6"
             },
@@ -3025,7 +3026,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.x-dev"
+                    "dev-main": "3.x-dev"
                 }
             },
             "autoload": {
@@ -3053,7 +3054,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.10.0"
+                "source": "https://github.com/Seldaek/monolog/tree/3.9.0"
             },
             "funding": [
                 {
@@ -3065,7 +3066,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-12T12:43:37+00:00"
+            "time": "2025-03-24T10:02:05+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -3224,6 +3225,64 @@
             "time": "2018-02-13T20:26:39+00:00"
         },
         {
+            "name": "nikic/php-parser",
+            "version": "v5.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ae59794362fe85e051a58ad36b289443f57be7a9",
+                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "ext-tokenizer": "*",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "ircmaxell/php-yacc": "^0.0.7",
+                "phpunit/phpunit": "^9.0"
+            },
+            "bin": [
+                "bin/php-parse"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpParser\\": "lib/PhpParser"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/nikic/PHP-Parser/issues",
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.5.0"
+            },
+            "time": "2025-05-31T08:24:38+00:00"
+        },
+        {
             "name": "nunomaduro/termwind",
             "version": "v2.3.1",
             "source": {
@@ -3309,6 +3368,79 @@
                 }
             ],
             "time": "2025-05-08T08:14:37+00:00"
+        },
+        {
+            "name": "php-debugbar/php-debugbar",
+            "version": "v2.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-debugbar/php-debugbar.git",
+                "reference": "cd618a4181186ea627903863164394ed83de097b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-debugbar/php-debugbar/zipball/cd618a4181186ea627903863164394ed83de097b",
+                "reference": "cd618a4181186ea627903863164394ed83de097b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8",
+                "psr/log": "^1|^2|^3",
+                "symfony/var-dumper": "^4|^5|^6|^7"
+            },
+            "replace": {
+                "maximebf/debugbar": "self.version"
+            },
+            "require-dev": {
+                "dbrekelmans/bdi": "^1",
+                "phpunit/phpunit": "^8|^9",
+                "symfony/panther": "^1|^2.1",
+                "twig/twig": "^1.38|^2.7|^3.0"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DebugBar\\": "src/DebugBar/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Bouroumeau-Fuseau",
+                    "email": "maxime.bouroumeau@gmail.com",
+                    "homepage": "http://maximebf.com"
+                },
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Debug bar in the browser for php application",
+            "homepage": "https://github.com/php-debugbar/php-debugbar",
+            "keywords": [
+                "debug",
+                "debug bar",
+                "debugbar",
+                "dev"
+            ],
+            "support": {
+                "issues": "https://github.com/php-debugbar/php-debugbar/issues",
+                "source": "https://github.com/php-debugbar/php-debugbar/tree/v2.2.2"
+            },
+            "time": "2025-05-13T14:37:23+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -6076,129 +6208,76 @@
             "time": "2024-11-21T01:49:47+00:00"
         },
         {
-            "name": "webman-tech/amis-admin",
-            "version": "v2.3.3",
+            "name": "webman-tech/components-monorepo",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webman-tech/amis-admin.git",
-                "reference": "94d0aa2d07ca66be28edb27544b42b61ca123c6d"
+                "url": "https://github.com/webman-tech/components-monorepo.git",
+                "reference": "0c4fce48d3fd1712aa3ec9cccecdbaae8758b163"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/amis-admin/zipball/94d0aa2d07ca66be28edb27544b42b61ca123c6d",
-                "reference": "94d0aa2d07ca66be28edb27544b42b61ca123c6d",
+                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/0c4fce48d3fd1712aa3ec9cccecdbaae8758b163",
+                "reference": "0c4fce48d3fd1712aa3ec9cccecdbaae8758b163",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
-                "php": "^7.4||^8.0"
+                "kriss/log-reader": "^1.3",
+                "monolog/monolog": "^3.0",
+                "php": "^8.2",
+                "php-debugbar/php-debugbar": "^2.0",
+                "workerman/crontab": "^1.0",
+                "zircote/swagger-php": "^5.0"
+            },
+            "replace": {
+                "webman-tech/amis-admin": "self.version",
+                "webman-tech/auth": "self.version",
+                "webman-tech/crontab-task": "self.version",
+                "webman-tech/debugbar": "self.version",
+                "webman-tech/log-reader": "self.version",
+                "webman-tech/logger": "self.version",
+                "webman-tech/swagger": "self.version"
             },
             "require-dev": {
-                "illuminate/database": "^8.0|^9.0|^10.0|^11.0",
-                "illuminate/pagination": "^8.0|^9.0|^10.0|^11.0",
-                "illuminate/validation": "^8.0|^9.0|^10.0|^11.0",
-                "pestphp/pest": "^1.23|^2.0",
-                "symfony/var-dumper": "^5.4|^6.0|^7.0",
-                "webman-tech/polyfill": "^1.0|^2.0",
-                "workerman/webman-framework": "^1.5|^2.0"
+                "ergebnis/composer-normalize": "^2.47",
+                "pestphp/pest": "^3.8",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-webmozart-assert": "^2.0",
+                "rector/rector": "^2.0",
+                "symfony/var-dumper": "^7.2",
+                "tinywan/jwt": "^1.11",
+                "webman-tech/laravel-monorepo": "^12.0",
+                "workerman/webman-framework": "^2.1"
             },
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/helper.php"
+                    "packages/amis-admin/src/helper.php"
                 ],
                 "psr-4": {
-                    "WebmanTech\\AmisAdmin\\": "src"
+                    "WebmanTech\\Auth\\": "packages/auth/src",
+                    "WebmanTech\\Logger\\": "packages/logger/src",
+                    "WebmanTech\\Swagger\\": "packages/swagger/src",
+                    "WebmanTech\\Debugbar\\": "packages/debugbar/src",
+                    "WebmanTech\\AmisAdmin\\": "packages/amis-admin/src",
+                    "WebmanTech\\LogReader\\": "packages/log-reader/src",
+                    "WebmanTech\\CrontabTask\\": "packages/crontab-task/src",
+                    "WebmanTech\\ComponentsMonorepo\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Webman plugin webman-tech/amis-admin",
-            "support": {
-                "issues": "https://github.com/webman-tech/amis-admin/issues",
-                "source": "https://github.com/webman-tech/amis-admin/tree/v2.3.3"
-            },
-            "time": "2025-03-29T06:35:54+00:00"
-        },
-        {
-            "name": "webman-tech/auth",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webman-tech/auth.git",
-                "reference": "8d68fe00cb2a09c23d99da5d552937b8cf26c01b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/auth/zipball/8d68fe00cb2a09c23d99da5d552937b8cf26c01b",
-                "reference": "8d68fe00cb2a09c23d99da5d552937b8cf26c01b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "tinywan/jwt": "^1.2",
-                "workerman/webman-framework": "^1.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WebmanTech\\Auth\\": "src"
+            "authors": [
+                {
+                    "name": "kriss",
+                    "email": "462679766@qq.com"
                 }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
             ],
-            "description": "webman auth plugin",
+            "description": "webman components monorepo",
             "support": {
-                "issues": "https://github.com/webman-tech/auth/issues",
-                "source": "https://github.com/webman-tech/auth/tree/v2.0.1"
+                "issues": "https://github.com/webman-tech/components-monorepo/issues",
+                "source": "https://github.com/webman-tech/components-monorepo/tree/v1.0.0"
             },
-            "time": "2023-05-24T07:02:17+00:00"
-        },
-        {
-            "name": "webman-tech/crontab-task",
-            "version": "v1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webman-tech/crontab-task.git",
-                "reference": "0c69ba59ebff66667b8d14c5ae6d664241bb0a10"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/crontab-task/zipball/0c69ba59ebff66667b8d14c5ae6d664241bb0a10",
-                "reference": "0c69ba59ebff66667b8d14c5ae6d664241bb0a10",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4",
-                "workerman/crontab": "^1.0"
-            },
-            "require-dev": {
-                "monolog/monolog": ">=2.0",
-                "webman/console": "^1.2",
-                "workerman/webman-framework": "^1.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WebmanTech\\CrontabTask\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Webman plugin webman-tech/crontab-task",
-            "support": {
-                "issues": "https://github.com/webman-tech/crontab-task/issues",
-                "source": "https://github.com/webman-tech/crontab-task/tree/v1.2.0"
-            },
-            "time": "2024-01-23T07:35:51+00:00"
+            "time": "2025-06-06T03:51:55+00:00"
         },
         {
             "name": "webman-tech/docker",
@@ -6317,123 +6396,6 @@
                 "source": "https://github.com/webman-tech/laravel-monorepo/tree/12.0.0"
             },
             "time": "2025-06-04T03:17:46+00:00"
-        },
-        {
-            "name": "webman-tech/log-reader",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webman-tech/log-reader.git",
-                "reference": "5aca98261b20ecf166863665efe7d4dc619c1265"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/log-reader/zipball/5aca98261b20ecf166863665efe7d4dc619c1265",
-                "reference": "5aca98261b20ecf166863665efe7d4dc619c1265",
-                "shasum": ""
-            },
-            "require": {
-                "kriss/log-reader": "^1.3",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "workerman/webman-framework": "^1.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WebmanTech\\LogReader\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Webman plugin webman-tech/log-reader",
-            "support": {
-                "issues": "https://github.com/webman-tech/log-reader/issues",
-                "source": "https://github.com/webman-tech/log-reader/tree/v2.0.1"
-            },
-            "time": "2024-01-10T09:28:36+00:00"
-        },
-        {
-            "name": "webman-tech/logger",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webman-tech/logger.git",
-                "reference": "31ca527b5b767ab1ddf31a709c7f0bea35f0aae0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/logger/zipball/31ca527b5b767ab1ddf31a709c7f0bea35f0aae0",
-                "reference": "31ca527b5b767ab1ddf31a709c7f0bea35f0aae0",
-                "shasum": ""
-            },
-            "require": {
-                "monolog/monolog": "^2.6",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "workerman/webman-framework": "^1.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WebmanTech\\Logger\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "webman logger plugin",
-            "support": {
-                "issues": "https://github.com/webman-tech/logger/issues",
-                "source": "https://github.com/webman-tech/logger/tree/v2.0.1"
-            },
-            "time": "2024-08-07T11:36:36+00:00"
-        },
-        {
-            "name": "webman-tech/swagger",
-            "version": "v1.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webman-tech/swagger.git",
-                "reference": "28a65d0ba0da3452b7e0b021a8670cae89ef4cf3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/swagger/zipball/28a65d0ba0da3452b7e0b021a8670cae89ef4cf3",
-                "reference": "28a65d0ba0da3452b7e0b021a8670cae89ef4cf3",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": ">=7.2",
-                "zircote/swagger-php": "^4.8"
-            },
-            "require-dev": {
-                "illuminate/validation": ">=5.4",
-                "pestphp/pest": "^1.23||^2.34||^3.4",
-                "workerman/webman-framework": "^1.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WebmanTech\\Swagger\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Webman plugin webman-tech/swagger",
-            "support": {
-                "issues": "https://github.com/webman-tech/swagger/issues",
-                "source": "https://github.com/webman-tech/swagger/tree/v1.5.1"
-            },
-            "time": "2024-10-25T08:28:13+00:00"
         },
         {
             "name": "webman/console",
@@ -7092,36 +7054,41 @@
         },
         {
             "name": "zircote/swagger-php",
-            "version": "4.11.1",
+            "version": "5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zircote/swagger-php.git",
-                "reference": "7df10e8ec47db07c031db317a25bef962b4e5de1"
+                "reference": "b8ba6bd99805c0ae09a38d1b26c1c92820509bd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/7df10e8ec47db07c031db317a25bef962b4e5de1",
-                "reference": "7df10e8ec47db07c031db317a25bef962b4e5de1",
+                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/b8ba6bd99805c0ae09a38d1b26c1c92820509bd0",
+                "reference": "b8ba6bd99805c0ae09a38d1b26c1c92820509bd0",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": ">=7.2",
+                "nikic/php-parser": "^4.19 || ^5.0",
+                "php": ">=7.4",
                 "psr/log": "^1.1 || ^2.0 || ^3.0",
                 "symfony/deprecation-contracts": "^2 || ^3",
-                "symfony/finder": ">=2.2",
-                "symfony/yaml": ">=3.3"
+                "symfony/finder": "^5.0 || ^6.0 || ^7.0",
+                "symfony/yaml": "^5.0 || ^6.0 || ^7.0"
+            },
+            "conflict": {
+                "symfony/process": ">=6, <6.4.14"
             },
             "require-dev": {
                 "composer/package-versions-deprecated": "^1.11",
-                "doctrine/annotations": "^1.7 || ^2.0",
-                "friendsofphp/php-cs-fixer": "^2.17 || 3.62.0",
-                "phpstan/phpstan": "^1.6",
-                "phpunit/phpunit": ">=8",
-                "vimeo/psalm": "^4.23"
+                "doctrine/annotations": "^2.0",
+                "friendsofphp/php-cs-fixer": "^3.62.0",
+                "phpstan/phpstan": "^1.6 || ^2.0",
+                "phpunit/phpunit": "^9.0",
+                "rector/rector": "^1.0 || ^2.0",
+                "vimeo/psalm": "^4.30 || ^5.0"
             },
             "suggest": {
-                "doctrine/annotations": "^1.7 || ^2.0"
+                "doctrine/annotations": "^2.0"
             },
             "bin": [
                 "bin/openapi"
@@ -7129,7 +7096,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.x-dev"
+                    "dev-master": "5.x-dev"
                 }
             },
             "autoload": {
@@ -7157,8 +7124,8 @@
                     "homepage": "https://radebatz.net"
                 }
             ],
-            "description": "swagger-php - Generate interactive documentation for your RESTful API using phpdoc annotations",
-            "homepage": "https://github.com/zircote/swagger-php/",
+            "description": "Generate interactive documentation for your RESTful API using PHP attributes (preferred) or PHPDoc annotations",
+            "homepage": "https://github.com/zircote/swagger-php",
             "keywords": [
                 "api",
                 "json",
@@ -7167,125 +7134,12 @@
             ],
             "support": {
                 "issues": "https://github.com/zircote/swagger-php/issues",
-                "source": "https://github.com/zircote/swagger-php/tree/4.11.1"
+                "source": "https://github.com/zircote/swagger-php/tree/5.1.3"
             },
-            "time": "2024-10-15T19:20:02+00:00"
+            "time": "2025-05-20T03:35:10+00:00"
         }
     ],
-    "packages-dev": [
-        {
-            "name": "maximebf/debugbar",
-            "version": "v1.23.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-debugbar/php-debugbar.git",
-                "reference": "4b3d5f1afe09a7db5a9d3282890f49f6176d6542"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-debugbar/php-debugbar/zipball/4b3d5f1afe09a7db5a9d3282890f49f6176d6542",
-                "reference": "4b3d5f1afe09a7db5a9d3282890f49f6176d6542",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2|^8",
-                "psr/log": "^1|^2|^3",
-                "symfony/var-dumper": "^4|^5|^6|^7"
-            },
-            "require-dev": {
-                "dbrekelmans/bdi": "^1",
-                "phpunit/phpunit": "^8|^9",
-                "symfony/panther": "^1|^2.1",
-                "twig/twig": "^1.38|^2.7|^3.0"
-            },
-            "suggest": {
-                "kriswallsmith/assetic": "The best way to manage assets",
-                "monolog/monolog": "Log using Monolog",
-                "predis/predis": "Redis storage"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.23-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "DebugBar\\": "src/DebugBar/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maxime Bouroumeau-Fuseau",
-                    "email": "maxime.bouroumeau@gmail.com",
-                    "homepage": "http://maximebf.com"
-                },
-                {
-                    "name": "Barry vd. Heuvel",
-                    "email": "barryvdh@gmail.com"
-                }
-            ],
-            "description": "Debug bar in the browser for php application",
-            "homepage": "https://github.com/maximebf/php-debugbar",
-            "keywords": [
-                "debug",
-                "debugbar"
-            ],
-            "support": {
-                "issues": "https://github.com/php-debugbar/php-debugbar/issues",
-                "source": "https://github.com/php-debugbar/php-debugbar/tree/v1.23.6"
-            },
-            "abandoned": "php-debugbar/php-debugbar",
-            "time": "2025-02-13T12:22:36+00:00"
-        },
-        {
-            "name": "webman-tech/debugbar",
-            "version": "v2.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webman-tech/debugbar.git",
-                "reference": "032171f0c0f021a580837c161558a3f15adda1ff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/debugbar/zipball/032171f0c0f021a580837c161558a3f15adda1ff",
-                "reference": "032171f0c0f021a580837c161558a3f15adda1ff",
-                "shasum": ""
-            },
-            "require": {
-                "maximebf/debugbar": "^1.18",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "illuminate/database": "^8.83",
-                "illuminate/events": "^8.83",
-                "illuminate/redis": "^8.83",
-                "symfony/finder": "^5.4",
-                "topthink/think-orm": "^2.0",
-                "workerman/webman-framework": "^1.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WebmanTech\\Debugbar\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Webman plugin webman-tech/debugbar",
-            "support": {
-                "issues": "https://github.com/webman-tech/debugbar/issues",
-                "source": "https://github.com/webman-tech/debugbar/tree/v2.2.2"
-            },
-            "time": "2024-03-19T13:38:52+00:00"
-        }
-    ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {},

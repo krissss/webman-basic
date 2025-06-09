@@ -25,14 +25,9 @@
     "kriss/php-notification": "^1.2",
     "robmorgan/phinx": "^0.16.2",
     "symfony/translation": "^7.0",
-    "webman-tech/amis-admin": "^2.2",
-    "webman-tech/auth": "^2.0",
-    "webman-tech/crontab-task": "^1.0",
+    "webman-tech/components-monorepo": "^1.0",
     "webman-tech/docker": "^2.3",
     "webman-tech/laravel-monorepo": "^12.0",
-    "webman-tech/log-reader": "^2.0",
-    "webman-tech/logger": "^2.0",
-    "webman-tech/swagger": "^1.5",
     "webman/console": "^2.1",
     "webman/event": "^1.0",
     "webman/multi-session": "^2.1",
@@ -42,8 +37,7 @@
     "yiisoft/strings": "^2.0"
   },
   "require-dev": {
-    "symfony/var-dumper": "^7.0",
-    "webman-tech/debugbar": "^2.2"
+    "symfony/var-dumper": "^7.0"
   },
   "suggest": {
     "ext-event": "For better performance",
