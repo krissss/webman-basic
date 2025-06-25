@@ -9,7 +9,7 @@ use WebmanTech\Auth\Interfaces\IdentityInterface;
 use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
 
 /**
- * app\model\Admin.
+ * app\model\Admin
  *
  * @property int $id (主键)
  * @property string $username 用户名
@@ -19,7 +19,9 @@ use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
  * @property int $status 状态
  * @property \Illuminate\Support\Carbon $created_at 创建时间
  * @property \Illuminate\Support\Carbon $updated_at 修改时间
- * @property \Illuminate\Support\Carbon|null $deleted_at 删除时间
+ * @property string|null $deleted_at 删除时间
+ *
+ * others
  */
 class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {

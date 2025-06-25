@@ -9,16 +9,20 @@ use WebmanTech\Auth\Interfaces\IdentityInterface;
 use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
 
 /**
+ * app\model\User
+ *
  * @property int $id (主键)
  * @property string $username 用户名
  * @property string $password 密码
  * @property string $name 名称
- * @property string $access_token Access Token
- * @property string $api_token Api Token
+ * @property string|null $access_token Access Token
+ * @property string|null $api_token Api Token
  * @property int $status 状态
- * @property mixed $created_at 创建时间
- * @property mixed $updated_at 修改时间
- * @property mixed $deleted_at 删除时间
+ * @property \Illuminate\Support\Carbon $created_at 创建时间
+ * @property \Illuminate\Support\Carbon $updated_at 修改时间
+ * @property string|null $deleted_at 删除时间
+ *
+ * others
  */
 class User extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {
