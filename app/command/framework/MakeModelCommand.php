@@ -10,7 +10,7 @@ class MakeModelCommand extends Command
 {
     use ModelClassTrait;
 
-    protected $signature = 'make:model ' . self::SIGNATURE_MODEL_CLASS. ' {tableName : 表名：product}';
+    protected $signature = 'make:model ' . self::SIGNATURE_MODEL_CLASS . ' {tableName : 表名：product}';
 
     public function handle()
     {
@@ -20,9 +20,9 @@ class MakeModelCommand extends Command
         }
         $tableName = $this->argument('tableName');
 
-        $classInfo = $this->getModelClassInfo($modelClass);
+        $classInfo = $this->getClassInfo($modelClass);
 
-        $content = strtr($this->getTemplate($modelClass), [
+        $content = strtr($this->getTemplate(), [
             '{{namespace}}' => $classInfo['namespace'],
             '{{class}}' => $classInfo['className'],
             '{{tableName}}' => $tableName,
@@ -51,21 +51,21 @@ class MakeModelCommand extends Command
     protected function getTemplate(): string
     {
         return <<<EOL
-            <?php
+<?php
 
-            namespace {{namespace}};
+namespace {{namespace}};
 
-            use app\components\BaseModel;
+use app\components\BaseModel;
 
-            /**
-             * doc
-             */
-            class {{class}} extends BaseModel
-            {
-                protected \$table = '{{tableName}}';
-                protected \$primaryKey = 'id';
-            }
+/**
+ * doc
+ */
+class {{class}} extends BaseModel
+{
+    protected \$table = '{{tableName}}';
+    protected \$primaryKey = 'id';
+}
 
-            EOL;
+EOL;
     }
 }

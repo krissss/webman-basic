@@ -2,8 +2,6 @@
 
 namespace app\command\framework\traits;
 
-use Symfony\Component\Finder\Finder;
-
 trait ModelClassTrait
 {
     private const SIGNATURE_MODEL_CLASS = '{modelClass : 模型名：Product 或 app/model/Product 或 app\model\Product}';
@@ -43,15 +41,15 @@ trait ModelClassTrait
     }
 
     /**
-     * @param string $modelClass
+     * @param string $fullClassName
      * @return array{namespace: string, className: string, filename: string}
      */
-    private function getModelClassInfo(string $modelClass): array
+    private function getClassInfo(string $fullClassName): array
     {
         return [
-            'namespace' => substr($modelClass, 0, strrpos($modelClass, '\\')),
-            'className' => substr($modelClass, strrpos($modelClass, '\\') + 1),
-            'filename' => base_path(str_replace(['\\'], '/', $modelClass) . '.php'),
+            'namespace' => substr($fullClassName, 0, strrpos($fullClassName, '\\')),
+            'className' => substr($fullClassName, strrpos($fullClassName, '\\') + 1),
+            'filename' => base_path(str_replace(['\\'], '/', $fullClassName) . '.php'),
         ];
     }
 }

@@ -3,15 +3,12 @@
 namespace app\admin\controller;
 
 use app\admin\controller\repository\AdminRepository;
-use app\enums\AdminStatus;
 use app\model\Admin;
 use support\facade\Auth;
 use support\Request;
 use Webman\Http\Response;
 use WebmanTech\AmisAdmin\Amis;
-use WebmanTech\AmisAdmin\Amis\DetailAttribute;
 use WebmanTech\AmisAdmin\Amis\FormField;
-use WebmanTech\AmisAdmin\Amis\GridColumn;
 use WebmanTech\AmisAdmin\Repository\RepositoryInterface;
 
 /**
@@ -24,7 +21,7 @@ class AdminController extends AbsSourceController
      */
     protected function createRepository(): RepositoryInterface
     {
-        return new AdminRepository();
+        return new AdminRepository;
     }
 
     /**
@@ -49,65 +46,9 @@ class AdminController extends AbsSourceController
     {
         return implode(' && ', [
             parent::authDestroyVisible(),
-            'this.id != "'.Admin::SUPER_ADMIN_ID.'"',
-            'this.id != "'.Auth::guard()->getId().'"', // 不能删除自己
+            'this.id != "' . Admin::SUPER_ADMIN_ID . '"',
+            'this.id != "' . Auth::guard()->getId() . '"', // 不能删除自己
         ]);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function grid(): array
-    {
-        return [
-            GridColumn::make()->name('id')->sortable(),
-            GridColumn::make()->name('username')->searchable(),
-            GridColumn::make()->name('name')->searchable()->quickEdit(),
-            GridColumn::make()->name('status')->searchable()->quickEdit()
-                ->typeMapping(['map' => AdminStatus::getViewLabeledItems()]),
-            GridColumn::make()->name('created_at')->sortable()->searchable([
-                'type' => 'input-datetime-range',
-            ]),
-            GridColumn::make()->name('updated_at')->toggled(false),
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function form(string $scene): array
-    {
-        $isRequired = $scene === static::SCENE_CREATE;
-        $form = [
-            FormField::make()->name('username')->required($isRequired),
-            FormField::make()->name('name')->required($isRequired),
-        ];
-        if ($scene === static::SCENE_CREATE) {
-            $form[] = FormField::make()->name('password')->required($isRequired)
-                ->typeInputPassword();
-        }
-        if ($scene === static::SCENE_UPDATE) {
-            $form[] = FormField::make()->name('status')
-                ->typeSelect(['options' => AdminStatus::getLabelValue()]);
-        }
-
-        return $form;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function detail(): array
-    {
-        return [
-            'id',
-            'username',
-            'name',
-            DetailAttribute::make()->name('status')->typeMapping(['map' => AdminStatus::getViewLabeledItems()]),
-            'access_token',
-            'created_at',
-            'updated_at',
-        ];
     }
 
     /**

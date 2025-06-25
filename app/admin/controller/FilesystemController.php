@@ -11,6 +11,9 @@ use Webman\Http\Request;
 use WebmanTech\AmisAdmin\Amis;
 use WebmanTech\AmisAdmin\Repository\RepositoryInterface;
 
+/**
+ * @method FilesystemRepository repository()
+ */
 class FilesystemController extends AbsSourceController
 {
     protected bool $onlyShow = true;
@@ -44,21 +47,6 @@ class FilesystemController extends AbsSourceController
             return $disk;
         }
         throw new \InvalidArgumentException('disk must be instance of Illuminate\Contracts\Filesystem\Cloud');
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function grid(): array
-    {
-        return [
-            Amis\GridColumn::make()->name('id'),
-            Amis\GridColumn::make()->name('dirname')->searchable(),
-            Amis\GridColumn::make()->name('file'),
-            Amis\GridColumn::make()->name('ext'),
-            Amis\GridColumn::make()->name('size'),
-            Amis\GridColumn::make()->name('time')->typeDatetime(),
-        ];
     }
 
     /**
@@ -120,10 +108,10 @@ class FilesystemController extends AbsSourceController
                         ]),
                         [
                             'level' => 'primary',
-                            'api' => 'post:'.route(
-                                'admin.filesystem.uploadImage',
-                                ['type' => AmisFileUpload::TYPE_SINGLE]
-                            ),
+                            'api' => 'post:' . route(
+                                    'admin.filesystem.uploadImage',
+                                    ['type' => AmisFileUpload::TYPE_SINGLE]
+                                ),
                         ]
                     )
                     ->withButtonDialog(
@@ -170,7 +158,7 @@ class FilesystemController extends AbsSourceController
             ->withButtonAjax(
                 Amis\GridColumnActions::INDEX_DETAIL + 2,
                 '打开',
-                'post:'.route('admin.filesystem.url'),
+                'post:' . route('admin.filesystem.url'),
                 [
                     'visibleOn' => '${!is_dir}',
                     'level' => 'info',

@@ -4,6 +4,8 @@
 # 依赖
 /vendor
 /node_modules
+# 不需要的
+/webman
 # 其他
 /tests/tmp
 /tests/.phpunit.result.cache

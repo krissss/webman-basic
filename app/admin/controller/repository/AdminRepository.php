@@ -5,37 +5,56 @@ namespace app\admin\controller\repository;
 use app\components\Component;
 use app\enums\AdminStatus;
 use app\model\Admin;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Validation\Rule;
-use WebmanTech\AmisAdmin\Repository\EloquentRepository;
+use WebmanTech\AmisAdmin\Amis\FormField;
+use WebmanTech\AmisAdmin\Helper\DTO\PresetItem;
 
-class AdminRepository extends EloquentRepository
+class AdminRepository extends AbsRepository
 {
-    public const SCENE_RESET_PASSWORD = 'reset_password';
+    private const SCENE_RESET_PASSWORD = 'reset_password';
 
     public function __construct()
     {
         parent::__construct(Admin::class);
-    }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function attributeLabels(): array
-    {
-        return [
-            'id' => 'ID',
-            'username' => '用户名',
-            'name' => '名称',
-            'password' => '密码',
-            'access_token' => 'Access Token',
-            'status' => '状态',
-            'created_at' => '创建时间',
-            'updated_at' => '更新时间',
-            'new_password' => '新密码',
-            'new_password_confirmation' => '重复密码',
-        ];
+        $this->getPresetsHelper()
+            ->withPresets([
+                'username' => new PresetItem(
+                    label: '用户名',
+                    filter: 'like',
+                    rule: 'required|string|min:4',
+                ),
+                'password' => new PresetItem(
+                    label: '密码',
+                    grid: false,
+                    formExt: fn(FormField $field) => $field->typeInputPassword(),
+                    formExtDynamic: fn(FormField $field, string $scene) => $field->required($scene === static::SCENE_CREATE),
+                    detail: false,
+                    rule: 'required|string|min:6|max:32',
+                ),
+                'access_token' => new PresetItem(
+                    label: 'Access Token',
+                    grid: false,
+                    form: false,
+                    detail: true,
+                ),
+                'new_password' => new PresetItem(
+                    label: '新密码',
+                    grid: false,
+                    formExt: fn(FormField $field) => $field->typeInputPassword(),
+                    rule: 'required|string|min:6|max:32|confirmed',
+                ),
+                'new_password_confirmation' => new PresetItem(
+                    label: '重复密码',
+                    grid: false,
+                    formExt: fn(FormField $field) => $field->typeInputPassword(),
+                    rule: 'required|string',
+                ),
+            ])
+            ->withCrudSceneKeys(['id', 'name', 'username', 'password', 'status', 'access_token', 'created_at', 'updated_at'])
+            ->withSceneKeys([
+                self::SCENE_RESET_PASSWORD => ['new_password', 'new_password_confirmation'],
+            ]);
     }
 
     /**
@@ -48,52 +67,6 @@ class AdminRepository extends EloquentRepository
         }
 
         return parent::visibleAttributes($scene);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function rules(string $scene): array
-    {
-        if ($scene === static::SCENE_CREATE) {
-            return [
-                'username' => 'required|string|min:4',
-                'name' => 'required|string|max:32',
-                'password' => 'required|string|min:6|max:32',
-            ];
-        }
-        if ($scene === static::SCENE_UPDATE) {
-            return [
-                'username' => 'string|min:4',
-                'name' => 'string|max:32',
-                'status' => Rule::in(AdminStatus::getValues()),
-            ];
-        }
-        if ($scene === static::SCENE_RESET_PASSWORD) {
-            return [
-                'new_password' => 'required|string|min:6|max:32|confirmed',
-                'new_password_confirmation' => 'string',
-            ];
-        }
-
-        return [];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function searchableAttributes(): array
-    {
-        return [
-            'username' => fn (Builder $query, $value, $attribute) => $query->where($attribute, $value),
-            'name' => fn (Builder $query, $value, $attribute) => $query->where($attribute, 'like', '%'.$value.'%'),
-            'status' => fn (Builder $query, $value, $attribute) => $query->where($attribute, $value),
-            'created_at' => fn (Builder $query, $value, $attribute) => $query
-                ->whereBetween($attribute, array_map(
-                    fn ($timestamp) => date('Y-m-d H:i:s', (int) $timestamp),
-                    explode(',', $value)
-                )),
-        ];
     }
 
     /**
