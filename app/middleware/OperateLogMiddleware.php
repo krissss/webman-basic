@@ -12,6 +12,7 @@ class OperateLogMiddleware implements MiddlewareInterface
 {
     protected string $logChannel = Logger::CHANNEL_OPERATE_LOG;
     protected array $skipRequest = [
+        '/.well-known/*',
         '/_debugbar/*',
         '/admin/log-reader*',
     ];
