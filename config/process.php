@@ -12,9 +12,9 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+use app\process\Http;
 use support\Log;
 use support\Request;
-use app\process\Http;
 
 global $argv;
 
@@ -24,7 +24,7 @@ $processes = [
     $httpProcessName => [
         'handler' => Http::class,
         'listen' => get_env('SERVER_LISTEN', 'http://0.0.0.0:8787'),
-        'count' => get_env('SERVER_COUNT', fn () => max(cpu_count() * 4, 12)),
+        'count' => get_env('SERVER_COUNT', fn() => max(cpu_count() * 4, 12)),
         'user' => get_env('SERVER_USER', ''),
         'group' => get_env('SERVER_GROUP', ''),
         'reusePort' => false,
@@ -52,7 +52,7 @@ $processes = [
                 base_path() . '/.env',
                 base_path() . '/env.php',
                 base_path() . '/env.local.php',
-                //base_path() . '/vendor',
+                base_path() . '/vendor/webman-tech/components-monorepo',
             ], glob(base_path() . '/plugin/*/app'), glob(base_path() . '/plugin/*/config'), glob(base_path() . '/plugin/*/api')),
             // Files with these suffixes will be monitored
             'monitorExtensions' => [

@@ -2,21 +2,20 @@
 
 namespace app\enums\common;
 
-use app\components\BaseEnum;
+use app\enums\traits\ViewItemsTrait;
 
-class YesNoEnum extends BaseEnum
+enum YesNoEnum: int
 {
-    public const YES = 1;
-    public const NO = 0;
+    use ViewItemsTrait;
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function getViewItems(): array
+    case Yes = 1;
+    case No = 0;
+
+    public function description(): string
     {
-        return [
-            self::YES => '是',
-            self::NO => '否',
-        ];
+        return match ($this) {
+            self::Yes => '是',
+            self::No => '否',
+        };
     }
 }

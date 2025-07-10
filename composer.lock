@@ -6209,16 +6209,16 @@
         },
         {
             "name": "webman-tech/components-monorepo",
-            "version": "v1.0.0",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/components-monorepo.git",
-                "reference": "0c4fce48d3fd1712aa3ec9cccecdbaae8758b163"
+                "reference": "2cf541d11564701cfa7270320e0375dfd3d3621e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/0c4fce48d3fd1712aa3ec9cccecdbaae8758b163",
-                "reference": "0c4fce48d3fd1712aa3ec9cccecdbaae8758b163",
+                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/2cf541d11564701cfa7270320e0375dfd3d3621e",
+                "reference": "2cf541d11564701cfa7270320e0375dfd3d3621e",
                 "shasum": ""
             },
             "require": {
@@ -6234,6 +6234,7 @@
                 "webman-tech/auth": "self.version",
                 "webman-tech/crontab-task": "self.version",
                 "webman-tech/debugbar": "self.version",
+                "webman-tech/dto": "self.version",
                 "webman-tech/log-reader": "self.version",
                 "webman-tech/logger": "self.version",
                 "webman-tech/swagger": "self.version"
@@ -6255,6 +6256,7 @@
                     "packages/amis-admin/src/helper.php"
                 ],
                 "psr-4": {
+                    "WebmanTech\\DTO\\": "packages/dto/src",
                     "WebmanTech\\Auth\\": "packages/auth/src",
                     "WebmanTech\\Logger\\": "packages/logger/src",
                     "WebmanTech\\Swagger\\": "packages/swagger/src",
@@ -6275,9 +6277,9 @@
             "description": "webman components monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/components-monorepo/issues",
-                "source": "https://github.com/webman-tech/components-monorepo/tree/v1.0.0"
+                "source": "https://github.com/webman-tech/components-monorepo/tree/v1.0.2"
             },
-            "time": "2025-06-06T03:51:55+00:00"
+            "time": "2025-07-22T03:44:30+00:00"
         },
         {
             "name": "webman-tech/docker",

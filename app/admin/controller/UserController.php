@@ -3,7 +3,7 @@
 namespace app\admin\controller;
 
 use app\admin\controller\repository\UserRepository;
-use app\enums\UserStatus;
+use app\enums\common\OnOffStatusEnum;
 use support\facade\Auth;
 use support\Request;
 use Webman\Http\Response;
@@ -56,7 +56,7 @@ class UserController extends AbsSourceController
                 route('admin.user.login', ['id' => '${id}']),
                 [
                     'level' => 'success',
-                    'visibleOn' => 'this.status==' . UserStatus::ENABLE,
+                    'visibleOn' => 'this.status==' . OnOffStatusEnum::On->value,
                 ]
             )
             ->withButtonAjax(

@@ -3,33 +3,26 @@
  * Here is your custom functions.
  */
 
+use app\components\ResponseLayout;
 use Illuminate\Contracts\Support\Arrayable;
-use support\Response;
 use WebmanTech\AmisAdmin\Amis\Component as AmisComponent;
-use Yiisoft\Json\Json;
 
-function _json_response($data, array $headers = [])
+function json_success($data, string $msg = 'ok', int $code = 200)
 {
-    return (new Response(200, ['Content-Type' => 'application/json'], Json::encode($data)))
-        ->withHeaders($headers);
+    return (new ResponseLayout(
+        code: $code,
+        msg: $msg,
+        data: $data,
+    ))->toResponse();
 }
 
-function json_success($data, string $msg = 'ok', int $code = 200, array $headers = [])
+function json_error(string $msg, int $code = 422, $data = null)
 {
-    return _json_response([
-        'code' => $code,
-        'msg' => $msg,
-        'data' => $data,
-    ], $headers);
-}
-
-function json_error(string $msg, int $code = 422, $data = null, array $headers = [])
-{
-    return _json_response([
-        'code' => $code,
-        'msg' => $msg,
-        'data' => $data,
-    ], $headers);
+    return (new ResponseLayout(
+        code: $code,
+        msg: $msg,
+        data: $data,
+    ))->toResponse();
 }
 
 function admin_response($data, string $msg = '', array $extraInfo = [])

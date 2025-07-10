@@ -3,7 +3,7 @@
 namespace app\admin\controller\repository;
 
 use app\components\Component;
-use app\enums\AdminStatus;
+use app\enums\common\OnOffStatusEnum;
 use app\model\Admin;
 use Illuminate\Database\Eloquent\Model;
 use WebmanTech\AmisAdmin\Amis\FormField;
@@ -79,7 +79,7 @@ class AdminRepository extends AbsRepository
             $model->password = Component::security()->generatePasswordHash($model->password);
         }
         if ($model->status === null) {
-            $model->status = AdminStatus::ENABLE;
+            $model->status = OnOffStatusEnum::On->value;
         }
         parent::doSave($model);
     }

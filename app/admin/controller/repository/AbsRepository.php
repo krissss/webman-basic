@@ -2,7 +2,7 @@
 
 namespace app\admin\controller\repository;
 
-use app\enums\common\OnOffStatus;
+use app\enums\common\OnOffStatusEnum;
 use WebmanTech\AmisAdmin\Amis\FormField;
 use WebmanTech\AmisAdmin\Amis\GridColumn;
 use WebmanTech\AmisAdmin\Helper\DTO\PresetItem;
@@ -31,8 +31,8 @@ abstract class AbsRepository extends EloquentRepository implements HasPresetInte
                 'status' => new PresetItem(
                     label: '状态',
                     gridExt: fn(GridColumn $column) => $column->quickEdit(),
-                    selectOptions: fn() => OnOffStatus::getViewLabeledItems(),
-                    formDefaultValue: fn() => OnOffStatus::ON,
+                    selectOptions: fn() => OnOffStatusEnum::getViewLabeledItems(),
+                    formDefaultValue: fn() => OnOffStatusEnum::On->value,
                 ),
                 'remark' => new PresetItem(
                     label: '备注',

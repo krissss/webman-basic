@@ -3,7 +3,7 @@
 namespace app\admin\controller\repository;
 
 use app\components\Component;
-use app\enums\UserStatus;
+use app\enums\common\OnOffStatusEnum;
 use app\model\User;
 use Illuminate\Database\Eloquent\Model;
 use WebmanTech\AmisAdmin\Amis\DetailAttribute;
@@ -89,7 +89,7 @@ class UserRepository extends AbsRepository
             $model->api_token = Component::security()->generateRandomString(32);
         }
         if ($model->status === null) {
-            $model->status = UserStatus::ENABLE;
+            $model->status = OnOffStatusEnum::On->value;
         }
         parent::doSave($model);
     }

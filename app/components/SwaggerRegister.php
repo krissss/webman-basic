@@ -2,22 +2,35 @@
 
 namespace app\components;
 
-use OpenApi\Attributes as OA;
 use OpenApi\Annotations as OAA;
+use OpenApi\Attributes as OA;
+use Symfony\Component\Finder\Finder;
 use WebmanTech\Swagger\Swagger;
 
 class SwaggerRegister
 {
-    public static function registerRouteApi(string $scanPath)
+    public static function registerRouteApi(): void
     {
-        (new Swagger())->registerRoute([
-            'register_webman_route' => true,
+        Swagger::create()->registerRoute([
+            'register_route' => true,
+            /**
+             * @see \WebmanTech\Swagger\DTO\ConfigOpenapiDocDTO
+             */
             'openapi_doc' => [
-                'scan_path' => $scanPath,
-                'scan_exclude' => [
-                    // 注释掉下面这个，可以看到 openapi 的例子
-                    'ExampleSourceController.php',
-                    'InfoController.php',
+                'scan_path' => fn() => [
+                    __DIR__ . '/ResponseLayout.php',
+                    Finder::create()->files()->name('*.php')
+                        ->in(app_path('api/controller'))
+                        ->exclude([
+                            'form/example',
+                        ])
+                        ->notName([
+                            'ExampleSourceController.php',
+                            'InfoController.php',
+                        ]),
+                    Finder::create()->files()->name('*.php')
+                        ->in(app_path('model'))
+                        ->in(app_path('enums'))
                 ],
                 'modify' => function (OAA\OpenApi $openapi) {
                     $openapi->info->title = config('app.name') . ' API';
@@ -40,6 +53,7 @@ class SwaggerRegister
                         ),
                     ];
                 },
+                'response_layout_class' => ResponseLayout::class,
             ],
         ]);
     }

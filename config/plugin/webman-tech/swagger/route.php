@@ -1,3 +1,3 @@
 <?php
 
-(new \WebmanTech\Swagger\Swagger())->registerGlobalRoute();
+\WebmanTech\Swagger\Swagger::create()->registerGlobalRoute();
