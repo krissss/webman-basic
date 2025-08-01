@@ -40,7 +40,7 @@ class Logger extends \WebmanTech\Logger\Logger
 
         return array_unique(
             array_values(
-                array_filter($obj->getConstants(), fn ($name) => StringHelper::startsWith($name, 'CHANNEL_'), \ARRAY_FILTER_USE_KEY)
+                array_filter($obj->getConstants(), fn($name) => StringHelper::startsWith($name, 'CHANNEL_'), \ARRAY_FILTER_USE_KEY)
             )
         );
     }
@@ -52,7 +52,6 @@ class Logger extends \WebmanTech\Logger\Logger
     {
         return [
             // 'channelName' => 'info',
-            self::CHANNEL_SQL => get_env('LOG_LEVEL_CHANNEL_SQL', 'warning'), // sql 仅记录 warning 级别以上的
         ];
     }
 
