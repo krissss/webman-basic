@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1db84f7372bfd6910c5d7575b8651d4",
+    "content-hash": "de1a4a1667e0dd6ffadb6c1996ec1ff0",
     "packages": [
         {
             "name": "brick/math",
@@ -6209,23 +6209,24 @@
         },
         {
             "name": "webman-tech/components-monorepo",
-            "version": "v1.0.2",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/components-monorepo.git",
-                "reference": "2cf541d11564701cfa7270320e0375dfd3d3621e"
+                "reference": "9e012c635ad5557d2e0b28bdbe79f3f84eb5ed15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/2cf541d11564701cfa7270320e0375dfd3d3621e",
-                "reference": "2cf541d11564701cfa7270320e0375dfd3d3621e",
+                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/9e012c635ad5557d2e0b28bdbe79f3f84eb5ed15",
+                "reference": "9e012c635ad5557d2e0b28bdbe79f3f84eb5ed15",
                 "shasum": ""
             },
             "require": {
                 "kriss/log-reader": "^1.3",
-                "monolog/monolog": "^3.0",
+                "monolog/monolog": "^1.0 || ^2.0 || ^3.0",
                 "php": "^8.2",
                 "php-debugbar/php-debugbar": "^2.0",
+                "webman-tech/dto": ">=1.0 || dev-main",
                 "workerman/crontab": "^1.0",
                 "zircote/swagger-php": "^5.0"
             },
@@ -6277,9 +6278,9 @@
             "description": "webman components monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/components-monorepo/issues",
-                "source": "https://github.com/webman-tech/components-monorepo/tree/v1.0.2"
+                "source": "https://github.com/webman-tech/components-monorepo/tree/v1.0.4"
             },
-            "time": "2025-07-22T03:44:30+00:00"
+            "time": "2025-08-07T06:29:47+00:00"
         },
         {
             "name": "webman-tech/docker",
