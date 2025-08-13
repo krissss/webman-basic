@@ -24,7 +24,7 @@ $processes = [
     $httpProcessName => [
         'handler' => Http::class,
         'listen' => get_env('SERVER_LISTEN', 'http://0.0.0.0:8787'),
-        'count' => get_env('SERVER_COUNT', fn() => max(cpu_count() * 4, 12)),
+        'count' => get_env('SERVER_COUNT', fn() => min(cpu_count() * 4, 12)),
         'user' => get_env('SERVER_USER', ''),
         'group' => get_env('SERVER_GROUP', ''),
         'reusePort' => false,
