@@ -22,7 +22,6 @@ class AuthenticateApi extends Authentication
      */
     public function process(Request $request, callable $handler): Response
     {
-        dump(123);
         $request->{SetAuthGuard::REQUEST_GUARD_NAME} = 'api_user';
 
         // 设定 app 为 user，否则异常不会传递到 ErrorHandleAmis 处理
