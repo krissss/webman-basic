@@ -40,7 +40,7 @@ final class ExampleUpdateForm extends BaseRequestDTO
      */
     public ?OnOffStatusEnum $status = null;
 
-    public function update(): Model
+    public function handle(): Model
     {
         $model = Model::findOrFail($this->id);
         $model->fill($this->toArray());

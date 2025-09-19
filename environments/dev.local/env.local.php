@@ -16,6 +16,7 @@ foreach ($__envFiles as $envFile) {
 
 // app
 put_env('APP_DEBUG', true);
+put_env('APP_NAME', 'webman-basic-local');
 
 // server
 put_env('SERVER_LISTEN', 'http://0.0.0.0:8787');

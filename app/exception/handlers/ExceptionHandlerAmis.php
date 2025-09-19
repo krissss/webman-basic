@@ -2,34 +2,31 @@
 
 namespace app\exception\handlers;
 
-use Illuminate\Validation\ValidationException as LaravelValidationException;
+use Illuminate\Validation\ValidationException;
 use support\facade\Logger;
-use support\Log;
+use Throwable;
 use Webman\Http\Request;
 use Webman\Http\Response;
-use WebmanTech\AmisAdmin\Exceptions\ValidationException;
+use WebmanTech\AmisAdmin\Exceptions\ValidationException as AmisValidationException;
 
 class ExceptionHandlerAmis extends ExceptionHandler
 {
+    protected string $logChannel = Logger::CHANNEL_APP_AMIS;
+
     public function __construct($logger, $debug)
     {
         parent::__construct($logger, $debug);
-        $this->logger = Log::channel(Logger::CHANNEL_APP_AMIS);
 
         $this->dontReport = array_merge($this->dontReport, [
-            ValidationException::class,
-            LaravelValidationException::class,
+            AmisValidationException::class,
         ]);
     }
 
     protected array $extraInfos = [];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function solveException(\Throwable $exception): void
+    protected function solveException(Throwable $exception): void
     {
-        if ($exception instanceof ValidationException) {
+        if ($exception instanceof AmisValidationException) {
             $this->statusCode = $exception->getCode();
             $this->statusMsg = '';
             $this->extraInfos = [
@@ -38,11 +35,11 @@ class ExceptionHandlerAmis extends ExceptionHandler
 
             return;
         }
-        if ($exception instanceof LaravelValidationException) {
+        if ($exception instanceof ValidationException) {
             $this->statusCode = 422;
             $this->statusMsg = '';
             $this->extraInfos = [
-                'errors' => array_map(fn ($messages) => $messages[0], $exception->validator->errors()->toArray()),
+                'errors' => array_map(fn($messages) => $messages[0], $exception->validator->errors()->toArray()),
             ];
 
             return;
@@ -51,10 +48,7 @@ class ExceptionHandlerAmis extends ExceptionHandler
         parent::solveException($exception);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    protected function buildResponse(Request $request, \Throwable $exception): Response
+    protected function buildResponse(Request $request, Throwable $exception): Response
     {
         $extra = array_merge([
             'status' => $this->statusCode,

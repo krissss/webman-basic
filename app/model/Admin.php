@@ -5,7 +5,6 @@ namespace app\model;
 use app\components\BaseModel;
 use app\components\Component;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use OpenApi\Attributes as OA;
 use WebmanTech\Auth\Interfaces\IdentityInterface;
 use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
 
@@ -24,7 +23,6 @@ use WebmanTech\Auth\Interfaces\IdentityRepositoryInterface;
  *
  * others
  */
-#[OA\Schema]
 class Admin extends BaseModel implements IdentityInterface, IdentityRepositoryInterface
 {
     use SoftDeletes;

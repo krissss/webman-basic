@@ -7,7 +7,7 @@ use OpenApi\Attributes as OA;
 use Symfony\Component\Finder\Finder;
 use WebmanTech\Swagger\Swagger;
 
-class SwaggerRegister
+final class SwaggerRegister
 {
     public static function registerRouteApi(): void
     {

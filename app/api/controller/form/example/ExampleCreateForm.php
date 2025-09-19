@@ -30,7 +30,7 @@ final class ExampleCreateForm extends BaseRequestDTO
      */
     public string $name;
 
-    public function create(): Model
+    public function handle(): Model
     {
         if (Model::query()->where('username', $this->username)->exists()) {
             throw new UserSeeException('username 已存在');

@@ -21,15 +21,14 @@ final class ExampleSourceController
         path: '/crud',
         summary: '列表',
         x: [
-            SchemaConstants::X_SCHEMA_REQUEST => ExampleListSearchForm::class . '@search',
+            SchemaConstants::X_SCHEMA_REQUEST => ExampleListSearchForm::class . '@handle',
         ],
     )]
-    public function index(Request $request): Response
+    public function index(): Response
     {
-        return json_success(
-            ExampleListSearchForm::fromRequest($request)
-                ->search()
-        );
+        return ExampleListSearchForm::fromRequest()
+            ->handle()
+            ->toResponse();
     }
 
     #[OA\Get(
@@ -50,14 +49,14 @@ final class ExampleSourceController
         path: '/crud',
         summary: '新建',
         x: [
-            SchemaConstants::X_SCHEMA_REQUEST => ExampleCreateForm::class . '@create',
+            SchemaConstants::X_SCHEMA_REQUEST => ExampleCreateForm::class . '@handle',
         ],
     )]
-    public function store(Request $request): Response
+    public function store(): Response
     {
         return json_success(
-            ExampleCreateForm::fromRequest($request)
-                ->create()
+            ExampleCreateForm::fromRequest()
+                ->handle()
         );
     }
 
@@ -65,14 +64,14 @@ final class ExampleSourceController
         path: '/crud/{id}',
         summary: '更新',
         x: [
-            SchemaConstants::X_SCHEMA_REQUEST => ExampleUpdateForm::class . '@update',
+            SchemaConstants::X_SCHEMA_REQUEST => ExampleUpdateForm::class . '@handle',
         ],
     )]
-    public function update(Request $request, int $id): Response
+    public function update(): Response
     {
         return json_success(
-            ExampleUpdateForm::fromRequest($request)
-                ->update()
+            ExampleUpdateForm::fromRequest()
+                ->handle()
         );
     }
 

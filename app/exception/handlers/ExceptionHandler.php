@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use support\facade\Logger;
 use support\Log;
+use Throwable;
 use Webman\Exception\ExceptionHandler as BaseExceptionHandler;
 use Webman\Http\Request;
 use Webman\Http\Response;
@@ -21,6 +22,8 @@ class ExceptionHandler extends BaseExceptionHandler
         UserSeeException::class,
     ];
 
+    protected string $logChannel = Logger::CHANNEL_APP;
+
     protected int $statusCode = 200;
     protected array $headers = [];
     protected string $statusMsg = '';
@@ -29,13 +32,10 @@ class ExceptionHandler extends BaseExceptionHandler
     public function __construct($logger, $debug)
     {
         parent::__construct($logger, $debug);
-        $this->logger = Log::channel(Logger::CHANNEL_APP);
+        $this->logger = Log::channel($this->logChannel);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function render(Request $request, \Throwable $exception): Response
+    public function render(Request $request, Throwable $exception): Response
     {
         $this->addDebugInfoToResponseData($request, $exception);
         $this->solveException($exception);
@@ -43,7 +43,10 @@ class ExceptionHandler extends BaseExceptionHandler
         return $this->buildResponse($request, $exception);
     }
 
-    protected function addDebugInfoToResponseData(Request $request, \Throwable $exception)
+    /**
+     * 添加 debug 信息到 responseData 中
+     */
+    protected function addDebugInfoToResponseData(Request $request, Throwable $exception): void
     {
         if (!$this->debug) {
             return;
@@ -52,11 +55,14 @@ class ExceptionHandler extends BaseExceptionHandler
             return;
         }
 
-        $this->responseData['error_message'] = $exception->getMessage();
-        $this->responseData['error_trace'] = explode("\n", $exception->getTraceAsString());
+        $this->responseData['__debug_error_message'] = $exception->getMessage();
+        $this->responseData['__debug_error_trace'] = explode("\n", $exception->getTraceAsString());
     }
 
-    protected function solveException(\Throwable $exception)
+    /**
+     * 解析异常信息
+     */
+    protected function solveException(Throwable $exception): void
     {
         if ($exception instanceof UserSeeException) {
             $this->statusCode = $exception->getCode();
@@ -88,12 +94,12 @@ class ExceptionHandler extends BaseExceptionHandler
         $this->statusMsg = $this->debug ? $exception->getMessage() : 'Server internal error';
     }
 
-    protected function buildResponse(Request $request, \Throwable $exception): Response
+    protected function buildResponse(Request $request, Throwable $exception): Response
     {
         if ($request->expectsJson()) {
             return json_error($this->statusMsg, $this->statusCode, $this->responseData, $this->headers);
         }
-        $error = $this->debug ? nl2br((string) $exception) : ($this->statusMsg ?: 'Server internal error');
+        $error = $this->debug ? nl2br((string)$exception) : ($this->statusMsg ?: 'Server internal error');
 
         return new Response($this->statusCode, $this->headers, $error);
     }

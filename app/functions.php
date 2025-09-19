@@ -5,27 +5,28 @@
 
 use app\components\ResponseLayout;
 use Illuminate\Contracts\Support\Arrayable;
+use Webman\Http\Response;
 use WebmanTech\AmisAdmin\Amis\Component as AmisComponent;
 
-function json_success($data, string $msg = 'ok', int $code = 200)
+function _json_response(int $code, string $msg, $data = null, array $headers = []): Response
 {
-    return (new ResponseLayout(
-        code: $code,
-        msg: $msg,
-        data: $data,
-    ))->toResponse();
+    return ResponseLayout::fromInfo($code, $msg, $data, $headers)
+        ->useToArrayForData(true)
+        ->useStatusCode(false)
+        ->toJsonResponse();
 }
 
-function json_error(string $msg, int $code = 422, $data = null)
+function json_success($data, string $msg = 'ok', int $code = 200, array $headers = []): Response
 {
-    return (new ResponseLayout(
-        code: $code,
-        msg: $msg,
-        data: $data,
-    ))->toResponse();
+    return _json_response($code, $msg, $data, $headers);
 }
 
-function admin_response($data, string $msg = '', array $extraInfo = [])
+function json_error(string $msg, int $code = 422, $data = null, array $headers = []): Response
+{
+    return _json_response($code, $msg, $data, $headers);
+}
+
+function admin_response($data, string $msg = '', array $extraInfo = []): Response
 {
     if ($data instanceof Arrayable) {
         $data = $data->toArray();
@@ -45,7 +46,7 @@ function admin_response($data, string $msg = '', array $extraInfo = [])
  *
  * @param string $target _self/_blank
  *
- * @return \Webman\Http\Response
+ * @return Response
  *
  * @see /public/js/amis-admin.js
  */

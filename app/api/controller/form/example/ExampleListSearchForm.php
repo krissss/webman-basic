@@ -5,7 +5,6 @@ namespace app\api\controller\form\example;
 use app\api\controller\form\common\PaginationTrait;
 use app\enums\common\OnOffStatusEnum;
 use app\model\Admin as Model;
-use WebmanTech\DTO\Attributes\ValidationRules;
 use WebmanTech\DTO\BaseRequestDTO;
 use WebmanTech\DTO\BaseResponseDTO;
 
@@ -24,7 +23,7 @@ final class ExampleListSearchForm extends BaseRequestDTO
      */
     public ?OnOffStatusEnum $status = null;
 
-    public function search(): ExampleListSearchFormResult
+    public function handle(): ExampleListSearchFormResult
     {
         $query = Model::query();
         if ($value = $this->username) {
@@ -46,7 +45,9 @@ final class ExampleListSearchFormResult extends BaseResponseDTO
 {
     public function __construct(
         public int   $count,
-        #[ValidationRules(arrayItem: Model::class)]
+        /**
+         * @var Model[]
+         */
         public array $list,
     )
     {
