@@ -47,17 +47,3 @@ put_env('QUEUE_REDIS_CONSUMER_COUNT', null); // queue 消费进程数
 // region crontab
 put_env('CRONTAB_ENABLE', false);
 // endregion
-
-// region nacos
-put_env('NACOS_ENABLE', false);
-put_env('NACOS_ENABLE_CONFIG_CENTER', true); // 配置中心独立开关
-put_env('NACOS_ENABLE_SERVICE_REGISTER', true); // 注册中心独立开关
-put_env('NACOS_HOST', '127.0.0.1');
-put_env('NACOS_PORT', 8848);
-put_env('NACOS_NAMESPACE_ID', ''); // 命名空间，服务注册和配置中心共用
-put_env('NACOS_GROUP', null); // 分组，不填，默认 DEFAULT_GROUP
-put_env('NACOS_SERVICE_NAME', null); // 服务名，默认为 config('app.name')
-put_env('NACOS_SERVICE_IP', null); // 服务注册 ip，不填，默认取本机 ip
-put_env('NACOS_SERVICE_PORT', null); // 服务注册端口，不填，默认取当前服务端口
-put_env('NACOS_SERVICE_EXTRA_NAMESPACES', null); // 实例额外注册的 namespaceId，多个用逗号分开
-// endregion

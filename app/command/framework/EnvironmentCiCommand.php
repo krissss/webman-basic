@@ -26,7 +26,6 @@ class EnvironmentCiCommand extends Command
         if (!file_exists(base_path('env.php')) && !file_exists(base_path('env.local.php'))) {
             $this->runParallelCommands('php init --env=dev.local --overwrite=skip');
         }
-        $this->runParallelCommands($commandArtisan . 'init-nacos-config');
         if (file_exists(base_path('phinx.php'))) {
             $this->runParallelCommands($commandComposer . 'phinx migrate');
         }
@@ -44,13 +43,13 @@ class EnvironmentCiCommand extends Command
         $mp = MultiProcess::create();
 
         collect($commands)
-            ->mapWithKeys(fn ($command, $name) => [is_numeric($name) ? $command : $name => $command])
-            ->each(fn ($command, $name) => $mp->add(
+            ->mapWithKeys(fn($command, $name) => [is_numeric($name) ? $command : $name => $command])
+            ->each(fn($command, $name) => $mp->add(
                 PendingProcess::createFromCommand($command)
                     ->setEnv([
                         'COMPOSER_ALLOW_SUPERUSER' => 1,
                     ])
-                    ->setStartCallback(fn ($type, $buffer) => $this->log($name, $buffer, $type)),
+                    ->setStartCallback(fn($type, $buffer) => $this->log($name, $buffer, $type)),
                 $name
             ));
 

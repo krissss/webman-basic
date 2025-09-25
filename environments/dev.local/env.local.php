@@ -37,9 +37,3 @@ put_env('QUEUE_ENABLE', false);
 
 // crontab
 put_env('CRONTAB_ENABLE', false);
-
-// nacos
-if (!\app\command\framework\InitNacosConfigCommand::isInCommand()) {
-    put_env('NACOS_ENABLE', false);
-    put_env('NACOS_ENABLE_CONFIG_CENTER', false);
-}
