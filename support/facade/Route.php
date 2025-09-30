@@ -22,7 +22,7 @@ class Route extends \Webman\Route
         ], $options);
 
         $name = trim($name, '/');
-        $namePrefixed = $options['name_prefix'].$name;
+        $namePrefixed = $options['name_prefix'] . $name;
 
         if (method_exists($controller, 'index')) {
             static::get("/{$name}", [$controller, 'index'])->name("{$namePrefixed}.index");
@@ -66,8 +66,14 @@ class Route extends \Webman\Route
                 '{_name}' => $name,
                 '{_action}' => $action,
             ]);
+            if (is_array($config['method'])) {
+                foreach ($config['method'] as $method) {
+                    $method = strtolower($method);
+                    static::{$method}($config['path'], [$controller, $action])->name("{$namePrefixed}.{$action}.{$method}");
+                }
+                continue;
+            }
             $config['method'] = strtolower($config['method']);
-
             static::{$config['method']}($config['path'], [$controller, $action])->name("{$namePrefixed}.{$action}");
         }
     }
