@@ -1,13 +1,13 @@
 <?php
 
+use Monolog\Processor\PsrLogMessageProcessor;
 use support\facade\Auth;
 use support\facade\Logger;
 use WebmanTech\Logger\Formatter\ChannelFormatter;
 use WebmanTech\Logger\Formatter\ChannelMixedFormatter;
+use WebmanTech\Logger\Processors\CurrentUserProcessor;
 use WebmanTech\Logger\Processors\RequestRouteProcessor;
 use WebmanTech\Logger\Processors\RequestUidProcessor;
-use WebmanTech\Logger\Processors\CurrentUserProcessor;
-use Monolog\Processor\PsrLogMessageProcessor;
 
 return [
     // channels
@@ -26,10 +26,7 @@ return [
             new RequestRouteProcessor(),
             new CurrentUserProcessor(function () {
                 // 返回当前用户id
-                if ($guard = Auth::guard()) {
-                    return $guard->getId() ?: 0;
-                }
-                return 0;
+                return Auth::guard()->getId() ?: 0;
             }),
             new RequestUidProcessor(),
         ];

@@ -41,6 +41,7 @@ final class SwaggerRegister
                             description: request()->host(),
                         ),
                     ];
+                    /** @phpstan-ignore-next-line */
                     if (!$openapi->components instanceof OAA\Components) {
                         $openapi->components = new OAA\Components([]);
                     }

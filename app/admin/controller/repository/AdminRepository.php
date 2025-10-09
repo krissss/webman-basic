@@ -78,6 +78,7 @@ class AdminRepository extends AbsRepository
         if ($model->isDirty('password')) {
             $model->password = Component::security()->generatePasswordHash($model->password);
         }
+        /** @phpstan-ignore-next-line */
         if ($model->status === null) {
             $model->status = OnOffStatusEnum::On->value;
         }

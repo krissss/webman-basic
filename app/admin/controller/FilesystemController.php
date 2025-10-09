@@ -46,6 +46,7 @@ class FilesystemController extends AbsSourceController
         if ($disk instanceof Cloud) {
             return $disk;
         }
+        /** @phpstan-ignore-next-line */
         throw new \InvalidArgumentException('disk must be instance of Illuminate\Contracts\Filesystem\Cloud');
     }
 

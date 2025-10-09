@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use support\facade\Cache;
 use support\Log;
-use WebmanTech\AmisAdmin\Exceptions\ValidationException as AmisValidationException;
 use WebmanTech\LaravelHttp\Facades\LaravelRequest;
 use WebmanTech\LaravelHttp\Facades\LaravelUploadedFile;
 
@@ -23,9 +22,6 @@ class ChunkFileUpload extends FileUpload
     public const TYPE_UPLOAD = 'upload';
     public const TYPE_FINISH = 'finish';
 
-    /**
-     * @throws ValidationException|AmisValidationException
-     */
     public function handle(string $type): array
     {
         if ($type === static::TYPE_START) {
@@ -40,9 +36,6 @@ class ChunkFileUpload extends FileUpload
         throw new \InvalidArgumentException('type error');
     }
 
-    /**
-     * @throws ValidationException
-     */
     protected function handleStart(): array
     {
         $data = validator($this->request->post(), [
@@ -60,9 +53,6 @@ class ChunkFileUpload extends FileUpload
         ];
     }
 
-    /**
-     * @throws ValidationException
-     */
     protected function handleUpload(): array
     {
         $laravelRequest = LaravelRequest::createFromWebman($this->request);
@@ -96,9 +86,6 @@ class ChunkFileUpload extends FileUpload
         ];
     }
 
-    /**
-     * @throws ValidationException
-     */
     protected function handleFinish(): array
     {
         $data = validator($this->request->post(), [

@@ -4,8 +4,8 @@ namespace app\command\framework\traits;
 
 trait ModelClassTrait
 {
-    private const SIGNATURE_MODEL_CLASS = '{modelClass : 模型名：Product 或 app/model/Product 或 app\model\Product}';
-    private const SIGNATURE_MODEL_CLASS_OR_PATH = '{modelClassOrPath : 模型名：Product 或 app/model/Product 或 app\model\Product，模型路径：app/model}';
+    protected const SIGNATURE_MODEL_CLASS = '{modelClass : 模型名：Product 或 app/model/Product 或 app\model\Product}';
+    protected const SIGNATURE_MODEL_CLASS_OR_PATH = '{modelClassOrPath : 模型名：Product 或 app/model/Product 或 app\model\Product，模型路径：app/model}';
 
     /**
      * @return string

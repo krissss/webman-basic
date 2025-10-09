@@ -1,6 +1,6 @@
 <?php
 
 /**
- * @return \support\Request
+ * @return \support\Request|null
  */
 function request() {}

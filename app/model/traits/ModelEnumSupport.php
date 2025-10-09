@@ -5,6 +5,7 @@ namespace app\model\traits;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
+/** @phpstan-ignore-next-line */
 trait ModelEnumSupport
 {
     protected static function viewItemsCollection(): Collection
@@ -23,7 +24,7 @@ trait ModelEnumSupport
     public static function getViewItems(): array
     {
         return static::viewItemsCollection()
-            ->mapWithKeys(fn ($item) => static::viewItemsMapping($item))
+            ->mapWithKeys(fn($item) => static::viewItemsMapping($item))
             ->toArray();
     }
 

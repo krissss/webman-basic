@@ -3,7 +3,7 @@
 if (!function_exists('get_env')) {
     function get_env(string $key, $default = null)
     {
-        return getenv($key) ?? $default;
+        return $_SERVER[$key] ?? $default;
     }
 }
 
@@ -19,7 +19,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => get_env('APP_URL').'/storage',
+            'url' => get_env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
         ],

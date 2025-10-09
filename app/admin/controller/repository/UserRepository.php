@@ -88,6 +88,7 @@ class UserRepository extends AbsRepository
         if (!$model->api_token) {
             $model->api_token = Component::security()->generateRandomString(32);
         }
+        /** @phpstan-ignore-next-line */
         if ($model->status === null) {
             $model->status = OnOffStatusEnum::On->value;
         }

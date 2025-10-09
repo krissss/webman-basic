@@ -1,11 +1,9 @@
 # @see https://phpstan.org/config-reference
 parameters:
-	level: 2
+	level: 5
 	paths:
 		- app
 		- config
-	excludePaths:
-	    - app/command/TestCommand.php
 	tmpDir: runtime/phpstan-dist
 	bootstrapFiles:
 	    - vendor/autoload.php
