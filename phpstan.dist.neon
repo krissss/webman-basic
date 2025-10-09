@@ -1,0 +1,16 @@
+# @see https://phpstan.org/config-reference
+parameters:
+	level: 2
+	paths:
+		- app
+		- config
+	excludePaths:
+	    - app/command/TestCommand.php
+	tmpDir: runtime/phpstan-dist
+	bootstrapFiles:
+	    - vendor/autoload.php
+	    - support/bootstrap.php
+	stubFiles:
+		- resource/phpstan/stubs/functions.stub
+	ignoreErrors:
+		- '#Access to an undefined property (Webman\\Http|support)\\Request::\$(\w+)\.#'

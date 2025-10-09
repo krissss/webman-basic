@@ -37,6 +37,7 @@
     "yiisoft/strings": "^2.0"
   },
   "require-dev": {
+    "phpstan/phpstan": "^2.1",
     "symfony/var-dumper": "^7.0"
   },
   "suggest": {
@@ -113,10 +114,22 @@
     "post-autoload-dump": [
       "support\\facade\\Composer::postAutoloadDump"
     ],
+    "dev": [
+      "Composer\\Config::disableProcessTimeout",
+      "php start.php start"
+    ],
     "dev-win": [
       "Composer\\Config::disableProcessTimeout",
       "php windows.php"
     ],
-    "phinx": "phinx"
+    "phinx": "phinx",
+    "analyse": [
+      "Composer\\Config::disableProcessTimeout",
+      "phpstan analyse --memory-limit=4G -v"
+    ],
+    "analyse-raw": [
+      "Composer\\Config::disableProcessTimeout",
+      "phpstan analyse --memory-limit=4G -v --error-format=raw"
+    ]
   }
 }

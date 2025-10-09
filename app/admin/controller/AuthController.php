@@ -32,7 +32,7 @@ class AuthController
         ]);
         $data = $validator->validate();
 
-        /** @var Model $modelClass */
+        /** @var class-string<Model> $modelClass */
         $modelClass = $this->model;
         /** @var Model|null $model */
         $model = $modelClass::query()->where('username', $data['username'])->first();

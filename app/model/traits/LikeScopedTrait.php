@@ -31,9 +31,9 @@ trait LikeScopedTrait
             $like_escape_char = '\\';
 
             return str_replace([$like_escape_char, '%', '_'], [
-                $like_escape_char.$like_escape_char,
-                $like_escape_char.'%',
-                $like_escape_char.'_',
+                $like_escape_char . $like_escape_char,
+                $like_escape_char . '%',
+                $like_escape_char . '_',
             ], $str);
         };
 
@@ -61,16 +61,19 @@ trait LikeScopedTrait
 
     public function scopeOrLike(Builder $query, string $column, string $value, string $side = 'both', bool $isNotLike = false): Builder
     {
+        /** @phpstan-ignore-next-line */
         return $query->like($column, $value, $side, $isNotLike, false);
     }
 
     public function scopeNotLike(Builder $query, string $column, string $value, string $side = 'both', bool $isAnd = true): Builder
     {
+        /** @phpstan-ignore-next-line */
         return $query->like($column, $value, $side, true, $isAnd);
     }
 
     public function scopeOrNotLike(Builder $query, string $column, string $value, string $side = 'both'): Builder
     {
+        /** @phpstan-ignore-next-line */
         return $query->like($column, $value, $side, true, false);
     }
 }

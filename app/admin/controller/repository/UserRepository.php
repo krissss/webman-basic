@@ -99,7 +99,7 @@ class UserRepository extends AbsRepository
      */
     public function resetPassword(array $data, $id): void
     {
-        $data = $this->validate($data, static::SCENE_RESET_PASSWORD);
+        $data = $this->validate($data, self::SCENE_RESET_PASSWORD);
         /** @var User $model */
         $model = $this->query()->findOrFail($id);
         $model->password = Component::security()->generatePasswordHash($data['new_password']);

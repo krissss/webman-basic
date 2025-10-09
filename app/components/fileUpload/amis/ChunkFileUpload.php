@@ -6,7 +6,7 @@ use app\components\fileUpload\FileUpload;
 use app\components\Tools;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use support\Cache;
+use support\facade\Cache;
 use support\Log;
 use WebmanTech\AmisAdmin\Exceptions\ValidationException as AmisValidationException;
 use WebmanTech\LaravelHttp\Facades\LaravelRequest;
@@ -50,7 +50,7 @@ class ChunkFileUpload extends FileUpload
         ])->validated();
         $filename = Str::random(40);
         if ($ext = pathinfo($data['filename'], \PATHINFO_EXTENSION)) {
-            $filename .= '.'.$ext;
+            $filename .= '.' . $ext;
         }
         $path = $this->buildPath($filename);
 
@@ -85,7 +85,7 @@ class ChunkFileUpload extends FileUpload
         }
         /** @var LaravelUploadedFile $file */
         $file = $data['file'];
-        if ($file->getSize() !== (int) $data['partSize']) {
+        if ($file->getSize() !== (int)$data['partSize']) {
             throw Tools::buildValidationException(['partSize' => 'partSize error']);
         }
         $path = $this->buildChunkPath($data['uploadId'], $data['partNumber']);
@@ -160,7 +160,7 @@ class ChunkFileUpload extends FileUpload
 
     protected function buildUploadId(string $key): string
     {
-        return md5(($this->config['uploadIdSalt'] ?? '').$key);
+        return md5(($this->config['uploadIdSalt'] ?? '') . $key);
     }
 
     protected function checkUploadId(string $key, string $uploadId): void
@@ -181,7 +181,7 @@ class ChunkFileUpload extends FileUpload
 
     protected function shouldStopUpload(string $uploadId): bool
     {
-        return (bool) Cache::get($this->buildStopNextKey($uploadId));
+        return (bool)Cache::get($this->buildStopNextKey($uploadId));
     }
 
     protected function cleanStopKey(string $uploadId): void
@@ -191,6 +191,6 @@ class ChunkFileUpload extends FileUpload
 
     protected function buildStopNextKey(string $uploadId): string
     {
-        return 'stop_chunkUpload_'.$uploadId;
+        return 'stop_chunkUpload_' . $uploadId;
     }
 }

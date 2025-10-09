@@ -57,7 +57,7 @@ class SystemController
     {
         $page = Page::make()
             ->withBody(1, [
-                'Hello '.Auth::getName(),
+                'Hello ' . Auth::getName(),
             ]);
 
         return admin_response($page);

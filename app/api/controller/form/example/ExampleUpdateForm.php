@@ -42,7 +42,7 @@ final class ExampleUpdateForm extends BaseRequestDTO
 
     public function handle(): Model
     {
-        $model = Model::findOrFail($this->id);
+        $model = Model::query()->find($this->id);
         $model->fill($this->toArray());
 
         if ($model->isDirty('username') && Model::query()->where('username', $model->username)->whereKeyNot($model->id)->exists()) {
