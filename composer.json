@@ -97,6 +97,7 @@
     "psr-4": {
       "app\\": "./app",
       "support\\": "./support",
+      "Tests\\": "./tests",
       "Dev\\PHPStan\\": "./resource/phpstan/src"
     }
   },
