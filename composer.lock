@@ -6364,16 +6364,16 @@
         },
         {
             "name": "webman-tech/laravel-monorepo",
-            "version": "12.0.0",
+            "version": "v12.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/laravel-monorepo.git",
-                "reference": "b32febff306f72f429d2385d8898f459f74970bc"
+                "reference": "f9a71eca9ea10ad4c8c7f73e65078addac6c7c5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/laravel-monorepo/zipball/b32febff306f72f429d2385d8898f459f74970bc",
-                "reference": "b32febff306f72f429d2385d8898f459f74970bc",
+                "url": "https://api.github.com/repos/webman-tech/laravel-monorepo/zipball/f9a71eca9ea10ad4c8c7f73e65078addac6c7c5b",
+                "reference": "f9a71eca9ea10ad4c8c7f73e65078addac6c7c5b",
                 "shasum": ""
             },
             "require": {
@@ -6411,6 +6411,7 @@
                 "overtrue/flysystem-cos": "^5.1",
                 "overtrue/flysystem-qiniu": "^3.2",
                 "pestphp/pest": "^3.7",
+                "phpstan/phpstan": "^2.1",
                 "symfony/cache": "^7.0",
                 "symfony/http-foundation": "^7.0",
                 "symfony/mime": "^7.0",
@@ -6445,9 +6446,9 @@
             "description": "laravel component for webman monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/laravel-monorepo/issues",
-                "source": "https://github.com/webman-tech/laravel-monorepo/tree/12.0.0"
+                "source": "https://github.com/webman-tech/laravel-monorepo/tree/v12.0.8"
             },
-            "time": "2025-06-04T03:17:46+00:00"
+            "time": "2025-10-10T09:54:56+00:00"
         },
         {
             "name": "webman/console",

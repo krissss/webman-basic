@@ -96,7 +96,8 @@
   "autoload": {
     "psr-4": {
       "app\\": "./app",
-      "support\\": "./support"
+      "support\\": "./support",
+      "Dev\\PHPStan\\": "./resource/phpstan/src"
     }
   },
   "scripts": {

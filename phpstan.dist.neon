@@ -1,4 +1,8 @@
 # @see https://phpstan.org/config-reference
+includes:
+	- vendor/webman-tech/laravel-monorepo/src/LaravelDatabase/Larastan/extension.neon
+	- vendor/nesbot/carbon/extension.neon
+	- resource/phpstan/extension.neon
 parameters:
 	level: 5
 	paths:
@@ -6,10 +10,8 @@ parameters:
 		- config
 	tmpDir: runtime/phpstan-dist
 	bootstrapFiles:
-	    - vendor/autoload.php
-	    - support/bootstrap.php
-	stubFiles:
-		- resource/phpstan/stubs/functions.stub
+	    - resource/phpstan/bootstrap.php
 	ignoreErrors:
 		- '#Access to an undefined property (Webman\\Http|support)\\Request::\$(\w+)\.#'
+		- '#Anonymous function should return non-empty-array\<(.*), string\> but returns non-empty-array\<(.*), string\>\.#' # ViewItemsTrait 下的问题，暂时无法处理
 	reportUnmatchedIgnoredErrors: false

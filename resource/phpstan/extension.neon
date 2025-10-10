@@ -1,0 +1,5 @@
+services:
+    -
+        class: Dev\PHPStan\StubFilesExtension
+        tags:
+            - phpstan.stubFilesExtension

@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+namespace support;
+
+use Illuminate\Redis\Connections\PhpRedisConnection;
+
+class Request
+{
+}
+
+/**
+ * @mixin PhpRedisConnection
+ */
+class Redis
+{
+}
