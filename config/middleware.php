@@ -14,6 +14,7 @@
 
 return [
     '' => [
+        Webman\MultiSession\Middleware::class,
         app\middleware\RequestPathPrefixMiddleware::class,
         app\middleware\OperateLogMiddleware::class,
         //app\middleware\Cors::class,

@@ -12,8 +12,7 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-use Webman\MultiSession\Middleware;
-
 return [
-    '' => [Middleware::class]
+    // 必须移动到 config/middleware 中，否则会由于顺序问题，导致在此 middleware 之前的 session 获取错误
+    //'' => [Webman\MultiSession\Middleware::class]
 ];
