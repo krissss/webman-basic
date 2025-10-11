@@ -12,10 +12,12 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+use app\enums\common\AppModuleEnum;
+
 return [
     //'' => support\exception\Handler::class,
     '' => app\exception\handlers\ExceptionHandler::class,
-    'admin' => app\exception\handlers\ExceptionHandlerAmis::class,
-    'user' => app\exception\handlers\ExceptionHandlerAmis::class,
-    'api' => app\exception\handlers\ExceptionHandlerApi::class,
+    AppModuleEnum::Admin->value => app\exception\handlers\ExceptionHandlerAmis::class,
+    AppModuleEnum::User->value => app\exception\handlers\ExceptionHandlerAmis::class,
+    AppModuleEnum::Api->value => app\exception\handlers\ExceptionHandlerApi::class,
 ];

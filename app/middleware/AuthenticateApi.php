@@ -2,31 +2,46 @@
 
 namespace app\middleware;
 
+use app\enums\common\AppModuleEnum;
+use app\enums\UserStatusEnum;
+use app\exception\UserSeeException;
+use app\model\User;
 use Webman\Http\Request;
 use Webman\Http\Response;
+use WebmanTech\Auth\Interfaces\IdentityInterface;
 use WebmanTech\Auth\Middleware\Authentication;
-use WebmanTech\Auth\Middleware\SetAuthGuard;
 
 class AuthenticateApi extends Authentication
 {
-    /**
-     * {@inheritDoc}
-     */
+    private AppModuleEnum $appModule = AppModuleEnum::Api;
+
+    public function __construct()
+    {
+        parent::__construct($this->appModule->guardName());
+    }
+
+    public function process(Request $request, callable $handler): Response
+    {
+        $request->app = $this->appModule->value; // 修正多应用模块
+
+        return parent::process($request, $handler);
+    }
+
     protected function optionalRoutes(): array
     {
         return [];
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function process(Request $request, callable $handler): Response
+    protected function checkIdentity(IdentityInterface $identity): ?Response
     {
-        $request->{SetAuthGuard::REQUEST_GUARD_NAME} = 'api_user';
+        if (!$identity instanceof User) {
+            throw new \InvalidArgumentException();
+        }
 
-        // 设定 app 为 user，否则异常不会传递到 ErrorHandleAmis 处理
-        $request->app = 'api';
+        if (!UserStatusEnum::isEnabled($identity->status)) {
+            throw new UserSeeException('用户状态异常', 403);
+        }
 
-        return parent::process($request, $handler);
+        return null;
     }
 }

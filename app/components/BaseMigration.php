@@ -2,7 +2,6 @@
 
 namespace app\components;
 
-use app\enums\common\OnOffStatusEnum;
 use Phinx\Db\Table;
 use Phinx\Migration\AbstractMigration;
 
@@ -15,7 +14,7 @@ abstract class BaseMigration extends AbstractMigration
     {
         $columns = [
             'sort' => fn() => $table->addColumn('sort', 'integer', ['comment' => '排序', 'null' => false, 'default' => 10]),
-            'status' => fn() => $table->addColumn('status', 'integer', ['comment' => '状态', 'null' => false, 'default' => OnOffStatusEnum::On->value]),
+            'status' => fn() => $table->addColumn('status', 'integer', ['comment' => '状态', 'null' => false, 'default' => 0]),
             'created_at' => fn() => $table->addColumn('created_at', 'timestamp', ['comment' => '创建时间', 'null' => false, 'default' => 'CURRENT_TIMESTAMP']),
             'updated_at' => fn() => $table->addColumn('updated_at', 'timestamp', ['comment' => '修改时间', 'null' => false, 'default' => 'CURRENT_TIMESTAMP'/* , 'update' => 'CURRENT_TIMESTAMP' */]),
             'deleted_at' => fn() => $table->addColumn('deleted_at', 'timestamp', ['comment' => '删除时间', 'null' => true]),

@@ -3,6 +3,7 @@
 namespace app\admin\controller;
 
 use app\components\Component;
+use app\enums\AdminStatusEnum;
 use app\exception\ValidationException;
 use app\model\Admin as Model;
 use support\facade\Auth;
@@ -32,10 +33,11 @@ class AuthController
         ]);
         $data = $validator->validate();
 
-        /** @var class-string<Model> $modelClass */
         $modelClass = $this->model;
-        /** @var Model|null $model */
-        $model = $modelClass::query()->where('username', $data['username'])->first();
+        $model = $modelClass::query()
+            ->where('username', $data['username'])
+            ->where('status', AdminStatusEnum::Enabled->value)
+            ->first();
         if (!$model || !Component::security()->validatePassword($data['password'], $model->password)) {
             throw new ValidationException(['username' => trans('用户名或密码错误')]);
         }

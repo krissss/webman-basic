@@ -3,11 +3,12 @@
 namespace app\admin\controller\repository;
 
 use app\components\Component;
-use app\enums\common\OnOffStatusEnum;
+use app\enums\UserStatusEnum;
 use app\model\User;
 use Illuminate\Database\Eloquent\Model;
 use WebmanTech\AmisAdmin\Amis\DetailAttribute;
 use WebmanTech\AmisAdmin\Amis\FormField;
+use WebmanTech\AmisAdmin\Amis\GridColumn;
 use WebmanTech\AmisAdmin\Helper\DTO\PresetItem;
 
 class UserRepository extends AbsRepository
@@ -57,6 +58,12 @@ class UserRepository extends AbsRepository
                     formExt: fn(FormField $field) => $field->typeInputPassword(),
                     rule: 'required|string',
                 ),
+                'status' => new PresetItem(
+                    label: '状态',
+                    gridExt: fn(GridColumn $column) => $column->quickEdit(),
+                    selectOptions: fn() => UserStatusEnum::getViewLabeledItems(),
+                    formDefaultValue: fn() => UserStatusEnum::Enabled->value,
+                ),
             ])
             ->withCrudSceneKeys(['id', 'name', 'username', 'password', 'status', 'access_token', 'api_token', 'created_at', 'updated_at'])
             ->withSceneKeys([
@@ -90,7 +97,7 @@ class UserRepository extends AbsRepository
         }
         /** @phpstan-ignore-next-line */
         if ($model->status === null) {
-            $model->status = OnOffStatusEnum::On->value;
+            $model->status = UserStatusEnum::Enabled->value;
         }
         parent::doSave($model);
     }
