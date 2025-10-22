@@ -6,7 +6,7 @@ class UserSeeException extends \Exception
 {
     protected array $data = [];
 
-    public function __construct(?string $message = null, int $code = 422, \Throwable $previous = null)
+    public function __construct(?string $message = null, int $code = 422, ?\Throwable $previous = null)
     {
         $message ??= 'Unprocessable Entity';
         parent::__construct($message, $code, $previous);

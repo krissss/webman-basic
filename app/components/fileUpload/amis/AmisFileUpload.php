@@ -16,7 +16,7 @@ class AmisFileUpload extends FileUpload
     /**
      * @throws ValidationException
      */
-    public function handle(string $type = null): array
+    public function handle(?string $type = null): array
     {
         if ($type !== static::TYPE_SINGLE) {
             return (new ChunkFileUpload($this->request, $this->filesystem, $this->config))

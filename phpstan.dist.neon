@@ -13,5 +13,5 @@ parameters:
 	    - resource/phpstan/bootstrap.php
 	ignoreErrors:
 		- '#Access to an undefined property (Webman\\Http|support)\\Request::\$(\w+)\.#'
-		- '#Anonymous function should return non-empty-array\<(.*), string\> but returns non-empty-array\<(.*), string\>\.#' # ViewItemsTrait 下的问题，暂时无法处理
+		- '#Anonymous function should return (non-empty-array|array)\<(.*), string\> but returns (non-empty-array|array)\<(.*), string\>\.#' # ViewItemsTrait 下的问题，暂时无法处理
 	reportUnmatchedIgnoredErrors: false

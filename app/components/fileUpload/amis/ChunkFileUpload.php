@@ -136,7 +136,7 @@ class ChunkFileUpload extends FileUpload
         ];
     }
 
-    protected function buildChunkPath(string $uploadId, string $partNumber = null): string
+    protected function buildChunkPath(string $uploadId, ?string $partNumber = null): string
     {
         if ($partNumber) {
             $partNumber .= '.chunk';

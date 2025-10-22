@@ -86,7 +86,7 @@ class User extends BaseModel implements IdentityInterface, IdentityRepositoryInt
     /**
      * {@inheritDoc}
      */
-    public function findIdentity(string $token, string $type = null): ?IdentityInterface
+    public function findIdentity(string $token, ?string $type = null): ?IdentityInterface
     {
         $model = null;
         if ($type === 'session') {

@@ -175,7 +175,7 @@ class FilesystemController extends AbsSourceController
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function uploadImage(Request $request, string $type = null)
+    public function uploadImage(Request $request, ?string $type = null)
     {
         if (!$this->enableUploadExample) {
             return amis_response(['forbidden']);
@@ -197,7 +197,7 @@ class FilesystemController extends AbsSourceController
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function uploadFile(Request $request, string $type = null)
+    public function uploadFile(Request $request, ?string $type = null)
     {
         if (!$this->enableUploadExample) {
             return amis_response(['forbidden']);
