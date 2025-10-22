@@ -6255,16 +6255,16 @@
         },
         {
             "name": "webman-tech/components-monorepo",
-            "version": "v1.0.17",
+            "version": "v1.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/components-monorepo.git",
-                "reference": "82b2258c150eb90a98a14bd4f733c37eb5ba4c80"
+                "reference": "f4368ebba56e219c48e5cc7305fb662cf573cc19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/82b2258c150eb90a98a14bd4f733c37eb5ba4c80",
-                "reference": "82b2258c150eb90a98a14bd4f733c37eb5ba4c80",
+                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/f4368ebba56e219c48e5cc7305fb662cf573cc19",
+                "reference": "f4368ebba56e219c48e5cc7305fb662cf573cc19",
                 "shasum": ""
             },
             "require": {
@@ -6274,7 +6274,7 @@
                 "php-debugbar/php-debugbar": "^2.0",
                 "webman-tech/dto": ">=1.0 || dev-main",
                 "workerman/crontab": "^1.0",
-                "zircote/swagger-php": "^5.2"
+                "zircote/swagger-php": ">=5.2 <5.5"
             },
             "replace": {
                 "webman-tech/amis-admin": "self.version",
@@ -6327,9 +6327,9 @@
             "description": "webman components monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/components-monorepo/issues",
-                "source": "https://github.com/webman-tech/components-monorepo/tree/v1.0.17"
+                "source": "https://github.com/webman-tech/components-monorepo/tree/v1.0.18"
             },
-            "time": "2025-10-11T09:22:43+00:00"
+            "time": "2025-10-22T03:09:26+00:00"
         },
         {
             "name": "webman-tech/docker",
