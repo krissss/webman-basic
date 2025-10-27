@@ -6255,16 +6255,16 @@
         },
         {
             "name": "webman-tech/components-monorepo",
-            "version": "v1.0.18",
+            "version": "v1.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/components-monorepo.git",
-                "reference": "f4368ebba56e219c48e5cc7305fb662cf573cc19"
+                "reference": "2e1ebf16cebe574ee1d36fc1b415c3f93ff2d780"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/f4368ebba56e219c48e5cc7305fb662cf573cc19",
-                "reference": "f4368ebba56e219c48e5cc7305fb662cf573cc19",
+                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/2e1ebf16cebe574ee1d36fc1b415c3f93ff2d780",
+                "reference": "2e1ebf16cebe574ee1d36fc1b415c3f93ff2d780",
                 "shasum": ""
             },
             "require": {
@@ -6327,9 +6327,9 @@
             "description": "webman components monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/components-monorepo/issues",
-                "source": "https://github.com/webman-tech/components-monorepo/tree/v1.0.18"
+                "source": "https://github.com/webman-tech/components-monorepo/tree/v1.0.19"
             },
-            "time": "2025-10-22T03:09:26+00:00"
+            "time": "2025-10-27T05:07:40+00:00"
         },
         {
             "name": "webman-tech/docker",
