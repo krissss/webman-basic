@@ -51,7 +51,9 @@ abstract class AbsRepository extends EloquentRepository implements HasPresetInte
                 'updated_at' => new PresetItem(
                     label: '更新时间',
                     filter: 'datetime-range',
-                    gridExt: fn(GridColumn $column) => $column->sortable()->toggled(false),
+                    gridExt: fn(GridColumn $column) => $column->sortable()->searchable([
+                        'type' => 'input-datetime-range',
+                    ])->toggled(false),
                     form: false,
                 ),
                 'sort' => new PresetItem(
