@@ -12,11 +12,13 @@ use Webman\Exception\ExceptionHandler as BaseExceptionHandler;
 use Webman\Http\Request;
 use Webman\Http\Response;
 use WebmanTech\Auth\Exceptions\UnauthorizedException;
+use WebmanTech\DTO\Exceptions\DTOValidateException;
 
 class ExceptionHandler extends BaseExceptionHandler
 {
     public $dontReport = [
         ValidationException::class,
+        DTOValidateException::class,
         UnauthorizedException::class,
         ModelNotFoundException::class,
         UserSeeException::class,
@@ -75,6 +77,12 @@ class ExceptionHandler extends BaseExceptionHandler
             $this->statusCode = $exception->status;
             $this->statusMsg = $exception->validator->errors()->first();
             // $this->responseData['errors'] = $exception->validator->errors()->all();
+            return;
+        }
+        if ($exception instanceof DTOValidateException) {
+            $this->statusCode = 422;
+            $this->statusMsg = $exception->first();
+
             return;
         }
         if ($exception instanceof UnauthorizedException) {
