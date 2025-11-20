@@ -12,7 +12,7 @@ use WebmanTech\AmisAdmin\Helper\DTO\PresetItem;
 
 class AdminRepository extends AbsRepository
 {
-    private const SCENE_RESET_PASSWORD = 'reset_password';
+    public const SCENE_RESET_PASSWORD = 'reset_password';
 
     public function __construct()
     {
@@ -39,6 +39,12 @@ class AdminRepository extends AbsRepository
                     form: false,
                     detail: true,
                 ),
+                'status' => new PresetItem(
+                    label: '状态',
+                    gridExt: fn(GridColumn $column) => $column->quickEdit(),
+                    selectOptions: fn() => AdminStatusEnum::getViewLabeledItems(),
+                    formDefaultValue: fn() => AdminStatusEnum::Enabled->value,
+                ),
                 'new_password' => new PresetItem(
                     label: '新密码',
                     grid: false,
@@ -48,14 +54,16 @@ class AdminRepository extends AbsRepository
                 'new_password_confirmation' => new PresetItem(
                     label: '重复密码',
                     grid: false,
-                    formExt: fn(FormField $field) => $field->typeInputPassword(),
+                    formExt: fn(FormField $field) => $field->typeInputPassword()
+                        ->schema([
+                            'validations' => [
+                                'equalsField' => 'new_password',
+                            ],
+                            'validationErrors' => [
+                                'equalsField' => '两次密码输入不一致',
+                            ],
+                        ]),
                     rule: 'required|string',
-                ),
-                'status' => new PresetItem(
-                    label: '状态',
-                    gridExt: fn(GridColumn $column) => $column->quickEdit(),
-                    selectOptions: fn() => AdminStatusEnum::getViewLabeledItems(),
-                    formDefaultValue: fn() => AdminStatusEnum::Enabled->value,
                 ),
             ])
             ->withCrudSceneKeys(['id', 'name', 'username', 'password', 'status', 'access_token', 'created_at', 'updated_at'])
@@ -90,17 +98,5 @@ class AdminRepository extends AbsRepository
             $model->status = AdminStatusEnum::Enabled->value;
         }
         parent::doSave($model);
-    }
-
-    /**
-     * 重置密码
-     */
-    public function resetPassword(array $data, $id): void
-    {
-        $data = $this->validate($data, self::SCENE_RESET_PASSWORD);
-        /** @var Admin $model */
-        $model = $this->query()->findOrFail($id);
-        $model->password = Component::security()->generatePasswordHash($data['new_password']);
-        $model->refreshToken();
     }
 }

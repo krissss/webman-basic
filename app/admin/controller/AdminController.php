@@ -3,12 +3,12 @@
 namespace app\admin\controller;
 
 use app\admin\controller\repository\AdminRepository;
+use app\components\Component;
 use app\model\Admin;
 use support\facade\Auth;
 use support\Request;
 use Webman\Http\Response;
 use WebmanTech\AmisAdmin\Amis;
-use WebmanTech\AmisAdmin\Amis\FormField;
 use WebmanTech\AmisAdmin\Repository\RepositoryInterface;
 
 /**
@@ -60,22 +60,16 @@ class AdminController extends AbsSourceController
             ->withButtonDialog(
                 Amis\GridColumnActions::INDEX_UPDATE + 1,
                 '重置密码',
-                $this->buildFormFields([
-                    ['type' => 'alert', 'body' => '重置密码后会刷新 Access Token', 'level' => 'info', 'showIcon' => true],
-                    FormField::make()->typeInputPassword()->name('new_password')->value(null)->required(),
-                    FormField::make()->typeInputPassword()->name('new_password_confirmation')->value(null)->required()->schema([
-                        'validations' => [
-                            'equalsField' => 'new_password',
-                        ],
-                        'validationErrors' => [
-                            'equalsField' => '两次密码输入不一致',
-                        ],
-                    ]),
-                ]),
                 [
-                    'api' => route('admin.admin.resetPassword', ['id' => '${id}']),
+                    'type' => 'service',
+                    'schemaApi' => 'get:' . route('admin.admin.resetPassword.get', ['id' => '$id']),
+                ],
+                [
+                    'api' => [
+                        'url' => route("admin.admin.resetPassword.post", ['id' => '$id']),
+                    ],
                     'level' => 'warning',
-                ]
+                ],
             );
     }
 
@@ -84,7 +78,24 @@ class AdminController extends AbsSourceController
      */
     public function resetPassword(Request $request, $id): Response
     {
-        $this->repository()->resetPassword($request->post(), $id);
+        if ($request->method() === 'GET') {
+            return admin_response([
+                'type' => 'container',
+                'data' => [
+                    'new_password' => '',
+                    'new_password_confirmation' => '',
+                ],
+                'body' => $this->buildFormFields([
+                    ['type' => 'alert', 'body' => '重置密码后会刷新 Access Token', 'level' => 'info', 'showIcon' => true],
+                    ...$this->repository()->getPresetsHelper()->withScene(AdminRepository::SCENE_RESET_PASSWORD)->pickForm(),
+                ]),
+            ]);
+        }
+
+        $data = $this->repository()->validate($request->post(), AdminRepository::SCENE_RESET_PASSWORD);
+        $model = Admin::query()->findOrFail($id);
+        $model->password = Component::security()->generatePasswordHash($data['new_password']);
+        $model->refreshToken();
 
         return admin_response('ok');
     }

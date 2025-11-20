@@ -20,7 +20,10 @@ Route::post('/info/update', [controller\InfoController::class, 'update'])->name(
 Route::post('/info/change-password', [controller\InfoController::class, 'changePassword'])->name('admin.info.changePassword');
 Route::post('/auth/logout', [controller\AuthController::class, 'logout'])->name('admin.logout');
 // crud
-Route::resource('admin', controller\AdminController::class, ['name_prefix' => 'admin.', 'resetPassword']);
+Route::resource('admin', controller\AdminController::class, [
+    'name_prefix' => 'admin.',
+    'resetPassword' => ['method' => ['get', 'post'], 'path' => '/{_name}/services/{_action}/{id}'],
+]);
 Route::resource('user', controller\UserController::class, ['name_prefix' => 'admin.', 'resetPassword', 'resetApiToken', 'login']);
 Route::resource('filesystem', controller\FilesystemController::class, [
     'name_prefix' => 'admin.',
