@@ -24,7 +24,12 @@ Route::resource('admin', controller\AdminController::class, [
     'name_prefix' => 'admin.',
     'resetPassword' => ['method' => ['get', 'post'], 'path' => '/{_name}/services/{_action}/{id}'],
 ]);
-Route::resource('user', controller\UserController::class, ['name_prefix' => 'admin.', 'resetPassword', 'resetApiToken', 'login']);
+Route::resource('user', controller\UserController::class, [
+    'name_prefix' => 'admin.',
+    'resetPassword' => ['method' => ['get', 'post'], 'path' => '/{_name}/services/{_action}/{id}'],
+    'resetApiToken',
+    'login',
+]);
 Route::resource('filesystem', controller\FilesystemController::class, [
     'name_prefix' => 'admin.',
     'uploadImage' => ['path' => '/{_name}/{_action}/{type}'],
