@@ -98,7 +98,7 @@ class MakeModelDocCommand extends Command
     protected function getType(string $type, bool $nullable = false): string
     {
         $type = match ($type) {
-            'varchar', 'string', 'text', 'longtext', 'date', 'time', 'guid', 'datetimetz', 'datetime', 'enum', 'timestamp', 'bigint' => 'string',
+            'varchar', 'string', 'text', 'longtext', 'date', 'time', 'guid', 'datetimetz', 'datetime', 'enum', 'timestamp', 'bigint', 'json' => 'string',
             'decimal' => 'numeric',
             'boolean', 'int', 'tinyint', 'smallint' => 'int',
             'float' => 'float',
