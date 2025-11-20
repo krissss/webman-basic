@@ -81,10 +81,6 @@ class AdminController extends AbsSourceController
         if ($request->method() === 'GET') {
             return admin_response([
                 'type' => 'container',
-                'data' => [
-                    'new_password' => '',
-                    'new_password_confirmation' => '',
-                ],
                 'body' => $this->buildFormFields([
                     ['type' => 'alert', 'body' => '重置密码后会刷新 Access Token', 'level' => 'info', 'showIcon' => true],
                     ...$this->repository()->getPresetsHelper()->withScene(AdminRepository::SCENE_RESET_PASSWORD)->pickForm(),
