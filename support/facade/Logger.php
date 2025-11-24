@@ -2,8 +2,6 @@
 
 namespace support\facade;
 
-use Yiisoft\Strings\StringHelper;
-
 /**
  * @method static void default($msg, string $type = 'info', array $context = [])
  * @method static void app($msg, string $type = 'info', array $context = [])
@@ -38,7 +36,7 @@ class Logger extends \WebmanTech\Logger\Logger
 
         return array_unique(
             array_values(
-                array_filter($obj->getConstants(), fn($name) => StringHelper::startsWith($name, 'CHANNEL_'), \ARRAY_FILTER_USE_KEY)
+                array_filter($obj->getConstants(), fn($name) => str_starts_with($name, 'CHANNEL_'), \ARRAY_FILTER_USE_KEY)
             )
         );
     }

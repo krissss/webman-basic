@@ -4,7 +4,7 @@ namespace app\components;
 
 use app\components\interfaces\MemoryRememberInterface;
 
-class MemoryRemember implements MemoryRememberInterface
+final class MemoryRemember implements MemoryRememberInterface
 {
     protected array $data = [];
 

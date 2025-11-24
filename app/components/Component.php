@@ -9,7 +9,7 @@ use app\components\interfaces\SecurityInterface;
  * @method static SecurityInterface security()
  * @method static MemoryRememberInterface memoryRemember()
  */
-class Component
+final class Component
 {
     public static function dependence(): array
     {

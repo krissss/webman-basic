@@ -7,7 +7,7 @@ use Psr\Log\LoggerInterface;
 use support\facade\Logger;
 use support\Log;
 use Webman\RedisQueue\Consumer;
-use Yiisoft\Json\Json;
+use WebmanTech\CommonUtils\Json;
 
 abstract class BaseConsume implements Consumer
 {
@@ -43,12 +43,12 @@ abstract class BaseConsume implements Consumer
 
     public function consume($data)
     {
-        $this->log('start: '.Json::encode($data));
+        $this->log('start: ' . Json::encode($data));
 
         try {
             $this->handle($data);
         } catch (UserSeeException $e) {
-            $this->log('UserSeeException:'.$e->getMessage().($e->getData() ? Json::encode($e->getData()) : ''), 'warning');
+            $this->log('UserSeeException:' . $e->getMessage() . ($e->getData() ? Json::encode($e->getData()) : ''), 'warning');
 
             return;
         } catch (\Throwable $e) {
@@ -69,7 +69,7 @@ abstract class BaseConsume implements Consumer
     protected function log(string $msg, string $type = 'info'): void
     {
         if ($this->logClass) {
-            $msg = static::class.':'.$msg;
+            $msg = static::class . ':' . $msg;
         }
         $this->logger->{$type}($msg);
     }

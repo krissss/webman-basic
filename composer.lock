@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e0755bab8d0cb44bbd3a0704c403e96",
+    "content-hash": "417cfb63eaab2261b6edef40f1e0a913",
     "packages": [
         {
             "name": "brick/math",
@@ -2005,6 +2005,57 @@
             "time": "2025-05-13T15:08:45+00:00"
         },
         {
+            "name": "illuminate/process",
+            "version": "v12.39.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/process.git",
+                "reference": "5d321a370be11d254944bff1039904455328540c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/process/zipball/5d321a370be11d254944bff1039904455328540c",
+                "reference": "5d321a370be11d254944bff1039904455328540c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/collections": "^12.0",
+                "illuminate/contracts": "^12.0",
+                "illuminate/macroable": "^12.0",
+                "illuminate/support": "^12.0",
+                "php": "^8.2",
+                "symfony/process": "^7.2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "12.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Process\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Process package.",
+            "homepage": "https://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2025-10-07T19:59:36+00:00"
+        },
+        {
             "name": "illuminate/redis",
             "version": "v12.17.0",
             "source": {
@@ -2449,62 +2500,6 @@
                 "source": "https://github.com/krissss/php-log-reader/tree/v1.3.7"
             },
             "time": "2025-02-05T07:30:45+00:00"
-        },
-        {
-            "name": "kriss/multi-process",
-            "version": "v1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/krissss/php-multi-process.git",
-                "reference": "70369643e2098c4c723ad26e06c52df2213031ed"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/krissss/php-multi-process/zipball/70369643e2098c4c723ad26e06c52df2213031ed",
-                "reference": "70369643e2098c4c723ad26e06c52df2213031ed",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/serializable-closure": "^1.0",
-                "php": ">=7.4",
-                "symfony/console": ">=5",
-                "symfony/process": ">=5"
-            },
-            "require-dev": {
-                "illuminate/support": "^8.83",
-                "phpunit/phpunit": "^9.6",
-                "psr/log": "^1.1",
-                "workerman/webman-framework": "^1.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Kriss\\MultiProcess\\Integrations\\Laravel\\MultiProcessServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Kriss\\MultiProcess\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "kriss",
-                    "email": "462679766@qq.com"
-                }
-            ],
-            "description": "Multi Async Process Manager based on symfony/process",
-            "support": {
-                "issues": "https://github.com/krissss/php-multi-process/issues",
-                "source": "https://github.com/krissss/php-multi-process/tree/v1.2.1"
-            },
-            "time": "2025-02-05T09:48:41+00:00"
         },
         {
             "name": "kriss/php-notification",
@@ -6255,30 +6250,33 @@
         },
         {
             "name": "webman-tech/components-monorepo",
-            "version": "v1.0.28",
+            "version": "v5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/components-monorepo.git",
-                "reference": "fae6a734b8d671a595063c95625fdc1904ac5950"
+                "reference": "838f5652136d5aa44fc3435885e1d7de733c8f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/fae6a734b8d671a595063c95625fdc1904ac5950",
-                "reference": "fae6a734b8d671a595063c95625fdc1904ac5950",
+                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/838f5652136d5aa44fc3435885e1d7de733c8f82",
+                "reference": "838f5652136d5aa44fc3435885e1d7de733c8f82",
                 "shasum": ""
             },
             "require": {
+                "illuminate/support": ">=8.0",
                 "kriss/log-reader": "^1.3",
                 "monolog/monolog": "^1.0 || ^2.0 || ^3.0",
                 "php": "^8.2",
                 "php-debugbar/php-debugbar": "^2.0",
-                "webman-tech/dto": ">=1.0 || dev-main",
+                "webman-tech/common-utils": "^5.0 || dev-main",
+                "webman-tech/dto": "^5.0 || dev-main",
                 "workerman/crontab": "^1.0",
                 "zircote/swagger-php": ">=5.2 <5.5"
             },
             "replace": {
                 "webman-tech/amis-admin": "self.version",
                 "webman-tech/auth": "self.version",
+                "webman-tech/common-utils": "self.version",
                 "webman-tech/crontab-task": "self.version",
                 "webman-tech/debugbar": "self.version",
                 "webman-tech/dto": "self.version",
@@ -6300,7 +6298,8 @@
             "type": "library",
             "autoload": {
                 "files": [
-                    "packages/amis-admin/src/helper.php"
+                    "packages/amis-admin/src/helper.php",
+                    "packages/common-utils/src/functions.php"
                 ],
                 "psr-4": {
                     "WebmanTech\\DTO\\": "packages/dto/src",
@@ -6310,6 +6309,7 @@
                     "WebmanTech\\Debugbar\\": "packages/debugbar/src",
                     "WebmanTech\\AmisAdmin\\": "packages/amis-admin/src",
                     "WebmanTech\\LogReader\\": "packages/log-reader/src",
+                    "WebmanTech\\CommonUtils\\": "packages/common-utils/src",
                     "WebmanTech\\CrontabTask\\": "packages/crontab-task/src",
                     "WebmanTech\\ComponentsMonorepo\\": "src"
                 }
@@ -6327,9 +6327,9 @@
             "description": "webman components monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/components-monorepo/issues",
-                "source": "https://github.com/webman-tech/components-monorepo/tree/v1.0.28"
+                "source": "https://github.com/webman-tech/components-monorepo/tree/v5.0.1"
             },
-            "time": "2025-11-20T07:07:15+00:00"
+            "time": "2025-11-24T06:10:51+00:00"
         },
         {
             "name": "webman-tech/docker",
@@ -6364,16 +6364,16 @@
         },
         {
             "name": "webman-tech/laravel-monorepo",
-            "version": "v12.0.8",
+            "version": "v12.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/laravel-monorepo.git",
-                "reference": "f9a71eca9ea10ad4c8c7f73e65078addac6c7c5b"
+                "reference": "f235913b09aa62360fa1a600cfce7fe918e56764"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/laravel-monorepo/zipball/f9a71eca9ea10ad4c8c7f73e65078addac6c7c5b",
-                "reference": "f9a71eca9ea10ad4c8c7f73e65078addac6c7c5b",
+                "url": "https://api.github.com/repos/webman-tech/laravel-monorepo/zipball/f235913b09aa62360fa1a600cfce7fe918e56764",
+                "reference": "f235913b09aa62360fa1a600cfce7fe918e56764",
                 "shasum": ""
             },
             "require": {
@@ -6386,11 +6386,13 @@
                 "illuminate/filesystem": "^12.0",
                 "illuminate/http": "^12.0",
                 "illuminate/pagination": "^12.0",
+                "illuminate/process": "^12.0",
                 "illuminate/redis": "^12.0",
                 "illuminate/translation": "^12.0",
                 "illuminate/validation": "^12.0",
                 "league/flysystem": "^3.0",
                 "php": "^8.2",
+                "webman-tech/common-utils": "^5.0 || dev-main",
                 "webman/database": "^2.1",
                 "webman/redis": "^2.1"
             },
@@ -6400,6 +6402,7 @@
                 "webman-tech/laravel-database": "self.version",
                 "webman-tech/laravel-filesystem": "self.version",
                 "webman-tech/laravel-http": "self.version",
+                "webman-tech/laravel-process": "self.version",
                 "webman-tech/laravel-redis": "self.version",
                 "webman-tech/laravel-translation": "self.version",
                 "webman-tech/laravel-validation": "self.version"
@@ -6446,9 +6449,9 @@
             "description": "laravel component for webman monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/laravel-monorepo/issues",
-                "source": "https://github.com/webman-tech/laravel-monorepo/tree/v12.0.8"
+                "source": "https://github.com/webman-tech/laravel-monorepo/tree/v12.0.10"
             },
-            "time": "2025-10-10T09:54:56+00:00"
+            "time": "2025-11-24T06:14:16+00:00"
         },
         {
             "name": "webman/console",
@@ -6980,130 +6983,6 @@
                 }
             ],
             "time": "2025-06-12T13:34:04+00:00"
-        },
-        {
-            "name": "yiisoft/json",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yiisoft/json.git",
-                "reference": "51b483aef1cd5d06ea02db3c40707bb6b41ed088"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/json/zipball/51b483aef1cd5d06ea02db3c40707bb6b41ed088",
-                "reference": "51b483aef1cd5d06ea02db3c40707bb6b41ed088",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.4|^8.0"
-            },
-            "require-dev": {
-                "infection/infection": "^0.16.3",
-                "phan/phan": "^3.0",
-                "phpunit/phpunit": "^9.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Yiisoft\\Json\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "json",
-            "homepage": "http://www.yiiframework.com/",
-            "keywords": [
-                "json"
-            ],
-            "support": {
-                "forum": "http://www.yiiframework.com/forum/",
-                "irc": "irc://irc.freenode.net/yii",
-                "issues": "https://github.com/yiisoft/json/issues?state=open",
-                "source": "https://github.com/yiisoft/json",
-                "wiki": "http://www.yiiframework.com/wiki/"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/yiisoft",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/yiisoft",
-                    "type": "open_collective"
-                }
-            ],
-            "time": "2020-08-26T12:21:14+00:00"
-        },
-        {
-            "name": "yiisoft/strings",
-            "version": "2.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yiisoft/strings.git",
-                "reference": "eeb087d96ab8ae35c5b17daafe5d8ad9522880ab"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/strings/zipball/eeb087d96ab8ae35c5b17daafe5d8ad9522880ab",
-                "reference": "eeb087d96ab8ae35c5b17daafe5d8ad9522880ab",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
-            },
-            "require-dev": {
-                "maglnet/composer-require-checker": "^4.7.1",
-                "phpunit/phpunit": "^10.5.45",
-                "rector/rector": "^2.0.8",
-                "roave/infection-static-analysis-plugin": "^1.35",
-                "spatie/phpunit-watcher": "^1.24",
-                "vimeo/psalm": "^5.26.1|^6.4.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Yiisoft\\Strings\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Yii Strings Helper",
-            "homepage": "https://www.yiiframework.com/",
-            "keywords": [
-                "helper",
-                "string",
-                "yii"
-            ],
-            "support": {
-                "chat": "https://t.me/yii3en",
-                "forum": "https://www.yiiframework.com/forum/",
-                "irc": "ircs://irc.libera.chat:6697/yii",
-                "issues": "https://github.com/yiisoft/strings/issues?state=open",
-                "source": "https://github.com/yiisoft/strings",
-                "wiki": "https://www.yiiframework.com/wiki/"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sponsors/yiisoft",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/yiisoft",
-                    "type": "opencollective"
-                }
-            ],
-            "time": "2025-02-09T16:30:52+00:00"
         },
         {
             "name": "zircote/swagger-php",

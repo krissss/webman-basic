@@ -4,24 +4,21 @@ namespace app\command\framework;
 
 use app\components\Component;
 use app\model\Admin;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+use Illuminate\Console\Command;
 
 class InitDataCommand extends Command
 {
-    protected static $defaultName = 'init-data';
-    protected static $defaultDescription = '初始化数据';
+    protected $signature = 'init-data';
+    protected $description = '初始化数据';
 
-    /**
-     * @return int
-     */
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function handle()
     {
+        $this->info('start');
+
         // 此处增加的逻辑需要保证可以重复执行而不出错
         $this->initAdmin();
 
-        return self::SUCCESS;
+        $this->info('end');
     }
 
     private function initAdmin()

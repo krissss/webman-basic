@@ -3,8 +3,8 @@
 namespace app\command\framework;
 
 use Illuminate\Console\Command;
-use Kriss\MultiProcess\MultiProcess;
-use Kriss\MultiProcess\PendingProcess;
+use Illuminate\Process\Pool;
+use WebmanTech\LaravelProcess\Facades\Process;
 
 class EnvironmentCiCommand extends Command
 {
@@ -40,24 +40,25 @@ class EnvironmentCiCommand extends Command
         if (is_string($commands)) {
             $commands = [$commands];
         }
-        $mp = MultiProcess::create();
 
-        collect($commands)
-            ->mapWithKeys(fn($command, $name) => [is_numeric($name) ? $command : $name => $command])
-            ->each(fn($command, $name) => $mp->add(
-                PendingProcess::createFromCommand($command)
-                    ->setEnv([
+        Process::instance()
+            ->pool(fn(Pool $pool) => collect($commands)
+                ->mapWithKeys(fn($command, $name) => [is_numeric($name) ? $command : $name => $command])
+                ->each(fn($command, $name) => $pool
+                    ->as($command)
+                    ->command($command)
+                    ->env([
                         'COMPOSER_ALLOW_SUPERUSER' => 1,
                     ])
-                    ->setStartCallback(fn($type, $buffer) => $this->log($name, $buffer, $type)),
-                $name
-            ));
-
-        $mp->wait();
+                )
+            )
+            ->start(fn(string $type, string $output, string $name) => $this->log($name, $output, $type))
+            ->wait();
     }
 
     private function log(string $title, string $output, string $type)
     {
-        $this->line("[$title][$type]: \n{$output}");
+        $time = date('Y-m-d H:i:s');
+        $this->line("[$time][$title][$type]: \n{$output}");
     }
 }

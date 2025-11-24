@@ -5,7 +5,7 @@ namespace app\components;
 use app\components\interfaces\SecurityInterface;
 use Illuminate\Support\Str;
 
-class Security implements SecurityInterface
+final class Security implements SecurityInterface
 {
     /**
      * {@inheritDoc}

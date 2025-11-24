@@ -21,20 +21,17 @@
     "php": ">=8.2",
     "ext-json": "*",
     "kriss/composer-assets-plugin": "^1.0",
-    "kriss/multi-process": "^1.2",
     "kriss/php-notification": "^1.2",
     "robmorgan/phinx": "^0.16.2",
     "symfony/translation": "^7.0",
-    "webman-tech/components-monorepo": "^1.0",
+    "webman-tech/components-monorepo": "^5.0",
     "webman-tech/docker": "^2.3",
     "webman-tech/laravel-monorepo": "^12.0",
     "webman/console": "^2.1",
     "webman/event": "^1.0",
     "webman/multi-session": "^2.1",
     "webman/redis-queue": "^2.1",
-    "workerman/webman-framework": "^2.1",
-    "yiisoft/json": "^1.0",
-    "yiisoft/strings": "^2.0"
+    "workerman/webman-framework": "^2.1"
   },
   "require-dev": {
     "pestphp/pest": "^3.8",
