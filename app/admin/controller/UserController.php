@@ -3,9 +3,7 @@
 namespace app\admin\controller;
 
 use app\admin\controller\repository\UserRepository;
-use app\components\Component;
 use app\enums\UserStatusEnum;
-use app\model\User;
 use support\facade\Auth;
 use support\Request;
 use Webman\Http\Response;
@@ -80,10 +78,7 @@ class UserController extends AbsSourceController
             ]);
         }
 
-        $data = $this->repository()->validate($request->post(), UserRepository::SCENE_RESET_PASSWORD);
-        $model = User::query()->findOrFail($id);
-        $model->password = Component::security()->generatePasswordHash($data['new_password']);
-        $model->refreshToken();
+        $this->repository()->resetPassword($request->post(), $id);
 
         return admin_response('ok');
     }

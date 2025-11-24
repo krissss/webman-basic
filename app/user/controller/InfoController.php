@@ -9,13 +9,8 @@ use app\admin\controller\repository\UserRepository;
  */
 class InfoController extends \app\admin\controller\InfoController
 {
-    /**
-     * {@inheritdoc}
-     */
     protected string $repository = UserRepository::class;
-    /**
-     * {@inheritdoc}
-     */
+
     protected string $routeInfo = 'user.info';
 
     protected string $routeInfoUpdate = 'user.info.update';

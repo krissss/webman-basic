@@ -111,6 +111,18 @@ class UserRepository extends AbsRepository
     }
 
     /**
+     * 重置密码
+     */
+    public function resetPassword(array $data, $id): void
+    {
+        $data = $this->validate($data, self::SCENE_RESET_PASSWORD);
+        /** @var User $model */
+        $model = $this->query()->findOrFail($id);
+        $model->password = Component::security()->generatePasswordHash($data['new_password']);
+        $model->refreshToken();
+    }
+
+    /**
      * 重置 api_token.
      */
     public function resetApiToken($id): void

@@ -99,4 +99,16 @@ class AdminRepository extends AbsRepository
         }
         parent::doSave($model);
     }
+
+    /**
+     * 重置密码
+     */
+    public function resetPassword(array $data, $id): void
+    {
+        $data = $this->validate($data, self::SCENE_RESET_PASSWORD);
+        /** @var Admin $model */
+        $model = $this->query()->findOrFail($id);
+        $model->password = Component::security()->generatePasswordHash($data['new_password']);
+        $model->refreshToken();
+    }
 }

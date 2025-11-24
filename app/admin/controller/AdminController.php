@@ -3,7 +3,6 @@
 namespace app\admin\controller;
 
 use app\admin\controller\repository\AdminRepository;
-use app\components\Component;
 use app\model\Admin;
 use support\facade\Auth;
 use support\Request;
@@ -88,10 +87,7 @@ class AdminController extends AbsSourceController
             ]);
         }
 
-        $data = $this->repository()->validate($request->post(), AdminRepository::SCENE_RESET_PASSWORD);
-        $model = Admin::query()->findOrFail($id);
-        $model->password = Component::security()->generatePasswordHash($data['new_password']);
-        $model->refreshToken();
+        $this->repository()->resetPassword($request->post(), $id);
 
         return admin_response('ok');
     }
