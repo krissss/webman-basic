@@ -6250,20 +6250,19 @@
         },
         {
             "name": "webman-tech/components-monorepo",
-            "version": "v5.0.1",
+            "version": "v5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/components-monorepo.git",
-                "reference": "838f5652136d5aa44fc3435885e1d7de733c8f82"
+                "reference": "cb39587d9ea6f176ac5a292ac84dc5f09484f0fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/838f5652136d5aa44fc3435885e1d7de733c8f82",
-                "reference": "838f5652136d5aa44fc3435885e1d7de733c8f82",
+                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/cb39587d9ea6f176ac5a292ac84dc5f09484f0fc",
+                "reference": "cb39587d9ea6f176ac5a292ac84dc5f09484f0fc",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": ">=8.0",
                 "kriss/log-reader": "^1.3",
                 "monolog/monolog": "^1.0 || ^2.0 || ^3.0",
                 "php": "^8.2",
@@ -6286,13 +6285,16 @@
             },
             "require-dev": {
                 "ergebnis/composer-normalize": "^2.47",
+                "guzzlehttp/guzzle": "^7.10",
+                "illuminate/routing": "^12.40",
                 "pestphp/pest": "^3.8",
                 "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-webmozart-assert": "^2.0",
                 "rector/rector": "^2.0",
+                "symfony/http-client": "^7.3",
                 "symfony/var-dumper": "^7.2",
                 "tinywan/jwt": "^1.11",
-                "webman-tech/laravel-monorepo": "^12.0",
+                "webman-tech/laravel-monorepo": "12.x-dev",
                 "workerman/webman-framework": "^2.1"
             },
             "type": "library",
@@ -6327,9 +6329,9 @@
             "description": "webman components monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/components-monorepo/issues",
-                "source": "https://github.com/webman-tech/components-monorepo/tree/v5.0.1"
+                "source": "https://github.com/webman-tech/components-monorepo/tree/v5.0.3"
             },
-            "time": "2025-11-24T06:10:51+00:00"
+            "time": "2025-12-03T10:03:47+00:00"
         },
         {
             "name": "webman-tech/docker",
@@ -6364,16 +6366,16 @@
         },
         {
             "name": "webman-tech/laravel-monorepo",
-            "version": "v12.0.10",
+            "version": "v12.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/laravel-monorepo.git",
-                "reference": "f235913b09aa62360fa1a600cfce7fe918e56764"
+                "reference": "7cc9c3d76ceebbabcf173bcd3cbb5f03c2058ae1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/laravel-monorepo/zipball/f235913b09aa62360fa1a600cfce7fe918e56764",
-                "reference": "f235913b09aa62360fa1a600cfce7fe918e56764",
+                "url": "https://api.github.com/repos/webman-tech/laravel-monorepo/zipball/7cc9c3d76ceebbabcf173bcd3cbb5f03c2058ae1",
+                "reference": "7cc9c3d76ceebbabcf173bcd3cbb5f03c2058ae1",
                 "shasum": ""
             },
             "require": {
@@ -6449,9 +6451,9 @@
             "description": "laravel component for webman monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/laravel-monorepo/issues",
-                "source": "https://github.com/webman-tech/laravel-monorepo/tree/v12.0.10"
+                "source": "https://github.com/webman-tech/laravel-monorepo/tree/v12.0.12"
             },
-            "time": "2025-11-24T06:14:16+00:00"
+            "time": "2025-11-28T10:17:34+00:00"
         },
         {
             "name": "webman/console",

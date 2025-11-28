@@ -1,13 +1,10 @@
 <?php
 
 use Monolog\Processor\PsrLogMessageProcessor;
-use support\facade\Auth;
 use support\facade\Logger;
 use WebmanTech\Logger\Formatter\ChannelFormatter;
 use WebmanTech\Logger\Formatter\ChannelMixedFormatter;
-use WebmanTech\Logger\Processors\CurrentUserProcessor;
-use WebmanTech\Logger\Processors\RequestRouteProcessor;
-use WebmanTech\Logger\Processors\RequestUidProcessor;
+use WebmanTech\Logger\Processors;
 
 return [
     // channels
@@ -23,12 +20,10 @@ return [
     'processors' => function () {
         return [
             new PsrLogMessageProcessor('Y-m-d H:i:s', true),
-            new RequestRouteProcessor(),
-            new CurrentUserProcessor(function () {
-                // 返回当前用户id
-                return Auth::guard()->getId() ?: 0;
-            }),
-            new RequestUidProcessor(),
+            new Processors\RequestRouteProcessor(),
+            new Processors\AuthUserIdProcessor(),
+            new Processors\RequestIpProcessor(),
+            new Processors\RequestTraceProcessor(),
         ];
     },
     // 模式

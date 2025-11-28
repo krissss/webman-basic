@@ -6,10 +6,9 @@ use app\enums\common\AppModuleEnum;
 use app\enums\UserStatusEnum;
 use app\exception\UserSeeException;
 use app\model\User;
-use Webman\Http\Request;
-use Webman\Http\Response;
 use WebmanTech\Auth\Interfaces\IdentityInterface;
 use WebmanTech\Auth\Middleware\Authentication;
+use WebmanTech\CommonUtils\Response;
 
 class AuthenticateUser extends Authentication
 {
@@ -20,7 +19,7 @@ class AuthenticateUser extends Authentication
         parent::__construct($this->appModule->guardName());
     }
 
-    public function process(Request $request, callable $handler): Response
+    public function process(mixed $request, mixed $handler): mixed
     {
         $request->app = $this->appModule->value; // 修正多应用模块
 

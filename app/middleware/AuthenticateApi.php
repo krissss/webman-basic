@@ -6,10 +6,10 @@ use app\enums\common\AppModuleEnum;
 use app\enums\UserStatusEnum;
 use app\exception\UserSeeException;
 use app\model\User;
-use Webman\Http\Request;
-use Webman\Http\Response;
+use InvalidArgumentException;
 use WebmanTech\Auth\Interfaces\IdentityInterface;
 use WebmanTech\Auth\Middleware\Authentication;
+use WebmanTech\CommonUtils\Response;
 
 class AuthenticateApi extends Authentication
 {
@@ -20,7 +20,7 @@ class AuthenticateApi extends Authentication
         parent::__construct($this->appModule->guardName());
     }
 
-    public function process(Request $request, callable $handler): Response
+    public function process(mixed $request, mixed $handler): mixed
     {
         $request->app = $this->appModule->value; // 修正多应用模块
 
@@ -35,7 +35,7 @@ class AuthenticateApi extends Authentication
     protected function checkIdentity(IdentityInterface $identity): ?Response
     {
         if (!$identity instanceof User) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
 
         if (!UserStatusEnum::isEnabled($identity->status)) {
