@@ -33,13 +33,14 @@ return [
          * 建议使用 CustomLogInterface 形式，支持慢请求、请求时长、更多配置
          */
         'custom' => function (array $config) {
-            /**
-             * @see \WebmanTech\LaravelHttp\Guzzle\Log\CustomLog::$config
-             */
-            $config = [
-                'log_channel' => $config['channel'],
-            ];
-            return new \WebmanTech\LaravelHttp\Guzzle\Log\CustomLog($config);
+            static $httpClientMessage;
+            if (!$httpClientMessage) {
+                $httpClientMessage = (new \WebmanTech\Logger\Message\GuzzleHttpClientMessage([
+                    //'logMinTimeMS' => 0,
+                    'channel' => $config['channel'],
+                ]));
+            }
+            return $httpClientMessage->middleware();
         }
     ],
     /**
