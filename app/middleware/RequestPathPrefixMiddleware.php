@@ -32,8 +32,8 @@ class RequestPathPrefixMiddleware implements MiddlewareInterface
             $content = $response->rawBody();
             if (str_contains($content, '<html') && str_contains($content, '<head') && str_contains($content, '<body')) {
                 $pathPrefix = ltrim($pathPrefix, '/');
-                $pattern = '/(href|src)="\/(.*?)\.(css|js|jpg|png|gif|svg|ico)"/';
-                $replacement = '$1="/'.$pathPrefix.'/$2.$3"';
+                $pattern = '/(href|src)="\/(.*?)\.(css|js|jpg|png|gif|svg|ico)(\?[^"]*)?"/';
+                $replacement = '$1="/' . $pathPrefix . '/$2.$3"';
                 $content = preg_replace($pattern, $replacement, $content);
                 $response->withBody($content);
             }
