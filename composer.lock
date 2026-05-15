@@ -6250,16 +6250,16 @@
         },
         {
             "name": "webman-tech/components-monorepo",
-            "version": "v5.0.3",
+            "version": "v5.0.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/components-monorepo.git",
-                "reference": "cb39587d9ea6f176ac5a292ac84dc5f09484f0fc"
+                "reference": "9c7e5b3ed674a530a800b37ce45f068341e2daca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/cb39587d9ea6f176ac5a292ac84dc5f09484f0fc",
-                "reference": "cb39587d9ea6f176ac5a292ac84dc5f09484f0fc",
+                "url": "https://api.github.com/repos/webman-tech/components-monorepo/zipball/9c7e5b3ed674a530a800b37ce45f068341e2daca",
+                "reference": "9c7e5b3ed674a530a800b37ce45f068341e2daca",
                 "shasum": ""
             },
             "require": {
@@ -6267,6 +6267,8 @@
                 "monolog/monolog": "^1.0 || ^2.0 || ^3.0",
                 "php": "^8.2",
                 "php-debugbar/php-debugbar": "^2.0",
+                "psr/simple-cache": "^1.0 || ^2.0 || ^3.0",
+                "symfony/clock": ">=6.2",
                 "webman-tech/common-utils": "^5.0 || dev-main",
                 "webman-tech/dto": "^5.0 || dev-main",
                 "workerman/crontab": "^1.0",
@@ -6329,9 +6331,9 @@
             "description": "webman components monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/components-monorepo/issues",
-                "source": "https://github.com/webman-tech/components-monorepo/tree/v5.0.3"
+                "source": "https://github.com/webman-tech/components-monorepo/tree/v5.0.20"
             },
-            "time": "2025-12-03T10:03:47+00:00"
+            "time": "2026-04-23T08:00:09+00:00"
         },
         {
             "name": "webman-tech/docker",
@@ -6366,16 +6368,16 @@
         },
         {
             "name": "webman-tech/laravel-monorepo",
-            "version": "v12.0.12",
+            "version": "v12.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-tech/laravel-monorepo.git",
-                "reference": "7cc9c3d76ceebbabcf173bcd3cbb5f03c2058ae1"
+                "reference": "4c9fe3853148a89c9cfc1d937bbbe04892eeeba2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-tech/laravel-monorepo/zipball/7cc9c3d76ceebbabcf173bcd3cbb5f03c2058ae1",
-                "reference": "7cc9c3d76ceebbabcf173bcd3cbb5f03c2058ae1",
+                "url": "https://api.github.com/repos/webman-tech/laravel-monorepo/zipball/4c9fe3853148a89c9cfc1d937bbbe04892eeeba2",
+                "reference": "4c9fe3853148a89c9cfc1d937bbbe04892eeeba2",
                 "shasum": ""
             },
             "require": {
@@ -6451,9 +6453,9 @@
             "description": "laravel component for webman monorepo",
             "support": {
                 "issues": "https://github.com/webman-tech/laravel-monorepo/issues",
-                "source": "https://github.com/webman-tech/laravel-monorepo/tree/v12.0.12"
+                "source": "https://github.com/webman-tech/laravel-monorepo/tree/v12.0.13"
             },
-            "time": "2025-11-28T10:17:34+00:00"
+            "time": "2026-04-24T01:17:43+00:00"
         },
         {
             "name": "webman/console",
@@ -9943,5 +9945,5 @@
         "ext-json": "*"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }

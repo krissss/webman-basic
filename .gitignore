@@ -16,3 +16,6 @@
 /env.local.php
 /docker-compose.yml
 /phpstan.neon
+# ai
+.agents
+.claude
