@@ -17,5 +17,5 @@
 /docker-compose.yml
 /phpstan.neon
 # ai
-.agents
 .claude
+.codex
