@@ -16,6 +16,6 @@
     </source>
     <php>
         <server name="DB_CONNECTION" value="sqlite"/>
-        <server name="DB_SQLITE_DATABASE" value=":memory:"/>
+        <server name="DB_SQLITE_DATABASE" value="runtime/testing.sqlite"/>
     </php>
 </phpunit>
