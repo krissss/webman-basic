@@ -3,6 +3,7 @@
 // region app
 put_env('APP_DEBUG', true);
 put_env('APP_NAME', 'webman-basic');
+put_env('APP_URL', 'http://localhost:8787'); // 本地访问地址，供 storage 生成绝对 URL（文件管理「打开」用）
 // endregion
 
 // region server
