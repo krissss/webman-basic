@@ -222,7 +222,7 @@ class FilesystemController extends AbsSourceController
         $path = $request->post('path');
 
         return amis_response([
-            'url' => $this->disk()->url($path),
+            'url' => Storage::temporaryUrlForBrowser($path, disk: $this->disk()),
         ]);
     }
 }

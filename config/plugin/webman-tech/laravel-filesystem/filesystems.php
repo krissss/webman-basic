@@ -8,7 +8,7 @@ if (!function_exists('get_env')) {
 }
 
 return [
-    'default' => 'local',
+    'default' => 'public',
     'cloud' => 's3',
     'disks' => [
         'local' => [
