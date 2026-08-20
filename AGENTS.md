@@ -166,6 +166,19 @@ support/facade
 
 常用的业务开发辅助命令和业务脚本优先通过 `php artisan` 调用。
 
+### 服务启动与热重启
+
+- 开发启动用 `composer dev`（即 `php start.php start`，前台运行）。前台运行时 webman 的 `monitor` 进程会监听文件变化，
+  **修改代码后会自动热重启，无需手动重启**。
+- 热重启生效范围（`config/process.php` 的 `monitorDir`，扩展名 `php/html/htm/env`）：
+  `app/`、`config/`、`support/`、`resource/`、`process/`、`env.php`、`env.local.php` 及 `plugin/*/app|config|api`。
+- 以下情况**不会**热重启，需手动 `php start.php restart`（或 `stop` 后重新 `start`）：
+    - **daemon 模式**（`php start.php start -d`）不启用文件监控，任何代码改动都要手动重启；
+    - 改了监听范围外的文件：`vendor/`（依赖变更后一般还需 `composer dump-autoload`）、`public/`（静态资源直接生效）、
+      `runtime/`、`environments/`（注意：`environments/*/env.php` 不在监听范围，改环境配置必须手动重启）；
+    - 进程级配置改动（`config/server.php`、`config/process.php`）建议完全重启。
+- 注意 `monitor` 进程仅在 `APP_DEBUG=true` 时启用（`config/process.php` 末尾 `debug` 为 false 时会移除 monitor）。
+
 ## 代码约定
 
 - 使用当前 `PHP` 版本支持的新语法。
@@ -175,6 +188,18 @@ support/facade
 - 模型查询建议从 `Model::query()` 开始，便于 IDE 提示和 `phpstan` 类型检查。
 - 获取环境配置统一使用 `get_env()`；仅允许在 `environments` 相关配置中使用 `put_env()`，其他业务代码不得通过 `put_env()`
   修改环境变量。
+
+### 路由注意
+
+- 用 `support\facade\Route::resource()` 注册**自定义 GET action** 时，静态路由不能与 `show` 的 `/{id}` 变量路由**同段数**
+  ，否则
+  FastRoute 抛 `BadRouteException`，**worker 启动即崩溃循环重启**（exit_count 暴涨、全部 busy）。把自定义 action 挂到多段路径即可：
+  ```php
+  // ❌ /filesystem/url 与 /filesystem/{id} 同段数冲突
+  'url' => ['method' => 'get', 'path' => '/{_name}/{_action}'],
+  // ✅ 挂到多段路径（对齐 resetPassword 的 /services/ 惯例）
+  'urlRedirect' => ['method' => 'get', 'path' => '/{_name}/services/{_action}'],
+  ```
 
 ## 修改后检查
 
