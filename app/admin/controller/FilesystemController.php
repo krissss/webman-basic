@@ -156,14 +156,14 @@ class FilesystemController extends AbsSourceController
                 'visibleOn' => '${is_dir}',
                 'level' => 'success',
             ])
-            ->withButtonAjax(
+            ->withButtonUrl(
                 Amis\GridColumnActions::INDEX_DETAIL + 2,
                 '打开',
-                'post:' . route('admin.filesystem.url'),
+                route('admin.filesystem.urlRedirect') . '?path=${file_path}',
+                true,
                 [
                     'visibleOn' => '${!is_dir}',
                     'level' => 'info',
-                    'redirect' => '${url|raw}',
                 ]
             );
     }
@@ -213,16 +213,15 @@ class FilesystemController extends AbsSourceController
     }
 
     /**
-     * 获取 url.
+     * 打开文件：302 到真实文件地址（点击时才生成 url）.
      *
      * @return \Webman\Http\Response
      */
-    public function url(Request $request)
+    public function urlRedirect(Request $request)
     {
-        $path = $request->post('path');
+        $path = $request->get('path');
+        $url = Storage::temporaryUrlForBrowser($path, disk: $this->disk());
 
-        return amis_response([
-            'url' => Storage::temporaryUrlForBrowser($path, disk: $this->disk()),
-        ]);
+        return redirect($url);
     }
 }

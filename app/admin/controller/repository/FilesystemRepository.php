@@ -29,6 +29,11 @@ class FilesystemRepository extends AbsRepository implements HasPresetInterface
                     filter: false,
                     grid: false,
                 ),
+                'file_path' => new PresetItem(
+                    label: '文件路径',
+                    filter: false,
+                    grid: false,
+                ),
                 'is_dir' => new PresetItem(
                     label: '是否是目录',
                     filter: false,
@@ -55,7 +60,7 @@ class FilesystemRepository extends AbsRepository implements HasPresetInterface
                     filter: false,
                 ),
             ])
-            ->withDefaultSceneKeys(['id', 'path', 'is_dir', 'dirname', 'file', 'ext', 'time', 'size']);
+            ->withDefaultSceneKeys(['id', 'path', 'file_path', 'is_dir', 'dirname', 'file', 'ext', 'time', 'size']);
     }
 
     public function __construct(Filesystem $disk)
@@ -110,6 +115,8 @@ class FilesystemRepository extends AbsRepository implements HasPresetInterface
                     'ext' => $pathInfo['extension'] ?? '',
                     'time' => $item['dir'] ? '' : $this->disk->lastModified($item['path']), // 部分系统（比如oss）无法获取到文件夹的 meta 信息，所以不获取
                     'size' => $item['dir'] ? '' : Tools::formatBytes($this->disk->size($item['path'])),
+                    // amis 中 path 是内置属性名（会被遮蔽为 0），用 file_path 传给前端拼打开地址
+                    'file_path' => '/' . $item['path'],
                 ];
             })
             ->values()

@@ -34,5 +34,5 @@ Route::resource('filesystem', controller\FilesystemController::class, [
     'name_prefix' => 'admin.',
     'uploadImage' => ['path' => '/{_name}/{_action}/{type}'],
     'uploadFile' => ['path' => '/{_name}/{_action}/{type}'],
-    'url' => ['path' => '/{_name}/{_action}'],
+    'urlRedirect' => ['method' => 'get', 'path' => '/{_name}/services/{_action}'],
 ]);
