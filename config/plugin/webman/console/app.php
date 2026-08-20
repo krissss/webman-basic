@@ -1,11 +1,14 @@
 <?php
-
 return [
     'enable' => true,
 
     'build_dir'  => BASE_PATH . DIRECTORY_SEPARATOR . 'build',
 
     'phar_filename' => 'webman.phar',
+
+    'phar_format' => Phar::PHAR, // Phar archive format: Phar::PHAR, Phar::TAR, Phar::ZIP
+
+    'phar_compression' => Phar::NONE, // Compression method for Phar archive: Phar::NONE, Phar::GZ, Phar::BZ2
 
     'bin_filename' => 'webman.bin',
 
@@ -16,6 +19,10 @@ return [
     'exclude_pattern'   => '#^(?!.*(composer.json|/.github/|/.idea/|/.git/|/.setting/|/runtime/|/vendor-bin/|/build/|/vendor/webman/admin/))(.*)$#',
 
     'exclude_files'     => [
-        '.env', 'LICENSE', 'composer.json', 'composer.lock', 'start.php', 'webman.phar', 'webman.bin',
+        '.env', 'LICENSE', 'composer.json', 'composer.lock', 'start.php', 'webman.phar', 'webman.bin'
     ],
+
+    'custom_ini' => '
+memory_limit = 256M
+    ',
 ];

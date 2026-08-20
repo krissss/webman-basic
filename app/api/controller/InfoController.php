@@ -6,7 +6,7 @@ use app\middleware\AuthenticateApi;
 use app\model\User;
 use OpenApi\Attributes as OA;
 use support\facade\Auth;
-use Webman\Annotation\Middleware;
+use support\annotation\Middleware;
 use Webman\Http\Response;
 use WebmanTech\Swagger\DTO\SchemaConstants;
 

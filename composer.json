@@ -24,10 +24,10 @@
     "kriss/php-notification": "^1.2",
     "robmorgan/phinx": "^0.16.2",
     "symfony/translation": "^7.0",
-    "webman-tech/components-monorepo": "^5.0",
+    "webman-tech/components-monorepo": "^5.1",
     "webman-tech/docker": "^2.3",
     "webman-tech/laravel-monorepo": "^12.0",
-    "webman/console": "^2.1",
+    "webman/console": "^2.2",
     "webman/event": "^1.0",
     "webman/multi-session": "^2.1",
     "webman/redis-queue": "^2.1",
@@ -45,7 +45,7 @@
     "symfony/cache": "For PSR6 cache use"
   },
   "_comment": [
-    "basic From walkor/webman Version 2.1.6"
+    "basic From walkor/webman Version 2.2.3"
   ],
   "extra": {
     "assets-dir": "public/assets",
