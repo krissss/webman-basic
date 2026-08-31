@@ -1,0 +1,11 @@
+{
+    "$schema": "https://raw.githubusercontent.com/roxblnfk/skills/master/resources/skills.schema.json",
+    "dependencies": {
+        "composer": {
+            "trusted": [
+                "vendor/*"
+            ]
+        }
+    },
+    "discovery": true
+}
