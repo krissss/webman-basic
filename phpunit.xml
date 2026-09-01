@@ -15,7 +15,17 @@
         </include>
     </source>
     <php>
-        <server name="DB_CONNECTION" value="sqlite"/>
-        <server name="DB_SQLITE_DATABASE" value="runtime/testing.sqlite"/>
+        <!--
+          测试 env 只需写 <env> 单份：
+          - <env> 在 bootstrap 加载前已 putenv（tests/bootstrap.php 同时回灌 $_SERVER，供项目 get_env() 读取）
+          - server 子进程（php start.php start）启动时快照环境变量，靠 putenv 继承同一份测试 env
+        -->
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_SQLITE_DATABASE" value="runtime/testing.sqlite"/>
+        <env name="SERVER_LISTEN" value="http://0.0.0.0:18787"/>
+        <env name="SERVER_NAME" value="webman"/>
+        <env name="SESSION_ADAPTER" value="file"/>
+        <env name="QUEUE_ENABLE" value="false"/>
+        <env name="QUEUE_CONSUMER_ENABLE" value="false"/>
     </php>
 </phpunit>

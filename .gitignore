@@ -6,6 +6,7 @@
 /node_modules
 # 其他
 /tests/tmp
+/tests/runtime
 /tests/.phpunit.result.cache
 /*.log
 /build

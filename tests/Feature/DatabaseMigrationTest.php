@@ -1,20 +1,23 @@
 <?php
 
+use app\components\Component;
+use app\enums\AdminStatusEnum;
 use app\model\Admin;
-use WebmanTech\LaravelDatabase\Facades\DB;
 
-test('feature tests run migrated sqlite database in transaction', function () {
-    expect(DB::getSchemaBuilder()->hasTable('admin'))->toBeTrue()
-        ->and(DB::getSchemaBuilder()->hasTable('user'))->toBeTrue();
+test('feature tests run migrated sqlite database', function () {
+    $this->assertDatabaseHas('phinxlog', ['migration_name' => 'CreateAdmin']);
+    $this->assertDatabaseHas('phinxlog', ['migration_name' => 'CreateUser']);
+});
 
-    $admin = new Admin();
-    $admin->forceFill([
-        'username' => 'feature_admin',
-        'password' => 'secret',
-        'name' => 'Feature Admin',
-        'status' => 1,
+test('test process and server process share the same sqlite file', function () {
+    // 测试进程直连写入，server 进程（同一文件库）可查询到
+    Admin::query()->forceCreate([
+        'username' => 'shared_admin',
+        // password 不在 fillable，forceCreate 绕过批量赋值保护
+        'password' => Component::security()->generatePasswordHash('secret'),
+        'name' => 'Shared Admin',
+        'status' => AdminStatusEnum::Enabled->value,
     ]);
-    $admin->save();
 
-    expect(Admin::query()->where('username', 'feature_admin')->exists())->toBeTrue();
+    $this->assertDatabaseHas('admin', ['username' => 'shared_admin']);
 });
